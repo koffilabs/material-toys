@@ -1,0 +1,22 @@
+{
+  "name": "material-yue",
+  "main": "build/material-yue.cjs.js",
+  "module": "build/material-yue.esm.js",
+  "browser": "build/material-yue.umd.js",
+  "version": "0.0.1",
+  "description": "A Material You implementation using Vue.js",
+  "repository": "https://github.com/koffilabs/material-yue.git",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.5",
+    "prettier": "2.4.1",
+    "rollup": "^2.57.0",
+    "vue": "^3.2.13",
+    "vue3-styled-components": "^1.2.1"
+  }
+}
