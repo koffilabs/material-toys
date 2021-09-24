@@ -16,7 +16,9 @@
     "@rollup/plugin-node-resolve": "^13.0.5",
     "prettier": "2.4.1",
     "rollup": "^2.57.0",
-    "vue": "^3.2.13",
-    "vue3-styled-components": "^1.2.1"
+    "vue": "^3.2.13"
+  },
+  "dependencies": {
+    "@emotion/css": "^11.1.3"
   }
 }
