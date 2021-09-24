@@ -1,11 +1,11 @@
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
-import pkg from "./packages/material-yue/package.json";
+import pkg from "./package.json";
 
 export default [
   // browser-friendly UMD build
   {
-    input: "packages/material-yue/src/main.js",
+    input: "src/main.js",
     output: {
       name: "howLongUntilLunch",
       file: pkg.browser,
@@ -24,7 +24,7 @@ export default [
   // an array for the `output` option, where we can specify
   // `file` and `format` for each target)
   {
-    input: "packages/material-yue/src/main.js",
+    input: "src/main.js",
     external: ["vue"],
     output: [
       { file: pkg.main, format: "cjs" },

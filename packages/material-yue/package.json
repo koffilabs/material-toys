@@ -8,8 +8,8 @@
   "repository": "https://github.com/koffilabs/material-yue.git",
   "license": "MIT",
   "scripts": {
-    "build": "../../node_modules/.bin/rollup -c",
-    "dev": "../../node_modules/.bin/rollup -c -w"
+    "build": "../../node_modules/.bin/rollup -c ./rollup.config.js",
+    "dev": "../../node_modules/.bin/rollup -c ./rollup.config.js -w"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^20.0.0",

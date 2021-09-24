@@ -1,6 +1,14 @@
 {
   "private": true,
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "new-version": "lerna version --conventional-commits -y",
+    "diff": "lerna diff",
+    "build": "lerna run build",
+    "dev": "lerna run dev"
+  },
   "devDependencies": {
     "lerna": "^4.0.0"
   }
