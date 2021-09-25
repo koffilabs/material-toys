@@ -1,5 +1,6 @@
 {
   "private": true,
+  "name": "material_yue_monorepo",
   "workspaces": [
     "packages/*"
   ],

@@ -1,19 +1,24 @@
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import pkg from "./package.json";
+import vuePlugin from "rollup-plugin-vue";
+import babel from "@rollup/plugin-babel";
 
 export default [
   // browser-friendly UMD build
   {
     input: "src/main.js",
     output: {
-      name: "howLongUntilLunch",
+      name: "bundle",
       file: pkg.browser,
       format: "umd",
     },
     plugins: [
       resolve(), // so Rollup can find `ms`
+      babel({ babelHelpers: "bundled" }),
+
       commonjs(), // so Rollup can convert `ms` to an ES module
+      vuePlugin(),
     ],
   },
 
