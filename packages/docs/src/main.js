@@ -1,5 +1,5 @@
 import { createApp } from "vue";
-import { App } from "./App.jsx";
+import App from "./App.vue";
 // const App = () => <div>jsx enabled</div>;
-console.log("loading the app 2");
+console.log("loading the app");
 createApp(App).mount("#root");

@@ -1,7 +1,7 @@
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import { terser } from "rollup-plugin-terser";
-import vuePlugin from "rollup-plugin-vue";
+import vue from "rollup-plugin-vue";
 import replace from "rollup-plugin-replace";
 import babel from "@rollup/plugin-babel";
 // import scss from "rollup-plugin-scss"; // handles '.css' and '.scss'
@@ -9,6 +9,7 @@ import babel from "@rollup/plugin-babel";
 // `npm run build` -> `production` is true
 // `npm run dev` -> `production` is false
 const production = !process.env.ROLLUP_WATCH;
+process.stdin.removeAllListeners("end");
 
 export default {
   input: "src/main.js",
@@ -21,9 +22,9 @@ export default {
     replace({
       "process.env.NODE_ENV": JSON.stringify("production"),
     }),
-    babel({ babelHelpers: "bundled" }),
+    // babel({ babelHelpers: "bundled" }),
     resolve(), // tells Rollup how to find date-fns in node_modules
-    vuePlugin(),
+    vue(),
     commonjs(), // converts date-fns to ES modules
     production && terser(), // minify, but only in production
   ],

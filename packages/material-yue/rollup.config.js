@@ -1,8 +1,9 @@
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import pkg from "./package.json";
-import vuePlugin from "rollup-plugin-vue";
+import vue from "rollup-plugin-vue";
 import babel from "@rollup/plugin-babel";
+process.stdin.removeAllListeners("end");
 
 export default [
   // browser-friendly UMD build
@@ -14,11 +15,10 @@ export default [
       format: "umd",
     },
     plugins: [
+      // babel({ babelHelpers: "bundled" }),
       resolve(), // so Rollup can find `ms`
-      babel({ babelHelpers: "bundled" }),
-
+      vue(),
       commonjs(), // so Rollup can convert `ms` to an ES module
-      vuePlugin(),
     ],
   },
 
@@ -31,6 +31,12 @@ export default [
   {
     input: "src/main.js",
     external: ["vue"],
+    plugins: [
+      // babel({ babelHelpers: "bundled" }),
+      resolve(), // so Rollup can find `ms`
+      vue(),
+      commonjs(), // so Rollup can convert `ms` to an ES module
+    ],
     output: [
       { file: pkg.main, format: "cjs" },
       { file: pkg.module, format: "es" },
