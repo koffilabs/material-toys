@@ -4,7 +4,9 @@
   "main": "main.js",
   "license": "MIT",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "rollup -c ./rollup.config.js",
+    "dev": "rollup -c ./rollup.config.js -w"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.2.5",

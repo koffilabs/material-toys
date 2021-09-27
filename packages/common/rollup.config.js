@@ -1,23 +1,22 @@
 import pkg from "./package.json";
-import vue from "rollup-plugin-vue";
 import typescript from "@rollup/plugin-typescript";
 
 process.stdin.removeAllListeners("end");
 
 export default [
   // browser-friendly UMD build
-  // {
-  //   input: "src/main.js",
-  //   output: {
-  //     name: "bundle",
-  //     file: pkg.browser,
-  //     format: "umd",
-  //   },
-  //   plugins: [
-  //     // babel({ babelHelpers: "bundled" }),
-  //     typescript(), // so Rollup can find `ms`
-  //   ],
-  // },
+  {
+    input: "src/main.js",
+    output: {
+      name: "bundle",
+      file: pkg.browser,
+      format: "umd",
+    },
+    plugins: [
+      // babel({ babelHelpers: "bundled" }),
+      typescript(), // so Rollup can find `ms`
+    ],
+  },
 
   // CommonJS (for Node) and ES module (for bundlers) build.
   // (We could have three entries in the configuration array
