@@ -2,12 +2,15 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import pkg from "./package.json";
 import vue from "rollup-plugin-vue";
+import typescript from "rollup-plugin-typescript2";
+// import typescript from "@rollup/plugin-typescript";
+
 process.stdin.removeAllListeners("end");
 
 export default [
   // browser-friendly UMD build
   {
-    input: "src/main.js",
+    input: "src/main.ts",
     output: {
       name: "bundle",
       file: pkg.browser,
@@ -15,9 +18,25 @@ export default [
     },
     plugins: [
       // babel({ babelHelpers: "bundled" }),
-      resolve(), // so Rollup can find `ms`
-      vue(),
+      resolve({
+        extensions: [
+          ".js",
+          ".vue",
+          ".mjs",
+          ".json",
+          ".jsx",
+          ".json",
+          ".sass",
+          ".scss",
+        ],
+      }), // so Rollup can find `ms`
       commonjs(), // so Rollup can convert `ms` to an ES module
+
+      vue(),
+      typescript({
+        include: [/\.tsx?$/, /\.vue\?.*?lang=ts/],
+        useTsconfigDeclarationDir: true,
+      }),
     ],
   },
 
@@ -28,13 +47,28 @@ export default [
   // an array for the `output` option, where we can specify
   // `file` and `format` for each target)
   {
-    input: "src/main.js",
+    input: "src/main.ts",
     external: ["vue"],
     plugins: [
       // babel({ babelHelpers: "bundled" }),
-      resolve(), // so Rollup can find `ms`
-      vue(),
+      resolve({
+        extensions: [
+          ".js",
+          ".vue",
+          ".mjs",
+          ".json",
+          ".jsx",
+          ".json",
+          ".sass",
+          ".scss",
+        ],
+      }), // so Rollup can find `ms`
       commonjs(), // so Rollup can convert `ms` to an ES module
+      vue(),
+      typescript({
+        include: [/\.tsx?$/, /\.vue\?.*?lang=ts/],
+        useTsconfigDeclarationDir: true,
+      }),
     ],
     output: [
       { file: pkg.main, format: "cjs" },

@@ -8,7 +8,8 @@
     "new-version": "lerna version --conventional-commits -y",
     "diff": "lerna diff",
     "build": "lerna run build",
-    "dev": "lerna run --parallel dev"
+    "dev": "lerna run --parallel dev",
+    "bootstrap": "lerna bootstrap --use-workspaces"
   },
   "devDependencies": {
     "lerna": "^4.0.0"
