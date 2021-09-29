@@ -4,7 +4,7 @@
 <script lang="ts">
 import {computed, inject} from "vue";
 import {css, cx} from "@emotion/css";
-import {spread} from "@material-yue/common/src/main";
+import {spread} from "@material-yue/common";
 
 export default {
   name: "Button",

@@ -1,5 +1,5 @@
 <template>
-  <div :class="styled">Hello2</div>
+  <div :class="styled">Hello</div>
   <Button>Hello button!</Button>
 </template>
 <script>

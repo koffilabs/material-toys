@@ -4,6 +4,9 @@ import pkg from "./package.json";
 import vue from "rollup-plugin-vue";
 import typescript from "rollup-plugin-typescript2";
 // import typescript from "@rollup/plugin-typescript";
+// import { DEFAULT_EXTENSIONS } from "@babel/core";
+// import babel from "@rollup/plugin-babel";
+import alias from "@rollup/plugin-alias";
 
 process.stdin.removeAllListeners("end");
 
@@ -30,9 +33,12 @@ export default [
           ".scss",
         ],
       }), // so Rollup can find `ms`
-      commonjs(), // so Rollup can convert `ms` to an ES module
-
+      // commonjs(), // so Rollup can convert `ms` to an ES module
+      // babel({
+      //   extensions: [...DEFAULT_EXTENSIONS, ".ts", ".tsx"],
+      // }),
       vue(),
+      alias({ entries: [{ find: /^@\/(.+)/, replacement: "./$1" }] }),
       typescript({
         include: [/\.tsx?$/, /\.vue\?.*?lang=ts/],
         useTsconfigDeclarationDir: true,
@@ -63,8 +69,12 @@ export default [
           ".scss",
         ],
       }), // so Rollup can find `ms`
-      commonjs(), // so Rollup can convert `ms` to an ES module
+      // commonjs(), // so Rollup can convert `ms` to an ES module
+      // babel({
+      //   extensions: [...DEFAULT_EXTENSIONS, ".ts", ".tsx"],
+      // }),
       vue(),
+      alias({ entries: [{ find: /^@\/(.+)/, replacement: "./$1" }] }),
       typescript({
         include: [/\.tsx?$/, /\.vue\?.*?lang=ts/],
         useTsconfigDeclarationDir: true,
