@@ -1,6 +1,7 @@
 <template>
-  <div :class="styled">Hello</div>
-  <Button>Hello button!</Button>
+  <div class="page">
+    <Button>Hello button!</Button>
+  </div>
 </template>
 <script>
 import {css, cx} from "@emotion/css";
@@ -13,7 +14,7 @@ export default {
   name: "material-yue-docs",
   components: {Button},
   setup() {
-    console.log(theme)
+    // console.log(theme)
     const reactiveTheme = reactive({...theme});
     provide("theme", reactiveTheme);
     setTimeout(() => {

@@ -24,7 +24,8 @@ export const theme: any = {
       },
       "&:before": {
         content: "''",
-        background: ({ theme }) => theme.colors.primary, // TODO: should get the color from the theme object
+        background: ({ theme }) => theme.colors.primary,
+        // background: "blue",
         "&:hover": {
           background: "red", // TODO: should get the color from the theme object
         },
