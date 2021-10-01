@@ -9,3 +9,23 @@ export const spread = ({ theme, path }: ThemePath) => {
   }, theme);
   return node ? Object.keys(node).map((key) => `${key}:${node[key]};`) : [];
 };
+const exec = ({ target, theme }) => {
+  for (const key of Object.keys(target)) {
+    switch (typeof target[key]) {
+      case "function":
+        return (target.key = target[key]({ theme }));
+        break;
+      case "object":
+        return (target.key = exec({ target: target[key], theme }));
+        break;
+      default:
+        // string
+        return target[key];
+        break;
+    }
+  }
+};
+export const setDynamic = ({ target, theme }) => {
+  let targetCopy = JSON.parse(JSON.stringify(target));
+  return exec({ target, theme });
+};
