@@ -1,5 +1,5 @@
 <template>
-  <div ref="root" :class="btn">Button <span>here</span></div>
+  <div ref="root" :class="btn"><slot></slot></div>
 </template>
 <script lang="ts">
 import { computed, inject, onMounted, ref } from "vue";
@@ -10,7 +10,7 @@ export default {
   name: "Button",
   setup(){
     const theme: any = inject("theme");
-    const root = ref(null)
+    const root = ref(null);
     let btn = computed(() => css(
         setDynamic({target: theme.components.Button, theme}),
     ));
