@@ -16,6 +16,13 @@ const exec = ({ dest, source: source, theme, node }) => {
   for (const key of Object.keys(source)) {
     switch (typeof source[key]) {
       case "function":
+        if (node.value) {
+          dest[key] = source[key]({
+            width: node.value.offsetWidth,
+            height: node.value.offsetHeight,
+          });
+          console.log("execution ok", key, dest[key]);
+        }
         // source[key] = source[key]({ theme });
         break;
       case "object":
