@@ -3,7 +3,8 @@ interface ThemePath {
   path: string;
 }
 const yueThemePrefix: string = "@yue:theme";
-const yueThemeMatcher: RegExp = /\[(.*?)\]/;
+const yueInterpolatorPrefix: string = "@yue:interpolate";
+const extractor: RegExp = /\[(.*?)\]/;
 export const spread = ({ theme, path }: ThemePath) => {
   const [, ...p]: Array<string> = path.split("/");
   const node: any = p.reduce((a: any, b) => {
@@ -11,7 +12,7 @@ export const spread = ({ theme, path }: ThemePath) => {
   }, theme);
   return node ? Object.keys(node).map((key) => `${key}:${node[key]};`) : [];
 };
-const exec = ({ dest, source: source, theme }) => {
+const exec = ({ dest, source: source, theme, node }) => {
   for (const key of Object.keys(source)) {
     switch (typeof source[key]) {
       case "function":
@@ -20,12 +21,12 @@ const exec = ({ dest, source: source, theme }) => {
       case "object":
         // console.log("obj", source[key]);
         dest[key] = {};
-        dest[key] = exec({ dest: dest[key], source: source[key], theme });
+        dest[key] = exec({ dest: dest[key], source: source[key], theme, node });
         break;
       default:
         if (`${source[key]}`.startsWith(yueThemePrefix)) {
           try {
-            const path = yueThemeMatcher.exec(source[key])[1].split(".");
+            const path = extractor.exec(source[key])[1].split(".");
             let value = theme,
               i = 0;
             while (value[path[i]]) {
@@ -35,7 +36,25 @@ const exec = ({ dest, source: source, theme }) => {
             dest[key] = value;
           } catch (e) {
             console.error(
-              `Error reading the ${yueThemePrefix} from ${source.key}`
+              `Error reading the ${yueThemePrefix} from ${source[key]}`
+            );
+          }
+        } else if (
+          `${source[key]}`.startsWith(yueInterpolatorPrefix) &&
+          node.value
+        ) {
+          try {
+            const path = extractor.exec(source[key])[1];
+            console.log("clip path =", path);
+            console.log("before replace, node =", node);
+            dest[key] = path
+              .replace(/\${width}/, node.value.offsetWidth)
+              .replace(/\${height}/, node.value.offsetHeight);
+            console.log("replaced with", dest[key]);
+          } catch (e) {
+            console.error(
+              `Error reading the ${yueInterpolatorPrefix} from ${source[key]}`,
+              e
             );
           }
         } else {
@@ -51,30 +70,11 @@ const exec = ({ dest, source: source, theme }) => {
   }
   return dest;
 };
-const cloneObject = (dest: object) => {
-  const clone = {};
-  for (const key of Object.keys(dest)) {
-    switch (typeof dest[key]) {
-      case "function":
-        clone[key] = dest[key];
-        break;
-      case "object":
-        // console.log("obj", clone[key]);
-        clone[key] = cloneObject(dest[key]);
-        break;
-      default:
-        clone[key] = dest[key];
-        break;
-    }
-  }
-  return clone;
-};
-export const setDynamic = ({ target, theme }) => {
-  let clone = JSON.parse(JSON.stringify(target));
+export const setDynamic = ({ target, theme, node }) => {
+  // let clone = JSON.parse(JSON.stringify(target));
   // const clone = cloneObject(target);
   // const clone = target;
   let dest = {};
-  exec({ dest, source: target, theme });
-  console.log("returning", dest);
+  exec({ dest, source: target, theme, node });
   return dest;
 };

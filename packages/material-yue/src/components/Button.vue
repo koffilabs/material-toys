@@ -12,7 +12,7 @@ export default {
     const theme: any = inject("theme");
     const root = ref(null);
     let btn = computed(() => css(
-        setDynamic({target: theme.components.Button, theme}),
+        setDynamic({target: theme.components.Button, theme, node: root}),
     ));
     onMounted(() => {
       console.log("root element", root.value);
