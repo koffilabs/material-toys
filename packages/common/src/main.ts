@@ -1,1 +1,1 @@
-export { spread } from "./util/style";
+export { spread, setDynamic } from "./util/style";
