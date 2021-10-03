@@ -17,7 +17,9 @@ export const theme: any = {
       "text-align": "center",
       background: "@yue:theme[colors.primary]",
       "clip-path": registerPath(
-        "path('M${10 + width} ${height / 2} H ${width} V ${height} H -180 L 0 180 L20 0')"
+        // "path('M${10 + width} ${height / 2} H ${width} V ${height} H -180 L 0 180 L20 0')"
+        "path('M30 10 c 0,0 ${width-30},0 ${width-30},0 c 0,0 0,${height} 0,${height} c 0,0 -${width},0 -${width},0 " +
+          "c 0,0 0,-${height-10} 0,-${height-10} Z')"
       ),
       "&:hover": {
         background: "blue",
