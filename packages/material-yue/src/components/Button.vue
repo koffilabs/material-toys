@@ -1,5 +1,5 @@
 <template>
-  <div ref="root" :class="btn"><slot></slot></div>
+  <button ref="root" :class="btn"><slot></slot></button>
 </template>
 <script lang="ts">
 import { computed, inject, onMounted, ref } from "vue";
