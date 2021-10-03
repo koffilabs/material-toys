@@ -3,7 +3,6 @@ interface ThemePath {
   path: string;
 }
 const yueThemePrefix: string = "@yue:theme";
-const yueInterpolatorPrefix: string = "@yue:interpolate";
 const extractor: RegExp = /\[(.*?)\]/;
 export const spread = ({ theme, path }: ThemePath) => {
   const [, ...p]: Array<string> = path.split("/");
@@ -46,32 +45,10 @@ const exec = ({ dest, source: source, theme, node }) => {
               `Error reading the ${yueThemePrefix} from ${source[key]}`
             );
           }
-        } else if (
-          `${source[key]}`.startsWith(yueInterpolatorPrefix) &&
-          node.value
-        ) {
-          try {
-            const path = extractor.exec(source[key])[1];
-            console.log("clip path =", path);
-            console.log("before replace, node =", node);
-            dest[key] = path
-              .replace(/\${width}/, node.value.offsetWidth)
-              .replace(/\${height}/, node.value.offsetHeight);
-            console.log("replaced with", dest[key]);
-          } catch (e) {
-            console.error(
-              `Error reading the ${yueInterpolatorPrefix} from ${source[key]}`,
-              e
-            );
-          }
         } else {
           // console.log("standard property here", key, source[key]);
           dest[key] = source[key];
         }
-        break;
-        console.log("default, typeof = ", typeof source[key]);
-        // console.log("default", source[key]);
-        // string
         break;
     }
   }
