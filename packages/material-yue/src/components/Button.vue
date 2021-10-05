@@ -11,7 +11,7 @@ export default {
   setup(){
     const theme: any = inject("theme");
     const root = ref(null);
-    let btn = computed(() => css(
+    const btn = computed(() => css(
         setDynamic({target: theme.components.Button, theme, node: root}),
     ));
     onMounted(() => {

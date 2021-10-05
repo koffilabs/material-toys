@@ -5,7 +5,7 @@
 </template>
 <script>
 import {css, cx} from "@emotion/css";
-import { theme } from "@material-yue/vue";
+import { theme } from "@material-yue/common";
 import { Button } from "@material-yue/vue";
 import {provide, reactive} from "vue";
 

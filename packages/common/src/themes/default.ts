@@ -1,4 +1,4 @@
-import { registerPath } from "../../../common/src/util/path";
+import { registerPath } from "../util/path";
 
 export const theme: any = {
   colors: {
