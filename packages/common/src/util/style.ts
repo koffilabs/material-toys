@@ -20,7 +20,7 @@ const exec = ({ dest, source: source, theme, node }) => {
             width: node.value.offsetWidth,
             height: node.value.offsetHeight,
           });
-          console.log("execution ok", key, dest[key]);
+          console.log("execution ok", key, dest[key], node.value.offsetHeight);
         }
         // source[key] = source[key]({ theme });
         break;
