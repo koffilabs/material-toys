@@ -22,8 +22,7 @@ export default {
     const reactiveTheme = reactive({...theme});
     provide("theme", reactiveTheme);
     setTimeout(() => {
-      console.log("changing the primary color to red");
-      reactiveTheme.colors.primary = "red";
+      // reactiveTheme.colors.primary = "red";
     }, 2000);
     const page = css({
       background: "#ddd",
