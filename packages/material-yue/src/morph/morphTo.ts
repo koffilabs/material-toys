@@ -36,15 +36,18 @@ export const morphTo = ({ startNode, endNode }: MorphArguments) => {
 
   probeNode.animate(
     [
-      { clipPath: probeNode.style.clipPath },
+      { transform: "translate(0px, 0px)", clipPath: probeNode.style.clipPath },
       {
+        transform: `translate(${
+          endNode.offsetLeft - startNode.offsetLeft + leftDelta
+        }px, ${endNode.offsetTop - startNode.offsetTop + topDelta}px)`,
         clipPath: window
           .getComputedStyle(endNode)
           .clipPath.replace(/path\("/, `path("m 0 0 `),
       },
     ],
     {
-      duration: 200,
+      duration: 2000,
       easing: "ease-in-out",
       fill: "forwards",
     }
