@@ -1,7 +1,7 @@
 <template>
   <div :class="page">
-    <Button :class="customButton">Hello button!</Button>
-    <Card :class="customCard">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque autem consequatur,
+    <Button data-start @click="onClick" :class="customButton">Hello button!</Button>
+    <Card data-end :class="customCard">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque autem consequatur,
       eligendi iusto nemo saepe
       similique. Earum inventore nisi quos reprehenderit. Accusamus dolores dolorum fuga minima, necessitatibus
       numquam quos voluptate.
@@ -11,7 +11,7 @@
 <script>
 import {css} from "@emotion/css";
 import {theme} from "@material-yue/common";
-import {Button, Card} from "@material-yue/vue";
+import {Button, Card, morphTo} from "@material-yue/vue";
 import {provide, reactive} from "vue";
 
 
@@ -43,11 +43,19 @@ export default {
     const customButton = css({
       gridArea: "button"
     });
+    const onClick = (e) => {
+      console.log(`e is ${e}`);
+      morphTo({
+        startNode: document.querySelector("[data-start]"),
+        endNode: document.querySelector("[data-end]"),
+      });
+    }
 
     return {
       page,
       customButton,
       customCard,
+      onClick,
     };
   },
 };

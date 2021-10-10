@@ -1,5 +1,5 @@
 <template>
-  <button ref="root" @click="onClick" :class="btn"><slot></slot></button>
+  <button ref="root" :class="btn"><slot></slot></button>
 </template>
 <script lang="ts">
 import { computed, inject, ref } from "vue";
@@ -15,13 +15,7 @@ export default {
     const btn = computed(() => css(
         setDynamic({target: theme.components.Button, theme, node: root}),
     ));
-    const onClick = (e: Event) => {
-      morphTo({
-        startNode: root.value,
-        endNode: root.value,
-      });
-    }
-    return { btn, root, onClick };
+    return { btn, root };
   }
 }
 </script>

@@ -1,3 +1,4 @@
 import Button from "./components/Button.vue";
 import Card from "./components/Card.vue";
-export { Button, Card };
+import { morphTo } from "./morph/morphTo";
+export { Button, Card, morphTo };
