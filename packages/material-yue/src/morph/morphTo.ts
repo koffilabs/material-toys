@@ -5,32 +5,38 @@ interface MorphArguments {
 
 export const morphTo = ({ startNode, endNode }: MorphArguments) => {
   const max = Math.max;
-  console.log(`startNode ${startNode.offsetTop}`);
+  const {
+    x: startOffsetLeft,
+    y: startOffsetTop,
+    width: startOffsetWidth,
+    height: startOffsetHeight,
+  } = startNode.getBoundingClientRect();
+  const {
+    x: endOffsetLeft,
+    y: endOffsetTop,
+    width: endOffsetWidth,
+    height: endOffsetHeight,
+  } = endNode.getBoundingClientRect();
   const probeNode = document.createElement("div");
   probeNode.style.position = "absolute";
-  const topDelta = (endNode.offsetHeight - startNode.offsetHeight) / 2;
-  const leftDelta = (endNode.offsetWidth - startNode.offsetWidth) / 2;
-  probeNode.style.top = `${startNode.offsetTop - topDelta}px`;
-  probeNode.style.left = `${startNode.offsetLeft - leftDelta}px`;
-  probeNode.style.height = `${max(
-    startNode.offsetHeight,
-    endNode.offsetHeight
-  )}px`;
-  probeNode.style.width = `${max(
-    startNode.offsetWidth,
-    endNode.offsetWidth
-  )}px`;
+  const topDelta = (endOffsetHeight - startOffsetHeight) / 2;
+  const leftDelta = (endOffsetWidth - startOffsetWidth) / 2;
+  probeNode.style.top = `${startOffsetTop - topDelta}px`;
+  probeNode.style.left = `${startOffsetLeft - leftDelta}px`;
+  probeNode.style.height = `${max(startOffsetHeight, endOffsetHeight)}px`;
+  probeNode.style.width = `${max(startOffsetWidth, endOffsetWidth)}px`;
   probeNode.style.background = `rgba(255, 0, 0, .6)`;
+  console.log("custom attr", startNode.dataset.yueClipPath);
   // damn, clip-path is converted to absolute values...
-  probeNode.style.clipPath = window
-    .getComputedStyle(startNode)
-    .clipPath.replace(/M/, "m")
-    .replace(/path\("/, `path("m ${leftDelta} ${topDelta} `);
+  probeNode.style.clipPath = startNode.dataset.yueClipPath
+    .replace(/M/, "m")
+    // .replace(/path\("/, `path("m ${leftDelta} ${topDelta} `)
+    .replace(/path\('/, `path('m ${leftDelta} ${topDelta} `); // TODO: better regexp
   console.log(
-    window
-      .getComputedStyle(startNode)
-      .clipPath.replace(/M/, "m")
-      .replace(/path\("/, `path("m ${leftDelta} ${topDelta} `)
+    startNode.dataset.yueClipPath
+      .replace(/M/, "m")
+      // .replace(/path\("/, `path("m ${leftDelta} ${topDelta} `)
+      .replace(/path\('/, `path('m ${leftDelta} ${topDelta} `)
   );
   document.body.appendChild(probeNode);
 
@@ -39,11 +45,11 @@ export const morphTo = ({ startNode, endNode }: MorphArguments) => {
       { transform: "translate(0px, 0px)", clipPath: probeNode.style.clipPath },
       {
         transform: `translate(${
-          endNode.offsetLeft - startNode.offsetLeft + leftDelta
-        }px, ${endNode.offsetTop - startNode.offsetTop + topDelta}px)`,
-        clipPath: window
-          .getComputedStyle(endNode)
-          .clipPath.replace(/path\("/, `path("m 0 0 `),
+          endOffsetLeft - startOffsetLeft + leftDelta
+        }px, ${endOffsetTop - startOffsetTop + topDelta}px)`,
+        clipPath: endNode.dataset.yueClipPath
+          // .replace(/path\("/, `path("m 0 0 `)
+          .replace(/path\('/, `path('m 0 0 `),
       },
     ],
     {
