@@ -1,7 +1,8 @@
 <template>
   <div :class="page">
     <Button data-start @click="onClick" :class="customButton">Hello button!</Button>
-    <Card data-end :class="customCard">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque autem consequatur,
+    <Card data-end :class="customCard" :style="{visibility: 'hidden'}">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque autem consequatur,
       eligendi iusto nemo saepe
       similique. Earum inventore nisi quos reprehenderit. Accusamus dolores dolorum fuga minima, necessitatibus
       numquam quos voluptate.
@@ -37,14 +38,17 @@ export default {
     });
     const customCard = css({
       // width: "400px",
-      gridArea: "card"
-
+      gridArea: "card",
+      "backgroundImage": "url(resources/city.jpg) !important",
+      "backgroundSize": "contain !important",
+      "backgroundPosition": "top left",
+      "paddingTop": "200px !important",
+      color: "rgba(255, 255, 255, .9) !important"
     });
     const customButton = css({
       gridArea: "button"
     });
     const onClick = (e) => {
-      console.log(`e is ${e}`);
       morphTo({
         startNode: document.querySelector("[data-start]"),
         endNode: document.querySelector("[data-end]"),

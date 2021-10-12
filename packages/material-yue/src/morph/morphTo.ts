@@ -4,45 +4,87 @@ interface MorphArguments {
 }
 
 export const morphTo = ({ startNode, endNode }: MorphArguments) => {
+  const duration = 400;
+  const easing = "ease-in-out";
+  const fill = "forwards";
+
   const max = Math.max;
+  const startClone = <HTMLElement>startNode.cloneNode(true),
+    endClone = <HTMLElement>endNode.cloneNode(true);
   const {
-    x: startOffsetLeft,
-    y: startOffsetTop,
+    x: xs,
+    y: ys,
     width: startOffsetWidth,
     height: startOffsetHeight,
   } = startNode.getBoundingClientRect();
+  const startOffsetLeft = xs + window.scrollX;
+  const startOffsetTop = ys + window.scrollY;
   const {
-    x: endOffsetLeft,
-    y: endOffsetTop,
+    x: xe,
+    y: ye,
     width: endOffsetWidth,
     height: endOffsetHeight,
   } = endNode.getBoundingClientRect();
-  const probeNode = document.createElement("div");
-  probeNode.style.position = "absolute";
+  const endOffsetLeft = xe + window.scrollX;
+  const endOffsetTop = ye + window.scrollY;
+
+  const movingNode = document.createElement("div");
   const topDelta = (endOffsetHeight - startOffsetHeight) / 2;
   const leftDelta = (endOffsetWidth - startOffsetWidth) / 2;
-  probeNode.style.top = `${startOffsetTop - topDelta}px`;
-  probeNode.style.left = `${startOffsetLeft - leftDelta}px`;
-  probeNode.style.height = `${max(startOffsetHeight, endOffsetHeight)}px`;
-  probeNode.style.width = `${max(startOffsetWidth, endOffsetWidth)}px`;
-  probeNode.style.background = `rgba(255, 0, 0, .6)`;
-  console.log("custom attr", startNode.dataset.yueClipPath);
-  // damn, clip-path is converted to absolute values...
-  probeNode.style.clipPath = startNode.dataset.yueClipPath
-    .replace(/M/, "m")
-    // .replace(/path\("/, `path("m ${leftDelta} ${topDelta} `)
-    .replace(/path\('/, `path('m ${leftDelta} ${topDelta} `); // TODO: better regexp
-  console.log(
-    startNode.dataset.yueClipPath
-      .replace(/M/, "m")
-      // .replace(/path\("/, `path("m ${leftDelta} ${topDelta} `)
-      .replace(/path\('/, `path('m ${leftDelta} ${topDelta} `)
-  );
-  document.body.appendChild(probeNode);
+  const startCloneStartStyle = {
+    transform: `scale(1)`,
+    opacity: 1,
+  };
+  const startCloneEndStyle = {
+    transform: `scale(${endOffsetHeight / startOffsetHeight})`,
+    opacity: 0,
+  };
+  const endCloneStartStyle = {
+    transform: `scale(${startOffsetHeight / endOffsetHeight})`,
+    opacity: 0,
+  };
+  const endCloneEndStyle = {
+    transform: `scale(1)`,
+    opacity: 1,
+  };
+  startClone.style.clipPath = "none";
+  startClone.style.position = "absolute";
+  startClone.style.top = `${topDelta}px`;
+  startClone.style.left = `${leftDelta}px`;
+  startNode.style.visibility = `hidden`;
+  startClone.style.transformOrigin = `center center`;
+  endClone.style.clipPath = "none";
+  endClone.style.position = "absolute";
+  endClone.style.top = `0`;
+  endClone.style.left = `0`;
+  endClone.style.visibility = `visible`;
+  endClone.style.transformOrigin = `center center`;
 
-  probeNode.animate(
+  movingNode.style.position = "absolute";
+  movingNode.style.top = `${startOffsetTop - topDelta}px`;
+  movingNode.style.left = `${startOffsetLeft - leftDelta}px`;
+  movingNode.style.height = `${max(startOffsetHeight, endOffsetHeight)}px`;
+  movingNode.style.width = `${max(startOffsetWidth, endOffsetWidth)}px`;
+
+  // remove me start
+  // movingNode.style.border = `2px dashed red`;
+  // remove me end
+
+  // chrome based browsers convert clip-path:path(...) to absolute values
+  movingNode.style.clipPath = startNode.dataset.yueClipPath
+    .replace(/M/, "m")
+    .replace(/path\('/, `path('m ${leftDelta} ${topDelta} `);
+  movingNode.appendChild(startClone);
+  movingNode.appendChild(endClone);
+  document.body.appendChild(movingNode);
+
+  movingNode.animate(
     [
-      { transform: "translate(0px, 0px)", clipPath: probeNode.style.clipPath },
+      {
+        transform: "translate(0px, 0px)",
+        clipPath: movingNode.style.clipPath,
+        backgroundColor: window.getComputedStyle(startNode).backgroundColor,
+      },
       {
         transform: `translate(${
           endOffsetLeft - startOffsetLeft + leftDelta
@@ -50,12 +92,31 @@ export const morphTo = ({ startNode, endNode }: MorphArguments) => {
         clipPath: endNode.dataset.yueClipPath
           // .replace(/path\("/, `path("m 0 0 `)
           .replace(/path\('/, `path('m 0 0 `),
+        backgroundColor: window.getComputedStyle(endNode).backgroundColor,
       },
     ],
     {
-      duration: 2000,
-      easing: "ease-in-out",
-      fill: "forwards",
+      duration: duration,
+      easing,
+      fill,
     }
+  );
+  startClone.animate([startCloneStartStyle, startCloneEndStyle], {
+    duration,
+    easing,
+    fill,
+  });
+  endClone.animate([endCloneStartStyle, endCloneEndStyle], {
+    duration,
+    easing,
+    fill,
+  });
+  movingNode.addEventListener(
+    "animationend",
+    () => {
+      endNode.style.visibility = `visible`;
+      movingNode.remove();
+    },
+    { once: true }
   );
 };
