@@ -65,7 +65,7 @@ export const morphTo = ({ startNode, endNode }: MorphArguments) => {
   movingNode.style.left = `${startOffsetLeft - leftDelta}px`;
   movingNode.style.height = `${max(startOffsetHeight, endOffsetHeight)}px`;
   movingNode.style.width = `${max(startOffsetWidth, endOffsetWidth)}px`;
-
+  movingNode.style.willChange = "clip-path transform";
   // remove me start
   // movingNode.style.border = `2px dashed red`;
   // remove me end

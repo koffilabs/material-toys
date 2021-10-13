@@ -10,6 +10,7 @@ export const theme: any = {
       color: "rgba(0, 0, 0, .74)",
       padding: "1.618rem",
       background: "white",
+      willChange: "transform opacity",
       "clip-path": registerPath(
         "path('m40 0 " +
           "c ${width-80},0 ${width-80},0 ${width-80},0 " +
@@ -34,6 +35,7 @@ export const theme: any = {
       width: "140px",
       "text-align": "center",
       background: "@yue:theme[colors.primary]",
+      willChange: "transform opacity",
       "clip-path": registerPath(
         "path('m40 0 " +
           "c ${width-80},40 ${width-80},0 ${width-80},0 " +
