@@ -21,9 +21,9 @@
         <h1>Acme</h1>
       </div>
       <div>
-        <my-button size="small" @click="$emit('logout')" label="Log out" v-if="user" />
-        <my-button size="small" @click="$emit('login')" label="Log in" v-if="!user" />
-        <my-button primary size="small" @click="$emit('createAccount')" label="Sign up" v-if="!user" />
+        <Button size="small" @click="$emit('logout')" label="Log out" v-if="user" />
+        <Button size="small" @click="$emit('login')" label="Log in" v-if="!user" />
+        <Button primary size="small" @click="$emit('createAccount')" label="Sign up" v-if="!user" />
       </div>
     </div>
   </header>
@@ -31,12 +31,13 @@
 
 <script>
 import './header.css';
-import MyButton from './Button.vue';
+// import MyButton from './Button.vue';
+import {Button} from "@material-yue/vue/build/material-yue.umd";
 
 export default {
   name: 'my-header',
 
-  components: { MyButton },
+  components: { Button },
 
   props: {
     user: {
