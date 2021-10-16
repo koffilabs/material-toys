@@ -3,7 +3,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import { terser } from "rollup-plugin-terser";
 import vue from "rollup-plugin-vue";
 import replace from "rollup-plugin-replace";
-import babel from "@rollup/plugin-babel";
+// import babel from "@rollup/plugin-babel";
 // import scss from "rollup-plugin-scss"; // handles '.css' and '.scss'
 
 // `npm run build` -> `production` is true
