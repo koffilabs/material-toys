@@ -1,13 +1,12 @@
-import mitt from "mitt";
 import { debounce } from "lodash-es";
+import { eventBus } from "../eventBus";
 
 const WAIT: number = 500;
 export const RESIZE = "RESIZE";
 export const RESIZE_END = "RESIZE_END";
-const emitter = mitt();
 const resizeHandler = debounce(
   () => {
-    emitter.emit(RESIZE_END, {
+    eventBus.emit(RESIZE_END, {
       width: window.innerWidth,
       height: window.innerHeight,
     });
@@ -20,7 +19,7 @@ const resizeHandler = debounce(
 );
 const resizeEndHandler = debounce(
   () => {
-    emitter.emit(RESIZE, {
+    eventBus.emit(RESIZE, {
       width: window.innerWidth,
       height: window.innerHeight,
     });

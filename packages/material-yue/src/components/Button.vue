@@ -6,6 +6,7 @@ import { computed, inject, ref, watch } from "vue";
 import {css, cx} from "@emotion/css";
 import {setDynamic} from "@material-yue/common";
 import useClipPathData from '../composables/useClipPathData';
+import useResizeEvents from '../composables/useResizeEvents';
 
 export default {
   name: "Button",
@@ -16,9 +17,15 @@ export default {
     const btn = computed(() => css(
         style.value = setDynamic({target: theme.components.Button, theme, node: root}),
     ));
+    const resizingBtn = computed(() => css(
+        style.value = [setDynamic({target: theme.components.Button, theme, node: root}), setDynamic({
+          target: theme.components._resizingComponent,
+          theme,
+          node: root,
+        })],
+    ));
     useClipPathData({root, style})
-    // watch(style, (newStyle, oldStyle) => {
-    // });
+    useResizeEvents({root, cname: resizingBtn})
     return { btn, root };
   }
 }

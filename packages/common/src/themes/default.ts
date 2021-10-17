@@ -3,8 +3,18 @@ export const theme: any = {
   colors: {
     primary: "hsl(230, 70%, 70%)",
     accent: "hsl(310, 70%, 70%)",
+    resizing: "hsl(60, 95%, 97%)",
   },
   components: {
+    _resizingComponent: {
+      background: "@yue:theme[colors.resizing]",
+      clipPath: "none",
+      color: "transparent",
+      border: "1px solid hsl(30, 80%, 80%)",
+      "& *": {
+        display: "none",
+      },
+    },
     Card: {
       fontSize: "1rem",
       color: "rgba(0, 0, 0, .74)",
