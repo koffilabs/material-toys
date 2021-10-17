@@ -1,5 +1,5 @@
 import resolve from "@rollup/plugin-node-resolve";
-// import commonjs from "@rollup/plugin-commonjs";
+import commonjs from "@rollup/plugin-commonjs";
 import pkg from "./package.json";
 import vue from "rollup-plugin-vue";
 import typescript from "rollup-plugin-typescript2";
@@ -33,11 +33,11 @@ export default [
           ".scss",
         ],
       }), // so Rollup can find `ms`
-      // commonjs(), // so Rollup can convert `ms` to an ES module
+      vue(),
+      commonjs(), // so Rollup can convert `ms` to an ES module
       // babel({
       //   extensions: [...DEFAULT_EXTENSIONS, ".ts", ".tsx"],
       // }),
-      vue(),
       alias({ entries: [{ find: /^@\/(.+)/, replacement: "./$1" }] }),
       typescript({
         include: [/\.tsx?$/, /\.vue\?.*?lang=ts/],
@@ -69,11 +69,11 @@ export default [
           ".scss",
         ],
       }), // so Rollup can find `ms`
-      // commonjs(), // so Rollup can convert `ms` to an ES module
+      vue(),
+      commonjs(), // so Rollup can convert `ms` to an ES module
       // babel({
       //   extensions: [...DEFAULT_EXTENSIONS, ".ts", ".tsx"],
       // }),
-      vue(),
       alias({ entries: [{ find: /^@\/(.+)/, replacement: "./$1" }] }),
       typescript({
         include: [/\.tsx?$/, /\.vue\?.*?lang=ts/],
