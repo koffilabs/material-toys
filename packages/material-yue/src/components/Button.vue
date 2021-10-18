@@ -14,9 +14,10 @@ export default {
     const theme: any = inject("theme");
     const root = ref(null);
     const style = ref(null);
-    const btn = computed(() => css(
+    let btn = computed(() => css(
         style.value = setDynamic({target: theme.components.Button, theme, node: root}),
     ));
+    const themeTarget = theme.components.Button;
     const resizingBtn = computed(() => css(
         style.value = [setDynamic({target: theme.components.Button, theme, node: root}), setDynamic({
           target: theme.components._resizingComponent,
@@ -25,7 +26,7 @@ export default {
         })],
     ));
     useClipPathData({root, style})
-    useResizeEvents({root, cname: resizingBtn})
+    useResizeEvents({root, cname: resizingBtn, style, target: themeTarget, classRef: btn})
     return { btn, root };
   }
 }
