@@ -11,23 +11,28 @@ export const spread = ({ theme, path }: ThemePath) => {
   }, theme);
   return node ? Object.keys(node).map((key) => `${key}:${node[key]};`) : [];
 };
-const exec = ({ dest, source: source, theme, node }) => {
+const exec = ({ dest, source: source, theme, node, width, height }) => {
   for (const key of Object.keys(source)) {
     switch (typeof source[key]) {
       case "function":
-        if (node.value) {
+        if (typeof width !== "undefined") {
           dest[key] = source[key]({
-            width: node.value.offsetWidth,
-            height: node.value.offsetHeight,
+            width: width.value,
+            height: height.value,
           });
-          console.log("execution ok", key, dest[key], node.value.offsetHeight);
         }
         // source[key] = source[key]({ theme });
         break;
       case "object":
-        // console.log("obj", source[key]);
         dest[key] = {};
-        dest[key] = exec({ dest: dest[key], source: source[key], theme, node });
+        dest[key] = exec({
+          dest: dest[key],
+          source: source[key],
+          theme,
+          node,
+          width,
+          height,
+        });
         break;
       default:
         if (`${source[key]}`.startsWith(yueThemePrefix)) {
@@ -54,11 +59,11 @@ const exec = ({ dest, source: source, theme, node }) => {
   }
   return dest;
 };
-export const setDynamic = ({ target, theme, node }) => {
+export const setDynamic = ({ target, theme, node, width, height }) => {
   // let clone = JSON.parse(JSON.stringify(target));
   // const clone = cloneObject(target);
   // const clone = target;
   let dest = {};
-  exec({ dest, source: target, theme, node });
+  exec({ dest, source: target, theme, node, width, height });
   return dest;
 };

@@ -7,7 +7,8 @@ export const theme: any = {
   },
   components: {
     _resizingComponent: {
-      background: "@yue:theme[colors.resizing]",
+      backgroundColor: "@yue:theme[colors.resizing]",
+      backgroundImage: "none !important",
       clipPath: "none",
       color: "transparent",
       border: "1px solid hsl(30, 80%, 80%)",
@@ -21,6 +22,7 @@ export const theme: any = {
       color: "rgba(0, 0, 0, .74)",
       padding: "1.618rem",
       background: "white",
+      height: "20vh",
       willChange: "transform opacity",
       "clip-path": registerPath(
         "path('m40 0 " +
