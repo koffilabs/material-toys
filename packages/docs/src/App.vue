@@ -1,7 +1,7 @@
 <template>
   <div :class="page">
     <Button data-start @click="onClick" :class="customButton">Hello button!</Button>
-    <Card data-end :class="customCard" :style="{visibility: 'hidden'}">
+    <Card data-end :class="customCard" :style="{visibility}">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque autem consequatur,
       eligendi iusto nemo saepe
       similique. Earum inventore nisi quos reprehenderit. Accusamus dolores dolorum fuga minima, necessitatibus
@@ -13,7 +13,7 @@
 import {css} from "@emotion/css";
 import {theme} from "@material-yue/common";
 import {Button, Card, morphTo} from "@material-yue/vue";
-import {provide, reactive} from "vue";
+import {provide, reactive, ref} from "vue";
 
 
 export default {
@@ -21,6 +21,7 @@ export default {
   components: {Button, Card},
   setup() {
     const reactiveTheme = reactive({...theme});
+    const visibility = ref("hidden");
     provide("theme", reactiveTheme);
     setTimeout(() => {
       // reactiveTheme.colors.primary = "red";
@@ -31,9 +32,9 @@ export default {
       height: "100%",
       padding: "22px",
       display: "grid",
-      gridTemplate: "'. . .' 1fr " +
-          "'button . .' 1fr " +
+      gridTemplate: "'button . .' 1fr " +
           "'. card .' 1fr " +
+          "'. . .' 1fr " +
           "/ 1fr 1fr 1fr",
     });
     const customCard = css({
@@ -48,11 +49,12 @@ export default {
     const customButton = css({
       gridArea: "button"
     });
-    const onClick = (e) => {
-      morphTo({
+    const onClick = async (e) => {
+      await morphTo({
         startNode: document.querySelector("[data-start]"),
         endNode: document.querySelector("[data-end]"),
       });
+      visibility.value = "visible";
     }
 
     return {
@@ -60,6 +62,7 @@ export default {
       customButton,
       customCard,
       onClick,
+      visibility
     };
   },
 };
