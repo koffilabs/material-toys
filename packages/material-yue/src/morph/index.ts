@@ -1,2 +1,2 @@
-import { morphTo } from './morphTo';
-export { morphTo };
+import { morph } from "./morph";
+export { morph };

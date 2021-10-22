@@ -12,9 +12,8 @@
 <script>
 import {css} from "@emotion/css";
 import {theme} from "@material-yue/common";
-import {Button, Card, morphTo} from "@material-yue/vue";
+import {Button, Card, morph} from "@material-yue/vue";
 import {provide, reactive, ref} from "vue";
-
 
 export default {
   name: "material-yue-docs",
@@ -50,9 +49,9 @@ export default {
       gridArea: "button"
     });
     const onClick = async (e) => {
-      await morphTo({
-        startNode: document.querySelector("[data-start]"),
-        endNode: document.querySelector("[data-end]"),
+      await morph({
+        from: "[data-start]",
+        to: "[data-end]",
       });
       visibility.value = "visible";
     }

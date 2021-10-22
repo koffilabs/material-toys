@@ -1,13 +1,19 @@
 interface MorphArguments {
-  startNode: HTMLElement;
-  endNode: HTMLElement;
+  from: string | HTMLElement;
+  to: string | HTMLElement;
 }
 
-export const morphTo = ({
-  startNode,
-  endNode,
-}: MorphArguments): Promise<number> => {
+export const morph = ({ from, to }: MorphArguments): Promise<number> => {
+  const startNode: HTMLElement =
+    typeof from === "string" ? document.querySelector(from) : from;
+  const endNode: HTMLElement =
+    typeof to === "string" ? document.querySelector(to) : to;
   return new Promise((resolve, reject) => {
+    if (!startNode || !endNode) {
+      return reject(
+        "[morph] from and to arguments must point to existing elements"
+      );
+    }
     const duration = 400;
     const easing = "ease-in-out";
     const fill = "forwards";
