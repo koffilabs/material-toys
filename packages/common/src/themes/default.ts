@@ -1,7 +1,8 @@
 import { registerPath } from "../util/path";
 export const theme: any = {
   colors: {
-    primary: "hsl(230, 70%, 70%)",
+    primary: "hsl(20, 70%, 75%)",
+    text: "hsl(20, 40%, 30%)",
     accent: "hsl(310, 70%, 70%)",
     resizing: "hsl(60, 95%, 97%)",
   },
@@ -40,12 +41,12 @@ export const theme: any = {
     Button: {
       fontSize: "1rem",
       border: "none",
-      color: "yellow",
+      color: "@yue:theme[colors.text]",
       position: "relative",
       "text-transform": "capitalize",
-      // height: "80px",
-      height: "10vh",
-      "line-height": "10vh",
+      height: "80px",
+      // height: "10vh",
+      "line-height": "80px",
       width: "140px",
       "text-align": "center",
       background: "@yue:theme[colors.primary]",
@@ -63,7 +64,7 @@ export const theme: any = {
           "')"
       ),
       "&:hover": {
-        background: "blue",
+        cursor: "pointer",
       },
     },
   },
