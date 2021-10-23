@@ -8,19 +8,22 @@ export const getMaxBezierCount = () => maxBezierCount;
 export const normalizePath = (path, count) => {
   const split: Array<string> = path.split("c");
   // -1 because we should not consider the path(... part
-  const delta = maxBezierCount - (split.length - 1);
+  const delta = count - (split.length - 1);
   let parts;
-  console.log("split", split);
   [, ...parts] = [...split];
-  const originalLength = parts.length;
-  // TODO: use flatMap here?
-  const first = Math.floor(split.length / maxBezierCount);
+  const normalizedParts = [...parts];
+  normalizedParts[normalizedParts.length - 1] = normalizedParts[
+    normalizedParts.length - 1
+  ].replace(/'|\)/g, "");
 
   for (let i = 0; i < delta; i++) {
-    parts.splice(i % originalLength);
+    normalizedParts.splice(
+      i % normalizedParts.length,
+      0,
+      parts[i % normalizedParts.length]
+    );
   }
-  let normalizedPath = path;
-  return normalizedPath;
+  return `${[split[0], ...normalizedParts].join("c")}')`;
 };
 export const registerPath = (path: string) => {
   const interpolate = new Function(
