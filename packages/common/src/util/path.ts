@@ -6,33 +6,30 @@ export const resetMaxBezierCount = () => {
 };
 export const getMaxBezierCount = () => maxBezierCount;
 export const normalizePath = (path, count) => {
-  const split: Array<string> = path.split("c");
+  const bezierFill = "0,0 0,0 0,0";
+  const split: Array<string> = path.split("c").map((part) => part.trim());
   // -1 because we should not consider the path(... part
   const delta = count - (split.length - 1);
-  let parts;
-  [, ...parts] = [...split];
-  let normalizedParts = [...parts];
+  let normalizedParts;
+
+  // excludes the first m x y
+  [, ...normalizedParts] = [...split];
   normalizedParts[normalizedParts.length - 1] = normalizedParts[
     normalizedParts.length - 1
   ].replace(/'|\)/g, "");
   normalizedParts = normalizedParts.map((part) => part.trim());
-  const repetitions = normalizedParts.map(() => 1);
+  const repetitions = normalizedParts.map(() => 0);
   for (let i = 0; i < delta; i++) {
     repetitions[i % repetitions.length]++;
-    // normalizedParts.splice(
-    //   i % normalizedParts.length,
-    //   0,
-    //   parts[i % normalizedParts.length]
-    // );
   }
   const finalParts = repetitions.flatMap((repetition, index) => {
     const repeatedPaths = [];
     for (let i = 0; i < repetition; i++) {
-      repeatedPaths.push(normalizedParts[index]);
+      repeatedPaths.push(bezierFill);
     }
-    return repeatedPaths;
+    return [normalizedParts[index], ...repeatedPaths];
   });
-  return `${[split[0], ...finalParts].join("c ")}')`;
+  return `${[split[0], ...finalParts].join(" c ")}')`;
 };
 export const registerPath = (path: string) => {
   const interpolate = new Function(
