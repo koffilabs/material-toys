@@ -11,19 +11,28 @@ export const normalizePath = (path, count) => {
   const delta = count - (split.length - 1);
   let parts;
   [, ...parts] = [...split];
-  const normalizedParts = [...parts];
+  let normalizedParts = [...parts];
   normalizedParts[normalizedParts.length - 1] = normalizedParts[
     normalizedParts.length - 1
   ].replace(/'|\)/g, "");
-
+  normalizedParts = normalizedParts.map((part) => part.trim());
+  const repetitions = normalizedParts.map(() => 1);
   for (let i = 0; i < delta; i++) {
-    normalizedParts.splice(
-      i % normalizedParts.length,
-      0,
-      parts[i % normalizedParts.length]
-    );
+    repetitions[i % repetitions.length]++;
+    // normalizedParts.splice(
+    //   i % normalizedParts.length,
+    //   0,
+    //   parts[i % normalizedParts.length]
+    // );
   }
-  return `${[split[0], ...normalizedParts].join("c")}')`;
+  const finalParts = repetitions.flatMap((repetition, index) => {
+    const repeatedPaths = [];
+    for (let i = 0; i < repetition; i++) {
+      repeatedPaths.push(normalizedParts[index]);
+    }
+    return repeatedPaths;
+  });
+  return `${[split[0], ...finalParts].join("c ")}')`;
 };
 export const registerPath = (path: string) => {
   const interpolate = new Function(
