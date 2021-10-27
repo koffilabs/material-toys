@@ -64,19 +64,23 @@ export const morph = ({ from, to }: MorphArguments): Promise<number> => {
     startClone.style.left = `${leftDelta}px`;
     startNode.style.visibility = `hidden`;
     startClone.style.transformOrigin = `center center`;
+    startClone.style.willChange = "transform";
+
     endClone.style.clipPath = "none";
     endClone.style.position = "absolute";
     endClone.style.top = `0`;
     endClone.style.left = `0`;
     endClone.style.visibility = `visible`;
     endClone.style.transformOrigin = `center center`;
+    endClone.style.willChange = "transform";
 
+    wrapperNode.style.willChange = "transform";
     wrapperNode.style.position = "absolute";
     wrapperNode.style.top = `${startOffsetTop - topDelta}px`;
     wrapperNode.style.left = `${startOffsetLeft - leftDelta}px`;
     wrapperNode.style.height = `${max(startOffsetHeight, endOffsetHeight)}px`;
     wrapperNode.style.width = `${max(startOffsetWidth, endOffsetWidth)}px`;
-    wrapperNode.style.willChange = "clip-path transform";
+    movingNode.style.willChange = "clip-path transform";
     // remove me start
     // movingNode.style.border = `2px dashed red`;
     // remove me end
@@ -105,6 +109,7 @@ export const morph = ({ from, to }: MorphArguments): Promise<number> => {
       ],
       {
         duration: duration,
+        // delay: 200,
         easing,
         fill,
       }
