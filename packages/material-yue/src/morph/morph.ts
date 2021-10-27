@@ -14,7 +14,7 @@ export const morph = ({ from, to }: MorphArguments): Promise<number> => {
         "[morph] from and to arguments must point to existing elements"
       );
     }
-    const duration = 400;
+    const duration = 500;
     const easing = "ease-in-out";
     const fill = "forwards";
 
@@ -39,6 +39,7 @@ export const morph = ({ from, to }: MorphArguments): Promise<number> => {
     const endOffsetTop = ye + window.scrollY;
 
     const movingNode = document.createElement("div");
+    const wrapperNode = document.createElement("div");
     const topDelta = (endOffsetHeight - startOffsetHeight) / 2;
     const leftDelta = (endOffsetWidth - startOffsetWidth) / 2;
     const startCloneStartStyle = {
@@ -70,12 +71,12 @@ export const morph = ({ from, to }: MorphArguments): Promise<number> => {
     endClone.style.visibility = `visible`;
     endClone.style.transformOrigin = `center center`;
 
-    movingNode.style.position = "absolute";
-    movingNode.style.top = `${startOffsetTop - topDelta}px`;
-    movingNode.style.left = `${startOffsetLeft - leftDelta}px`;
-    movingNode.style.height = `${max(startOffsetHeight, endOffsetHeight)}px`;
-    movingNode.style.width = `${max(startOffsetWidth, endOffsetWidth)}px`;
-    movingNode.style.willChange = "clip-path transform";
+    wrapperNode.style.position = "absolute";
+    wrapperNode.style.top = `${startOffsetTop - topDelta}px`;
+    wrapperNode.style.left = `${startOffsetLeft - leftDelta}px`;
+    wrapperNode.style.height = `${max(startOffsetHeight, endOffsetHeight)}px`;
+    wrapperNode.style.width = `${max(startOffsetWidth, endOffsetWidth)}px`;
+    wrapperNode.style.willChange = "clip-path transform";
     // remove me start
     // movingNode.style.border = `2px dashed red`;
     // remove me end
@@ -86,19 +87,16 @@ export const morph = ({ from, to }: MorphArguments): Promise<number> => {
       .replace(/path\('/, `path('m ${leftDelta} ${topDelta} `);
     movingNode.appendChild(startClone);
     movingNode.appendChild(endClone);
-    document.body.appendChild(movingNode);
+    wrapperNode.appendChild(movingNode);
+    document.body.appendChild(wrapperNode);
 
-    const mainAnimation = movingNode.animate(
+    const clipPathAnimation = movingNode.animate(
       [
         {
-          transform: "translate(0px, 0px)",
           clipPath: movingNode.style.clipPath,
           backgroundColor: window.getComputedStyle(startNode).backgroundColor,
         },
         {
-          transform: `translate(${
-            endOffsetLeft - startOffsetLeft + leftDelta
-          }px, ${endOffsetTop - startOffsetTop + topDelta}px)`,
           clipPath: endNode.dataset.yueClipPath
             // .replace(/path\("/, `path("m 0 0 `)
             .replace(/path\('/, `path('m 0 0 `),
@@ -111,10 +109,45 @@ export const morph = ({ from, to }: MorphArguments): Promise<number> => {
         fill,
       }
     );
-    mainAnimation.addEventListener(
+    const xAnimation = movingNode.animate(
+      [
+        {
+          transform: "translate(0px, 0px)",
+        },
+        {
+          transform: `translate(${
+            endOffsetLeft - startOffsetLeft + leftDelta
+          }px, 0px)`,
+        },
+      ],
+      {
+        duration: duration,
+        easing: "linear",
+        fill,
+      }
+    );
+    const yAnimation = wrapperNode.animate(
+      [
+        {
+          transform: "translate(0px, 0px)",
+        },
+        {
+          transform: `translate(0px, ${
+            endOffsetTop - startOffsetTop + topDelta
+          }px)`,
+        },
+      ],
+      {
+        duration: duration,
+        // easing: "ease-out",
+        easing: "cubic-bezier(0.065, 0.6, 0.353, .97)",
+        fill,
+      }
+    );
+    clipPathAnimation.addEventListener(
       "finish",
       () => {
-        movingNode.remove();
+        wrapperNode.remove();
         resolve(42);
       },
       { once: true }
