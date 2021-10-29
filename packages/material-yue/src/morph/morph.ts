@@ -127,7 +127,8 @@ export const morph = ({ from, to }: MorphArguments): Promise<number> => {
       ],
       {
         duration: duration,
-        easing: "linear",
+        //easing: "linear",
+        easing: "cubic-bezier(0.3, 0.1, 0.453, .97)",
         fill,
       }
     );
