@@ -1,2 +1,3 @@
 import { morph } from "./morph";
-export { morph };
+import { fastMorph } from "./fastMorph";
+export { morph, fastMorph };
