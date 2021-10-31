@@ -42,6 +42,8 @@ export const m3: any = {
       fontFamily: tokens.MdSysTypescaleLabelLargeFont,
       letterSpacing: tokens.MdSysTypescaleLabelLargeTracking,
       overflow: "hidden",
+      paddingLeft: "24px",
+      paddingRight: "24px",
       "&:disabled": {
         cursor: "default",
         "&:hover,&:focus,&:active": {
@@ -78,12 +80,14 @@ export const m3: any = {
       "&.elevated": {
         color: tokens.MdSysColorPrimary,
         background: tokens.MdSysColorSurface,
+        boxShadow: `0 1px 2px 1px ${rgba("#000", 0.3)}`, // should be ${tokens.MdSysColorShadow}
         "&>.state": {
           background: tokens.MdSysColorPrimary,
         },
         "&:disabled": {
           color: `${rgba(tokens.MdSysColorPrimary, 0.38)}`,
           background: `${rgba(tokens.MdSysColorSurface, 0.12)}`,
+          boxShadow: `0 0 0 0 ${rgba("#000", 0.3)}`,
         },
       },
       "&.filled": {
@@ -93,8 +97,7 @@ export const m3: any = {
           background: tokens.MdSysColorOnPrimary,
         },
         "&:disabled": {
-          cursor: "default",
-          color: `${rgba(tokens.MdSysColorOnPrimary, 0.38)}`,
+          color: `${rgba(tokens.MdSysColorOnSurface, 0.38)}`,
           background: `${rgba(tokens.MdSysColorPrimary, 0.12)}`,
         },
       },
