@@ -80,7 +80,11 @@ export const m3: any = {
       "&.elevated": {
         color: tokens.MdSysColorPrimary,
         background: tokens.MdSysColorSurface,
+        transition: "box-shadow .2s ease-in-out",
         boxShadow: `0 1px 2px 1px ${rgba("#000", 0.3)}`, // should be ${tokens.MdSysColorShadow}
+        "&:hover": {
+          boxShadow: `0 2px 3px 1px ${rgba("#000", 0.3)}`,
+        },
         "&>.state": {
           background: tokens.MdSysColorPrimary,
         },
