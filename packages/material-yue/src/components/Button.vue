@@ -1,5 +1,7 @@
 <template>
-  <button ref="root" :class="btn"><slot></slot></button>
+  <button ref="root" :class="btn">
+    <slot></slot><div class="state">
+    </div></button>
 </template>
 <script lang="ts">
 import { computed, inject, onMounted, ref, watchEffect } from "vue";
@@ -19,17 +21,7 @@ export default {
     const btn = computed(() => css(
         style.value = setDynamic({target: theme.components.Button, theme, width, height}),
     ));
-    const resizingBtn = computed(() => css(
-        style.value = [setDynamic({target: theme.components.Button, theme, width, height}), setDynamic({
-          target: theme.components._resizingComponent,
-          theme,
-          height,
-          width
-        })],
-    ));
-    useClipPathData({root, style})
-    useResizeEvents({root, cname: resizingBtn, width, height});
-    return { resizingBtn, root, btn };
+    return { root, btn };
   }
 }
 </script>

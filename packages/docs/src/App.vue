@@ -63,11 +63,11 @@ export default {
       gridArea: "button"
     });
     const onClick = async (e) => {
-      await morph({
-        from: "[data-start]",
-        to: "[data-end]",
-      });
-      visibility.value = "visible";
+      // await morph({
+      //   from: "[data-start]",
+      //   to: "[data-end]",
+      // });
+      // visibility.value = "visible";
     }
 
     return {

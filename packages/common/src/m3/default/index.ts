@@ -41,14 +41,47 @@ export const m3: any = {
       fontWeight: tokens.MdSysTypescaleLabelLargeWeight,
       fontFamily: tokens.MdSysTypescaleLabelLargeFont,
       letterSpacing: tokens.MdSysTypescaleLabelLargeTracking,
+      overflow: "hidden",
+      "&:disabled": {
+        cursor: "default",
+        "&:hover,&:focus,&:active": {
+          "&>.state": {
+            opacity: 0,
+          },
+        },
+      },
+      "&>.state": {
+        top: "0",
+        left: "0",
+        position: "absolute",
+        width: "100%",
+        height: "100%",
+        opacity: "0",
+        background: tokens.MdSysColorPrimary,
+      },
       "&:hover": {
         cursor: "pointer",
+        "&>.state": {
+          opacity: ".08", // sysstatehoveropacity?
+        },
+      },
+      "&:focus": {
+        "&>.state": {
+          opacity: ".12",
+        },
+      },
+      "&:active": {
+        "&>.state": {
+          opacity: ".12",
+        },
       },
       "&.elevated": {
         color: tokens.MdSysColorPrimary,
         background: tokens.MdSysColorSurface,
+        "&>.state": {
+          background: tokens.MdSysColorPrimary,
+        },
         "&:disabled": {
-          cursor: "default",
           color: `${rgba(tokens.MdSysColorPrimary, 0.38)}`,
           background: `${rgba(tokens.MdSysColorSurface, 0.12)}`,
         },
@@ -56,6 +89,9 @@ export const m3: any = {
       "&.filled": {
         color: tokens.MdSysColorOnPrimary,
         background: tokens.MdSysColorPrimary,
+        "&>.state": {
+          background: tokens.MdSysColorOnPrimary,
+        },
         "&:disabled": {
           cursor: "default",
           color: `${rgba(tokens.MdSysColorOnPrimary, 0.38)}`,
