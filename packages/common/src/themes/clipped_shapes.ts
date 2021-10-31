@@ -25,6 +25,18 @@ export const theme: any = {
       background: "white",
       height: "20vh",
       willChange: "transform opacity",
+      "clip-path": registerPath(
+        "path('m40 0 " +
+          "c ${width-80},0 ${width-80},0 ${width-80},0 " +
+          "c 40,0 40,0 40,40 " +
+          "c 0,${height-80} 0,${height-80} 0,${height-80} " +
+          "c 0,40 0,40 -40,40 " +
+          "c -${width-80},0 -${width-80},0 -${width-80},0 " +
+          "c -40,0 -40,0 -40,-40 " +
+          "c 0,${-height+80} 0,${-height+80} 0,${-height+80} " +
+          "c 0,-40 0,-40 40,-40 " +
+          "')"
+      ),
     },
     Button: {
       fontSize: "1rem",
@@ -32,13 +44,25 @@ export const theme: any = {
       color: "@yue:theme[colors.text]",
       position: "relative",
       "text-transform": "capitalize",
-      height: "40px",
-      "line-height": "40px",
+      height: "80px",
+      // height: "10vh",
+      "line-height": "80px",
       width: "140px",
       "text-align": "center",
-      // background: "@yue:theme[colors.primary]",
       background: "@yue:theme[colors.primary]",
       willChange: "transform opacity",
+      "clip-path": registerPath(
+        "path('m40 0 " +
+          "c ${width-80},40 ${width-80},0 ${width-80},0 " +
+          "c 40,0 40,0 40,40 " +
+          "c 0,${height-80} 0,${height-80} 0,${height-80} " +
+          "c 0,40 0,40 -40,40 " +
+          "c -${width-80},0 -${width-80},0 -${width-80},0 " +
+          "c -40,0 -40,0 -40,-40 " +
+          "c 0,${-height+80} 0,${-height+80} 0,${-height+80} " +
+          "c 0,-40 0,-40 40,-40 " +
+          "')"
+      ),
       "&:hover": {
         cursor: "pointer",
       },

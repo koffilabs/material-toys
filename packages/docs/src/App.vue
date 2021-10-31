@@ -1,6 +1,17 @@
 <template>
+  <div :class="line">
+    <Button data-start @click="onClick" class="elevated">Elevated</Button>
+  </div>
+  <div :class="line">
+    <Button data-start @click="onClick" disabled class="elevated">Elevated disabled</Button>
+  </div>
+  <div :class="line">
+    <Button data-start @click="onClick" class="filled">Filled</Button>
+  </div>
+  <div :class="line">
+    <Button data-start @click="onClick" disabled class="filled">Filled disabled</Button>
+  </div>
   <div :class="page">
-    <Button data-start @click="onClick" :class="customButton">Hello button!</Button>
     <Card data-end :class="customCard" :style="{visibility}">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque autem consequatur,
       eligendi iusto nemo saepe
@@ -11,7 +22,7 @@
 </template>
 <script>
 import {css} from "@emotion/css";
-import {theme} from "@material-yue/common";
+import {m3} from "@material-yue/common";
 import {Button, Card, morph} from "@material-yue/vue";
 import {provide, reactive, ref} from "vue";
 
@@ -19,12 +30,15 @@ export default {
   name: "material-yue-docs",
   components: {Button, Card},
   setup() {
-    const reactiveTheme = reactive({...theme});
+    const reactiveTheme = reactive({...m3});
     const visibility = ref("hidden");
     provide("theme", reactiveTheme);
     setTimeout(() => {
       // reactiveTheme.colors.primary = "red";
     }, 2000);
+    const line = css({
+      margin: "1rem"
+    })
     const page = css({
       background: "#ddd",
       border:"1px dashed #333",
@@ -57,6 +71,7 @@ export default {
     }
 
     return {
+      line,
       page,
       customButton,
       customCard,
