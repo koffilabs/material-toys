@@ -1,5 +1,7 @@
-import * as tokens from "./tokens";
+import * as mtokens from "./tokens";
+import * as polyfill from "./polyfill";
 import { rgba } from "emotion-rgba";
+const tokens = { ...polyfill, ...mtokens };
 
 export const m3: any = {
   colors: {
@@ -81,9 +83,32 @@ export const m3: any = {
         color: tokens.MdSysColorPrimary,
         background: tokens.MdSysColorSurface,
         transition: "box-shadow .2s ease-in-out",
-        boxShadow: `0 1px 2px 1px ${rgba("#000", 0.3)}`, // should be ${tokens.MdSysColorShadow}
+        // boxShadow: `0 1px 2px 1px ${rgba(tokens.MdSysColorShadow, 0.3)}`,
+        // level1
+        boxShadow: `0 2px 1px -1px ${rgba(
+          tokens.MdSysColorShadow,
+          0.2
+        )}, 0 1px 1px 0 ${rgba(
+          tokens.MdSysColorShadow,
+          0.14
+        )}, 0 1px 3px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
         "&:hover": {
-          boxShadow: `0 2px 3px 1px ${rgba("#000", 0.3)}`,
+          boxShadow: `0 3px 1px -2px ${rgba(
+            tokens.MdSysColorShadow,
+            0.2
+          )}, 0 2px 2px 0 ${rgba(
+            tokens.MdSysColorShadow,
+            0.14
+          )}, 0 1px 5px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
+        },
+        "&:active, &:focus": {
+          boxShadow: `0 2px 1px -1px ${rgba(
+            tokens.MdSysColorShadow,
+            0.2
+          )}, 0 1px 1px 0 ${rgba(
+            tokens.MdSysColorShadow,
+            0.14
+          )}, 0 1px 3px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
         },
         "&>.state": {
           background: tokens.MdSysColorPrimary,
@@ -91,7 +116,10 @@ export const m3: any = {
         "&:disabled": {
           color: `${rgba(tokens.MdSysColorPrimary, 0.38)}`,
           background: `${rgba(tokens.MdSysColorSurface, 0.12)}`,
-          boxShadow: `0 0 0 0 ${rgba("#000", 0.3)}`,
+          boxShadow: `0 0 0 0 ${rgba("#000", 0.3)},0 0 0 0 ${rgba(
+            "#000",
+            0.3
+          )},0 0 0 0 ${rgba("#000", 0.3)}`,
         },
       },
       "&.filled": {
