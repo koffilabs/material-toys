@@ -1,9 +1,6 @@
-import * as mtokens from "./tokens";
-import * as polyfill from "./polyfill";
 import { rgba } from "emotion-rgba";
-const tokens = { ...polyfill, ...mtokens };
 
-export const m3: any = {
+export const m3 = (tokens) => ({
   colors: {
     primary: "hsl(20, 70%, 75%)",
     text: "hsl(20, 40%, 30%)",
@@ -135,4 +132,4 @@ export const m3: any = {
       },
     },
   },
-};
+});

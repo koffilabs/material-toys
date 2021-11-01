@@ -25,17 +25,25 @@ import {css} from "@emotion/css";
 import {m3} from "@material-yue/common";
 import {Button, Card, morph} from "@material-yue/vue";
 import {provide, reactive, ref} from "vue";
+import {material_tokens} from "@material-yue/common";
+import {material_tokens_polyfill} from "@material-yue/common";
+const tokens = { ...material_tokens_polyfill, ...material_tokens };
 
 export default {
   name: "material-yue-docs",
   components: {Button, Card},
   setup() {
-    const reactiveTheme = reactive({...m3});
+    // const theme = {...m3(tokens)};
+    // console.log("theme", theme);
+    console.log(tokens)
+    const reactiveTheme = ref(m3(tokens));
+    const reactiveTokens = reactive(tokens);
     const visibility = ref("hidden");
-    provide("theme", reactiveTheme);
-    setTimeout(() => {
-      // reactiveTheme.colors.primary = "red";
-    }, 2000);
+    provide("theme", reactiveTheme.value);
+    provide("tokens", reactiveTokens);
+    // setTimeout(() => {
+    //   reactiveTokens.MdSysColorPrimary = "red";
+    // }, 2000);
     const line = css({
       margin: "1rem"
     })
