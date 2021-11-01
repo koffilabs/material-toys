@@ -33,17 +33,13 @@ export default {
   name: "material-yue-docs",
   components: {Button, Card},
   setup() {
-    // const theme = {...m3(tokens)};
-    // console.log("theme", theme);
-    console.log(tokens)
-    const reactiveTheme = ref(m3(tokens));
     const reactiveTokens = reactive(tokens);
     const visibility = ref("hidden");
-    provide("theme", reactiveTheme.value);
     provide("tokens", reactiveTokens);
-    // setTimeout(() => {
-    //   reactiveTokens.MdSysColorPrimary = "red";
-    // }, 2000);
+    setTimeout(() => {
+      reactiveTokens.MdSysColorPrimary = "red";
+      console.log("done")
+    }, 2000);
     const line = css({
       margin: "1rem"
     })

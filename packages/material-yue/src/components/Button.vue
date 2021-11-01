@@ -11,8 +11,8 @@ import {setDynamic, m3} from "@material-yue/common";
 export default {
   name: "Button",
   setup(){
-    const theme: any = inject("theme");
     const tokens: any = inject("tokens");
+    const theme = m3(tokens);
     const root = ref(null);
     const style = ref(null);
     const width = ref(0);
