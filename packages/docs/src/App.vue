@@ -1,15 +1,28 @@
 <template>
   <div :class="line">
-    <Button data-start @click="onClick" class="elevated">Elevated</Button>
+    <h1>Elevated Button</h1>
+    <Button data-start @click="onClick" class="elevated">Enabled</Button>
+    <Button data-start @click="onClick" disabled class="elevated">Disabled</Button>
   </div>
   <div :class="line">
-    <Button data-start @click="onClick" disabled class="elevated">Elevated disabled</Button>
+    <h1>Filled button</h1>
+    <Button data-start @click="onClick" class="filled">Enabled</Button>
+    <Button data-start @click="onClick" disabled class="filled">Disabled</Button>
   </div>
   <div :class="line">
-    <Button data-start @click="onClick" class="filled">Filled</Button>
+    <h1>Filled tonal button</h1>
+    <Button data-start @click="onClick" class="filled-tonal">Enabled</Button>
+    <Button data-start @click="onClick" disabled class="filled-tonal">Disabled</Button>
   </div>
   <div :class="line">
-    <Button data-start @click="onClick" disabled class="filled">Filled disabled</Button>
+    <h1>Outlined button</h1>
+    <Button data-start @click="onClick" class="outlined">Enabled</Button>
+    <Button data-start @click="onClick" disabled class="outlined">Disabled</Button>
+  </div>
+  <div :class="line">
+    <h1>Text button</h1>
+    <Button data-start @click="onClick" class="text">Enabled</Button>
+    <Button data-start @click="onClick" disabled class="text">Disabled</Button>
   </div>
   <div :class="page">
     <Card data-end :class="customCard" :style="{visibility}">
@@ -22,7 +35,6 @@
 </template>
 <script>
 import {css} from "@emotion/css";
-import {m3} from "@material-yue/common";
 import {Button, Card, morph} from "@material-yue/vue";
 import {provide, reactive, ref} from "vue";
 import {material_tokens} from "@material-yue/common";
@@ -36,12 +48,15 @@ export default {
     const reactiveTokens = reactive(tokens);
     const visibility = ref("hidden");
     provide("tokens", reactiveTokens);
-    setTimeout(() => {
-      reactiveTokens.MdSysColorPrimary = "red";
-      console.log("done")
-    }, 2000);
+    // setTimeout(() => {
+    //   reactiveTokens.MdSysColorPrimary = "red";
+    //   console.log("done")
+    // }, 2000);
     const line = css({
-      margin: "1rem"
+      margin: "1rem",
+      button: {
+        margin: "0 1rem",
+      }
     })
     const page = css({
       background: "#ddd",
@@ -55,16 +70,10 @@ export default {
           "/ 1fr 1fr 1fr",
     });
     const customCard = css({
-      // width: "400px",
-      gridArea: "card",
-      "backgroundImage": "url(resources/city.jpg) !important",
-      "backgroundSize": "contain !important",
-      "backgroundPosition": "top left",
-      "paddingTop": "200px !important",
-      color: "rgba(255, 255, 255, .9) !important"
+      margin: "0 1rem"
     });
     const customButton = css({
-      gridArea: "button"
+      margin: "0 1rem"
     });
     const onClick = async (e) => {
       // await morph({
