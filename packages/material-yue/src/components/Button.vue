@@ -1,7 +1,7 @@
 <template>
   <button ref="root" :class="btn">
-    <slot></slot><div class="state">
-    </div></button>
+    <div class="state">
+    </div><slot></slot></button>
 </template>
 <script lang="ts">
 import { computed, inject, onMounted, ref, watchEffect } from "vue";

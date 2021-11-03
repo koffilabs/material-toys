@@ -24,6 +24,11 @@
     <Button data-start @click="onClick" class="text">Enabled</Button>
     <Button data-start @click="onClick" disabled class="text">Disabled</Button>
   </div>
+  <div :class="line">
+    <h1>FAB</h1>
+    <FAB data-start @click="onClick"><span class="material-icons">create</span></FAB>
+    <FAB data-start @click="onClick" disabled><span class="material-icons">create</span></FAB>
+  </div>
   <div :class="page">
     <Card data-end :class="customCard" :style="{visibility}">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque autem consequatur,
@@ -35,7 +40,7 @@
 </template>
 <script>
 import {css} from "@emotion/css";
-import {Button, Card, morph} from "@material-yue/vue";
+import {Button, Card, FAB, morph} from "@material-yue/vue";
 import {provide, reactive, ref} from "vue";
 import {material_tokens} from "@material-yue/common";
 import {material_tokens_polyfill} from "@material-yue/common";
@@ -43,7 +48,7 @@ const tokens = { ...material_tokens_polyfill, ...material_tokens };
 
 export default {
   name: "material-yue-docs",
-  components: {Button, Card},
+  components: {Button, Card, FAB},
   setup() {
     const reactiveTokens = reactive(tokens);
     const visibility = ref("hidden");
@@ -53,7 +58,11 @@ export default {
     //   console.log("done")
     // }, 2000);
     const line = css({
-      margin: "1rem",
+      margin: "1.618rem",
+      h1: {
+        fontFamily: "Roboto, sans-serif",
+        fontSize: "1.2rem"
+      },
       button: {
         margin: "0 1rem",
       }

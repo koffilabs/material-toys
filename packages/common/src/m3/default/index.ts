@@ -1,5 +1,6 @@
 import { rgba } from "emotion-rgba";
 import { Button } from "./button";
+import { FAB } from "./fab";
 
 export const m3 = (tokens) => ({
   colors: {
@@ -29,5 +30,6 @@ export const m3 = (tokens) => ({
       willChange: "transform opacity",
     },
     Button: Button(tokens),
+    FAB: FAB(tokens),
   },
 });
