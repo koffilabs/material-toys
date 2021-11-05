@@ -51,7 +51,7 @@ export const FAB = (tokens) => ({
   },
   "&:disabled": {
     cursor: "default",
-    color: "red",
+    color: "blue",
     fill: `${rgba(tokens.MdSysColorPrimary, 0.38)}`,
     "&:hover,&:focus,&:active": {
       "&>.state": {

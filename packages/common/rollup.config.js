@@ -1,5 +1,6 @@
 import pkg from "./package.json";
-import typescript from "rollup-plugin-typescript2";
+// import typescript from "rollup-plugin-typescript2";
+import esbuild from "rollup-plugin-esbuild";
 
 process.stdin.removeAllListeners("end");
 
@@ -14,7 +15,7 @@ export default [
     },
     plugins: [
       // babel({ babelHelpers: "bundled" }),
-      typescript(), // so Rollup can find `ms`
+      esbuild(), // so Rollup can find `ms`
     ],
   },
 
@@ -28,7 +29,9 @@ export default [
     input: "src/main.ts",
     plugins: [
       // babel({ babelHelpers: "bundled" }),
-      typescript(), // so Rollup can find `ms`
+      esbuild({
+        minify: process.env.NODE_ENV === "production",
+      }), // so Rollup can find `ms`
     ],
     output: [
       { file: pkg.main, format: "cjs" },

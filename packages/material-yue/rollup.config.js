@@ -3,6 +3,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import pkg from "./package.json";
 import vue from "rollup-plugin-vue";
 import typescript from "rollup-plugin-typescript2";
+import esbuild from "rollup-plugin-esbuild";
 // import typescript from "@rollup/plugin-typescript";
 // import { DEFAULT_EXTENSIONS } from "@babel/core";
 // import babel from "@rollup/plugin-babel";
@@ -39,8 +40,9 @@ export default [
       //   extensions: [...DEFAULT_EXTENSIONS, ".ts", ".tsx"],
       // }),
       alias({ entries: [{ find: /^@\/(.+)/, replacement: "./$1" }] }),
-      typescript({
+      esbuild({
         include: [/\.tsx?$/, /\.vue\?.*?lang=ts/],
+        minify: process.env.NODE_ENV === "production",
         useTsconfigDeclarationDir: true,
       }),
     ],
@@ -75,8 +77,9 @@ export default [
       //   extensions: [...DEFAULT_EXTENSIONS, ".ts", ".tsx"],
       // }),
       alias({ entries: [{ find: /^@\/(.+)/, replacement: "./$1" }] }),
-      typescript({
+      esbuild({
         include: [/\.tsx?$/, /\.vue\?.*?lang=ts/],
+        minify: process.env.NODE_ENV === "production",
         useTsconfigDeclarationDir: true,
       }),
     ],
