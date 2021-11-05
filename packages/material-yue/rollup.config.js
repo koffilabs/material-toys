@@ -32,7 +32,7 @@ export default [
           ".sass",
           ".scss",
         ],
-      }), // so Rollup can find `ms`
+      }),
       vue(),
       commonjs(), // so Rollup can convert `ms` to an ES module
       // babel({
@@ -68,7 +68,7 @@ export default [
           ".sass",
           ".scss",
         ],
-      }), // so Rollup can find `ms`
+      }),
       vue(),
       commonjs(), // so Rollup can convert `ms` to an ES module
       // babel({

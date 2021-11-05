@@ -26,6 +26,7 @@ export const theme: any = {
       height: "20vh",
       willChange: "transform opacity",
     },
+    Icon: {},
     Button: {
       fontSize: "1rem",
       border: "none",

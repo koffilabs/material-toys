@@ -11,8 +11,6 @@ export const FAB = (tokens) => ({
   "text-align": "center",
   willChange: "transform opacity",
   fontWeight: tokens.MdSysTypescaleLabelLargeWeight,
-  fontFamily: "Material Icons",
-  fontSize: "24px",
   overflow: "hidden",
   padding: "16px",
   transition: `box-shadow ${duration} ease-in-out, background-color ${duration} ease-in-out, 
@@ -53,6 +51,8 @@ export const FAB = (tokens) => ({
   },
   "&:disabled": {
     cursor: "default",
+    color: "red",
+    fill: `${rgba(tokens.MdSysColorPrimary, 0.38)}`,
     "&:hover,&:focus,&:active": {
       "&>.state": {
         opacity: 0,

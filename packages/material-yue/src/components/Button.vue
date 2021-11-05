@@ -4,9 +4,9 @@
     </div><slot></slot></button>
 </template>
 <script lang="ts">
-import { computed, inject, onMounted, ref, watchEffect } from "vue";
-import {css, cx} from "@emotion/css";
-import {setDynamic, m3} from "@material-yue/common";
+import { computed, inject, ref } from "vue";
+import { css } from "@emotion/css";
+import { setDynamic, m3 } from "@material-yue/common";
 
 export default {
   name: "Button",

@@ -1,11 +1,6 @@
+const { toPascalCase } = require("./util");
 const { readFile, writeFile } = require("fs").promises;
-const toPascalCase = (key) => {
-  // return key;
-  return key
-    .split(/\.|-/)
-    .map((part) => `${part.charAt(0).toUpperCase()}${part.slice(1)}`)
-    .join("");
-};
+
 const parseValue = (value) =>
   value.startsWith("{")
     ? toPascalCase(value.replace(/\{|\}/g, ""))

@@ -26,8 +26,12 @@
   </div>
   <div :class="line">
     <h1>FAB</h1>
-    <FAB data-start @click="onClick"><span class="material-icons">create</span></FAB>
-    <FAB data-start @click="onClick" disabled><span class="material-icons">create</span></FAB>
+    <FAB data-start @click="onClick"><InboxIcon></InboxIcon></FAB>
+    <FAB data-start @click="onClick" disabled><InboxIcon></InboxIcon></FAB>
+  </div>
+  <div :class="line">
+    icon here
+
   </div>
   <div :class="page">
     <Card data-end :class="customCard" :style="{visibility}">
@@ -40,16 +44,21 @@
 </template>
 <script>
 import {css} from "@emotion/css";
-import {Button, Card, FAB, morph} from "@material-yue/vue";
+import {Button, Card, FAB, morph } from "@material-yue/vue";
+// import { InboxIcon } from "@material-yue/vue";
 import {provide, reactive, ref} from "vue";
 import {material_tokens} from "@material-yue/common";
 import {material_tokens_polyfill} from "@material-yue/common";
+import InboxIcon from "@material-yue/vue/src/icons/materialicons/InboxIcon.vue";
 const tokens = { ...material_tokens_polyfill, ...material_tokens };
 
 export default {
   name: "material-yue-docs",
-  components: {Button, Card, FAB},
+  components: {Button, Card, FAB, InboxIcon },
   setup() {
+    console.log("morph is", morph);
+    console.log(Card);
+
     const reactiveTokens = reactive(tokens);
     const visibility = ref("hidden");
     provide("tokens", reactiveTokens);
