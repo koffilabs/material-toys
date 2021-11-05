@@ -2,7 +2,6 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import pkg from "./package.json";
 import vue from "rollup-plugin-vue";
-import typescript from "rollup-plugin-typescript2";
 import esbuild from "rollup-plugin-esbuild";
 // import typescript from "@rollup/plugin-typescript";
 // import { DEFAULT_EXTENSIONS } from "@babel/core";
@@ -19,6 +18,7 @@ export default [
       name: "bundle",
       file: pkg.browser,
       format: "umd",
+      globals: ["vue"],
     },
     plugins: [
       // babel({ babelHelpers: "bundled" }),
@@ -84,8 +84,8 @@ export default [
       }),
     ],
     output: [
-      { file: pkg.main, format: "cjs" },
-      { file: pkg.module, format: "es" },
+      { file: pkg.main, format: "cjs", globals: ["vue"] },
+      { file: pkg.module, format: "es", globals: ["vue"] },
     ],
   },
 ];

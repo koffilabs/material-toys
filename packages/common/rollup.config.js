@@ -1,5 +1,4 @@
 import pkg from "./package.json";
-// import typescript from "rollup-plugin-typescript2";
 import esbuild from "rollup-plugin-esbuild";
 
 process.stdin.removeAllListeners("end");

@@ -1,8 +1,8 @@
 {
   "name": "@material-yue/vue",
-  "main": "build/material-yue.cjs.js",
-  "module": "build/material-yue.esm.js",
-  "browser": "build/material-yue.umd.js",
+  "main": "dist/material-yue.cjs.js",
+  "module": "dist/material-yue.esm.js",
+  "browser": "dist/material-yue.umd.js",
   "version": "0.0.1",
   "description": "A Material You implementation using Vue.js",
   "repository": "https://github.com/koffilabs/material-yue.git",
@@ -27,7 +27,6 @@
     "prettier": "2.4.1",
     "rollup": "^2.57.0",
     "rollup-plugin-esbuild": "^4.6.0",
-    "rollup-plugin-typescript2": "^0.30.0",
     "rollup-plugin-vue": "^6.0.0",
     "tslib": "^2.3.1"
   },

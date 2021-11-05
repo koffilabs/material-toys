@@ -14,9 +14,9 @@ process.stdin.removeAllListeners("end");
 export default {
   input: "src/main.js",
   output: {
-    file: "build/bundle.js",
+    file: "dist/bundle.js",
     format: "iife", // immediately-invoked function expression — suitable for <script> tags
-    sourcemap: true,
+    sourcemap: !production,
   },
   plugins: [
     replace({
