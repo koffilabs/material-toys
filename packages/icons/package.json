@@ -1,0 +1,39 @@
+{
+  "name": "@material-yue/icons",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Nicola Rizzo <nicola.rizzo@gmail.com>",
+  "homepage": "https://github.com/koffilabs/material-yue#readme",
+  "license": "MIT",
+  "main": "dist/material-yue-icons.cjs.js",
+  "module": "dist/material-yue-icons.esm.js",
+
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.yarnpkg.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koffilabs/material-yue.git"
+  },
+  "scripts": {
+    "generate": "scripts/generateIcons.js",
+    "build": "rollup -c ./rollup.config.js",
+    "dev": "rollup -c ./rollup.config.js -w"
+  },
+  "bugs": {
+    "url": "https://github.com/koffilabs/material-yue/issues"
+  },
+  "devDependencies": {
+    "@rollup/plugin-alias": "^3.1.8",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "rollup-plugin-vue": "^6.0.0"
+  }
+}

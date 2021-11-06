@@ -3,9 +3,6 @@ import commonjs from "@rollup/plugin-commonjs";
 import pkg from "./package.json";
 import vue from "rollup-plugin-vue";
 import esbuild from "rollup-plugin-esbuild";
-// import typescript from "@rollup/plugin-typescript";
-// import { DEFAULT_EXTENSIONS } from "@babel/core";
-// import babel from "@rollup/plugin-babel";
 import alias from "@rollup/plugin-alias";
 
 process.stdin.removeAllListeners("end");
@@ -36,9 +33,6 @@ export default [
       }),
       vue(),
       commonjs(), // so Rollup can convert `ms` to an ES module
-      // babel({
-      //   extensions: [...DEFAULT_EXTENSIONS, ".ts", ".tsx"],
-      // }),
       alias({ entries: [{ find: /^@\/(.+)/, replacement: "./$1" }] }),
       esbuild({
         include: [/\.tsx?$/, /\.vue\?.*?lang=ts/],
@@ -73,9 +67,6 @@ export default [
       }),
       vue(),
       commonjs(), // so Rollup can convert `ms` to an ES module
-      // babel({
-      //   extensions: [...DEFAULT_EXTENSIONS, ".ts", ".tsx"],
-      // }),
       alias({ entries: [{ find: /^@\/(.+)/, replacement: "./$1" }] }),
       esbuild({
         include: [/\.tsx?$/, /\.vue\?.*?lang=ts/],
