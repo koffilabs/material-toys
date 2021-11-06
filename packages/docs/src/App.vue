@@ -29,6 +29,9 @@
     <FAB data-start @click="onClick"><EditIcon></EditIcon></FAB>
     <FAB data-start @click="onClick" disabled><EditIcon></EditIcon></FAB>
   </div>
+  <div :class="line">
+    <EditIcon :size="48"></EditIcon>
+  </div>
   <div :class="page">
     <Card data-end :class="customCard" :style="{visibility}">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque autem consequatur,

@@ -24,14 +24,27 @@ let indexContents = "";
         );
         const componentName = `${toPascalCase(toValidName(iconName))}Icon`;
         const iconComponent = `<template>
-  <div ref="root">${svg}</div>
+  <div ref="root">${svg
+    .toString()
+    .replace(
+      /<svg/,
+      '<svg :style="{width: styleSize, height: styleSize }" '
+    )}</div>
 </template>
 <script lang="ts">
   export default {
+    props: {
+      size: String
+    },
     name: "${componentName}",
+    setup(props){
+      const styleSize: string = typeof size === "number" ? props.size + "px" : props.size ?? "24px";
+      return {
+        styleSize
+      }
+    }
   }
-</script>
-`;
+</script>`;
         await writeFile(
           `${VUE_TARGET_DIRECTORY}/${iconType}/${componentName}.vue`,
           iconComponent
@@ -40,8 +53,6 @@ let indexContents = "";
           iconType
         )}${componentName}} from "./${iconType}/${componentName}.vue";\r\n`;
         iconsCounter++;
-
-        // console.log(iconComponent);
       }
     }
   }
