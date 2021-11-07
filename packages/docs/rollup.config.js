@@ -3,6 +3,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import { terser } from "rollup-plugin-terser";
 import vue from "rollup-plugin-vue";
 import replace from "rollup-plugin-replace";
+// TODO replace replace with @rollup/plugin-replace
 // import babel from "@rollup/plugin-babel";
 // import scss from "rollup-plugin-scss"; // handles '.css' and '.scss'
 
@@ -14,6 +15,7 @@ process.stdin.removeAllListeners("end");
 export default {
   input: "src/main.js",
   output: {
+    external: ["vue"],
     file: "dist/bundle.js",
     format: "iife", // immediately-invoked function expression — suitable for <script> tags
     sourcemap: !production,
