@@ -54,3 +54,11 @@ typings/
 # dotenv environment variables file
 .env
 .env.test
+
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
