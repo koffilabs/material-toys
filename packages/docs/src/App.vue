@@ -46,10 +46,10 @@
     <h1>FAB - surface, level3 (default)</h1>
     <FAB data-start @click="onClick" class="surface large"><EditIcon :size="36"></EditIcon></FAB>
     <FAB data-start @click="onClick" disabled class="surface large"><EditIcon :size="36"></EditIcon></FAB>
-    <FAB data-start @click="onClick" class="surface small"><EditIcon></EditIcon></FAB>
-    <FAB data-start @click="onClick" disabled class="surface small"><EditIcon></EditIcon></FAB>
     <FAB data-start @click="onClick" class="surface"><EditIcon></EditIcon></FAB>
     <FAB data-start @click="onClick" disabled class="surface"><EditIcon></EditIcon></FAB>
+    <FAB data-start @click="onClick" class="surface small"><EditIcon></EditIcon></FAB>
+    <FAB data-start @click="onClick" disabled class="surface small"><EditIcon></EditIcon></FAB>
   </div>
   <div :class="line">
     <h1>FAB - secondary, level3 (default)</h1>
