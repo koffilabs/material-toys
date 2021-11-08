@@ -14,7 +14,8 @@ export const FAB = (tokens) => ({
   overflow: "hidden",
   padding: "16px",
   transition: `box-shadow ${duration} ease-in-out, background-color ${duration} ease-in-out, 
-  color ${duration} ease-in-out`,
+  fill ${duration} ease-in-out`,
+  fill: tokens.MdSysColorOnPrimaryContainer,
   // level 3
   boxShadow: `0 3px 3px -2px ${rgba(
     tokens.MdSysColorShadow,
@@ -59,4 +60,41 @@ export const FAB = (tokens) => ({
       },
     },
   },
+  "&.level1": {
+    // level1
+    boxShadow: `0 2px 1px -1px ${rgba(
+        tokens.MdSysColorShadow,
+        0.2
+    )}, 0 1px 1px 0 ${rgba(tokens.MdSysColorShadow, 0.14)}, 0 1px 3px 0 ${rgba(
+        tokens.MdSysColorShadow,
+        0.12
+    )}`,
+  },
+  "&.surface": {
+    background: tokens.MdSysColorSurface,
+    fill: tokens.MdSysColorPrimary,
+    "&:disabled": {
+      fill: `${rgba(tokens.MdSysColorPrimary, 0.38)}`,
+    }
+  },
+  "&.secondary": {
+    background: tokens.MdSysColorSecondaryContainer,
+    fill: tokens.MdSysColorOnSecondaryContainer,
+    "&:disabled": {
+      fill: `${rgba(tokens.MdSysColorPrimary, 0.38)}`,
+    },
+    "&>.state": {
+      background: tokens.MdSysColorOnSecondaryContainer,
+    }
+  },
+  "&.tertiary": {
+    background: tokens.MdSysColorTertiaryContainer,
+    fill: tokens.MdSysColorOnTertiaryContainer,
+    "&:disabled": {
+      fill: `${rgba(tokens.MdSysColorPrimary, 0.38)}`,
+    },
+    "&>.state": {
+      background: tokens.MdSysColorOnTertiaryContainer,
+    }
+  }
 });
