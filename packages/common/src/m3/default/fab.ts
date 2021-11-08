@@ -10,7 +10,6 @@ export const FAB = (tokens) => ({
   "line-height": tokens.MdSysTypescaleLabelLargeLineHeight,
   "text-align": "center",
   willChange: "transform opacity",
-  fontWeight: tokens.MdSysTypescaleLabelLargeWeight,
   overflow: "hidden",
   padding: "16px",
   transition: `box-shadow ${duration} ease-in-out, background-color ${duration} ease-in-out, 
@@ -96,5 +95,17 @@ export const FAB = (tokens) => ({
     "&>.state": {
       background: tokens.MdSysColorOnTertiaryContainer,
     }
+  },
+  "&.small": {
+    height: "40px",
+    width: "40px",
+    "border-radius": "12px",
+    padding: "8px",
+  },
+  "&.large": {
+    height: "96px",
+    width: "96px",
+    "border-radius": "28px",
+    padding: "16px",
   }
 });

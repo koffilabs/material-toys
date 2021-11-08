@@ -26,28 +26,48 @@
   </div>
   <div :class="line">
     <h1>FAB - level3 (default)</h1>
+    <FAB data-start @click="onClick" class="large"><EditIcon :size="36"></EditIcon></FAB>
+    <FAB data-start @click="onClick" class="large" disabled><EditIcon :size="36"></EditIcon></FAB>
     <FAB data-start @click="onClick"><EditIcon></EditIcon></FAB>
     <FAB data-start @click="onClick" disabled><EditIcon></EditIcon></FAB>
+    <FAB data-start @click="onClick" class="small"><EditIcon></EditIcon></FAB>
+    <FAB data-start @click="onClick" class="small" disabled><EditIcon></EditIcon></FAB>
   </div>
   <div :class="line">
     <h1>FAB - level1</h1>
+    <FAB data-start @click="onClick" class="level1 large"><EditIcon :size="36"></EditIcon></FAB>
+    <FAB data-start @click="onClick" class="level1 large" disabled><EditIcon :size="36"></EditIcon></FAB>
     <FAB data-start @click="onClick" class="level1"><EditIcon></EditIcon></FAB>
     <FAB data-start @click="onClick" class="level1" disabled><EditIcon></EditIcon></FAB>
+    <FAB data-start @click="onClick" class="level1 small"><EditIcon></EditIcon></FAB>
+    <FAB data-start @click="onClick" class="level1 small" disabled><EditIcon></EditIcon></FAB>
   </div>
   <div :class="line">
     <h1>FAB - surface, level3 (default)</h1>
+    <FAB data-start @click="onClick" class="surface small"><EditIcon></EditIcon></FAB>
+    <FAB data-start @click="onClick" disabled class="surface small"><EditIcon></EditIcon></FAB>
+    <FAB data-start @click="onClick" class="surface large"><EditIcon :size="36"></EditIcon></FAB>
+    <FAB data-start @click="onClick" disabled class="surface large"><EditIcon :size="36"></EditIcon></FAB>
     <FAB data-start @click="onClick" class="surface"><EditIcon></EditIcon></FAB>
     <FAB data-start @click="onClick" disabled class="surface"><EditIcon></EditIcon></FAB>
   </div>
   <div :class="line">
     <h1>FAB - secondary, level3 (default)</h1>
+    <FAB data-start @click="onClick" class="secondary large"><EditIcon :size="36"></EditIcon></FAB>
+    <FAB data-start @click="onClick" disabled class="secondary large"><EditIcon :size="36"></EditIcon></FAB>
     <FAB data-start @click="onClick" class="secondary"><EditIcon></EditIcon></FAB>
     <FAB data-start @click="onClick" disabled class="secondary"><EditIcon></EditIcon></FAB>
+    <FAB data-start @click="onClick" class="secondary small"><EditIcon></EditIcon></FAB>
+    <FAB data-start @click="onClick" disabled class="secondary small"><EditIcon></EditIcon></FAB>
   </div>
   <div :class="line">
     <h1>FAB - tertiary, level3 (default)</h1>
+    <FAB data-start @click="onClick" class="tertiary large"><EditIcon :size="36"></EditIcon></FAB>
+    <FAB data-start @click="onClick" disabled class="tertiary large"><EditIcon :size="36"></EditIcon></FAB>
     <FAB data-start @click="onClick" class="tertiary"><EditIcon></EditIcon></FAB>
     <FAB data-start @click="onClick" disabled class="tertiary"><EditIcon></EditIcon></FAB>
+    <FAB data-start @click="onClick" class="tertiary small"><EditIcon></EditIcon></FAB>
+    <FAB data-start @click="onClick" disabled class="tertiary small"><EditIcon></EditIcon></FAB>
   </div>
   <div :class="line">
     <EditIcon :size="48"></EditIcon>
