@@ -8,5 +8,6 @@
     "build": "yarn workspaces run build",
     "watchall": "yarn workspaces foreach --parallel --interlaced run dev",
     "bootstrap": "yarn install"
-  }
+  },
+  "packageManager": "yarn@3.1.0"
 }
