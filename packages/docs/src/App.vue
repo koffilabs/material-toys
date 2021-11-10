@@ -3,6 +3,14 @@
     <h1>Elevated Button</h1>
     <Button data-start @click="onClick" class="elevated">Enabled</Button>
     <Button data-start @click="onClick" disabled class="elevated">Disabled</Button>
+    <Button data-start @click="onClick" class="elevated">
+      <template v-slot:icon><EditIcon :size="18"></EditIcon></template>
+      <template v-slot:default>Enabled</template>
+    </Button>
+    <Button data-start @click="onClick" disabled class="elevated">
+      <template v-slot:icon><EditIcon :size="18"></EditIcon></template>
+      <template v-slot:default>Disabled</template>
+    </Button>
   </div>
   <div :class="line">
     <h1>Filled button</h1>

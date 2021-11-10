@@ -5,8 +5,9 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "yarn workspaces run build",
-    "watchall": "yarn workspaces foreach --parallel --interlaced run dev",
+    "build-all": "yarn workspaces foreach run build",
+    "build-icons": "yarn workspace @material-yue/icons run build",
+    "watch-all": "yarn workspaces foreach --parallel --interlaced run dev",
     "bootstrap": "yarn install"
   },
   "packageManager": "yarn@3.1.0"

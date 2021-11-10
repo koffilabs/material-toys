@@ -23,8 +23,7 @@
   },
   "scripts": {
     "generate": "scripts/generateIcons.js",
-    "build": "rollup -c ./rollup.config.js",
-    "dev": "rollup -c ./rollup.config.js -w"
+    "build": "rollup -c ./rollup.config.js"
   },
   "bugs": {
     "url": "https://github.com/koffilabs/material-yue/issues"

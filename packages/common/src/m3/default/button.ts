@@ -1,6 +1,9 @@
 import { rgba } from "emotion-rgba";
 const duration = ".1s";
 export const Button = (tokens) => ({
+  display: "flex",
+  justifyContent: "flex-start",
+  alignItems: "center",
   fontSize: `${tokens.MdSysTypescaleLabelLargeSize}`,
   border: "none",
   "border-radius": "20px",
@@ -54,6 +57,7 @@ export const Button = (tokens) => ({
   },
   "&.elevated": {
     color: tokens.MdSysColorPrimary,
+    fill: tokens.MdSysColorPrimary,
     background: tokens.MdSysColorSurface,
     // boxShadow: `0 1px 2px 1px ${rgba(tokens.MdSysColorShadow, 0.3)}`,
     // level1

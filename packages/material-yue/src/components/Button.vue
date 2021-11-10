@@ -1,7 +1,9 @@
 <template>
   <button ref="root" :class="btn">
     <div class="state">
-    </div><slot></slot></button>
+    </div>
+    <slot name="icon"></slot>
+    <div><slot></slot></div></button>
 </template>
 <script lang="ts">
 import { computed, inject, ref } from "vue";
