@@ -1,7 +1,7 @@
 import { rgba } from "emotion-rgba";
 const duration = ".1s";
 export const Button = (tokens) => ({
-  display: "flex",
+  display: "inline-flex",
   justifyContent: "flex-start",
   alignItems: "center",
   fontSize: `${tokens.MdSysTypescaleLabelLargeSize}`,
@@ -10,7 +10,7 @@ export const Button = (tokens) => ({
   position: "relative",
   "text-transform": "capitalize",
   height: "40px",
-  "line-height": tokens.MdSysTypescaleLabelLargeLineHeight,
+  // "line-height": tokens.MdSysTypescaleLabelLargeLineHeight, // commented to align the icons
   "text-align": "center",
   willChange: "transform opacity",
   fontWeight: tokens.MdSysTypescaleLabelLargeWeight,

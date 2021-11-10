@@ -31,5 +31,6 @@ export const m3 = (tokens) => ({
     },
     Button: Button(tokens),
     FAB: FAB(tokens),
+    Icon: Icon(tokens),
   },
 });
