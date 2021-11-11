@@ -23,12 +23,12 @@ let indexContents = "";
           `${START_DIRECTORY}/${dir}/${iconName}/${iconType}/24px.svg`
         );
         const componentName = `${toPascalCase(toValidName(iconName))}Icon`;
-        const iconComponent = `<template><div :style="{ width: styleSize, height: styleSize }">${svg
+        const iconComponent = `<template>${svg
     .toString()
     .replace(
       /<svg/,
       '<svg :style="{ width: styleSize, height: styleSize }" '
-    )}</div></template>
+    )}</template>
 <script lang="ts">
   export default {
     props: {
@@ -36,7 +36,7 @@ let indexContents = "";
     },
     name: "${componentName}",
     setup(props){
-      const styleSize: string = typeof size === "number" ? (props.size + "px") : (props.size ?? "24px");
+      const styleSize:string = typeof props.size !== "undefined" ? parseInt(props.size) + "px" :"24px";
       return {
         styleSize
       }

@@ -2,7 +2,7 @@ import { rgba } from "emotion-rgba";
 const duration = ".1s";
 export const Button = (tokens) => ({
   display: "inline-flex",
-  justifyContent: "flex-start",
+  justifyContent: "center",
   alignItems: "center",
   fontSize: `${tokens.MdSysTypescaleLabelLargeSize}`,
   border: "none",
@@ -10,7 +10,7 @@ export const Button = (tokens) => ({
   position: "relative",
   "text-transform": "capitalize",
   height: "40px",
-  // "line-height": tokens.MdSysTypescaleLabelLargeLineHeight, // commented to align the icons
+  "line-height": tokens.MdSysTypescaleLabelLargeLineHeight, // commented to align the icons
   "text-align": "center",
   willChange: "transform opacity",
   fontWeight: tokens.MdSysTypescaleLabelLargeWeight,
@@ -91,6 +91,7 @@ export const Button = (tokens) => ({
     },
     "&:disabled": {
       color: `${rgba(tokens.MdSysColorPrimary, 0.38)}`,
+      fill: `${rgba(tokens.MdSysColorPrimary, 0.38)}`,
       background: `${rgba(tokens.MdSysColorSurface, 0.12)}`,
       boxShadow: `0 0 0 0 ${rgba("#000", 0.3)},0 0 0 0 ${rgba(
         "#000",
@@ -100,12 +101,14 @@ export const Button = (tokens) => ({
   },
   "&.filled": {
     color: tokens.MdSysColorOnPrimary,
+    fill: tokens.MdSysColorOnPrimary,
     background: tokens.MdSysColorPrimary,
     "&>.state": {
       background: tokens.MdSysColorOnPrimary,
     },
     "&:disabled": {
       color: `${rgba(tokens.MdSysColorOnSurface, 0.38)}`,
+      fill: `${rgba(tokens.MdSysColorOnSurface, 0.38)}`,
       background: `${rgba(tokens.MdSysColorPrimary, 0.12)}`,
     },
     "&:hover:not(:disabled)": {
@@ -126,6 +129,7 @@ export const Button = (tokens) => ({
   },
   "&.filled-tonal": {
     color: tokens.MdSysColorOnSecondaryContainer,
+    fill: tokens.MdSysColorOnSecondaryContainer,
     background: tokens.MdSysColorSecondaryContainer,
     "&>.state": {
       background: tokens.MdSysColorOnSecondaryContainer,
@@ -148,11 +152,13 @@ export const Button = (tokens) => ({
 
     "&:disabled": {
       color: `${rgba(tokens.MdSysColorOnSurface, 0.38)}`,
+      fill: `${rgba(tokens.MdSysColorOnSurface, 0.38)}`,
       background: `${rgba(tokens.MdSysColorOnSurface, 0.12)}`,
     },
   },
   "&.outlined": {
     color: tokens.MdSysColorPrimary,
+    fill: tokens.MdSysColorPrimary,
     background: "transparent", // tokens.MdSysColorSurface,
     border: `1px solid ${tokens.MdSysColorOutline}`,
     "&>.state": {
@@ -168,6 +174,7 @@ export const Button = (tokens) => ({
     "&:focus:not(:disabled)": {
       borderColor: tokens.MdSysColorPrimary,
       color: tokens.MdSysColorPrimary,
+      fill: tokens.MdSysColorPrimary,
       "&>.state": {
         background: tokens.MdSysColorPrimary,
       },
@@ -175,6 +182,7 @@ export const Button = (tokens) => ({
     "&:active:not(:disabled)": {
       borderColor: tokens.MdSysColorOutline,
       color: tokens.MdSysColorPrimary,
+      fill: tokens.MdSysColorPrimary,
       "&>.state": {
         background: tokens.MdSysColorPrimary,
       },
@@ -183,28 +191,37 @@ export const Button = (tokens) => ({
     "&:disabled": {
       borderColor: `${rgba(tokens.MdSysColorOnSurface, 0.12)}`,
       color: `${rgba(tokens.MdSysColorOnSurface, 0.38)}`,
+      fill: `${rgba(tokens.MdSysColorOnSurface, 0.38)}`,
     },
   },
   "&.text": {
     color: tokens.MdSysColorPrimary,
+    fill: tokens.MdSysColorPrimary,
     background: "transparent",
     "&>.state": {
       background: tokens.MdSysColorOnSecondaryContainer,
     },
     "&:hover:not(:disabled)": {
       color: tokens.MdSysColorPrimary,
+      fill: tokens.MdSysColorPrimary,
       "&>.state": {
         background: tokens.MdSysColorPrimary,
       },
     },
     "&:active:not(:disabled),&:focus:not(:disabled)": {
       color: tokens.MdSysColorPrimary,
+      fill: tokens.MdSysColorPrimary,
       "&>.state": {
         background: tokens.MdSysColorPrimary,
       },
     },
     "&:disabled": {
       color: `${rgba(tokens.MdSysColorOnSurface, 0.38)}`,
+      fill: `${rgba(tokens.MdSysColorOnSurface, 0.38)}`,
     },
   },
+  svg: {
+    marginLeft:"-8px",
+    marginRight:"8px",
+  }
 });

@@ -1,6 +1,7 @@
-import { rgba } from "emotion-rgba";
+// import { rgba } from "emotion-rgba";
 import { Button } from "./button";
 import { FAB } from "./fab";
+import { Icon } from "./icon";
 
 export const m3 = (tokens) => ({
   colors: {
@@ -31,6 +32,5 @@ export const m3 = (tokens) => ({
     },
     Button: Button(tokens),
     FAB: FAB(tokens),
-    Icon: Icon(tokens),
   },
 });

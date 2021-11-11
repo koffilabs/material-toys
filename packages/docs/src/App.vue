@@ -1,81 +1,97 @@
 <template>
   <div :class="line">
     <h1>Elevated Button</h1>
-    <Button data-start @click="onClick" class="elevated">Enabled</Button>
-    <Button data-start @click="onClick" disabled class="elevated">Disabled</Button>
-    <Button data-start @click="onClick" class="elevated">
-      <template v-slot:icon><EditIcon :size="18"></EditIcon></template>
-      <template v-slot:default>Enabled</template>
+    <Button data-start class="elevated">Enabled</Button>
+    <Button data-start disabled class="elevated">Disabled</Button>
+    <Button data-start class="elevated">
+      <template v-slot:icon><AddIcon :size="18"></AddIcon></template>
+      <template v-slot:default>Elevated Button</template>
     </Button>
-    <Button data-start @click="onClick" disabled class="elevated">
+    <Button data-start disabled class="elevated">
       <template v-slot:icon><EditIcon :size="18"></EditIcon></template>
       <template v-slot:default>Disabled</template>
     </Button>
   </div>
   <div :class="line">
     <h1>Filled button</h1>
-    <Button data-start @click="onClick" class="filled">Enabled</Button>
-    <Button data-start @click="onClick" disabled class="filled">Disabled</Button>
+    <Button data-start class="filled">Enabled</Button>
+    <Button data-start disabled class="filled">Disabled</Button>
+    <Button data-start class="filled">
+      <template v-slot:icon><EditIcon :size="18"></EditIcon></template>
+      <template v-slot:default>Filled button</template>
+    </Button>
   </div>
   <div :class="line">
     <h1>Filled tonal button</h1>
-    <Button data-start @click="onClick" class="filled-tonal">Enabled</Button>
-    <Button data-start @click="onClick" disabled class="filled-tonal">Disabled</Button>
+    <Button data-start class="filled-tonal">Enabled</Button>
+    <Button data-start disabled class="filled-tonal">Disabled</Button>
+    <Button data-start class="filled-tonal">
+      <template v-slot:icon><EditIcon :size="18"></EditIcon></template>
+      <template v-slot:default>Filled tonal button</template>
+    </Button>
   </div>
   <div :class="line">
     <h1>Outlined button</h1>
-    <Button data-start @click="onClick" class="outlined">Enabled</Button>
-    <Button data-start @click="onClick" disabled class="outlined">Disabled</Button>
+    <Button data-start class="outlined">Enabled</Button>
+    <Button data-start disabled class="outlined">Disabled</Button>
+    <Button data-start class="outlined">
+      <template v-slot:icon><EditIcon :size="18"></EditIcon></template>
+      <template v-slot:default>Outlined button</template>
+    </Button>
   </div>
   <div :class="line">
     <h1>Text button</h1>
-    <Button data-start @click="onClick" class="text">Enabled</Button>
-    <Button data-start @click="onClick" disabled class="text">Disabled</Button>
+    <Button data-start class="text">Enabled</Button>
+    <Button data-start disabled class="text">Disabled</Button>
+    <Button data-start class="text">
+      <template v-slot:icon><EditIcon :size="18"></EditIcon></template>
+      <template v-slot:default>Text button</template>
+    </Button>
   </div>
   <div :class="line">
     <h1>FAB - level3 (default)</h1>
-    <FAB data-start @click="onClick" class="large"><EditIcon :size="36"></EditIcon></FAB>
-    <FAB data-start @click="onClick" class="large" disabled><EditIcon :size="36"></EditIcon></FAB>
+    <FAB data-start class="large"><EditIcon :size="36"></EditIcon></FAB>
+    <FAB data-start class="large" disabled><EditIcon :size="36"></EditIcon></FAB>
     <FAB data-start @click="onClick"><EditIcon></EditIcon></FAB>
-    <FAB data-start @click="onClick" disabled><EditIcon></EditIcon></FAB>
-    <FAB data-start @click="onClick" class="small"><EditIcon></EditIcon></FAB>
-    <FAB data-start @click="onClick" class="small" disabled><EditIcon></EditIcon></FAB>
+    <FAB data-start disabled><EditIcon></EditIcon></FAB>
+    <FAB data-start class="small"><EditIcon></EditIcon></FAB>
+    <FAB data-start class="small" disabled><EditIcon></EditIcon></FAB>
   </div>
   <div :class="line">
     <h1>FAB - level1</h1>
-    <FAB data-start @click="onClick" class="level1 large"><EditIcon :size="36"></EditIcon></FAB>
-    <FAB data-start @click="onClick" class="level1 large" disabled><EditIcon :size="36"></EditIcon></FAB>
-    <FAB data-start @click="onClick" class="level1"><EditIcon></EditIcon></FAB>
-    <FAB data-start @click="onClick" class="level1" disabled><EditIcon></EditIcon></FAB>
-    <FAB data-start @click="onClick" class="level1 small"><EditIcon></EditIcon></FAB>
-    <FAB data-start @click="onClick" class="level1 small" disabled><EditIcon></EditIcon></FAB>
+    <FAB data-start class="level1 large"><EditIcon :size="36"></EditIcon></FAB>
+    <FAB data-start class="level1 large" disabled><EditIcon :size="36"></EditIcon></FAB>
+    <FAB data-start class="level1"><EditIcon></EditIcon></FAB>
+    <FAB data-start class="level1" disabled><EditIcon></EditIcon></FAB>
+    <FAB data-start class="level1 small"><EditIcon></EditIcon></FAB>
+    <FAB data-start class="level1 small" disabled><EditIcon></EditIcon></FAB>
   </div>
   <div :class="line">
     <h1>FAB - surface, level3 (default)</h1>
-    <FAB data-start @click="onClick" class="surface large"><EditIcon :size="36"></EditIcon></FAB>
-    <FAB data-start @click="onClick" disabled class="surface large"><EditIcon :size="36"></EditIcon></FAB>
-    <FAB data-start @click="onClick" class="surface"><EditIcon></EditIcon></FAB>
-    <FAB data-start @click="onClick" disabled class="surface"><EditIcon></EditIcon></FAB>
-    <FAB data-start @click="onClick" class="surface small"><EditIcon></EditIcon></FAB>
-    <FAB data-start @click="onClick" disabled class="surface small"><EditIcon></EditIcon></FAB>
+    <FAB data-start class="surface large"><EditIcon :size="36"></EditIcon></FAB>
+    <FAB data-start disabled class="surface large"><EditIcon :size="36"></EditIcon></FAB>
+    <FAB data-start class="surface"><EditIcon></EditIcon></FAB>
+    <FAB data-start disabled class="surface"><EditIcon></EditIcon></FAB>
+    <FAB data-start class="surface small"><EditIcon></EditIcon></FAB>
+    <FAB data-start disabled class="surface small"><EditIcon></EditIcon></FAB>
   </div>
   <div :class="line">
     <h1>FAB - secondary, level3 (default)</h1>
-    <FAB data-start @click="onClick" class="secondary large"><EditIcon :size="36"></EditIcon></FAB>
-    <FAB data-start @click="onClick" disabled class="secondary large"><EditIcon :size="36"></EditIcon></FAB>
-    <FAB data-start @click="onClick" class="secondary"><EditIcon></EditIcon></FAB>
-    <FAB data-start @click="onClick" disabled class="secondary"><EditIcon></EditIcon></FAB>
-    <FAB data-start @click="onClick" class="secondary small"><EditIcon></EditIcon></FAB>
-    <FAB data-start @click="onClick" disabled class="secondary small"><EditIcon></EditIcon></FAB>
+    <FAB data-start class="secondary large"><EditIcon :size="36"></EditIcon></FAB>
+    <FAB data-start disabled class="secondary large"><EditIcon :size="36"></EditIcon></FAB>
+    <FAB data-start class="secondary"><EditIcon></EditIcon></FAB>
+    <FAB data-start disabled class="secondary"><EditIcon></EditIcon></FAB>
+    <FAB data-start class="secondary small"><EditIcon></EditIcon></FAB>
+    <FAB data-start disabled class="secondary small"><EditIcon></EditIcon></FAB>
   </div>
   <div :class="line">
     <h1>FAB - tertiary, level3 (default)</h1>
-    <FAB data-start @click="onClick" class="tertiary large"><EditIcon :size="36"></EditIcon></FAB>
-    <FAB data-start @click="onClick" disabled class="tertiary large"><EditIcon :size="36"></EditIcon></FAB>
-    <FAB data-start @click="onClick" class="tertiary"><EditIcon></EditIcon></FAB>
-    <FAB data-start @click="onClick" disabled class="tertiary"><EditIcon></EditIcon></FAB>
-    <FAB data-start @click="onClick" class="tertiary small"><EditIcon></EditIcon></FAB>
-    <FAB data-start @click="onClick" disabled class="tertiary small"><EditIcon></EditIcon></FAB>
+    <FAB data-start class="tertiary large"><EditIcon :size="36"></EditIcon></FAB>
+    <FAB data-start disabled class="tertiary large"><EditIcon :size="36"></EditIcon></FAB>
+    <FAB data-start class="tertiary"><EditIcon></EditIcon></FAB>
+    <FAB data-start disabled class="tertiary"><EditIcon></EditIcon></FAB>
+    <FAB data-start class="tertiary small"><EditIcon></EditIcon></FAB>
+    <FAB data-start disabled class="tertiary small"><EditIcon></EditIcon></FAB>
   </div>
   <div :class="line">
     <EditIcon :size="48"></EditIcon>
@@ -96,16 +112,19 @@ import {Button, Card, FAB, morph } from "@material-yue/vue";
 import {provide, reactive, ref} from "vue";
 import {material_tokens} from "@material-yue/common";
 import {material_tokens_polyfill} from "@material-yue/common";
-import {EditIcon} from "@material-yue/icons";
+import {EditIcon, AddIcon} from "@material-yue/icons";
+
+// for development purposes only
+// import AddIcon from "../../icons/src/vue/icons/materialicons/AddIcon.vue";
 
 const tokens = { ...material_tokens_polyfill, ...material_tokens };
 
 export default {
   name: "material-yue-docs",
-  components: {Button, Card, FAB, EditIcon },
+  components: {Button, Card, FAB, EditIcon, AddIcon },
   setup() {
-    console.log("morph is", morph);
-    console.log(Card);
+    // console.log("morph is", morph);
+    // console.log(Card);
 
     const reactiveTokens = reactive(tokens);
     const visibility = ref("hidden");
