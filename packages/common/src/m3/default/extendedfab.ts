@@ -1,20 +1,28 @@
 import { rgba } from "emotion-rgba";
 const duration = ".1s";
-export const FAB = (tokens) => ({
+export const ExtendedFAB = (tokens) => ({
+  minWidth: "80px",
+  margin: "16px",
+  fontFamily: tokens.MdSysTypescaleButtonFont,
+  // Label or Button? no specs for the Button
+  fontSize: tokens.MdSysTypescaleLabelLargeSize,
+  fontWeight: tokens.MdSysTypescaleLabelLargeWeight,
+  fontFamily: tokens.MdSysTypescaleLabelLargeFont,
+  letterSpacing: tokens.MdSysTypescaleLabelLargeTracking,
+
   border: "none",
   background: tokens.MdSysColorPrimaryContainer,
   "border-radius": "16px",
   position: "relative",
-  margin: "8px",
   height: "56px",
-  width: "56px",
-  "line-height": tokens.MdSysTypescaleLabelLargeLineHeight,
+    "line-height": tokens.MdSysTypescaleLabelLargeLineHeight,
   "text-align": "center",
   willChange: "transform opacity",
   overflow: "hidden",
   padding: "16px",
   transition: `box-shadow ${duration} ease-in-out, background-color ${duration} ease-in-out, 
   fill ${duration} ease-in-out`,
+  color: tokens.MdSysColorOnPrimaryContainer,
   fill: tokens.MdSysColorOnPrimaryContainer,
   // level 3
   boxShadow: `0 3px 3px -2px ${rgba(
@@ -108,5 +116,9 @@ export const FAB = (tokens) => ({
     width: "96px",
     "border-radius": "28px",
     padding: "16px",
+  },
+  "svg": {
+    marginLeft: "-8px",
+    marginRight: "8px"
   }
 });

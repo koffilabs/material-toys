@@ -1,6 +1,7 @@
 // import { rgba } from "emotion-rgba";
 import { Button } from "./button";
 import { FAB } from "./fab";
+import { ExtendedFAB } from "./extendedfab";
 import { Icon } from "./icon";
 
 export const m3 = (tokens) => ({
@@ -32,5 +33,6 @@ export const m3 = (tokens) => ({
     },
     Button: Button(tokens),
     FAB: FAB(tokens),
+    ExtendedFAB: ExtendedFAB(tokens),
   },
 });

@@ -4,7 +4,6 @@ export const Button = (tokens) => ({
   display: "inline-flex",
   justifyContent: "center",
   alignItems: "center",
-  fontSize: `${tokens.MdSysTypescaleLabelLargeSize}`,
   border: "none",
   "border-radius": "20px",
   position: "relative",
@@ -13,6 +12,7 @@ export const Button = (tokens) => ({
   "line-height": tokens.MdSysTypescaleLabelLargeLineHeight, // commented to align the icons
   "text-align": "center",
   willChange: "transform opacity",
+  fontSize: tokens.MdSysTypescaleLabelLargeSize,
   fontWeight: tokens.MdSysTypescaleLabelLargeWeight,
   fontFamily: tokens.MdSysTypescaleLabelLargeFont,
   letterSpacing: tokens.MdSysTypescaleLabelLargeTracking,

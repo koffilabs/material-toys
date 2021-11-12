@@ -17,7 +17,6 @@ export default {
     const style = ref(null);
     const width = ref(0);
     const height = ref(0);
-    console.log("[fab] ", m3(tokens).components.FAB)
     const fab = computed(() => css(
         style.value = setDynamic({target: m3(tokens).components.FAB, theme, width, height}),
     ));
