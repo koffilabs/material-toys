@@ -1,9 +1,12 @@
 import { rgba } from "emotion-rgba";
 const duration = ".1s";
 export const ExtendedFAB = (tokens) => ({
+  display: "inline-flex",
+  justifyContent: "center",
+  alignItems: "center",
   minWidth: "80px",
   margin: "16px",
-  fontFamily: tokens.MdSysTypescaleButtonFont,
+  // fontFamily: tokens.MdSysTypescaleButtonFont,
   // Label or Button? no specs for the Button
   fontSize: tokens.MdSysTypescaleLabelLargeSize,
   fontWeight: tokens.MdSysTypescaleLabelLargeWeight,

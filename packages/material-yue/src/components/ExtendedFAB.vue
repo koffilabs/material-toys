@@ -3,7 +3,7 @@
     <div class="state">
     </div>
     <slot name="icon"></slot>
-    <slot></slot></button>
+    <div><slot></slot></div></button>
 </template>
 <script lang="ts">
 import { computed, inject, ref } from "vue";

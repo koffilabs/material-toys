@@ -775,7 +775,7 @@ __metadata:
     emotion-rgba: ^0.0.9
     esbuild: ^0.13.12
     jest: ^27.2.2
-    rollup: ^2.59.0
+    rollup: ^2.60.0
     rollup-plugin-esbuild: ^4.6.0
     ts-jest: ^27.0.5
     tslib: ^2.3.1
@@ -5034,6 +5034,20 @@ __metadata:
   bin:
     rollup: dist/bin/rollup
   checksum: 9fbaa72b8ff840b366f4da3ba35379a3d115fd52e1dced1693995005a9ff7e1699829ff16d8eb65c0a9eff26b57b4914dca7511f22e4d900af8c757d7129124d
+  languageName: node
+  linkType: hard
+
+"rollup@npm:^2.60.0":
+  version: 2.60.0
+  resolution: "rollup@npm:2.60.0"
+  dependencies:
+    fsevents: ~2.3.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    rollup: dist/bin/rollup
+  checksum: ef267b49a203f3db86d6db8c63de8737d6e3995d988dadf35c1922964c21cafbb95990543cfc716356d31bf6ca3975e58d9195df85b28721ecdc9acd3693acca
   languageName: node
   linkType: hard
 

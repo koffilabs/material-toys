@@ -96,14 +96,36 @@
   <div :class="line">
     <h1>Extended FAB</h1>
     <ExtendedFAB>
-      <template v-slot:icon><EditIcon></EditIcon></template>
-      <template v-slot:default>Extended FAB</template>
+      Compose
     </ExtendedFAB>
-    <ExtendedFAB disabled><EditIcon :size="36"></EditIcon></ExtendedFAB>
-    <ExtendedFAB><EditIcon></EditIcon></ExtendedFAB>
-    <ExtendedFAB disabled><EditIcon></EditIcon></ExtendedFAB>
-    <ExtendedFAB><EditIcon></EditIcon></ExtendedFAB>
-    <ExtendedFAB disabled><EditIcon></EditIcon></ExtendedFAB>
+    <ExtendedFAB class="surface">
+      Compose
+    </ExtendedFAB>
+    <ExtendedFAB class="secondary">
+      Compose
+    </ExtendedFAB>
+    <ExtendedFAB class="tertiary">
+      Compose
+    </ExtendedFAB>
+  </div>
+  <div :class="line">
+    <h1>Extended FAB with icons</h1>
+    <ExtendedFAB>
+      <template v-slot:icon><EditIcon></EditIcon></template>
+      <template v-slot:default>Compose</template>
+    </ExtendedFAB>
+    <ExtendedFAB class="surface">
+      <template v-slot:icon><EditIcon></EditIcon></template>
+      <template v-slot:default>Compose</template>
+    </ExtendedFAB>
+    <ExtendedFAB class="secondary">
+      <template v-slot:icon><EditIcon></EditIcon></template>
+      <template v-slot:default>Compose</template>
+    </ExtendedFAB>
+    <ExtendedFAB class="tertiary">
+      <template v-slot:icon><EditIcon></EditIcon></template>
+      <template v-slot:default>Compose</template>
+    </ExtendedFAB>
   </div>
 
   <div :class="line">
