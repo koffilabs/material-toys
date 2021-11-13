@@ -1,6 +1,7 @@
 import { rgba } from "emotion-rgba";
+import {M3Options} from "./index";
 const duration = ".1s";
-export const ExtendedFAB = (tokens) => ({
+export const ExtendedFAB = (tokens, options?: M3Options) => ({
   display: "inline-flex",
   justifyContent: "center",
   alignItems: "center",

@@ -1,6 +1,7 @@
 import { rgba } from "emotion-rgba";
+import {M3Options} from "./index";
 const duration = ".1s";
-export const FAB = (tokens) => ({
+export const FAB = (tokens, options?: M3Options) => ({
   border: "none",
   background: tokens.MdSysColorPrimaryContainer,
   "border-radius": "16px",
