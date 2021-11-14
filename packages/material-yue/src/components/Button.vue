@@ -15,14 +15,14 @@ export default {
   name: "Button",
   setup(){
     const tokens: any = inject("tokens");
-    const variant = inject("themeVariant");
-    const theme = m3(tokens, {variant});
+    const variant: any = inject("variant");
+    const theme = m3(tokens, {variant:variant.value});
     const root = ref(null);
     const style = ref(null);
     const width = ref(0);
     const height = ref(0);
     const btn = computed(() => css(
-        style.value = setDynamic({target: m3(tokens, {variant}).components.Button, theme, width, height}),
+        style.value = setDynamic({target: m3(tokens, {variant:variant.value}).components.Button, theme, width, height}),
     ));
     return { root, btn };
   }

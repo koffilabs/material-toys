@@ -131,23 +131,26 @@
   <div :class="line">
     <EditIcon :size="96"></EditIcon>
   </div>
-  <div :class="page">
-    <Card data-end :class="customCard" :style="{visibility}">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque autem consequatur,
-      eligendi iusto nemo saepe
-      similique. Earum inventore nisi quos reprehenderit. Accusamus dolores dolorum fuga minima, necessitatibus
-      numquam quos voluptate.
-    </Card>
-  </div>
+  <ExtendedFAB @click="toggleDarkMode" style="position:fixed;right:16px;bottom:16px">
+    <template v-slot:icon><DarkModeIcon></DarkModeIcon></template>
+    <template v-slot:default>Toggle Dark Mode</template>
+  </ExtendedFAB>
+<!--  <div :class="page">-->
+<!--    <Card data-end :class="customCard" :style="{visibility}">-->
+<!--      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque autem consequatur,-->
+<!--      eligendi iusto nemo saepe-->
+<!--      similique. Earum inventore nisi quos reprehenderit. Accusamus dolores dolorum fuga minima, necessitatibus-->
+<!--      numquam quos voluptate.-->
+<!--    </Card>-->
+<!--  </div>-->
 </template>
 <script>
 import {css} from "@emotion/css";
 import {Button, Card, FAB, morph, ExtendedFAB } from "@material-yue/vue";
-// import { InboxIcon } from "@material-yue/vue";
 import {provide, reactive, ref} from "vue";
 import {material_tokens} from "@material-yue/common";
 import {material_tokens_polyfill} from "@material-yue/common";
-import {EditIcon, AddIcon} from "@material-yue/icons";
+import {EditIcon, AddIcon, DarkModeIcon} from "@material-yue/icons";
 
 // for development purposes only
 // import AddIcon from "../../icons/src/vue/icons/materialicons/AddIcon.vue";
@@ -156,20 +159,25 @@ const tokens = { ...material_tokens_polyfill, ...material_tokens };
 
 export default {
   name: "material-yue-docs",
-  components: {Button, Card, FAB, ExtendedFAB, EditIcon, AddIcon },
+  components: {Button, Card, FAB, ExtendedFAB, EditIcon, AddIcon, DarkModeIcon },
   setup() {
     // console.log("morph is", morph);
     // console.log(Card);
-
     const reactiveTokens = reactive(tokens);
-    const themeVariant = reactive("Dark");
+    const variant = ref("Dark");
     const visibility = ref("hidden");
+    const toggleDarkMode = () => {
+      document.body.style.color = variant.value === "Dark" ? "#333" : "#f0f0f0";
+      document.body.style.backgroundColor = variant.value === "Dark" ? "#f0f0f0" : "#333";
+      variant.value = variant.value === "Dark" ? "" : "Dark";
+    }
     provide("tokens", reactiveTokens);
-    provide("themeVariant", themeVariant);
-    // setTimeout(() => {
-    //   reactiveTokens.MdSysColorPrimary = "red";
-    //   console.log("done")
-    // }, 2000);
+    provide("variant", variant);
+    setTimeout(() => {
+      // reactiveTokens.MdSysColorPrimary = "red";
+      // variant.value = "";
+      console.log("done")
+    }, 2000);
     const line = css({
       margin: "1.618rem",
       h1: {
@@ -211,7 +219,8 @@ export default {
       customButton,
       customCard,
       onClick,
-      visibility
+      visibility,
+      toggleDarkMode
     };
   },
 };
