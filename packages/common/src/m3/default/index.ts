@@ -3,12 +3,12 @@ import { Button } from "./button";
 import { FAB } from "./fab";
 import { ExtendedFAB } from "./extendedfab";
 export interface M3Options {
-  darkVariant?: string;
+  variant?: string;
 }
 const defaultOptions = {
-
+    variant: ""
 }
-export const m3 = (tokens, options?: M3Options) => {
+export const m3 = (tokens, options: M3Options = defaultOptions) => {
   // TODO: default options
   return {
     colors: {
@@ -31,15 +31,15 @@ export const m3 = (tokens, options?: M3Options) => {
       },
       Card: {
         fontSize: "1rem",
-            color: "rgba(0, 0, 0, .74)",
-            padding: "1.618rem",
-            background: "white",
-            height: "20vh",
-            willChange: "transform opacity",
+        color: "rgba(0, 0, 0, .74)",
+        padding: "1.618rem",
+        background: "white",
+        height: "20vh",
+        willChange: "transform opacity",
       },
       Button: Button(tokens, options),
-          FAB: FAB(tokens, options),
-          ExtendedFAB: ExtendedFAB(tokens, options),
+      FAB: FAB(tokens, options),
+      ExtendedFAB: ExtendedFAB(tokens, options),
     },
   }
 };

@@ -162,8 +162,10 @@ export default {
     // console.log(Card);
 
     const reactiveTokens = reactive(tokens);
+    const themeVariant = reactive("Dark");
     const visibility = ref("hidden");
     provide("tokens", reactiveTokens);
+    provide("themeVariant", themeVariant);
     // setTimeout(() => {
     //   reactiveTokens.MdSysColorPrimary = "red";
     //   console.log("done")
