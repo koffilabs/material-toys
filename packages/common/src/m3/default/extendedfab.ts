@@ -1,128 +1,132 @@
 import { rgba } from "emotion-rgba";
-import {M3Options} from "./index";
-const duration = ".1s";
-export const ExtendedFAB = (tokens, options?: M3Options) => ({
-  display: "inline-flex",
-  justifyContent: "center",
-  alignItems: "center",
-  minWidth: "80px",
-  margin: "16px",
-  // fontFamily: tokens.MdSysTypescaleButtonFont,
-  // Label or Button? no specs for the Button
-  fontSize: tokens.MdSysTypescaleLabelLargeSize,
-  fontWeight: tokens.MdSysTypescaleLabelLargeWeight,
-  fontFamily: tokens.MdSysTypescaleLabelLargeFont,
-  letterSpacing: tokens.MdSysTypescaleLabelLargeTracking,
+import { M3Options } from "./index";
 
-  border: "none",
-  background: tokens.MdSysColorPrimaryContainer,
-  "border-radius": "16px",
-  position: "relative",
-  height: "56px",
+const duration = ".1s";
+export const ExtendedFAB = (tokens, options?: M3Options) => {
+  const variant = options.variant ?? "";
+  return {
+    display: "inline-flex",
+    justifyContent: "center",
+    alignItems: "center",
+    minWidth: "80px",
+    margin: "16px",
+    // fontFamily: tokens.MdSysTypescaleButtonFont,
+    // Label or Button? no specs for the Button
+    fontSize: tokens.MdSysTypescaleLabelLargeSize,
+    fontWeight: tokens.MdSysTypescaleLabelLargeWeight,
+    fontFamily: tokens.MdSysTypescaleLabelLargeFont,
+    letterSpacing: tokens.MdSysTypescaleLabelLargeTracking,
+
+    border: "none",
+    background: tokens[`MdSysColorPrimaryContainer${variant}`],
+    "border-radius": "16px",
+    position: "relative",
+    height: "56px",
     "line-height": tokens.MdSysTypescaleLabelLargeLineHeight,
-  "text-align": "center",
-  willChange: "transform opacity",
-  overflow: "hidden",
-  padding: "16px",
-  transition: `box-shadow ${duration} ease-in-out, background-color ${duration} ease-in-out, 
+    "text-align": "center",
+    willChange: "transform opacity",
+    overflow: "hidden",
+    padding: "16px",
+    transition: `box-shadow ${duration} ease-in-out, background-color ${duration} ease-in-out, 
   fill ${duration} ease-in-out`,
-  color: tokens.MdSysColorOnPrimaryContainer,
-  fill: tokens.MdSysColorOnPrimaryContainer,
-  // level 3
-  boxShadow: `0 3px 3px -2px ${rgba(
-    tokens.MdSysColorShadow,
-    0.2
-  )}, 0 3px 4px 0 ${rgba(tokens.MdSysColorShadow, 0.14)}, 0 1px 8px 0 ${rgba(
-    tokens.MdSysColorShadow,
-    0.12
-  )}`,
-  "&>.state": {
-    top: "0",
-    left: "0",
-    position: "absolute",
-    width: "100%",
-    height: "100%",
-    opacity: "0",
-    background: tokens.MdSysColorPrimary,
-    transition: `opacity ${duration} ease-in-out`,
-  },
-  "&:hover": {
-    cursor: "pointer",
+    color: tokens[`MdSysColorOnPrimaryContainer${variant}`],
+    fill: tokens[`MdSysColorOnPrimaryContainer${variant}`],
+    // level 3
+    boxShadow: `0 3px 3px -2px ${rgba(
+      tokens.MdSysColorShadow,
+      0.2
+    )}, 0 3px 4px 0 ${rgba(tokens.MdSysColorShadow, 0.14)}, 0 1px 8px 0 ${rgba(
+      tokens.MdSysColorShadow,
+      0.12
+    )}`,
     "&>.state": {
-      opacity: ".08",
+      top: "0",
+      left: "0",
+      position: "absolute",
+      width: "100%",
+      height: "100%",
+      opacity: "0",
+      background: tokens[`MdSysColorPrimary${variant}`],
+      transition: `opacity ${duration} ease-in-out`,
     },
-  },
-  "&:focus": {
-    "&>.state": {
-      opacity: ".12",
-    },
-  },
-  "&:active": {
-    "&>.state": {
-      opacity: ".12",
-    },
-  },
-  "&:disabled": {
-    cursor: "default",
-    color: "blue",
-    fill: `${rgba(tokens.MdSysColorPrimary, 0.38)}`,
-    "&:hover,&:focus,&:active": {
+    "&:hover": {
+      cursor: "pointer",
       "&>.state": {
-        opacity: 0,
+        opacity: ".08",
       },
     },
-  },
-  "&.level1": {
-    // level1
-    boxShadow: `0 2px 1px -1px ${rgba(
+    "&:focus": {
+      "&>.state": {
+        opacity: ".12",
+      },
+    },
+    "&:active": {
+      "&>.state": {
+        opacity: ".12",
+      },
+    },
+    "&:disabled": {
+      cursor: "default",
+      color: "blue",
+      fill: `${rgba(tokens[`MdSysColorPrimary${variant}`], 0.38)}`,
+      "&:hover,&:focus,&:active": {
+        "&>.state": {
+          opacity: 0,
+        },
+      },
+    },
+    "&.level1": {
+      // level1
+      boxShadow: `0 2px 1px -1px ${rgba(
         tokens.MdSysColorShadow,
         0.2
-    )}, 0 1px 1px 0 ${rgba(tokens.MdSysColorShadow, 0.14)}, 0 1px 3px 0 ${rgba(
+      )}, 0 1px 1px 0 ${rgba(tokens.MdSysColorShadow, 0.14)}, 0 1px 3px 0 ${rgba(
         tokens.MdSysColorShadow,
         0.12
-    )}`,
-  },
-  "&.surface": {
-    background: tokens.MdSysColorSurface,
-    fill: tokens.MdSysColorPrimary,
-    "&:disabled": {
-      fill: `${rgba(tokens.MdSysColorPrimary, 0.38)}`,
-    }
-  },
-  "&.secondary": {
-    background: tokens.MdSysColorSecondaryContainer,
-    fill: tokens.MdSysColorOnSecondaryContainer,
-    "&:disabled": {
-      fill: `${rgba(tokens.MdSysColorPrimary, 0.38)}`,
+      )}`,
     },
-    "&>.state": {
-      background: tokens.MdSysColorOnSecondaryContainer,
-    }
-  },
-  "&.tertiary": {
-    background: tokens.MdSysColorTertiaryContainer,
-    fill: tokens.MdSysColorOnTertiaryContainer,
-    "&:disabled": {
-      fill: `${rgba(tokens.MdSysColorPrimary, 0.38)}`,
+    "&.surface": {
+      background: tokens[`MdSysColorSurface${variant}`],
+      fill: tokens[`MdSysColorPrimary${variant}`],
+      "&:disabled": {
+        fill: `${rgba(tokens[`MdSysColorPrimary${variant}`], 0.38)}`,
+      }
     },
-    "&>.state": {
-      background: tokens.MdSysColorOnTertiaryContainer,
+    "&.secondary": {
+      background: tokens[`MdSysColorSecondaryContainer${variant}`],
+      fill: tokens[`MdSysColorOnSecondaryContainer${variant}`],
+      "&:disabled": {
+        fill: `${rgba(tokens[`MdSysColorPrimary${variant}`], 0.38)}`,
+      },
+      "&>.state": {
+        background: tokens[`MdSysColorOnSecondaryContainer${variant}`],
+      }
+    },
+    "&.tertiary": {
+      background: tokens[`MdSysColorTertiaryContainer${variant}`],
+      fill: tokens[`MdSysColorOnTertiaryContainer${variant}`],
+      "&:disabled": {
+        fill: `${rgba(tokens[`MdSysColorPrimary${variant}`], 0.38)}`,
+      },
+      "&>.state": {
+        background: tokens[`MdSysColorOnTertiaryContainer${variant}`],
+      }
+    },
+    "&.small": {
+      height: "40px",
+      width: "40px",
+      "border-radius": "12px",
+      padding: "8px",
+    },
+    "&.large": {
+      height: "96px",
+      width: "96px",
+      "border-radius": "28px",
+      padding: "16px",
+    },
+    "svg": {
+      marginLeft: "-8px",
+      marginRight: "8px"
     }
-  },
-  "&.small": {
-    height: "40px",
-    width: "40px",
-    "border-radius": "12px",
-    padding: "8px",
-  },
-  "&.large": {
-    height: "96px",
-    width: "96px",
-    "border-radius": "28px",
-    padding: "16px",
-  },
-  "svg": {
-    marginLeft: "-8px",
-    marginRight: "8px"
   }
-});
+};

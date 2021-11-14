@@ -14,13 +14,14 @@ export default {
   name: "ExtendedFAB",
   setup(){
     const tokens: any = inject("tokens");
-    const theme = m3(tokens);
+    const variant = inject("themeVariant");
+    const theme = m3(tokens, {variant});
     const root = ref(null);
     const style = ref(null);
     const width = ref(0);
     const height = ref(0);
     const efab = computed(() => css(
-        style.value = setDynamic({target: m3(tokens).components.ExtendedFAB, theme, width, height}),
+        style.value = setDynamic({target: m3(tokens, {variant}).components.ExtendedFAB, theme, width, height}),
     ));
     return { root, efab };
   }
