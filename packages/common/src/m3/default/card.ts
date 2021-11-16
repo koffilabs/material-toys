@@ -1,0 +1,51 @@
+import { rgba } from "emotion-rgba";
+import { M3Options } from './index';
+const duration = ".1s";
+
+export const Card = (tokens, options?: M3Options) => {
+  const variant = options.variant ?? "";
+  return {
+    display: "inline-block",
+    overflow: "hidden",
+    position: "relative",
+    borderRadius: "12px",
+    paddingLeft: "16px",
+    paddingRight: "16px",
+    marginRight: "8px",
+    marginLeft: "8px",
+    transition: `box-shadow ${duration} ease-in-out, background-color ${duration} ease-in-out, 
+      color ${duration} ease-in-out`,
+    "&>.state": {
+      top: "0",
+      left: "0",
+      position: "absolute",
+      width: "100%",
+      height: "100%",
+      opacity: "0",
+      zIndex: "-1",
+      background: tokens[`MdSysColorOnSurface${variant}`],
+      transition: `opacity ${duration} ease-in-out`,
+    },
+
+    "&:hover": {
+      "&>.state": {
+        opacity: ".08",
+      },
+    },
+    "&.elevated": {
+      background: tokens[`MdSysColorSurface${variant}`],
+      boxShadow: `0 2px 1px -1px ${rgba(
+        tokens.MdSysColorShadow,
+        0.2
+      )}, 0 1px 1px 0 ${rgba(tokens.MdSysColorShadow, 0.14)}, 0 1px 3px 0 ${rgba(
+        tokens.MdSysColorShadow,
+        0.12
+      )}`,
+      "&:hover": {
+        "&>.state": {
+          background: tokens[`MdSysColorOnSurface${variant}`],
+        },
+      }
+    }
+  }
+}

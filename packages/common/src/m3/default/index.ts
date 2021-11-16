@@ -2,6 +2,7 @@
 import { Button } from "./button";
 import { FAB } from "./fab";
 import { ExtendedFAB } from "./extendedfab";
+import { Card } from './card';
 export interface M3Options {
   variant?: string;
 }
@@ -29,17 +30,18 @@ export const m3 = (tokens, options: M3Options = defaultOptions) => {
           display: "none",
         },
       },
-      Card: {
-        fontSize: "1rem",
-        color: "rgba(0, 0, 0, .74)",
-        padding: "1.618rem",
-        background: "white",
-        height: "20vh",
-        willChange: "transform opacity",
-      },
+      // Card: {
+      //   fontSize: "1rem",
+      //   color: "rgba(0, 0, 0, .74)",
+      //   padding: "1.618rem",
+      //   background: "white",
+      //   height: "20vh",
+      //   willChange: "transform opacity",
+      // },
       Button: Button(tokens, options),
       FAB: FAB(tokens, options),
       ExtendedFAB: ExtendedFAB(tokens, options),
+      Card: Card(tokens, options),
     },
   }
 };

@@ -26,6 +26,7 @@ export const Button = (tokens, options?: M3Options) => {
     transition: `box-shadow ${duration} ease-in-out, background-color ${duration} ease-in-out, 
   color ${duration} ease-in-out`,
     "&>.state": {
+      zIndex: "-1",
       top: "0",
       left: "0",
       position: "absolute",

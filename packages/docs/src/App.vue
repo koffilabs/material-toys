@@ -131,6 +131,16 @@
   <div :class="line">
     <EditIcon :size="96"></EditIcon>
   </div>
+  <div :class="line">
+    <Card class="elevated">
+      <div :class="someContent">
+        <h3>Title</h3>
+        <h5>Subhead</h5>
+        Use a card to display content and actions on a single topic.
+        Cards should be easy to scan for relevant information.
+      </div>
+    </Card>
+  </div>
   <ExtendedFAB @click="toggleDarkMode" style="position:fixed;right:0;bottom:0">
     <template v-slot:icon><DarkModeIcon></DarkModeIcon></template>
     <template v-slot:default>Toggle Dark Mode</template>
@@ -179,13 +189,25 @@ export default {
       console.log("done")
     }, 2000);
     const line = css({
-      margin: "1.618rem",
+      padding: "1.618rem",
       h1: {
         fontFamily: "Roboto, sans-serif",
         fontSize: "1.2rem"
       },
       button: {
         margin: "0 1rem",
+      }
+    })
+    const someContent = css({
+      fontFamily: "Roboto",
+      padding: "16px 0",
+      width: "200px",
+      fontSize: ".75rem",
+      h3: {
+        margin: "0",
+      },
+      h5: {
+        margin: ".2rem 0 1rem 0",
       }
     })
     const page = css({
@@ -220,6 +242,7 @@ export default {
       customCard,
       onClick,
       visibility,
+      someContent,
       toggleDarkMode
     };
   },

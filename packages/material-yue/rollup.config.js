@@ -11,6 +11,7 @@ export default [
   // browser-friendly UMD build
   {
     input: "src/main.ts",
+    external: ["vue"],
     output: {
       name: "bundle",
       file: pkg.browser,
