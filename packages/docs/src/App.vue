@@ -131,7 +131,7 @@
   <div :class="line">
     <EditIcon :size="96"></EditIcon>
   </div>
-  <ExtendedFAB @click="toggleDarkMode" style="position:fixed;right:16px;bottom:16px">
+  <ExtendedFAB @click="toggleDarkMode" style="position:fixed;right:0;bottom:0">
     <template v-slot:icon><DarkModeIcon></DarkModeIcon></template>
     <template v-slot:default>Toggle Dark Mode</template>
   </ExtendedFAB>
