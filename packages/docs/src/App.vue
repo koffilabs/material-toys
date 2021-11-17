@@ -134,7 +134,23 @@
   <div :class="line">
     <Card class="elevated">
       <div :class="someContent">
-        <h3>Title</h3>
+        <h3>Title - Elevated</h3>
+        <h5>Subhead</h5>
+        Use a card to display content and actions on a single topic.
+        Cards should be easy to scan for relevant information.
+      </div>
+    </Card>
+    <Card class="filled">
+      <div :class="someContent">
+        <h3>Title - Filled</h3>
+        <h5>Subhead</h5>
+        Use a card to display content and actions on a single topic.
+        Cards should be easy to scan for relevant information.
+      </div>
+    </Card>
+    <Card class="outlined">
+      <div :class="someContent">
+        <h3>Title - Outlined</h3>
         <h5>Subhead</h5>
         Use a card to display content and actions on a single topic.
         Cards should be easy to scan for relevant information.
