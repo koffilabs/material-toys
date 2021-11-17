@@ -183,11 +183,11 @@ export default {
     }
     provide("tokens", reactiveTokens);
     provide("variant", variant);
-    setTimeout(() => {
+    // setTimeout(() => {
       // reactiveTokens.MdSysColorPrimary = "red";
       // variant.value = "";
-      console.log("done")
-    }, 2000);
+      // console.log("done")
+    // }, 2000);
     const line = css({
       padding: "1.618rem",
       h1: {
