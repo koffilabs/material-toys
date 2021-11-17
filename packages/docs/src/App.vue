@@ -174,7 +174,7 @@ export default {
     // console.log("morph is", morph);
     // console.log(Card);
     const reactiveTokens = reactive(tokens);
-    const variant = ref("Dark");
+    const variant = ref("");
     const visibility = ref("hidden");
     const toggleDarkMode = () => {
       document.body.style.color = variant.value === "Dark" ? "#333" : "#f0f0f0";
