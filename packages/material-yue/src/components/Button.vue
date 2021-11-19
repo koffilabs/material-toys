@@ -9,7 +9,6 @@
 import { computed, inject, Ref, ref } from "vue";
 import { css } from "@emotion/css";
 import { setDynamic, m3 } from "@material-yue/common";
-import { RefValue } from 'vue/ref-macros';
 
 export default {
   name: "Button",

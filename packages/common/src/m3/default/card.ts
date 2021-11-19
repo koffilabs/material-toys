@@ -1,6 +1,5 @@
 import { rgba } from "emotion-rgba";
 import { M3Options } from './index';
-import { MdSysColorOnSurface, MdSysColorOutline } from './tokens';
 const duration = ".1s";
 
 export const Card = (tokens, options?: M3Options) => {

@@ -1,4 +1,8 @@
 <template>
+  <Grid>
+    <div class="col-3">3 cols here</div>
+    <div class="col-4">4 cols here</div>
+  </Grid>
   <div :class="line">
     <h1>Elevated Button</h1>
     <Button class="elevated">Enabled</Button>
@@ -172,7 +176,7 @@
 </template>
 <script>
 import {css} from "@emotion/css";
-import {Button, Card, FAB, morph, ExtendedFAB } from "@material-yue/vue";
+import {Button, Card, FAB, morph, ExtendedFAB, Grid } from "@material-yue/vue";
 import {provide, reactive, ref} from "vue";
 import {material_tokens} from "@material-yue/common";
 import {material_tokens_polyfill} from "@material-yue/common";
@@ -185,7 +189,7 @@ const tokens = { ...material_tokens_polyfill, ...material_tokens };
 
 export default {
   name: "material-yue-docs",
-  components: {Button, Card, FAB, ExtendedFAB, EditIcon, AddIcon, DarkModeIcon },
+  components: {Button, Grid, Card, FAB, ExtendedFAB, EditIcon, AddIcon, DarkModeIcon },
   setup() {
     // console.log("morph is", morph);
     // console.log(Card);

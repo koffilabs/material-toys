@@ -3,10 +3,8 @@ import Button from "./components/Button.vue";
 import FAB from "./components/FAB.vue";
 import ExtendedFAB from "./components/ExtendedFAB.vue";
 import Card from "./components/Card.vue";
-// import { InboxIcon } from "./icons";
+import Grid from "./components/Grid.vue";
 import { morph } from "./morph";
 
-// console.log("main here Icons are", Icons);
-export { Button, Card, FAB, ExtendedFAB };
+export { Button, Card, FAB, ExtendedFAB, Grid };
 export { morph };
-// export { InboxIcon };
