@@ -6,7 +6,15 @@
 <script type="ts">
 import {css} from "@emotion/css";
 const mediaQueries = {
-  LARGE_DESKTOP: "@media(min-width: 1440)"
+  // desktop
+  LARGE: "@media(min-width: 1440px)",
+  // laptop
+  MEDIUM: "@media(min-width: 1240px)",
+  // tablet
+  SMALL: "@media(min-width: 600px)",
+  SMALL_FLUID: "@media(min-width: 905px)",
+  // phone
+  // EXTRA_SMALL: "@media(min-width: 0)" :-)
 }
 const LARGE_DESKTOP = 1440;
 export default {
@@ -14,42 +22,30 @@ export default {
   setup() {
     const gridStyle = {
       display: "grid",
-      gridTemplateColumns: "repeat(12, 1fr)",
+      // mobile first, right?
+      gridTemplateColumns: "repeat(4, 1fr)",
       border: "1px dashed #333",
-      "@media(min-width: 1440)": {
-
+      [mediaQueries.SMALL]: {
+        gridTemplateColumns: "repeat(8, 1fr)",
+      },
+      [mediaQueries.MEDIUM]: {
+        gridTemplateColumns: "repeat(12, 1fr)",
+      },
+      [mediaQueries.LARGE]: {
+        gridTemplateColumns: "repeat(12, 1fr)",
       }
     };
-    // for(css)
-    const yueGrid = css(
-        {
-          display: "grid",
-          gridTemplateColumns: "repeat(12, 1fr)",
-          border: "1px dashed #333",
-
-          ".col-3": {
-            gridColumn: "span 3",
-            border: "1px solid red"
-          },
-          ".col-4": {
-            gridColumn: "span 4",
-            border: "1px solid red"
-          }
-        }
-    )
+    const columns = {};
+    for(let i = 1; i <= 12; i++){
+      columns[`.col-${i}`] = {
+        gridColumn: `span ${i}`,
+        border: "1px dashed red"
+      };
+    }
+    const yueGrid = css({...gridStyle, ...columns})
     return {
       yueGrid
     }
   }
 }
 </script>
-<!--<style lang="scss">-->
-<!--  .yue-grid{-->
-<!--    display:grid;-->
-<!--    grid-template-columns: repeat(8, 1fr);-->
-
-<!--    .col-3{-->
-<!--      grid-column: span 4;-->
-<!--    }-->
-<!--  }-->
-<!--</style>-->
