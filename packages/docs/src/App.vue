@@ -1,8 +1,4 @@
 <template>
-  <Grid>
-    <div class="col-3">3 cols here</div>
-    <div class="col-4">4 cols here</div>
-  </Grid>
   <div :class="line">
     <h1>Elevated Button</h1>
     <Button class="elevated">Enabled</Button>
@@ -161,6 +157,34 @@
       </div>
     </Card>
   </div>
+  <Grid>
+    <Card class="elevated col-lg-3 col-12 col-sm-6">
+      <div :class="someContent">
+        <h3>Title - Elevated</h3>
+        <h5>Subhead</h5>
+        Use a card to display content and actions on a single topic.
+        Cards should be easy to scan for relevant information.
+      </div>
+    </Card>
+    <Card class="filled col-lg-3 col-12 col-sm-6">
+      <div :class="someContent">
+        <h3>Title - Filled</h3>
+        <h5>Subhead</h5>
+        Use a card to display content and actions on a single topic.
+        Cards should be easy to scan for relevant information.
+      </div>
+    </Card>
+    <Card class="outlined col-lg-3 col-12">
+      <div :class="someContent">
+        <h3>Title - Outlined</h3>
+        <h5>Subhead</h5>
+        Use a card to display content and actions on a single topic.
+        Cards should be easy to scan for relevant information.
+      </div>
+    </Card>
+<!--    <div class="col-4">4 cols here</div>-->
+  </Grid>
+
   <ExtendedFAB @click="toggleDarkMode" style="position:fixed;right:0;bottom:0">
     <template v-slot:icon><DarkModeIcon></DarkModeIcon></template>
     <template v-slot:default>Toggle Dark Mode</template>
@@ -221,7 +245,7 @@ export default {
     const someContent = css({
       fontFamily: "Roboto",
       padding: "16px 0",
-      width: "200px",
+      // width: "200px",
       fontSize: ".75rem",
       h3: {
         margin: "0",

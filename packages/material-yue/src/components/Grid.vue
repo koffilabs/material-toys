@@ -5,44 +5,71 @@
 </template>
 <script type="ts">
 import {css} from "@emotion/css";
-const mediaQueries = {
-  // desktop
-  LARGE: "@media(min-width: 1440px)",
-  // laptop
-  MEDIUM: "@media(min-width: 1240px)",
-  // tablet
-  SMALL: "@media(min-width: 600px)",
-  SMALL_FLUID: "@media(min-width: 905px)",
+
+const sizes = {
   // phone
-  // EXTRA_SMALL: "@media(min-width: 0)" :-)
+  EXTRA_SMALL: {query: "@media(min-width: 0)", prefix: ""},
+  // tablet
+  SMALL_FLUID: {query: "@media(min-width: 905px)", prefix: "smf-"},
+  SMALL: {query: "@media(min-width: 600px)", prefix: "sm-"},
+  // laptop
+  MEDIUM: {query: "@media(min-width: 1240px)", prefix: "md-"},
+  // desktop
+  LARGE: {query: "@media(min-width: 1440px)", prefix: "lg-"}
 }
-const LARGE_DESKTOP = 1440;
 export default {
   name: "Grid",
   setup() {
+
     const gridStyle = {
       display: "grid",
       // mobile first, right?
       gridTemplateColumns: "repeat(4, 1fr)",
-      border: "1px dashed #333",
-      [mediaQueries.SMALL]: {
+      gridColumnGap: "8px", // old syntax
+      gap: "8px",
+      padding: "8px",
+      [sizes.SMALL.query]: {
         gridTemplateColumns: "repeat(8, 1fr)",
+        gridColumnGap: "8px",
+        gap: "8px",
+        padding: "8px",
       },
-      [mediaQueries.MEDIUM]: {
+      [sizes.SMALL_FLUID.query]: {
         gridTemplateColumns: "repeat(12, 1fr)",
+        gridColumnGap: "8px",
+        gap: "8px",
+        padding: "8px",
       },
-      [mediaQueries.LARGE]: {
+      [sizes.MEDIUM.query]: {
         gridTemplateColumns: "repeat(12, 1fr)",
+        gridColumnGap: "12px",
+        gap: "12px",
+        padding: "12px",
+      },
+      [sizes.LARGE.query]: {
+        gridTemplateColumns: "repeat(12, 1fr)",
+        gridColumnGap: "32px",
+        gap: "32px",
+        padding: "16px",
       }
     };
-    const columns = {};
-    for(let i = 1; i <= 12; i++){
-      columns[`.col-${i}`] = {
-        gridColumn: `span ${i}`,
-        border: "1px dashed red"
-      };
+    const columnsStyles = [];
+      for (let size of ["EXTRA_SMALL", "SMALL", "SMALL_FLUID", "MEDIUM", "LARGE"]) {
+        const prefix = sizes[size].prefix;
+        const mediaStyle = {
+          [sizes[size].query]: {}
+        };
+        columnsStyles.push(mediaStyle);
+
+        for (let i = 1; i <= 12; i++) {
+        (prefix ? mediaStyle[[sizes[size].query]] : gridStyle)[`.col-${prefix}${i}`] = {
+          gridColumn: `span ${i}`,
+          marginRight: 0,
+          marginLeft: 0,
+        };
+      }
     }
-    const yueGrid = css({...gridStyle, ...columns})
+    const yueGrid = css([gridStyle, ...columnsStyles]);
     return {
       yueGrid
     }
