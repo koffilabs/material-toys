@@ -14,8 +14,8 @@ process.stdin.removeAllListeners("end");
 
 export default {
   input: "src/main.js",
+  // external: ["vue"],
   output: {
-    external: ["vue"],
     file: "dist/bundle.js",
     format: "iife", // immediately-invoked function expression — suitable for <script> tags
     sourcemap: !production,

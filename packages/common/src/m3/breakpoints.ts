@@ -2,7 +2,7 @@ interface Breakpoint{
   query: string,
   prefix: string
 }
-export interface Breakpoints{
+interface Breakpoints{
   EXTRA_SMALL: Breakpoint,
   SMALL_FLUID: Breakpoint,
   SMALL: Breakpoint,
