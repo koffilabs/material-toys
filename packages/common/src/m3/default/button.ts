@@ -9,12 +9,12 @@ export const Button = (tokens, options?: M3Options) => {
     justifyContent: "center",
     alignItems: "center",
     border: "none",
-    "border-radius": "20px",
+    "borderRadius": "20px",
     position: "relative",
-    "text-transform": "capitalize",
+    "textTransform": "capitalize",
     height: "40px",
-    "line-height": tokens.MdSysTypescaleLabelLargeLineHeight, // commented to align the icons
-    "text-align": "center",
+    "lineHeight": tokens.MdSysTypescaleLabelLargeLineHeight, // commented to align the icons
+    "textAlign": "center",
     willChange: "transform opacity",
     fontSize: tokens.MdSysTypescaleLabelLargeSize,
     fontWeight: tokens.MdSysTypescaleLabelLargeWeight,

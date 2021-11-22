@@ -22,5 +22,10 @@
     "rollup-plugin-terser": "^7.0.2",
     "tslib": "^2.3.1",
     "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "@emotion/css": "^11.5.0",
+    "@emotion/react": "^11.6.0",
+    "@material-yue/common": "workspace:^"
   }
 }

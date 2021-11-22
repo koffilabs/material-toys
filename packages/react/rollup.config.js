@@ -11,6 +11,7 @@ import pkg from "./package.json";
 
 export default {
   input: 'src/main.ts',
+  external: ["react"],
   output: [
     {
       file: pkg.main,
