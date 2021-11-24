@@ -6,12 +6,12 @@ import {useTheme} from "../hooks/useTheme";
 interface ButtonArgs{
   Icon: any;
   children: any;
+  className: string;
 }
-export const Button = ({Icon, children, className}) => {
+export const Button = ({Icon, children, className}: ButtonArgs) => {
   const {ThemeContext, VariantContext} = useTheme()
   const tokens = useContext(ThemeContext);
   const variant = useContext(VariantContext);
-  console.log("tokens from button", tokens)
 
   const theme = m3(tokens, {variant});
   //
