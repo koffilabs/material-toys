@@ -915,7 +915,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@material-yue/icons@^0.0.0, @material-yue/icons@workspace:packages/icons":
+"@material-yue/icons-react@workspace:packages/icons-react":
+  version: 0.0.0-use.local
+  resolution: "@material-yue/icons-react@workspace:packages/icons-react"
+  dependencies:
+    "@material-yue/icons": "workspace:^"
+  languageName: unknown
+  linkType: soft
+
+"@material-yue/icons-vue@workspace:packages/icons-vue":
+  version: 0.0.0-use.local
+  resolution: "@material-yue/icons-vue@workspace:packages/icons-vue"
+  dependencies:
+    "@material-yue/icons": "workspace:^"
+  languageName: unknown
+  linkType: soft
+
+"@material-yue/icons@^0.0.0, @material-yue/icons@workspace:^, @material-yue/icons@workspace:packages/icons":
   version: 0.0.0-use.local
   resolution: "@material-yue/icons@workspace:packages/icons"
   dependencies:
