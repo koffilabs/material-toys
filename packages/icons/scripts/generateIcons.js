@@ -1,7 +1,6 @@
 const { readFile, writeFile, readdir, rm, mkdir } = require("fs").promises;
 const { toPascalCase, toValidName, toIconType } = require("./util");
 const START_DIRECTORY = `${__dirname}/../resources/icons`;
-const VUE_TARGET_DIRECTORY = `${__dirname}/../src/vue/icons`;
 module.exports.generateIcons = async ({targetDir, targetLib}) => {
     const extension = targetLib === "vue" ? "vue" : "tsx";
     const startDate = Date.now();
