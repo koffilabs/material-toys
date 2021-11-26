@@ -4,13 +4,24 @@ import {Button, useTheme} from "@material-yue/react";
 //
 import {material_tokens} from "@material-yue/common";
 import {material_tokens_polyfill} from "@material-yue/common";
+import {useEffect, useState} from "react";
 
 const tokens = {...material_tokens_polyfill, ...material_tokens};
 // tokens ok
 export default function Home() {
     const {ThemeContext, VariantContext} = useTheme();
+    const [reactiveTokens, setReactiveTokens] = useState(tokens);
+    useEffect(() => {
+
+        setTimeout(() => {
+            tokens.MdSysColorPrimary = "red";
+            setReactiveTokens({...tokens});
+            // variant.value = "";
+            console.log("done")
+        }, 2000);
+    }, [])
     return (
-        <ThemeContext.Provider value={tokens}>
+        <ThemeContext.Provider value={reactiveTokens}>
             <VariantContext.Provider value={""}>
                 <div className="container">
                     <Head>
