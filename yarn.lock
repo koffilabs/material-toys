@@ -1002,6 +1002,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@material-yue/website@workspace:packages/website"
   dependencies:
+    "@material-yue/common": "workspace:^"
     "@material-yue/react": "workspace:^"
     next: latest
     react: 17.0.2

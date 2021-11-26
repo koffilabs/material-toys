@@ -1,0 +1,7 @@
+{
+  "name": "@material-yue/icons-vue",
+  "packageManager": "yarn@3.1.0",
+  "dependencies": {
+    "@material-yue/icons": "workspace:^"
+  }
+}
