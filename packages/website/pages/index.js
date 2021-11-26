@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import {EditIcon} from "@material-yue/icons-react";
 import {Button, useTheme} from "@material-yue/react";
 //
 import {material_tokens} from "@material-yue/common";
@@ -17,7 +18,8 @@ export default function Home() {
                 </Head>
 
                 <main>
-                    <Button className="elevated">Hello!</Button>
+                    <EditIcon/>
+                    <Button icon={<EditIcon/>} className="elevated">Hello!</Button>
                     <h1 className="title">
                         Welcome to <a href="https://nextjs.org">Next.js!</a>
                     </h1>

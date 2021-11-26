@@ -3,7 +3,7 @@ const { toPascalCase, toValidName, toIconType } = require("./util");
 const START_DIRECTORY = `${__dirname}/../resources/icons`;
 const VUE_TARGET_DIRECTORY = `${__dirname}/../src/vue/icons`;
 module.exports.generateIcons = async ({targetDir, targetLib}) => {
-    const extension = targetLib === "vue" ? "vue" : "js";
+    const extension = targetLib === "vue" ? "vue" : "tsx";
     const startDate = Date.now();
     let iconsCounter = 0;
     console.log("Icons generator - start");
@@ -43,7 +43,8 @@ module.exports.generateIcons = async ({targetDir, targetLib}) => {
       }
     }
   }
-</script>` : `const Icon = ({size}) => {
+</script>` : `import React from "react";
+const Icon = ({size}) => {
     const styleSize = typeof size !== "undefined" ? parseInt(size) + "px" :"24px";
     return (${svg
     .toString()

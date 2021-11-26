@@ -4,11 +4,11 @@ import {css} from "@emotion/css";
 import { setDynamic, m3 } from "@material-yue/common";
 import {useTheme} from "../hooks/useTheme";
 interface ButtonArgs{
-  Icon: any;
+  icon: any;
   children: any;
   className: string;
 }
-export const Button = ({Icon, children, className}: ButtonArgs) => {
+export const Button = ({icon, children, className}: ButtonArgs) => {
   const {ThemeContext, VariantContext} = useTheme()
   const tokens = useContext(ThemeContext);
   const variant = useContext(VariantContext);
@@ -25,7 +25,7 @@ export const Button = ({Icon, children, className}: ButtonArgs) => {
     <button className={`${btn} ${className}`}>
       <div className="state">
       </div>
-      {/*<Icon/>*/}
+      {icon}
       <div>{children}</div>
     </button>
   )

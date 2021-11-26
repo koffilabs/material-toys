@@ -204,13 +204,12 @@ import {Button, Card, FAB, morph, ExtendedFAB, Grid } from "@material-yue/vue";
 import {provide, reactive, ref} from "vue";
 import {material_tokens} from "@material-yue/common";
 import {material_tokens_polyfill} from "@material-yue/common";
-import {EditIcon, AddIcon, DarkModeIcon} from "@material-yue/icons";
+import {EditIcon, AddIcon, DarkModeIcon} from "@material-yue/icons-vue";
 
 // for development purposes only
 // import AddIcon from "../../icons/src/vue/icons/materialicons/AddIcon.vue";
 
 const tokens = { ...material_tokens_polyfill, ...material_tokens };
-
 export default {
   name: "material-yue-docs",
   components: {Button, Grid, Card, FAB, ExtendedFAB, EditIcon, AddIcon, DarkModeIcon },

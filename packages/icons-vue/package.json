@@ -1,6 +1,12 @@
 {
   "name": "@material-yue/icons-vue",
   "packageManager": "yarn@3.1.0",
+  "main": "dist/material-yue-icons.cjs.js",
+  "module": "dist/material-yue-icons.esm.js",
+  "scripts": {
+    "generate": "scripts/generateIcons.js",
+    "build": "rollup -c ./rollup.config.js"
+  },
   "dependencies": {
     "@material-yue/icons": "workspace:^"
   }
