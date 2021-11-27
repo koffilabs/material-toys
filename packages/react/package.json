@@ -26,6 +26,7 @@
   "dependencies": {
     "@emotion/css": "^11.5.0",
     "@emotion/react": "^11.6.0",
-    "@material-yue/common": "workspace:^"
+    "@material-yue/common": "workspace:^",
+    "postcss": "^8.4.4"
   }
 }

@@ -8,6 +8,14 @@
     "build": "rollup -c ./rollup.config.js"
   },
   "dependencies": {
-    "@material-yue/icons": "workspace:^"
+    "@material-yue/icons": "workspace:^",
+    "@rollup/plugin-alias": "^3.1.8",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@vue/compiler-sfc": "^3.2.23",
+    "esbuild": "^0.14.0",
+    "rollup": "^2.60.1",
+    "rollup-plugin-esbuild": "^4.7.2",
+    "rollup-plugin-vue": "^6.0.0"
   }
 }

@@ -5,8 +5,7 @@
   "author": "Nicola Rizzo <nicola.rizzo@gmail.com>",
   "homepage": "https://github.com/koffilabs/material-yue#readme",
   "license": "MIT",
-  "main": "dist/material-yue-icons.cjs.js",
-  "module": "dist/material-yue-icons.esm.js",
+  "main": "scripts/generateIcons.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"

@@ -8,7 +8,11 @@
     "build": "rollup -c ./rollup.config.js"
   },
   "dependencies": {
-    "@material-yue/icons": "workspace:^"
+    "@material-yue/icons": "workspace:^",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "esbuild": "^0.14.0",
+    "rollup-plugin-esbuild": "^4.7.2"
   },
   "devDependencies": {
     "react": "^17.0.2",
