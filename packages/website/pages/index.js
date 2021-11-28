@@ -11,15 +11,15 @@ const tokens = {...material_tokens_polyfill, ...material_tokens};
 export default function Home() {
     const {ThemeContext, VariantContext} = useTheme();
     const [reactiveTokens, setReactiveTokens] = useState(tokens);
-    useEffect(() => {
-
-        setTimeout(() => {
-            tokens.MdSysColorPrimary = "red";
-            setReactiveTokens({...tokens});
-            // variant.value = "";
-            console.log("done")
-        }, 2000);
-    }, [])
+    // useEffect(() => {
+    //
+    //     setTimeout(() => {
+    //         tokens.MdSysColorPrimary = "red";
+    //         setReactiveTokens({...tokens});
+    //         // variant.value = "";
+    //         console.log("done")
+    //     }, 2000);
+    // }, [])
     return (
         <ThemeContext.Provider value={reactiveTokens}>
             <VariantContext.Provider value={""}>

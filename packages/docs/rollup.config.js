@@ -16,6 +16,7 @@ export default {
   input: "src/main.js",
   // external: ["vue"],
   output: {
+    // globals: {vue: "vue"},
     file: "dist/bundle.js",
     format: "iife", // immediately-invoked function expression — suitable for <script> tags
     sourcemap: !production,
