@@ -2,6 +2,7 @@ import { rgba } from "emotion-rgba";
 import { M3Options } from "./index";
 
 const duration = ".1s";
+const delay = ".4s"; // ripple animation duration
 export const Button = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
@@ -35,9 +36,6 @@ export const Button = (tokens, options?: M3Options) => {
       opacity: "0",
       backgroundColor: tokens[`MdSysColorPrimary${variant}`],
       transition: `opacity ${duration} ease-in-out`,
-      "&:after": {
-        content: "'a'"
-      }
     },
     "&:hover": {
       cursor: "pointer",
@@ -94,13 +92,13 @@ export const Button = (tokens, options?: M3Options) => {
           0.14
         )}, 0 1px 3px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
       },
+      ".ripple": {
+        backgroundColor: tokens[`MdSysColorPrimary${variant}`],
+        // backgroundColor: "black",
+      },
       "&:active": {
-        ".ripple": {
-          backgroundColor: tokens[`MdSysColorPrimary${variant}`],
-          // backgroundColor: "black",
-        },
         "&>.state": {
-          backgroundColor: "transparent",
+          backgroundColor: tokens[`MdSysColorPrimary${variant}`],
         },
       },
       "&>.state": {

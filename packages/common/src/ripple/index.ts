@@ -10,68 +10,79 @@ const options: KeyframeAnimationOptions = {
 
 // TODO: find a better name, use is a bit confusing
 export const useRipple = () => {
-  let rippleElement;
+  let rippleElement, lock = false;
   const rippleOut = () => {
-    if(!rippleElement){
+    if(!rippleElement || lock){
       return;
     }
     const anim = rippleElement.animate([
-      {opacity: 1},
+      {opacity: .12},
       {opacity: 0},
     ], options);
     anim.addEventListener("finish", () => {
-      rippleElement.style.transform = "scale(0)";
+      // rippleElement.style.transform = "scale(0)";
       rippleElement.style.width = "";
       rippleElement.style.height = "";
-      rippleElement.style.opacity = 1;
       console.log("should disappear...")
-    })
+      rippleElement.remove();
+    }, {once: true})
   }
   const ripple = ({event, color, element}: RippleArguments) => {
+    if(lock){
+      return;
+    }
+    console.log(element)
+    lock = true;
     // if(element.querySelector(".ripple")){
     //   return;
     // }
     if(!rippleElement){
       rippleElement = document.createElement("div");
     }
-    console.log("should do a ripple", event.offsetX);
     const x = event.offsetX;
     const y = event.offsetY;
     const { target }: { target: EventTarget } = event;
     const oWidth: number = (<HTMLElement>target).offsetWidth;
     const oHeight: number = (<HTMLElement>target).offsetHeight;
 
-    // TODO: sin and cos here
-    const side = Math.max(oWidth + 2 * Math.abs((oWidth / 2 - x)), oHeight + 2 * Math.abs((oHeight / 2 - y)));
+    const a = oWidth + 2 * Math.abs((oWidth / 2 - x));
+    const b = oHeight + 2 * Math.abs((oHeight / 2 - y));
+    const side = (a**2 + b**2)**.5;
     console.log(oWidth)
     console.log(side)
     rippleElement.className = "ripple";
+    rippleElement.style.zIndex = "100";
     rippleElement.style.position = "absolute";
     rippleElement.style.top = `${y}px`;
     rippleElement.style.left = `${x}px`;
     rippleElement.style.transformOrigin = `center center`;
-    // rippleElement.style.transform = "scale(0)";
+    rippleElement.style.opacity = `.12`;
+    rippleElement.style.transform = "scale(0)";
     rippleElement.style.width = `${side}px`;
     rippleElement.style.height = `${side}px`;
     rippleElement.style.borderRadius = `50%`;
-    // color && (rippleElement.style.background = `${color}`);
+    color && (rippleElement.style.background = `${color}`);
     // rippleElement.style.background = `black`;
     if(!rippleElement.parentElement){
       element.appendChild(rippleElement);
     }
     const rippleAnimation = rippleElement.animate([
         {
-          transform: "translate(-50%, -50%) scale(0)"
+          transform: "translate(-50%, -50%) scale(0)",
+          opacity: ".12"
         },
         {
-          transform: "translate(-50%, -50%) scale(1)"
+          transform: "translate(-50%, -50%) scale(1)",
+          opacity: ".12"
         }
       ],
   {...options, fill: "forwards"});
     rippleAnimation.addEventListener(
       "finish", () => {
         // rippleElement.remove()
-      })
+        console.log("finish here");
+        lock = false;
+      }, { once: true })
     // element.style.background = color;
   };
 return {ripple, rippleOut}

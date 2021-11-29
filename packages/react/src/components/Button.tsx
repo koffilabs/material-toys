@@ -1,5 +1,4 @@
 import React, { FC, SyntheticEvent, useContext, useEffect, useRef } from "react";
-import {computed} from "vue";
 import {css} from "@emotion/css";
 import { setDynamic, m3 } from "@material-yue/common";
 import {useTheme} from "../hooks/useTheme";
@@ -23,8 +22,10 @@ export const Button: FC<ButtonProps> = ({icon, children, className}) => {
     );
     // console.log("btn", btn)
   // }, [tokens])
+  console.log(m3(tokens, {variant}).components.Button)
   return (
-    <Ripple><button className={`${btn} ${className}`}>
+    <Ripple color={m3(tokens, {variant}).components.Button[`&.${className}`][".ripple"].backgroundColor}>
+      <button className={`${btn} ${className}`}>
       <div className="state">
       </div>
       {icon}

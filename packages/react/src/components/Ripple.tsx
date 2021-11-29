@@ -2,17 +2,17 @@ import React, { cloneElement, FC, ReactElement, ReactNode, SyntheticEvent, useEf
 import { useRipple } from "@material-yue/common";
 
 interface RippleProps{
+  color: string;
   // children: Array<ReactElement>;
 }
-export const Ripple: FC<RippleProps> = ({children}, context) => {
+export const Ripple: FC<RippleProps> = ({color, children}, context) => {
   const reactNode: ReactNode = children;
   const { ripple, rippleOut } = useRipple();
   const onClick = () => {
     console.log("injected click here");
   }
-  // TODO: get rippleIn and rippleOut from a call
   const onMouseDown = (event:SyntheticEvent) => {
-    ripple({event: event.nativeEvent, element: event.target})
+    ripple({event: event.nativeEvent, element: event.currentTarget, color})
   };
   const onMouseLeave = () => {
     rippleOut();
