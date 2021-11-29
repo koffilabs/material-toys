@@ -15,14 +15,10 @@ export const Button: FC<ButtonProps> = ({icon, children, className}) => {
 
 
   const theme = m3(tokens, {variant});
-  //
-  // useEffect(() => {
+
     const btn = css(
       setDynamic({target: m3(tokens, {variant}).components.Button, theme}),
     );
-    // console.log("btn", btn)
-  // }, [tokens])
-  console.log(m3(tokens, {variant}).components.Button)
   return (
     <Ripple color={m3(tokens, {variant}).components.Button[`&.${className}`][".ripple"].backgroundColor}>
       <button className={`${btn} ${className}`}>
