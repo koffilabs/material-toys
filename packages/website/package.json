@@ -2,7 +2,7 @@
   "name": "@material-yue/website",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "serve": "next dev",
     "build": "next build",
     "start": "next start"
   },

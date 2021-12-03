@@ -4,7 +4,8 @@
   "main": "dist/material-yue-icons.cjs.js",
   "module": "dist/material-yue-icons.esm.js",
   "scripts": {
-    "generate": "scripts/generateIcons.js",
+    "generate": "node scripts/generateReactIcons.js",
+    "postinstall": "node scripts/generateReactIcons.js",
     "build": "rollup -c ./rollup.config.js"
   },
   "dependencies": {

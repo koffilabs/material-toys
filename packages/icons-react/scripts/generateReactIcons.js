@@ -1,2 +1,4 @@
 const {generateIcons} = require("@material-yue/icons/scripts/generateIcons");
-generateIcons({targetDir: `${__dirname}/../src/icons`, targetLib: "react"})
+(async () => {
+    await generateIcons({targetDir: `${__dirname}/../src/icons`, targetLib: "react"})
+})();

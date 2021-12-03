@@ -4,7 +4,7 @@ interface RippleArguments{
   element: HTMLElement;
 }
 const options: KeyframeAnimationOptions = {
-  duration : 400,
+  duration : 500,
   easing : "ease-in-out",
 };
 
@@ -25,7 +25,7 @@ export const useRipple = () => {
       rippleElement.style.height = "";
       console.log("should disappear...")
       rippleElement.remove();
-    }, {once: true})
+    }, {once: false})
   }
   const ripple = ({event, color, element}: RippleArguments) => {
     if(lock){
@@ -51,6 +51,8 @@ export const useRipple = () => {
     console.log(oWidth)
     console.log(side)
     rippleElement.className = "ripple";
+    // rippleElement.style.backgroundColor = "";
+    // color && (rippleElement.style.backgroundImage = `radial-gradient(circle at 50% 50%, ${color}, ${color} 40%, rgba(0, 0, 0, .3) 50%, ${color} 60%, ${color} 80%`);
     rippleElement.style.zIndex = "100";
     rippleElement.style.position = "absolute";
     rippleElement.style.top = `${y}px`;
@@ -80,9 +82,10 @@ export const useRipple = () => {
     rippleAnimation.addEventListener(
       "finish", () => {
         // rippleElement.remove()
+          rippleElement.style.transform = "translate(-50%, -50%) scale(0)";
         console.log("finish here");
         lock = false;
-      }, { once: true })
+      }, { once: false })
     // element.style.background = color;
   };
 return {ripple, rippleOut}
