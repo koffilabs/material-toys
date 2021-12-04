@@ -212,8 +212,8 @@ export const Button = (tokens, options?: M3Options) => {
       color: tokens[`MdSysColorPrimary${variant}`],
       fill: tokens[`MdSysColorPrimary${variant}`],
       background: "transparent",
-      "&>.state": {
-        backgroundColor: tokens[`MdSysColorOnSecondaryContainer${variant}`],
+      ".ripple": {
+        backgroundColor: tokens[`MdSysColorPrimary${variant}`],
       },
       "&:hover:not(:disabled)": {
         color: tokens[`MdSysColorPrimary${variant}`],

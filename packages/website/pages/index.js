@@ -37,6 +37,7 @@ export default function Home() {
                         <Button icon={<AddIcon size="18px"/>} className="filled">Filled Button</Button>
                         <Button icon={<AddIcon size="18px"/>} className="filled-tonal">Filled Tonal Button</Button>
                         <Button icon={<AddIcon size="18px"/>} className="outlined">Outlined Button</Button>
+                        <Button icon={<AddIcon size="18px"/>} className="text">Text Button</Button>
                     </main>
                     <style jsx>{`
       `}</style>
