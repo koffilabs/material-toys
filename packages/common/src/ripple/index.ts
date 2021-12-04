@@ -10,17 +10,18 @@ const options: KeyframeAnimationOptions = {
 
 // TODO: find a better name, use is a bit confusing
 export const useRipple = () => {
-  let rippleElement, lock = false;
+  let rippleElement, lock = false, rippleAnimation;
   const rippleOut = () => {
     if(!rippleElement){
       return;
     }
+    const rippleComputedTiming = rippleAnimation ? rippleAnimation.effect.getComputedTiming() : {};
+    const delay = rippleComputedTiming.progress ? (1 - rippleComputedTiming.progress) * rippleComputedTiming.duration : 0;
     const anim = rippleElement.animate([
       {opacity: .12},
       {opacity: 0},
-    ], options);
+    ], {...options, delay});
     anim.addEventListener("finish", () => {
-      // rippleElement.style.transform = "scale(0)";
       rippleElement.style.width = "";
       rippleElement.style.height = "";
       rippleElement.remove();
@@ -66,7 +67,7 @@ export const useRipple = () => {
     if(!rippleElement.parentElement){
       element.appendChild(rippleElement);
     }
-    const rippleAnimation = rippleElement.animate([
+    rippleAnimation = rippleElement.animate([
         {
           transform: "translate(-50%, -50%) scale(0)",
           opacity: ".12"
