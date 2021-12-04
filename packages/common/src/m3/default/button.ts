@@ -94,7 +94,6 @@ export const Button = (tokens, options?: M3Options) => {
       },
       ".ripple": {
         backgroundColor: tokens[`MdSysColorPrimary${variant}`],
-        // backgroundColor: "black",
       },
       "&:active": {
         "&>.state": {
@@ -118,7 +117,7 @@ export const Button = (tokens, options?: M3Options) => {
       color: tokens[`MdSysColorOnPrimary${variant}`],
       fill: tokens[`MdSysColorOnPrimary${variant}`],
       background: tokens[`MdSysColorPrimary${variant}`],
-      "&>.state": {
+      ".ripple": {
         backgroundColor: tokens[`MdSysColorOnPrimary${variant}`],
       },
       "&:disabled": {
@@ -146,7 +145,7 @@ export const Button = (tokens, options?: M3Options) => {
       color: tokens[`MdSysColorOnSecondaryContainer${variant}`],
       fill: tokens[`MdSysColorOnSecondaryContainer${variant}`],
       background: tokens[`MdSysColorSecondaryContainer${variant}`],
-      "&>.state": {
+      ".ripple": {
         backgroundColor: tokens[`MdSysColorOnSecondaryContainer${variant}`],
       },
       "&:hover:not(:disabled)": {
@@ -176,8 +175,8 @@ export const Button = (tokens, options?: M3Options) => {
       fill: tokens[`MdSysColorPrimary${variant}`],
       background: "transparent", // tokens.MdSysColorSurface,
       border: `1px solid ${tokens[`MdSysColorOutline${variant}`]}`,
-      "&>.state": {
-        backgroundColor: tokens[`MdSysColorOnSecondaryContainer${variant}`],
+      ".ripple": {
+        backgroundColor: tokens[`MdSysColorPrimay${variant}`],
       },
       "&:hover:not(:disabled)": {
         borderColor: tokens[`MdSysColorOutline${variant}`],
