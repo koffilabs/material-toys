@@ -176,7 +176,7 @@ export const Button = (tokens, options?: M3Options) => {
       background: "transparent", // tokens.MdSysColorSurface,
       border: `1px solid ${tokens[`MdSysColorOutline${variant}`]}`,
       ".ripple": {
-        backgroundColor: tokens[`MdSysColorPrimay${variant}`],
+        backgroundColor: tokens[`MdSysColorPrimary${variant}`],
       },
       "&:hover:not(:disabled)": {
         borderColor: tokens[`MdSysColorOutline${variant}`],
