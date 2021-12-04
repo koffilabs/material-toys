@@ -32,7 +32,6 @@ export const useRipple = () => {
     if(lock){
       return;
     }
-    console.log(element)
     lock = true;
     // if(element.querySelector(".ripple")){
     //   return;
@@ -82,7 +81,6 @@ export const useRipple = () => {
       "finish", () => {
         // rippleElement.remove()
           rippleElement.style.transform = "translate(-50%, -50%) scale(0)";
-        console.log("finish here");
       }, { once: true })
     // element.style.background = color;
   };
