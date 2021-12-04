@@ -1,15 +1,20 @@
 <template>
+<!--  TODO FAB can have multiple classes, find a fix -->
+  <Ripple :color="m3(tokens, {variant}).components.FAB[`&.${$attrs.class}`]['.ripple'].backgroundColor">
   <button ref="root" :class="fab">
     <div class="state">
-    </div><slot></slot></button>
+    </div><slot></slot></button></Ripple>
+
 </template>
 <script lang="ts">
 import { computed, inject, ref } from "vue";
 import {css, cx} from "@emotion/css";
 import {setDynamic, m3} from "@material-yue/common";
+import Ripple from "./Ripple";
 
 export default {
   name: "FAB",
+  components: {Ripple},
   setup(){
     const tokens: any = inject("tokens");
     const variant: any = inject("variant");
@@ -21,7 +26,7 @@ export default {
     const fab = computed(() => css(
         style.value = setDynamic({target: m3(tokens, {variant: variant.value}).components.FAB, theme, width, height}),
     ));
-    return { root, fab };
+    return { root, fab, m3, tokens, variant };
   }
 }
 </script>
