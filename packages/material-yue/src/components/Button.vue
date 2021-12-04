@@ -1,5 +1,5 @@
 <template>
-  <Ripple>
+  <Ripple :color="m3(tokens, {variant}).components.Button[`&.${$attrs.class}`]['.ripple'].backgroundColor">
   <button v-bind="$attrs" :class="btn">
     <div class="state">
     </div>
@@ -24,7 +24,7 @@ export default {
     const btn = computed(() => css(
         setDynamic({target: m3(tokens, {variant:variant.value}).components.Button, theme}),
     ));
-    return { btn };
+    return { btn, m3, tokens, variant };
   }
 }
 </script>
