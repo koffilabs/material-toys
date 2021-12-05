@@ -4,7 +4,7 @@ interface RippleArguments {
   element: HTMLElement;
 }
 const options: KeyframeAnimationOptions = {
-  duration: 500,
+  duration: 400,
   easing: "ease-in-out",
 };
 
