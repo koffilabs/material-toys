@@ -27,6 +27,10 @@ export const ExtendedFAB = (tokens, options?: M3Options) => {
     willChange: "transform opacity",
     overflow: "hidden",
     padding: "16px",
+    ".ripple": {
+      backgroundColor: tokens[`MdSysColorOnPrimaryContainer${variant}`],
+    },
+
     transition: `box-shadow ${duration} ease-in-out, background-color ${duration} ease-in-out, 
   fill ${duration} ease-in-out`,
     color: tokens[`MdSysColorOnPrimaryContainer${variant}`],
@@ -84,9 +88,15 @@ export const ExtendedFAB = (tokens, options?: M3Options) => {
         tokens.MdSysColorShadow,
         0.12
       )}`,
+      ".ripple": {
+        backgroundColor: tokens[`MdSysColorOnPrimaryContainer${variant}`],
+      },
     },
     "&.surface": {
       background: tokens[`MdSysColorSurface${variant}`],
+      ".ripple": {
+        backgroundColor: tokens[`MdSysColorOnPrimaryContainer${variant}`],
+      },
       fill: tokens[`MdSysColorPrimary${variant}`],
       "&:disabled": {
         fill: `${rgba(tokens[`MdSysColorPrimary${variant}`], 0.38)}`,
@@ -94,6 +104,9 @@ export const ExtendedFAB = (tokens, options?: M3Options) => {
     },
     "&.secondary": {
       background: tokens[`MdSysColorSecondaryContainer${variant}`],
+      ".ripple": {
+        backgroundColor: tokens[`MdSysColorOnPrimaryContainer${variant}`],
+      },
       fill: tokens[`MdSysColorOnSecondaryContainer${variant}`],
       "&:disabled": {
         fill: `${rgba(tokens[`MdSysColorPrimary${variant}`], 0.38)}`,
@@ -104,6 +117,9 @@ export const ExtendedFAB = (tokens, options?: M3Options) => {
     },
     "&.tertiary": {
       background: tokens[`MdSysColorTertiaryContainer${variant}`],
+      ".ripple": {
+        backgroundColor: tokens[`MdSysColorOnPrimaryContainer${variant}`],
+      },
       fill: tokens[`MdSysColorOnTertiaryContainer${variant}`],
       "&:disabled": {
         fill: `${rgba(tokens[`MdSysColorPrimary${variant}`], 0.38)}`,

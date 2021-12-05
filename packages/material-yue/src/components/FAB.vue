@@ -1,6 +1,6 @@
 <template>
   <Ripple>
-  <button ref="root" :class="fab">
+  <button v-bind="$attrs" ref="root" :class="fab">
     <div class="state">
     </div><slot></slot></button></Ripple>
 </template>
@@ -24,7 +24,7 @@ export default {
     const fab = computed(() => css(
         style.value = setDynamic({target: m3(tokens, {variant: variant.value}).components.FAB, theme, width, height}),
     ));
-    return { root, fab, m3, tokens, variant };
+    return { root, fab };
   }
 }
 </script>

@@ -9,7 +9,7 @@
   >
 </template>
 <script lang="ts">
-import { computed, inject, Ref, ref } from "vue";
+import {computed, inject, Ref, ref, watchEffect} from "vue";
 import { css } from "@emotion/css";
 import { setDynamic, m3 } from "@material-yue/common";
 import Ripple from "./Ripple";
@@ -22,10 +22,12 @@ export default {
     const tokens: any = inject("tokens");
     const variant: any = inject("variant");
     const theme = m3(tokens, {variant:variant.value});
-    const btn = computed(() => css(
-        setDynamic({target: m3(tokens, {variant:variant.value}).components.Button, theme}),
-    ));
-    return { btn, m3, tokens, variant };
+    const btn = computed(() => {
+      return css(
+          setDynamic({target: m3(tokens, {variant: variant.value}).components.Button, theme}),
+      )
+    });
+    return { btn };
   }
 }
 </script>
