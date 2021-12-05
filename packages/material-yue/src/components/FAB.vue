@@ -1,10 +1,8 @@
 <template>
-<!--  TODO FAB can have multiple classes, find a fix -->
-  <Ripple :color="m3(tokens, {variant}).components.FAB[`&.${$attrs.class}`]['.ripple'].backgroundColor">
+  <Ripple>
   <button ref="root" :class="fab">
     <div class="state">
     </div><slot></slot></button></Ripple>
-
 </template>
 <script lang="ts">
 import { computed, inject, ref } from "vue";

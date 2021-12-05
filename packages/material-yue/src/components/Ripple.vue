@@ -11,7 +11,7 @@ export default {
     const { ripple, rippleOut } = useRipple();
 
     const onMousedown = (event) => {
-      ripple({event: event, element: event.currentTarget, color: props.color})
+      ripple({event: event, element: event.currentTarget})
     }
     const onMouseleave = () => {
       rippleOut();

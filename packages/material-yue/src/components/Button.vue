@@ -1,11 +1,12 @@
 <template>
-  <Ripple :color="m3(tokens, {variant}).components.Button[`&.${$attrs.class}`]['.ripple'].backgroundColor">
+  <Ripple>
   <button v-bind="$attrs" :class="btn">
     <div class="state">
     </div>
     <slot name="icon"></slot>
     <div><slot></slot></div></button>
-  </Ripple>
+  </Ripple
+  >
 </template>
 <script lang="ts">
 import { computed, inject, Ref, ref } from "vue";

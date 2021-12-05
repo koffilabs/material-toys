@@ -9,15 +9,14 @@ import React, {
 import { useRipple } from "@material-yue/common";
 
 interface RippleProps {
-  color: string;
   // children: Array<ReactElement>;
 }
-export const Ripple: FC<RippleProps> = ({ color, children }, context) => {
+export const Ripple: FC<RippleProps> = ({ children }, context) => {
   const reactNode: ReactNode = children;
   const { ripple, rippleOut } = useRipple();
 
   const onMouseDown = (event: SyntheticEvent) => {
-    ripple({ event: event.nativeEvent, element: event.currentTarget, color });
+    ripple({ event: event.nativeEvent, element: event.currentTarget });
   };
   const onMouseLeave = () => {
     rippleOut();

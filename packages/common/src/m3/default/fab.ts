@@ -17,6 +17,9 @@ export const FAB = (tokens, options?: M3Options) => {
     willChange: "transform opacity",
     overflow: "hidden",
     padding: "16px",
+    ".ripple": {
+      backgroundColor: tokens[`MdSysColorOnPrimaryContainer${variant}`],
+    },
 
     transition: `box-shadow ${duration} ease-in-out, background-color ${duration} ease-in-out, 
   fill ${duration} ease-in-out`,
@@ -70,10 +73,10 @@ export const FAB = (tokens, options?: M3Options) => {
       boxShadow: `0 2px 1px -1px ${rgba(
         tokens.MdSysColorShadow,
         0.2
-      )}, 0 1px 1px 0 ${rgba(tokens.MdSysColorShadow, 0.14)}, 0 1px 3px 0 ${rgba(
+      )}, 0 1px 1px 0 ${rgba(
         tokens.MdSysColorShadow,
-        0.12
-      )}`,
+        0.14
+      )}, 0 1px 3px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
       ".ripple": {
         backgroundColor: tokens[`MdSysColorOnPrimaryContainer${variant}`],
       },
@@ -86,7 +89,7 @@ export const FAB = (tokens, options?: M3Options) => {
       fill: tokens[`MdSysColorPrimary${variant}`],
       "&:disabled": {
         fill: `${rgba(tokens[`MdSysColorPrimary${variant}`], 0.38)}`,
-      }
+      },
     },
     "&.secondary": {
       background: tokens[`MdSysColorSecondaryContainer${variant}`],
@@ -99,7 +102,7 @@ export const FAB = (tokens, options?: M3Options) => {
       },
       "&>.state": {
         background: tokens[`MdSysColorOnSecondaryContainer${variant}`],
-      }
+      },
     },
     "&.tertiary": {
       background: tokens[`MdSysColorTertiaryContainer${variant}`],
@@ -112,7 +115,7 @@ export const FAB = (tokens, options?: M3Options) => {
       },
       "&>.state": {
         background: tokens[`MdSysColorOnTertiaryContainer${variant}`],
-      }
+      },
     },
     "&.small": {
       height: "40px",
@@ -125,6 +128,6 @@ export const FAB = (tokens, options?: M3Options) => {
       width: "96px",
       "border-radius": "28px",
       padding: "16px",
-    }
-  }
+    },
+  };
 };
