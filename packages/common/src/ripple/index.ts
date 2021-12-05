@@ -11,16 +11,17 @@ const options: KeyframeAnimationOptions = {
 // TODO: find a better name, use is a bit confusing
 export const useRipple = () => {
   let rippleElement,
-    lock = false,
+      outLock = false,
     rippleAnimation;
   const rippleOut = () => {
-    if (!rippleElement) {
+    if (!rippleElement || outLock) {
       return;
     }
+    outLock = true;
     const rippleComputedTiming = rippleAnimation
       ? rippleAnimation.effect.getComputedTiming()
       : {};
-    const delay = rippleComputedTiming.progress
+    const delay = typeof rippleComputedTiming.progress === "number"
       ? (1 - rippleComputedTiming.progress) * rippleComputedTiming.duration
       : 0;
     const anim = rippleElement.animate([{ opacity: 0.12 }, { opacity: 0 }], {
@@ -30,22 +31,17 @@ export const useRipple = () => {
     anim.addEventListener(
       "finish",
       () => {
-        rippleElement.style.width = "";
-        rippleElement.style.height = "";
         rippleElement.remove();
-        lock = false;
+        rippleElement = null;
+        outLock = false;
       },
       { once: true }
     );
   };
   const ripple = ({ event, element }: RippleArguments) => {
-    if (lock) {
+    if (rippleElement) {
       return;
     }
-    lock = true;
-    // if(element.querySelector(".ripple")){
-    //   return;
-    // }
     if (!rippleElement) {
       rippleElement = document.createElement("div");
     }
@@ -58,7 +54,6 @@ export const useRipple = () => {
     const a = oWidth + 2 * Math.abs(oWidth / 2 - x);
     const b = oHeight + 2 * Math.abs(oHeight / 2 - y);
     const side = (a ** 2 + b ** 2) ** 0.5;
-    console.log("side", side);
     rippleElement.className = "ripple";
     // rippleElement.style.backgroundColor = "";
     // color && (rippleElement.style.backgroundImage = `radial-gradient(circle at 50% 50%, ${color}, ${color} 40%, rgba(0, 0, 0, .3) 50%, ${color} 60%, ${color} 80%`);
@@ -82,11 +77,9 @@ export const useRipple = () => {
       [
         {
           transform: "translate(-50%, -50%) scale(0)",
-          opacity: ".12",
         },
         {
           transform: "translate(-50%, -50%) scale(1)",
-          opacity: ".12",
         },
       ],
       { ...options, fill: "forwards" }
@@ -95,7 +88,7 @@ export const useRipple = () => {
       "finish",
       () => {
         // rippleElement.remove()
-        rippleElement.style.transform = "translate(-50%, -50%) scale(0)";
+        // rippleElement.style.transform = "translate(-50%, -50%) scale(0)";
       },
       { once: true }
     );
