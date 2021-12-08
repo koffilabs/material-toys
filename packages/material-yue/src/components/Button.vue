@@ -11,7 +11,7 @@
 <script lang="ts">
 import {computed, inject, Ref, ref, watchEffect} from "vue";
 import { css } from "@emotion/css";
-import { setDynamic, m3 } from "@material-yue/common";
+import { applyReactiveStyle, m3 } from "@material-yue/common";
 import Ripple from "./Ripple";
 
 export default {
@@ -24,7 +24,7 @@ export default {
     const theme = m3(tokens, {variant:variant.value});
     const btn = computed(() => {
       return css(
-          setDynamic({target: m3(tokens, {variant: variant.value}).components.Button, theme}),
+          applyReactiveStyle({target: m3(tokens, {variant: variant.value}).components.Button, theme}),
       )
     });
     return { btn };

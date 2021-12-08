@@ -1,4 +1,4 @@
-export { spread, setDynamic } from "./util/style";
+export { spread, applyReactiveStyle } from "./util/style";
 export { theme } from "./themes/default";
 export { m3 } from "./m3/default";
 export { breakpoints } from "./m3/breakpoints";

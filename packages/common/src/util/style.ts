@@ -59,7 +59,7 @@ const exec = ({ dest, source: source, theme, node, width, height }) => {
   }
   return dest;
 };
-export const setDynamic = ({ target, theme, node, width, height }) => {
+export const applyReactiveStyle = ({ target, theme, node, width, height }) => {
   // let clone = JSON.parse(JSON.stringify(target));
   // const clone = cloneObject(target);
   // const clone = target;

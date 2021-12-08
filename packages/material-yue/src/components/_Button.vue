@@ -4,7 +4,7 @@
 <script lang="ts">
 import { computed, inject, onMounted, ref, watchEffect } from "vue";
 import {css, cx} from "@emotion/css";
-import {setDynamic} from "@material-yue/common";
+import {applyReactiveStyle} from "@material-yue/common";
 import useClipPathData from '../composables/useClipPathData';
 import useResizeEvents from '../composables/useResizeEvents';
 
@@ -17,10 +17,10 @@ export default {
     const width = ref(0);
     const height = ref(0);
     const btn = computed(() => css(
-        style.value = setDynamic({target: theme.components.Button, theme, width, height}),
+        style.value = applyReactiveStyle({target: theme.components.Button, theme, width, height}),
     ));
     const resizingBtn = computed(() => css(
-        style.value = [setDynamic({target: theme.components.Button, theme, width, height}), setDynamic({
+        style.value = [applyReactiveStyle({target: theme.components.Button, theme, width, height}), setDynamic({
           target: theme.components._resizingComponent,
           theme,
           height,

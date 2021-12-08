@@ -2,7 +2,7 @@ import { computed, inject, onMounted, ref, Ref } from "vue";
 import { eventBus } from "../core/eventBus";
 import { RESIZE, RESIZE_END } from "../core/window/resize";
 import { css } from "@emotion/css";
-import { setDynamic } from "@material-yue/common";
+import { applyReactiveStyle } from "@material-yue/common";
 
 interface ResizeEventsArgs {
   root: Ref<HTMLElement>;

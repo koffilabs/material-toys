@@ -7,7 +7,7 @@
 <script lang="ts">
 import { computed, inject, ref } from "vue";
 import {css, cx} from "@emotion/css";
-import {setDynamic, m3} from "@material-yue/common";
+import {applyReactiveStyle, m3} from "@material-yue/common";
 import Ripple from "./Ripple";
 
 export default {
@@ -18,11 +18,8 @@ export default {
     const variant: any = inject("variant");
     const theme = m3(tokens, {variant: variant.value});
     const root = ref(null);
-    const style = ref(null);
-    const width = ref(0);
-    const height = ref(0);
     const fab = computed(() => css(
-        style.value = setDynamic({target: m3(tokens, {variant: variant.value}).components.FAB, theme, width, height}),
+        applyReactiveStyle({target: m3(tokens, {variant: variant.value}).components.FAB, theme}),
     ));
     return { root, fab };
   }

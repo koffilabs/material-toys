@@ -9,7 +9,7 @@
 <script lang="ts">
 import { computed, inject, ref } from "vue";
 import {css, cx} from "@emotion/css";
-import {setDynamic, m3} from "@material-yue/common";
+import {applyReactiveStyle, m3} from "@material-yue/common";
 import Ripple from "./Ripple";
 
 export default {
@@ -24,7 +24,7 @@ export default {
     const width = ref(0);
     const height = ref(0);
     const efab = computed(() => css(
-        style.value = setDynamic({target: m3(tokens, {variant: variant.value}).components.ExtendedFAB, theme, width, height}),
+        style.value = applyReactiveStyle({target: m3(tokens, {variant: variant.value}).components.ExtendedFAB, theme, width, height}),
     ));
     return { root, efab };
   }

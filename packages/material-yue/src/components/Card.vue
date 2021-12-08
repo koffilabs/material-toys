@@ -7,7 +7,7 @@
 <script lang="ts">
 import { computed, inject, Ref, ref } from "vue";
 import { css } from "@emotion/css";
-import { setDynamic, m3 } from "@material-yue/common";
+import { applyReactiveStyle, m3 } from "@material-yue/common";
 
 export default {
   name: "Card",
@@ -20,7 +20,7 @@ export default {
     const width = ref(0);
     const height = ref(0);
     const card = computed(() => css(
-        style.value = setDynamic({target: m3(tokens, {variant:variant.value}).components.Card, theme, width, height}),
+        style.value = applyReactiveStyle({target: m3(tokens, {variant:variant.value}).components.Card, theme, width, height}),
     ));
     return { root, card };
   }

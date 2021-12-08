@@ -9,9 +9,8 @@ import React, {
 import { useRipple } from "@material-yue/common";
 
 interface RippleProps {
-  // children: Array<ReactElement>;
 }
-export const Ripple: FC<RippleProps> = ({ children }, context) => {
+export const Ripple = ({ children } : RippleProps, context) : JSX.Element => {
   const reactNode: ReactNode = children;
   const { ripple, rippleOut } = useRipple();
 
