@@ -19,14 +19,10 @@ export default {
     const tokens: any = inject("tokens");
     const variant: any = inject("variant");
     const theme = m3(tokens, {variant: variant.value});
-    const root = ref(null);
-    const style = ref(null);
-    const width = ref(0);
-    const height = ref(0);
     const efab = computed(() => css(
-        style.value = applyReactiveStyle({target: m3(tokens, {variant: variant.value}).components.ExtendedFAB, theme, width, height}),
+        applyReactiveStyle({target: m3(tokens, {variant: variant.value}).components.ExtendedFAB, theme}),
     ));
-    return { root, efab };
+    return { efab };
   }
 }
 </script>

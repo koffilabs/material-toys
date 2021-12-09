@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import {EditIcon, AddIcon} from "@material-yue/icons-react";
-import {Button, FAB, useTheme} from "@material-yue/react";
+import {Button, ExtendedFAB, FAB, useTheme} from "@material-yue/react";
 //
 import {material_tokens} from "@material-yue/common";
 import {material_tokens_polyfill} from "@material-yue/common";
@@ -49,7 +49,43 @@ export default function Home() {
                             <FAB className="level1 small"><EditIcon /></FAB>
                             <FAB className="level1 small" disabled><EditIcon /></FAB>
                         </div>
-                    </main>
+                        <div>
+                        <h1>Extended FAB</h1>
+                        <ExtendedFAB>
+                            Compose
+                        </ExtendedFAB>
+                        <ExtendedFAB className="surface">
+                            Compose
+                        </ExtendedFAB>
+                        <ExtendedFAB className="secondary">
+                            Compose
+                        </ExtendedFAB>
+                        <ExtendedFAB className="tertiary">
+                            Compose
+                        </ExtendedFAB>
+                </div>
+                        <div>
+                        <h1>Extended FAB with icons</h1>
+                        <ExtendedFAB>
+                            <EditIcon/>
+                            Compose
+                        </ExtendedFAB>
+                        <ExtendedFAB className="surface">
+                            <EditIcon/>
+                            Compose
+                        </ExtendedFAB>
+                        <ExtendedFAB className="secondary">
+                            <EditIcon/>
+                            Compose
+                        </ExtendedFAB>
+                        <ExtendedFAB className="tertiary">
+                            <EditIcon/>
+                            Compose
+                        </ExtendedFAB>
+                </div>
+
+
+            </main>
                     <style jsx>{`
       `}</style>
                 </div>
