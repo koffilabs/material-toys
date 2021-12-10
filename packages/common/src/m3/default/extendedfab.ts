@@ -22,7 +22,7 @@ export const ExtendedFAB = (tokens, options?: M3Options) => {
     borderRadius: "16px",
     position: "relative",
     height: "56px",
-    lineHeight: tokens.MdSysTypescaleLabelLargeLineHeight,
+    lineHeight: `${tokens.MdSysTypescaleLabelLargeLineHeight}px`,
     textAlign: "center",
     willChange: "transform opacity",
     overflow: "hidden",

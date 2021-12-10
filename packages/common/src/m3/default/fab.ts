@@ -12,7 +12,7 @@ export const FAB = (tokens, options?: M3Options) => {
     margin: "8px",
     height: "56px",
     width: "56px",
-    lineHeight: tokens.MdSysTypescaleLabelLargeLineHeight,
+    lineHeight: `${tokens.MdSysTypescaleLabelLargeLineHeight}px`,
     textAlign: "center",
     willChange: "transform opacity",
     overflow: "hidden",
