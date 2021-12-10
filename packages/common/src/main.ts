@@ -1,5 +1,6 @@
 export { spread, applyReactiveStyle } from "./util/style";
 export { theme } from "./themes/default";
+export { gridStyle } from "./m3/grid";
 export { m3 } from "./m3/default";
 export { breakpoints } from "./m3/breakpoints";
 export { useRipple } from "./ripple";

@@ -19,11 +19,11 @@ export const ExtendedFAB = (tokens, options?: M3Options) => {
 
     border: "none",
     background: tokens[`MdSysColorPrimaryContainer${variant}`],
-    "border-radius": "16px",
+    borderRadius: "16px",
     position: "relative",
     height: "56px",
-    "line-height": tokens.MdSysTypescaleLabelLargeLineHeight,
-    "text-align": "center",
+    lineHeight: tokens.MdSysTypescaleLabelLargeLineHeight,
+    textAlign: "center",
     willChange: "transform opacity",
     overflow: "hidden",
     padding: "16px",
@@ -131,13 +131,13 @@ export const ExtendedFAB = (tokens, options?: M3Options) => {
     "&.small": {
       height: "40px",
       width: "40px",
-      "border-radius": "12px",
+      borderRadius: "12px",
       padding: "8px",
     },
     "&.large": {
       height: "96px",
       width: "96px",
-      "border-radius": "28px",
+      borderRadius: "28px",
       padding: "16px",
     },
     "svg": {

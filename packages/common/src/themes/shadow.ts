@@ -9,9 +9,9 @@ export const theme: any = {
       position: "relative",
       "text-transform": "capitalize",
       height: "80px",
-      "line-height": "80px",
+      lineHeight: "80px",
       width: "200px",
-      "text-align": "center",
+      textAlign: "center",
       filter: "drop-shadow(-1px 6px 3px rgba(50, 50, 0, .5))",
 
       "& span": {

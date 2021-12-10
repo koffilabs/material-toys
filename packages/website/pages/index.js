@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import {EditIcon, AddIcon} from "@material-yue/icons-react";
-import {Button, Card, ExtendedFAB, FAB, useTheme} from "@material-yue/react";
+import {Button, Card, ExtendedFAB, FAB, Grid, useTheme} from "@material-yue/react";
 //
 import {material_tokens} from "@material-yue/common";
 import {material_tokens_polyfill} from "@material-yue/common";
@@ -110,7 +110,32 @@ export default function Home() {
                             </Card>
 
                         </div>
-
+                        <Grid>
+                            <Card className="elevated col-lg-3 col-12 col-sm-6">
+                                <div className="someContent">
+                                    <h3>Title - Elevated</h3>
+                                    <h5>Subhead</h5>
+                                    Use a card to display content and actions on a single topic.
+                                    Cards should be easy to scan for relevant information.
+                                </div>
+                            </Card>
+                            <Card className="filled col-lg-3 col-12 col-sm-6">
+                                <div className="someContent">
+                                    <h3>Title - Filled</h3>
+                                    <h5>Subhead</h5>
+                                    Use a card to display content and actions on a single topic.
+                                    Cards should be easy to scan for relevant information.
+                                </div>
+                            </Card>
+                            <Card className="outlined col-lg-3 col-12">
+                                <div className="someContent">
+                                    <h3>Title - Outlined</h3>
+                                    <h5>Subhead</h5>
+                                    Use a card to display content and actions on a single topic.
+                                    Cards should be easy to scan for relevant information.
+                                </div>
+                            </Card>
+                        </Grid>
                     </main>
                     <style jsx>{`
                       .someContent {

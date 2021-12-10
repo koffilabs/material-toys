@@ -46,9 +46,9 @@ export const theme: any = {
       "text-transform": "capitalize",
       height: "80px",
       // height: "10vh",
-      "line-height": "80px",
+      lineHeight: "80px",
       width: "140px",
-      "text-align": "center",
+      textAlign: "center",
       background: "@yue:theme[colors.primary]",
       willChange: "transform opacity",
       "clip-path": registerPath(
