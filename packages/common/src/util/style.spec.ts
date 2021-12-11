@@ -37,4 +37,5 @@ describe("util/style isolated unit tests suite", () => {
     const result = spread({ theme, path: "/components/Button" });
     expect(result).toEqual(["color:white;", "backgroundColor:red;"]);
   });
+  test("applyReactiveStyle should return the right style object", () => {});
 });
