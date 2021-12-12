@@ -1,4 +1,4 @@
-import { spread } from "./style";
+import {applyReactiveStyle, spread} from "./style";
 
 describe("util/style isolated unit tests suite", () => {
   test("should return color:red", () => {
@@ -37,5 +37,19 @@ describe("util/style isolated unit tests suite", () => {
     const result = spread({ theme, path: "/components/Button" });
     expect(result).toEqual(["color:white;", "backgroundColor:red;"]);
   });
-  test("applyReactiveStyle should return the right style object", () => {});
+  test("applyReactiveStyle should return the right style object", () => {
+    const target = {
+      color: "red"
+    };
+    const returned = applyReactiveStyle({
+      target,
+      theme: {
+        button: target,
+      },
+      node: {},
+    });
+    expect(returned).toMatchObject({
+      color: "red"
+    })
+  });
 });
