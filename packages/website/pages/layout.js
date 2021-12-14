@@ -2,10 +2,11 @@ import {Application, NavigationArea, AppBarArea, BodyArea} from "@material-yue/r
 
 export default function Layout(){
     return <div>
-        <Application>
-            <AppBarArea>appbar</AppBarArea>
-            <NavigationArea>nav</NavigationArea>
-            <BodyArea>body area</BodyArea>
-        </Application>
+        <Application
+        appBarArea={<AppBarArea>appbar</AppBarArea>}
+        navigationArea={<NavigationArea>nav</NavigationArea>}
+        bodyArea={<BodyArea>body</BodyArea>}
+        />
+
     </div>
 }
