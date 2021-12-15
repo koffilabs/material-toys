@@ -6,7 +6,7 @@ export default function Layout(){
         appBarArea={<AppBarArea>appbar</AppBarArea>}
         navigationArea={<NavigationArea>nav</NavigationArea>}
         bodyArea={<BodyArea>body</BodyArea>}
+        mobileNavigation="bar"
         />
-
     </div>
 }
