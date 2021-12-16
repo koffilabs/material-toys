@@ -13,8 +13,8 @@ export const breakpoints: Breakpoints = {
    // phone
    EXTRA_SMALL: {query: "@media(min-width: 0)", prefix: ""},
    // tablet
-   SMALL_FLUID: {query: "@media(min-width: 905px)", prefix: "smf-"},
    SMALL: {query: "@media(min-width: 600px)", prefix: "sm-"},
+   SMALL_FLUID: {query: "@media(min-width: 905px)", prefix: "smf-"},
    // laptop
    MEDIUM: {query: "@media(min-width: 1240px)", prefix: "md-"},
    // desktop

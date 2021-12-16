@@ -1,6 +1,12 @@
-import {Application, NavigationArea, AppBarArea, BodyArea} from "@material-yue/react";
+import dynamic from 'next/dynamic'
+import {NavigationArea, AppBarArea, BodyArea} from "@material-yue/react";
+// import {} from "@material-yue/react";
 import {useEffect, useState} from "react";
-
+const Application = dynamic(() => import('@material-yue/react').then((mod) => {
+    return mod.Application
+}), {
+    ssr: false
+});
 export default function Layout(){
     return <div>
         <Application
