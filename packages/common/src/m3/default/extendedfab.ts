@@ -5,6 +5,7 @@ const duration = ".1s";
 export const ExtendedFAB = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
+    outline: "none",
     display: "inline-flex",
     justifyContent: "center",
     alignItems: "center",

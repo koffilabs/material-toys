@@ -15,7 +15,7 @@ export const Application = ({appBarArea, navigationArea, bodyArea, mobileNavigat
     const [mediaMatch] = useMatchMedia();
     const cname = `${yueApplication}${mobileNavigation === "drawer" ? " drawer" : ""}`
     return <div className={cname}>
-        {mediaMatch}
+        {/*{mediaMatch}*/}
         <div className="appBar">{appBarArea}</div>
         <nav className="navigation">{
 

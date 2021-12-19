@@ -5,6 +5,7 @@ const duration = ".1s";
 export const FAB = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
+    outline: "none",
     border: "none",
     background: tokens[`MdSysColorPrimaryContainer${variant}`],
     borderRadius: "16px",

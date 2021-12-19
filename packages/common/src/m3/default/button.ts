@@ -24,6 +24,7 @@ export const Button = (tokens, options?: M3Options) => {
     overflow: "hidden",
     paddingLeft: "24px",
     paddingRight: "24px",
+    outline: "none",
     transition: `box-shadow ${duration} ease-in-out, background-color ${duration} ease-in-out, 
   color ${duration} ease-in-out`,
     "&>.state": {
