@@ -14,10 +14,10 @@ export const Ripple = ({ children } : RippleProps, context) : JSX.Element => {
   const reactNode: ReactNode = children;
   const { ripple, rippleOut } = useRipple();
 
-  const onMouseDown = (event: SyntheticEvent) => {
+  const onPointerDown = (event: SyntheticEvent) => {
     ripple({ event: event.nativeEvent, element: event.currentTarget });
   };
-  const onMouseLeave = () => {
+  const onPointerLeave = () => {
     rippleOut();
   };
   useEffect(() => {
@@ -26,9 +26,9 @@ export const Ripple = ({ children } : RippleProps, context) : JSX.Element => {
   return (
     <>
       {cloneElement(reactNode, {
-        onMouseDown,
-        onMouseLeave,
-        onMouseUp: onMouseLeave,
+        onPointerDown,
+        onPointerLeave,
+        onPointerUp: onPointerLeave,
       })}
     </>
   );
