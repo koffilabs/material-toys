@@ -21,7 +21,8 @@ interface NavigationDrawerProps {
 
 export const NavigationDrawer: FC<NavigationDrawerProps> = ({children, modal = false}) : JSX.Element => {
     let styleObj: any = {
-        background: "#fff"
+        background: "#fff",
+        width: "80px"
     };
     if(modal){
         styleObj = {
@@ -30,7 +31,7 @@ export const NavigationDrawer: FC<NavigationDrawerProps> = ({children, modal = f
             top: 0,
             left: 0,
             bottom: 0,
-            width: "500px",
+            width: "360px",
             zIndex: 110,
         }
     }

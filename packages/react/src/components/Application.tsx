@@ -52,7 +52,7 @@ export const Application: FC<ApplicationArgs> = ({appBarArea, navigationArea, bo
                     :
                     <NavigationRail>{navigationArea}</NavigationRail>
                 :
-                <div>End</div>
+                ""
         }
 
         </nav>
