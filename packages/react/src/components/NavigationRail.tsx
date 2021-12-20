@@ -1,5 +1,5 @@
-import React from "react";
+import React, {FC} from "react";
 
-export const NavigationRail = () => {
+export const NavigationRail: FC = ({children}) => {
     return <div>NavigationRail</div>
 }

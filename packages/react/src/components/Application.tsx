@@ -1,16 +1,17 @@
-import React, {Component} from "react";
+import React, {Component, FC} from "react";
 import {applicationStyle} from "@material-yue/common";
 import {css} from "@emotion/css";
 import {NavigationDrawer} from "./NavigationDrawer";
 import {NavigationBar} from "./NavigationBar";
-import {useMatchMedia} from "../hooks/useMatchMedia";
+import {useMatchMedia, MOBILE, TABLET, LAPTOP, DESKTOP} from "../hooks/useMatchMedia";
+import {NavigationRail} from "./NavigationRail";
 interface ApplicationArgs {
     appBarArea: Component,
     navigationArea: Component,
     bodyArea: Component,
     mobileNavigation?: "bar"|"drawer"
 }
-export const Application = ({appBarArea, navigationArea, bodyArea, mobileNavigation = "bar"}: ApplicationArgs) => {
+export const Application: FC<ApplicationArgs> = ({appBarArea, navigationArea, bodyArea, mobileNavigation = "bar"}) => {
     const yueApplication = css(applicationStyle);
     const [mediaMatch] = useMatchMedia();
     const cname = `${yueApplication}${mobileNavigation === "drawer" ? " drawer" : ""}`
@@ -30,10 +31,30 @@ export const Application = ({appBarArea, navigationArea, bodyArea, mobileNavigat
             // laptop: permanent navigation drawer
 
             // TODO add matchMedia here
-            mobileNavigation === "drawer" ?
-                <NavigationDrawer>{navigationArea}</NavigationDrawer>
+            mediaMatch === MOBILE
+            ?
+                mobileNavigation === "drawer" ?
+                <NavigationDrawer type="modal">{navigationArea}</NavigationDrawer>
                 :
-                <NavigationBar>{navigationArea}</NavigationBar>}
+                <NavigationBar>{navigationArea}</NavigationBar>
+            :
+            mediaMatch === TABLET
+            ?
+                mobileNavigation === "drawer" ?
+                <NavigationDrawer type="modal">{navigationArea}</NavigationDrawer>
+                :
+                <NavigationRail>{navigationArea}</NavigationRail>
+            :
+            mediaMatch === LAPTOP
+                ?
+                mobileNavigation === "drawer" ?
+                    <NavigationDrawer>{navigationArea}</NavigationDrawer>
+                    :
+                    <NavigationRail>{navigationArea}</NavigationRail>
+                :
+                <div>End</div>
+        }
+
         </nav>
         <main className="body">{bodyArea}</main>
     </div>

@@ -1,4 +1,5 @@
 import React, {
+    FC,
     useContext,
 } from "react";
 import { css } from "@emotion/css";
@@ -10,7 +11,7 @@ interface FABProps {
     className: string;
     onClick?: Function;
 }
-export const ExtendedFAB = ({ children, disabled, className }: FABProps) : JSX.Element => {
+export const ExtendedFAB: FC<FABProps> = ({ children, disabled, className }) => {
     const { ThemeContext, VariantContext } = useTheme();
     const tokens = useContext(ThemeContext);
     const variant = useContext(VariantContext);
