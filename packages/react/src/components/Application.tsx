@@ -34,18 +34,18 @@ export const Application: FC<ApplicationArgs> = ({appBarArea, navigationArea, bo
             mediaMatch === MOBILE
             ?
                 mobileNavigation === "drawer" ?
-                <NavigationDrawer type="modal">{navigationArea}</NavigationDrawer>
+                <NavigationDrawer modal={true}>{navigationArea}</NavigationDrawer>
                 :
                 <NavigationBar>{navigationArea}</NavigationBar>
             :
             mediaMatch === TABLET
             ?
                 mobileNavigation === "drawer" ?
-                <NavigationDrawer type="modal">{navigationArea}</NavigationDrawer>
+                <NavigationDrawer modal={true}>{navigationArea}</NavigationDrawer>
                 :
                 <NavigationRail>{navigationArea}</NavigationRail>
             :
-            mediaMatch === LAPTOP
+            mediaMatch === LAPTOP || mediaMatch === DESKTOP
                 ?
                 mobileNavigation === "drawer" ?
                     <NavigationDrawer>{navigationArea}</NavigationDrawer>

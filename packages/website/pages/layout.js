@@ -19,7 +19,7 @@ export default function Layout(){
         bodyArea={
             <BodyArea>body</BodyArea>
         }
-        mobileNavigation="bar"
+        mobileNavigation="drawer"
         />
     </div>
 }
