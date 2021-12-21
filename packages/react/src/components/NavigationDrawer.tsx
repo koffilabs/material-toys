@@ -1,7 +1,8 @@
-import React, {FC, ReactChildren} from "react";
+import React, {FC, ReactChildren, useEffect} from "react";
 import {css} from "@emotion/css";
+import {usePrevious} from "../hooks/usePrevious";
 const scrim = css({
-    position:"fixed",
+    position: "fixed",
     top:0,
     left:0,
     right:0,
@@ -14,30 +15,36 @@ const Scrim = () => {
     return <div className={scrim}>Scrim</div>
 }
 
-
 interface NavigationDrawerProps {
-    modal?: boolean
+    mode?: "drawer"|"modal"|"rail"
 }
 
-export const NavigationDrawer: FC<NavigationDrawerProps> = ({children, modal = false}) : JSX.Element => {
+export const NavigationDrawer: FC<NavigationDrawerProps> = ({children, mode = "drawer"}) : JSX.Element => {
     let styleObj: any = {
         background: "#fff",
-        width: "80px"
+        // transition: ".3s width ease-in-out",
+        width: `${mode === "rail" ? "80" : "360"}px`,
     };
-    if(modal){
+    const previousMode = usePrevious(mode);
+    if(mode === "modal"){
         styleObj = {
             ...styleObj,
             position: "fixed",
             top: 0,
             left: 0,
             bottom: 0,
-            width: "360px",
             zIndex: 110,
         }
     }
     const drawer = css(styleObj);
+    useEffect(() => {
+        // TODO: animations here
+        if(mode === "drawer" && previousMode === "rail"){
+            console.log("animation: rail to drawer")
+        }
+    }, [mode])
     return <>
-        {modal && <Scrim /> }
+        {mode === "modal" && <Scrim /> }
         <div className={drawer}>{children}</div>
     </>
 }

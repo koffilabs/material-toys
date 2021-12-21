@@ -15,44 +15,43 @@ export const Application: FC<ApplicationArgs> = ({appBarArea, navigationArea, bo
     const yueApplication = css(applicationStyle);
     const [mediaMatch] = useMatchMedia();
     const cname = `${yueApplication}${mobileNavigation === "drawer" ? " drawer" : ""}`
+
+
+    // mobileNavigation === drawer
+    // mobile: modal navigation drawer
+    // tablet: modal navigation drawer
+    // laptop: navigation drawer
+
+    // mobileNavigation === bar
+    // mobile: navigation bar
+    // tablet: navigation rail
+    // laptop: permanent navigation drawer
+    const navigationMode =
+        mediaMatch === MOBILE
+        ?
+        "modal"
+        :
+        mediaMatch === TABLET
+        ?
+            mobileNavigation === "drawer" ?
+
+            "modal"
+            :
+            "rail"
+        :
+        mediaMatch === LAPTOP || mediaMatch === DESKTOP
+        ?
+            "drawer"
+            :
+            "rail"
+    ;
+    console.log("mode", navigationMode)
     return <div className={cname}>
         {/*{mediaMatch}*/}
         <div className="appBar">{appBarArea}</div>
         <nav className="navigation">{
-
-            // mobileNavigation === drawer
-            // mobile: modal navigation drawer
-            // tablet: modal navigation drawer
-            // laptop: navigation drawer
-
-            // mobileNavigation === bar
-            // mobile: navigation bar
-            // tablet: navigation rail
-            // laptop: permanent navigation drawer
-
-            // TODO add matchMedia here
-            mediaMatch === MOBILE
-            ?
-                mobileNavigation === "drawer" ?
-                <NavigationDrawer modal={true}>{navigationArea}</NavigationDrawer>
-                :
-                <NavigationBar>{navigationArea}</NavigationBar>
-            :
-            mediaMatch === TABLET
-            ?
-                mobileNavigation === "drawer" ?
-                <NavigationDrawer modal={true}>{navigationArea}</NavigationDrawer>
-                :
-                <NavigationRail>{navigationArea}</NavigationRail>
-            :
-            mediaMatch === LAPTOP || mediaMatch === DESKTOP
-                ?
-                mobileNavigation === "drawer" ?
-                    <NavigationDrawer>{navigationArea}</NavigationDrawer>
-                    :
-                    <NavigationRail>{navigationArea}</NavigationRail>
-                :
-                ""
+            mediaMatch === MOBILE && mobileNavigation === "bar" ? <NavigationBar>{navigationArea}</NavigationBar>
+                :   <NavigationDrawer mode={navigationMode}>{navigationArea}</NavigationDrawer>
         }
 
         </nav>
