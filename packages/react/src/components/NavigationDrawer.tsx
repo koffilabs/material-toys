@@ -31,7 +31,6 @@ export const NavigationDrawer: FC<NavigationDrawerProps> = ({
   const variant = useContext(VariantContext);
 
   let styleObj: any = {
-    background: "#fff",
     // transition: ".3s width ease-in-out",
     width: `${mode === "rail" ? "80" : "360"}px`,
   };
@@ -68,7 +67,9 @@ export const NavigationDrawer: FC<NavigationDrawerProps> = ({
   return (
     <>
       {mode === "modal" && <Scrim />}
-      <div className={`${drawer} ${drawerTheme}`}>{children}</div>
+      <div data-mode={mode} className={`${drawer} ${drawerTheme}`}>
+        {children}
+      </div>
     </>
   );
 };

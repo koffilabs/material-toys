@@ -1,9 +1,8 @@
 import dynamic from "next/dynamic";
 import {
-  NavigationArea,
-  AppBarArea,
-  BodyArea,
   useTheme,
+  NavigationItem,
+  NavigationHeadline,
 } from "@material-yue/react";
 // import {} from "@material-yue/react";
 import { EditIcon, AddIcon } from "@material-yue/icons-react";
@@ -30,12 +29,12 @@ export default function Layout() {
   const [reactiveTokens, setReactiveTokens] = useState(tokens);
   const navigationItems = [
     {
-      icon: <EditIcon />,
+      icon: <EditIcon size={18} />,
       link: "/",
       label: "Home",
     },
     {
-      icon: <AddIcon />,
+      icon: <AddIcon size={18} />,
       link: "/layout",
       label: "Layout",
     },
@@ -48,19 +47,25 @@ export default function Layout() {
             appBarArea={<>appbar</>}
             navigationArea={
               <>
+                <NavigationHeadline>Mail</NavigationHeadline>
                 {navigationItems.map(({ label, icon, link }, i) => {
                   return (
-                    <div key={i} style={{ display: "flex" }}>
-                      {icon}
-                      <Link href={link}>
-                        <a>{label}</a>
-                      </Link>
-                    </div>
+                    <NavigationItem
+                      active={i === 0}
+                      key={i}
+                      icon={icon}
+                      label={
+                        <Link href={link}>
+                          <a>{label}</a>
+                        </Link>
+                      }
+                      badge={i === 0 ? "100+" : ""}
+                    />
                   );
                 })}
               </>
             }
-            bodyArea={<BodyArea>body</BodyArea>}
+            bodyArea={<>body</>}
             mobileNavigation="bar"
           />
         </div>

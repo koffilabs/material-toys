@@ -10,12 +10,12 @@ export const Button = (tokens, options?: M3Options) => {
     justifyContent: "center",
     alignItems: "center",
     border: "none",
-    "borderRadius": "20px",
+    borderRadius: "20px",
     position: "relative",
-    "textTransform": "capitalize",
+    textTransform: "capitalize",
     height: "40px",
-    "lineHeight": tokens.MdSysTypescaleLabelLargeLineHeight, // commented to align the icons
-    "textAlign": "center",
+    lineHeight: `${tokens.MdSysTypescaleLabelLargeLineHeight}px`,
+    textAlign: "center",
     willChange: "transform opacity",
     fontSize: tokens.MdSysTypescaleLabelLargeSize,
     fontWeight: tokens.MdSysTypescaleLabelLargeWeight,
@@ -71,10 +71,10 @@ export const Button = (tokens, options?: M3Options) => {
       boxShadow: `0 2px 1px -1px ${rgba(
         tokens.MdSysColorShadow,
         0.2
-      )}, 0 1px 1px 0 ${rgba(tokens.MdSysColorShadow, 0.14)}, 0 1px 3px 0 ${rgba(
+      )}, 0 1px 1px 0 ${rgba(
         tokens.MdSysColorShadow,
-        0.12
-      )}`,
+        0.14
+      )}, 0 1px 3px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
       "&:hover": {
         boxShadow: `0 3px 1px -2px ${rgba(
           tokens.MdSysColorShadow,
@@ -238,6 +238,6 @@ export const Button = (tokens, options?: M3Options) => {
     svg: {
       marginLeft: "-8px",
       marginRight: "8px",
-    }
-  }
-}
+    },
+  };
+};

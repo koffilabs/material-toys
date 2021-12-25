@@ -1,5 +1,9 @@
 import { rgba } from "emotion-rgba";
 import { M3Options } from "./index";
+import {
+  MdSysTypescaleTitleSmallFont,
+  MdSysTypescaleTitleSmallSize,
+} from "./tokens";
 const duration = ".1s";
 
 export const NavigationDrawer = (tokens, options?: M3Options) => {
@@ -13,42 +17,51 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
     paddingRight: "16px",
     marginRight: "8px",
     marginLeft: "8px",
-    a: {
-      color: "red",
-      textDecoration: "none",
-    },
-    transition: `box-shadow ${duration} ease-in-out, background-color ${duration} ease-in-out, 
-      color ${duration} ease-in-out`,
-    "&>.state": {
-      top: "0",
-      left: "0",
-      position: "absolute",
-      width: "100%",
-      height: "100%",
-      opacity: "0",
-      zIndex: "-1",
-      background: tokens[`MdSysColorOnSurface${variant}`],
-      transition: `opacity ${duration} ease-in-out`,
-    },
+    border: "1px solid #333",
+    height: "100%",
+    backgroundColor: tokens[`MdSysColorSurface${variant}`],
+    // badge style
+    fontFamily: tokens.MdSysTypescaleLabelLargeFont,
+    lineHeight: `${tokens.MdSysTypescaleLabelLargeLineHeight}px`,
+    fontSize: `${tokens.MdSysTypescaleLabelLargeSize}px`,
+    letterSpacing: tokens.MdSysTypescaleLabelLargeTracking,
+    fontWeight: tokens.MdSysTypescaleLabelLargeWeight,
+    color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
 
-    "&:hover": {
-      "&>.state": {
-        opacity: ".08",
+    // badge style end
+    h1: {
+      fontFamily: tokens.MdSysTypescaleTitleSmallFont,
+      color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
+      fontSize: `${tokens.MdSysTypescaleTitleSmallSize}px`,
+      fontWeight: tokens.MdSysTypeScaleTitleSmallWeight,
+      lineHeight: `${tokens.MdSysTypescaleTitleSmallLineHeight}px`,
+      letterSpacing: tokens.MdSysTypescaleTitleSmallTracking,
+    },
+    svg: {
+      fill: tokens[`MdSysColorOnSurfaceVariant${variant}`],
+    },
+    // backgroundColor: "red",
+    a: {
+      fontFamily: tokens.MdSysTypescaleLabelLargeFont,
+      textDecoration: "none",
+      color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
+      lineHeight: `${tokens.MdSysTypescaleLabelLargeLineHeight}px`,
+      letterSpacing: tokens.MdSysTypescaleLabelLargeTracking,
+      fontWeight: tokens.MdSysTypescaleLabelLargeWeight,
+      fontSize: `${tokens.MdSysTypescaleLabelLargeSize}px`,
+    },
+    "& [data-active=true]": {
+      backgroundColor: tokens[`MdSysColorSecondaryContainer${variant}`],
+      // backgroundColor: "red",
+      svg: {
+        fill: tokens[`MdSysColorOnSecondaryContainer${variant}`],
+      },
+      a: {
+        color: tokens[`MdSysColorOnSecondaryContainer${variant}`],
       },
     },
-    "&:focus": {
-      "&>.state": {
-        opacity: ".12",
-      },
-    },
-    "&:active": {
-      "&>.state": {
-        opacity: ".12",
-      },
-    },
-    "&.elevated": {
-      background: tokens[`MdSysColorSurface${variant}`],
-      // level 1
+    // modal
+    "&[data-mode=modal]": {
       boxShadow: `0 2px 1px -1px ${rgba(
         tokens.MdSysColorShadow,
         0.2
@@ -56,94 +69,6 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
         tokens.MdSysColorShadow,
         0.14
       )}, 0 1px 3px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
-      "&:hover": {
-        // level 2
-        boxShadow: `0 3px 1px -2px ${rgba(
-          tokens.MdSysColorShadow,
-          0.2
-        )}, 0 2px 2px 0 ${rgba(tokens.MdSysColorShadow, 0.14)}, 
-        0 1px 5px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
-        "&>.state": {
-          background: tokens[`MdSysColorOnSurface${variant}`],
-        },
-      },
-      "&:focus": {
-        // level 1
-        boxShadow: `0 2px 1px -1px ${rgba(
-          tokens.MdSysColorShadow,
-          0.2
-        )}, 0 1px 1px 0 ${rgba(
-          tokens.MdSysColorShadow,
-          0.14
-        )}, 0 1px 3px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
-      },
-      "&:active": {
-        // level 1
-        boxShadow: `0 2px 1px -1px ${rgba(
-          tokens.MdSysColorShadow,
-          0.2
-        )}, 0 1px 1px 0 ${rgba(
-          tokens.MdSysColorShadow,
-          0.14
-        )}, 0 1px 3px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
-      },
-    },
-    "&.filled": {
-      background: tokens[`MdSysColorSurfaceVariant${variant}`],
-      // level 0
-      boxShadow: `0 0 0 0 ${rgba(tokens.MdSysColorShadow, 0.2)}, 0 0 0 0 ${rgba(
-        tokens.MdSysColorShadow,
-        0.14
-      )}, 0 0 0 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
-      "&:hover": {
-        // level 1
-        boxShadow: `0 2px 1px -1px ${rgba(
-          tokens.MdSysColorShadow,
-          0.2
-        )}, 0 1px 1px 0 ${rgba(
-          tokens.MdSysColorShadow,
-          0.14
-        )}, 0 1px 3px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
-        "&>.state": {
-          background: tokens[`MdSysColorOnSurface${variant}`],
-        },
-      },
-      "&:focus": {
-        // level 1
-        boxShadow: `0 2px 1px -1px ${rgba(
-          tokens.MdSysColorShadow,
-          0.2
-        )}, 0 1px 1px 0 ${rgba(
-          tokens.MdSysColorShadow,
-          0.14
-        )}, 0 1px 3px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
-      },
-      "&:active": {
-        // level 0
-        boxShadow: `0 0 0 0 ${rgba(
-          tokens.MdSysColorShadow,
-          0.2
-        )}, 0 0 0 0 ${rgba(tokens.MdSysColorShadow, 0.14)}, 0 0 0 0 ${rgba(
-          tokens.MdSysColorShadow,
-          0.12
-        )}`,
-      },
-    },
-    "&.outlined": {
-      background: tokens[`MdSysColorSurface${variant}`],
-      border: `1px solid ${tokens.MdSysColorOutline}`,
-      // level 0
-      boxShadow: `0 0 0 0 ${rgba(tokens.MdSysColorShadow, 0.2)}, 0 0 0 0 ${rgba(
-        tokens.MdSysColorShadow,
-        0.14
-      )}, 0 0 0 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
-      "&:hover": {
-        "&>.state": {
-          background: tokens[`MdSysColorOnSurface${variant}`],
-        },
-      },
-      "&:focus": {},
-      "&:active": {},
     },
   };
 };
