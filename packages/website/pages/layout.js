@@ -1,25 +1,70 @@
-import dynamic from 'next/dynamic'
-import {NavigationArea, AppBarArea, BodyArea} from "@material-yue/react";
+import dynamic from "next/dynamic";
+import {
+  NavigationArea,
+  AppBarArea,
+  BodyArea,
+  useTheme,
+} from "@material-yue/react";
 // import {} from "@material-yue/react";
-import {useEffect, useState} from "react";
-const Application = dynamic(() => import('@material-yue/react').then((mod) => {
-    return mod.Application
-}), {
-    ssr: false
-});
-export default function Layout(){
-    return <div>
-        <Application
-        appBarArea={
-            <AppBarArea>appbar</AppBarArea>
-        }
-        navigationArea={
-            <NavigationArea>nav</NavigationArea>
-        }
-        bodyArea={
-            <BodyArea>body</BodyArea>
-        }
-        mobileNavigation="bar"
-        />
-    </div>
+import { EditIcon, AddIcon } from "@material-yue/icons-react";
+import Link from "next/link";
+import {
+  material_tokens,
+  material_tokens_polyfill,
+} from "@material-yue/common/dist/common.esm";
+import { useState } from "react";
+
+const Application = dynamic(
+  () =>
+    import("@material-yue/react").then((mod) => {
+      return mod.Application;
+    }),
+  {
+    ssr: false,
+  }
+);
+const tokens = { ...material_tokens_polyfill, ...material_tokens };
+
+export default function Layout() {
+  const { ThemeContext, VariantContext } = useTheme();
+  const [reactiveTokens, setReactiveTokens] = useState(tokens);
+  const navigationItems = [
+    {
+      icon: <EditIcon />,
+      link: "/",
+      label: "Home",
+    },
+    {
+      icon: <AddIcon />,
+      link: "/layout",
+      label: "Layout",
+    },
+  ];
+  return (
+    <ThemeContext.Provider value={reactiveTokens}>
+      <VariantContext.Provider value={""}>
+        <div>
+          <Application
+            appBarArea={<AppBarArea>appbar</AppBarArea>}
+            navigationArea={
+              <NavigationArea>
+                {navigationItems.map(({ label, icon, link }) => {
+                  return (
+                    <div style={{ display: "flex" }}>
+                      {icon}
+                      <Link href={link}>
+                        <a>{label}</a>
+                      </Link>
+                    </div>
+                  );
+                })}
+              </NavigationArea>
+            }
+            bodyArea={<BodyArea>body</BodyArea>}
+            mobileNavigation="bar"
+          />
+        </div>
+      </VariantContext.Provider>
+    </ThemeContext.Provider>
+  );
 }
