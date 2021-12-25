@@ -167,6 +167,9 @@ export default function Home() {
             </Grid>
           </main>
           <style jsx>{`
+                      *, *::before, *::after{
+                        box-sizing: border-box;
+                      }
                       .someContent {
                         font-family: "Roboto", sans-serif;
                         padding: 16px 0;

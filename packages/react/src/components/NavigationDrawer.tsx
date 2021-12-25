@@ -11,7 +11,8 @@ const scrim = css({
   right: 0,
   bottom: 0,
   zIndex: 100,
-  background: "rgba(0, 0, 0, .3)",
+  // TODO: use tokens instead
+  background: "rgba(0, 0, 0, .4)",
 });
 
 const Scrim = () => {

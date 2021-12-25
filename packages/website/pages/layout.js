@@ -5,7 +5,7 @@ import {
   NavigationHeadline,
 } from "@material-yue/react";
 // import {} from "@material-yue/react";
-import { EditIcon, AddIcon } from "@material-yue/icons-react";
+import { InboxIcon, AddIcon } from "@material-yue/icons-react";
 import Link from "next/link";
 import {
   material_tokens,
@@ -29,12 +29,12 @@ export default function Layout() {
   const [reactiveTokens, setReactiveTokens] = useState(tokens);
   const navigationItems = [
     {
-      icon: <EditIcon size={18} />,
+      icon: <InboxIcon size={24} />,
       link: "/",
-      label: "Home",
+      label: "Inbox",
     },
     {
-      icon: <AddIcon size={18} />,
+      icon: <AddIcon size={24} />,
       link: "/layout",
       label: "Layout",
     },
@@ -69,6 +69,13 @@ export default function Layout() {
             mobileNavigation="bar"
           />
         </div>
+        <style jsx global>{`
+          *,
+          *::before,
+          *::after {
+            box-sizing: border-box;
+          }
+        `}</style>
       </VariantContext.Provider>
     </ThemeContext.Provider>
   );
