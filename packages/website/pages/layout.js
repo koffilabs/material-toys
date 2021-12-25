@@ -45,12 +45,12 @@ export default function Layout() {
       <VariantContext.Provider value={""}>
         <div>
           <Application
-            appBarArea={<AppBarArea>appbar</AppBarArea>}
+            appBarArea={<>appbar</>}
             navigationArea={
-              <NavigationArea>
-                {navigationItems.map(({ label, icon, link }) => {
+              <>
+                {navigationItems.map(({ label, icon, link }, i) => {
                   return (
-                    <div style={{ display: "flex" }}>
+                    <div key={i} style={{ display: "flex" }}>
                       {icon}
                       <Link href={link}>
                         <a>{label}</a>
@@ -58,7 +58,7 @@ export default function Layout() {
                     </div>
                   );
                 })}
-              </NavigationArea>
+              </>
             }
             bodyArea={<BodyArea>body</BodyArea>}
             mobileNavigation="bar"

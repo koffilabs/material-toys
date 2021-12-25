@@ -3,8 +3,6 @@ export {FAB} from "./components/FAB";
 export {Card} from "./components/Card";
 export {Grid} from "./components/Grid";
 export {Application} from "./components/Application";
-export {AppBarArea} from "./components/AppBarArea";
-export {NavigationArea} from "./components/NavigationArea";
 export {BodyArea} from "./components/BodyArea";
 export {ExtendedFAB} from "./components/ExtendedFAB";
 // const {useTheme} = require("./hooks/useTheme");

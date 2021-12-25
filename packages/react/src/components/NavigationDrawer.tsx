@@ -61,6 +61,9 @@ export const NavigationDrawer: FC<NavigationDrawerProps> = ({
     if (mode === "drawer" && previousMode === "rail") {
       console.log("animation: rail to drawer");
     }
+    if (mode === "rail" && previousMode === "drawer") {
+      console.log("animation: drawer to rail");
+    }
   }, [mode]);
   return (
     <>
