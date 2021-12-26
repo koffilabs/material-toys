@@ -1,4 +1,5 @@
 import { M3Options } from "./index";
+import { fontWeights } from "./fontWeights";
 
 const duration = ".2s";
 
@@ -21,7 +22,7 @@ export const NavigationItem = (tokens, options?: M3Options) => {
     lineHeight: "56px",
     fontSize: `${tokens.MdSysTypescaleLabelLargeSize}px`,
     letterSpacing: tokens.MdSysTypescaleLabelLargeTracking,
-    fontWeight: tokens.MdSysTypescaleLabelLargeWeight,
+    fontWeight: fontWeights[tokens.MdSysTypescaleLabelLargeWeight],
     color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
     transition: `box-shadow ${duration} ease-in-out, background-color ${duration} ease-in-out, 
   color ${duration} ease-in-out`,
@@ -54,7 +55,7 @@ export const NavigationItem = (tokens, options?: M3Options) => {
       fontFamily: tokens.MdSysTypescaleTitleSmallFont,
       color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
       fontSize: `${tokens.MdSysTypescaleTitleSmallSize}px`,
-      fontWeight: tokens.MdSysTypeScaleTitleSmallWeight,
+      fontWeight: fontWeights[tokens.MdSysTypeScaleTitleSmallWeight],
       lineHeight: `${tokens.MdSysTypescaleTitleSmallLineHeight}px`,
       letterSpacing: tokens.MdSysTypescaleTitleSmallTracking,
     },
@@ -69,7 +70,7 @@ export const NavigationItem = (tokens, options?: M3Options) => {
       color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
       lineHeight: `${tokens.MdSysTypescaleLabelLargeLineHeight}px`,
       letterSpacing: tokens.MdSysTypescaleLabelLargeTracking,
-      fontWeight: tokens.MdSysTypescaleLabelLargeWeight,
+      fontWeight: fontWeights[tokens.MdSysTypescaleLabelLargeWeight],
       fontSize: `${tokens.MdSysTypescaleLabelLargeSize}px`,
     },
   };
