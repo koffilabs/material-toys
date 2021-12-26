@@ -27,6 +27,16 @@ export const NavigationItem = (tokens, options?: M3Options) => {
     color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
     transition: `box-shadow ${duration} ease-in-out, background-color ${duration} ease-in-out, 
   color ${duration} ease-in-out`,
+    "&[data-active=true]": {
+      backgroundColor: tokens[`MdSysColorSecondaryContainer${variant}`],
+      // backgroundColor: "red",
+      svg: {
+        fill: tokens[`MdSysColorOnSecondaryContainer${variant}`],
+      },
+      a: {
+        color: tokens[`MdSysColorOnSecondaryContainer${variant}`],
+      },
+    },
 
     "&>.state": {
       zIndex: "0",

@@ -5,7 +5,12 @@ import {
   NavigationHeadline,
 } from "@material-yue/react";
 // import {} from "@material-yue/react";
-import { InboxIcon, SendIcon, AddIcon } from "@material-yue/icons-react";
+import {
+  InboxIcon,
+  SendIcon,
+  FavoriteBorderIcon,
+  DeleteOutlineIcon,
+} from "@material-yue/icons-react";
 import Link from "next/link";
 import {
   material_tokens,
@@ -38,6 +43,16 @@ export default function Layout() {
       link: "/layout",
       label: "Outbox",
     },
+    {
+      icon: <FavoriteBorderIcon size={24} />,
+      link: "/layout",
+      label: "Favorites",
+    },
+    {
+      icon: <DeleteOutlineIcon size={24} />,
+      link: "/layout",
+      label: "Trash",
+    },
   ];
   return (
     <ThemeContext.Provider value={reactiveTokens}>
@@ -52,6 +67,7 @@ export default function Layout() {
                   return (
                     <NavigationItem
                       active={i === 0}
+                      divider={i === 3}
                       key={i}
                       icon={icon}
                       label={

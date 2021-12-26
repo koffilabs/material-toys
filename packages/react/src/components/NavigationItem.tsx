@@ -9,10 +9,8 @@ interface NavigationItemProps {
   label: string;
   badge?: string;
   active?: boolean;
+  divider?: boolean;
 }
-const navigationItemClassName = css({
-  display: "flex",
-});
 const badgeClassName = css({
   marginLeft: "auto",
 });
@@ -21,6 +19,7 @@ export const NavigationItem: FC<NavigationItemProps> = ({
   label,
   badge,
   active = false,
+  divider = false,
 }) => {
   const { ThemeContext, VariantContext } = useTheme();
   const tokens = useContext(ThemeContext);
@@ -34,13 +33,16 @@ export const NavigationItem: FC<NavigationItemProps> = ({
   );
 
   return (
-    <Ripple>
-      <div data-active={active} className={itemTheme}>
-        <div className="state" />
-        {icon && icon}
-        {label}
-        <div className={badgeClassName}>{badge}</div>
-      </div>
-    </Ripple>
+    <>
+      <Ripple>
+        <div data-active={active} className={itemTheme}>
+          <div className="state" />
+          {icon && icon}
+          {label}
+          <div className={badgeClassName}>{badge}</div>
+        </div>
+      </Ripple>
+      {divider && <div className={"divider"} />}
+    </>
   );
 };

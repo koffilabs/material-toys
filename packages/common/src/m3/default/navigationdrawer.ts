@@ -17,7 +17,7 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
     paddingRight: "12px",
     marginRight: "8px",
     marginLeft: "8px",
-    border: "1px solid #333",
+    // border: "1px solid #333",
     height: "100%",
     backgroundColor: tokens[`MdSysColorSurface${variant}`],
     h1: {
@@ -28,15 +28,12 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
       lineHeight: `${tokens.MdSysTypescaleTitleSmallLineHeight}px`,
       letterSpacing: tokens.MdSysTypescaleTitleSmallTracking,
     },
-    "& [data-active=true]": {
-      backgroundColor: tokens[`MdSysColorSecondaryContainer${variant}`],
-      // backgroundColor: "red",
-      svg: {
-        fill: tokens[`MdSysColorOnSecondaryContainer${variant}`],
-      },
-      a: {
-        color: tokens[`MdSysColorOnSecondaryContainer${variant}`],
-      },
+    "& .divider": {
+      content: "''",
+      height: "1px",
+      width: "calc(100% - 16px - 28px)",
+      marginLeft: "16px",
+      backgroundColor: tokens.MdSysColorOutline,
     },
     // modal
     "&[data-mode=modal]": {
