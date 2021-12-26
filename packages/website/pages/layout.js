@@ -69,13 +69,6 @@ export default function Layout() {
             mobileNavigation="bar"
           />
         </div>
-        <style jsx global>{`
-          *,
-          *::before,
-          *::after {
-            box-sizing: border-box;
-          }
-        `}</style>
       </VariantContext.Provider>
     </ThemeContext.Provider>
   );
