@@ -2,6 +2,7 @@ import React, { FC, useContext } from "react";
 import { css } from "@emotion/css";
 import { useTheme } from "../hooks/useTheme";
 import { applyReactiveStyle, m3 } from "@material-yue/common";
+import { Ripple } from "./Ripple";
 
 interface NavigationItemProps {
   icon?: React.Component;
@@ -33,10 +34,13 @@ export const NavigationItem: FC<NavigationItemProps> = ({
   );
 
   return (
-    <div data-active={active} className={itemTheme}>
-      {icon && icon}
-      {label}
-      <div className={badgeClassName}>{badge}</div>
-    </div>
+    <Ripple>
+      <div data-active={active} className={itemTheme}>
+        <div className="state" />
+        {icon && icon}
+        {label}
+        <div className={badgeClassName}>{badge}</div>
+      </div>
+    </Ripple>
   );
 };

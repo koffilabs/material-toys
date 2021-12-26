@@ -28,19 +28,6 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
       lineHeight: `${tokens.MdSysTypescaleTitleSmallLineHeight}px`,
       letterSpacing: tokens.MdSysTypescaleTitleSmallTracking,
     },
-    svg: {
-      fill: tokens[`MdSysColorOnSurfaceVariant${variant}`],
-    },
-    // backgroundColor: "red",
-    a: {
-      fontFamily: tokens.MdSysTypescaleLabelLargeFont,
-      textDecoration: "none",
-      color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
-      lineHeight: `${tokens.MdSysTypescaleLabelLargeLineHeight}px`,
-      letterSpacing: tokens.MdSysTypescaleLabelLargeTracking,
-      fontWeight: tokens.MdSysTypescaleLabelLargeWeight,
-      fontSize: `${tokens.MdSysTypescaleLabelLargeSize}px`,
-    },
     "& [data-active=true]": {
       backgroundColor: tokens[`MdSysColorSecondaryContainer${variant}`],
       // backgroundColor: "red",

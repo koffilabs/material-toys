@@ -5,7 +5,7 @@ import {
   NavigationHeadline,
 } from "@material-yue/react";
 // import {} from "@material-yue/react";
-import { InboxIcon, AddIcon } from "@material-yue/icons-react";
+import { InboxIcon, SendIcon, AddIcon } from "@material-yue/icons-react";
 import Link from "next/link";
 import {
   material_tokens,
@@ -34,9 +34,9 @@ export default function Layout() {
       label: "Inbox",
     },
     {
-      icon: <AddIcon size={24} />,
+      icon: <SendIcon size={24} />,
       link: "/layout",
-      label: "Layout",
+      label: "Outbox",
     },
   ];
   return (
