@@ -1,4 +1,4 @@
-import React, { FC, useContext, useEffect } from "react";
+import React, { cloneElement, FC, useContext, useEffect, JSX } from "react";
 import { css } from "@emotion/css";
 import { usePrevious } from "../hooks/usePrevious";
 import { applyReactiveStyle, m3 } from "@material-yue/common";
@@ -56,6 +56,9 @@ export const NavigationDrawer: FC<NavigationDrawerProps> = ({
     };
   }
   const drawer = css(styleObj);
+  const onClick = () => {
+    console.log("clicked");
+  };
   useEffect(() => {
     // TODO: animations here
     if (mode === "drawer" && previousMode === "rail") {
@@ -69,7 +72,11 @@ export const NavigationDrawer: FC<NavigationDrawerProps> = ({
     <>
       {mode === "modal" && <Scrim />}
       <div data-mode={mode} className={`${drawer} ${drawerTheme}`}>
-        {children}
+        {React.Children.map(children, (child: JSX.ReactFragment) => {
+          console.log("child", child);
+          // TODO: search for NavigationItems and add the onClick handler
+          return cloneElement(child, { onClick });
+        })}
       </div>
     </>
   );

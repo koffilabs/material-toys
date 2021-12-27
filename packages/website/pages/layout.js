@@ -38,7 +38,7 @@ export default function Layout() {
   const navigationItems = [
     {
       icon: <InboxIcon size={24} />,
-      link: "/",
+      link: "/layout",
       label: "Inbox",
     },
     {
@@ -60,17 +60,17 @@ export default function Layout() {
   const secondaryNavigationItems = [
     {
       icon: <OutlinedCircleIcon size={24} />,
-      link: "/",
+      link: "/layout",
       label: "Label",
     },
     {
       icon: <ChangeHistoryIcon size={24} />,
-      link: "/",
+      link: "/layout",
       label: "Label",
     },
     {
       icon: <CheckBoxOutlineBlankIcon size={24} />,
-      link: "/",
+      link: "/layout",
       label: "Label",
     },
   ];
