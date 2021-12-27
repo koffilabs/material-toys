@@ -27,12 +27,15 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
       fontWeight: tokens.MdSysTypeScaleTitleSmallWeight,
       lineHeight: `${tokens.MdSysTypescaleTitleSmallLineHeight}px`,
       letterSpacing: tokens.MdSysTypescaleTitleSmallTracking,
+      marginLeft: "20px",
+      marginBottom: "17px",
     },
     "& .divider": {
       content: "''",
       height: "1px",
       width: "calc(100% - 16px - 28px)",
       marginLeft: "16px",
+      marginBottom: "16px",
       backgroundColor: tokens.MdSysColorOutline,
     },
     // modal
