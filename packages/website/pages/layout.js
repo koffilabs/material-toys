@@ -10,6 +10,9 @@ import {
   SendIcon,
   FavoriteBorderIcon,
   DeleteOutlineIcon,
+  OutlinedCircleIcon,
+  ChangeHistoryIcon,
+  CheckBoxOutlineBlankIcon,
 } from "@material-yue/icons-react";
 import Link from "next/link";
 import {
@@ -54,6 +57,23 @@ export default function Layout() {
       label: "Trash",
     },
   ];
+  const secondaryNavigationItems = [
+    {
+      icon: <OutlinedCircleIcon size={24} />,
+      link: "/",
+      label: "Label",
+    },
+    {
+      icon: <ChangeHistoryIcon size={24} />,
+      link: "/",
+      label: "Label",
+    },
+    {
+      icon: <CheckBoxOutlineBlankIcon size={24} />,
+      link: "/",
+      label: "Label",
+    },
+  ];
   return (
     <ThemeContext.Provider value={reactiveTokens}>
       <VariantContext.Provider value={""}>
@@ -76,6 +96,20 @@ export default function Layout() {
                         </Link>
                       }
                       badge={i === 0 ? "100+" : ""}
+                    />
+                  );
+                })}
+                <NavigationHeadline>Labels</NavigationHeadline>
+                {secondaryNavigationItems.map(({ label, icon, link }, i) => {
+                  return (
+                    <NavigationItem
+                      key={i}
+                      icon={icon}
+                      label={
+                        <Link href={link}>
+                          <a>{label}</a>
+                        </Link>
+                      }
                     />
                   );
                 })}
