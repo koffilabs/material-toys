@@ -27,6 +27,7 @@ export const NavigationItem = (tokens, options?: M3Options) => {
     color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
     transition: `box-shadow ${duration} ease-in-out, background-color ${duration} ease-in-out, 
   color ${duration} ease-in-out`,
+    userSelect: "none",
     "&[data-active=true]": {
       backgroundColor: tokens[`MdSysColorSecondaryContainer${variant}`],
       // backgroundColor: "red",
@@ -46,13 +47,40 @@ export const NavigationItem = (tokens, options?: M3Options) => {
       width: "100%",
       height: "100%",
       opacity: "0",
-      backgroundColor: tokens[`MdSysColorPrimary${variant}`],
+      backgroundColor: tokens[`MdSysColorOnSurface${variant}`],
       transition: `opacity ${duration} ease-in-out`,
     },
     "&:hover": {
       cursor: "pointer",
+      color: tokens[`MdSysColorOnSurface${variant}`],
+      fill: tokens[`MdSysColorOnSurface${variant}`],
+      a: {
+        color: tokens[`MdSysColorOnSurface${variant}`],
+      },
       "&>.state": {
-        opacity: ".08", // sysstatehoveropacity?
+        opacity: ".16",
+      },
+    },
+    "&:focus": {
+      cursor: "pointer",
+      color: tokens[`MdSysColorOnSurface${variant}`],
+      fill: tokens[`MdSysColorOnSurface${variant}`],
+      a: {
+        color: tokens[`MdSysColorOnSurface${variant}`],
+      },
+      "&>.state": {
+        opacity: ".24",
+      },
+    },
+    "&:active": {
+      cursor: "pointer",
+      color: tokens[`MdSysColorOnSurface${variant}`],
+      fill: tokens[`MdSysColorOnSurface${variant}`],
+      a: {
+        color: tokens[`MdSysColorOnSurface${variant}`],
+      },
+      "&>.state": {
+        opacity: ".20",
       },
     },
     ".ripple": {
