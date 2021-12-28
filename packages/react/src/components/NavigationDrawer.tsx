@@ -34,9 +34,9 @@ export const NavigationDrawer: FC<NavigationDrawerProps> = ({
   const onClick = () => {
     console.log("clicked");
   };
-  const NavigatorItemMapper = (child: JSX.ReactFragment) => {
+  const NavigationItemMapper = (child: JSX.ReactFragment) => {
     if (child.props && child.props.children && child.type !== NavigationItem) {
-      return React.Children.map(child.props.children, NavigatorItemMapper);
+      return React.Children.map(child.props.children, NavigationItemMapper);
     }
     console.log("[mapper] child - ", child.type === NavigationItem);
     return child.type === NavigationItem
@@ -83,7 +83,7 @@ export const NavigationDrawer: FC<NavigationDrawerProps> = ({
     <>
       {mode === "modal" && <Scrim />}
       <div data-mode={mode} className={`${drawer} ${drawerTheme}`}>
-        {React.Children.map(children, NavigatorItemMapper)}
+        {React.Children.map(children, NavigationItemMapper)}
       </div>
     </>
   );

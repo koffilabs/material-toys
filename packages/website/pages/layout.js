@@ -42,7 +42,7 @@ export default function Layout() {
     },
     {
       icon: <SendIcon size={24} />,
-      link: "/layout",
+      link: "/",
       label: "Outbox",
     },
     {
