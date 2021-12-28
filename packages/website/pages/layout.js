@@ -5,6 +5,8 @@ import {
   NavigationHeadline,
 } from "@material-yue/react";
 // import {} from "@material-yue/react";
+import { useRouter } from "next/router";
+
 import {
   InboxIcon,
   SendIcon,
@@ -32,6 +34,8 @@ const Application = dynamic(
 );
 const tokens = { ...material_tokens_polyfill, ...material_tokens };
 export default function Layout() {
+  const router = useRouter();
+
   const { ThemeContext, VariantContext } = useTheme();
   const [reactiveTokens, setReactiveTokens] = useState(tokens);
   const navigationItems = [
@@ -89,11 +93,10 @@ export default function Layout() {
                       divider={i === 3}
                       key={i}
                       icon={icon}
-                      label={
-                        <Link href={link}>
-                          <a>{label}</a>
-                        </Link>
-                      }
+                      onClick={() => {
+                        router.push(link);
+                      }}
+                      content={<a>{label}</a>}
                       badge={i === 0 ? "100+" : ""}
                     />
                   );
@@ -102,13 +105,12 @@ export default function Layout() {
                 {secondaryNavigationItems.map(({ label, icon, link }, i) => {
                   return (
                     <NavigationItem
+                      onClick={() => {
+                        router.push(link);
+                      }}
                       key={i}
                       icon={icon}
-                      label={
-                        <Link href={link}>
-                          <a>{label}</a>
-                        </Link>
-                      }
+                      content={<a>{label}</a>}
                     />
                   );
                 })}

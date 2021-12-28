@@ -31,8 +31,9 @@ export const NavigationDrawer: FC<NavigationDrawerProps> = ({
   const { ThemeContext, VariantContext } = useTheme();
   const tokens = useContext(ThemeContext);
   const variant = useContext(VariantContext);
-  const onClick = () => {
-    console.log("clicked -------------------");
+  const onClick = (e: MouseEvent) => {
+    console.log("clicked", e);
+    // TODO: active state handling
   };
   const NavigationItemMapper = (child: JSX.ReactFragment) => {
     // if (!React.isValidElement(child)) {
@@ -40,8 +41,12 @@ export const NavigationDrawer: FC<NavigationDrawerProps> = ({
     //   return child;
     // }
     if (child.type === NavigationItem) {
-      console.log("Nav item found");
-      return cloneElement(child, { onClick });
+      return cloneElement(child, {
+        onClick: (e: MouseEvent) => {
+          onClick(e);
+          return child.props.onClick(e);
+        },
+      });
     }
     if (child.props && child.props.children) {
       return cloneElement(child, {

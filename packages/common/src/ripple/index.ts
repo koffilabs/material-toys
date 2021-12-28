@@ -11,7 +11,7 @@ const options: KeyframeAnimationOptions = {
 // TODO: find a better name, use is a bit confusing
 export const useRipple = () => {
   let rippleElement,
-      outLock = false,
+    outLock = false,
     rippleAnimation;
   const rippleOut = () => {
     if (!rippleElement || outLock) {
@@ -21,9 +21,10 @@ export const useRipple = () => {
     const rippleComputedTiming = rippleAnimation
       ? rippleAnimation.effect.getComputedTiming()
       : {};
-    const delay = typeof rippleComputedTiming.progress === "number"
-      ? (1 - rippleComputedTiming.progress) * rippleComputedTiming.duration
-      : 0;
+    const delay =
+      typeof rippleComputedTiming.progress === "number"
+        ? (1 - rippleComputedTiming.progress) * rippleComputedTiming.duration
+        : 0;
     const anim = rippleElement.animate([{ opacity: 0.12 }, { opacity: 0 }], {
       ...options,
       delay,
@@ -45,11 +46,13 @@ export const useRipple = () => {
     if (!rippleElement) {
       rippleElement = document.createElement("div");
     }
-    const x = event.offsetX;
-    const y = event.offsetY;
+    const elementRect = element.getBoundingClientRect();
+    const targetRect = event.target.getBoundingClientRect();
+    const x = event.offsetX + (targetRect.x - elementRect.x);
+    const y = event.offsetY + (targetRect.y - elementRect.y);
     const { target }: { target: EventTarget } = event;
-    const oWidth: number = (<HTMLElement>target).offsetWidth;
-    const oHeight: number = (<HTMLElement>target).offsetHeight;
+    const oWidth: number = (<HTMLElement>element).offsetWidth;
+    const oHeight: number = (<HTMLElement>element).offsetHeight;
 
     const a = oWidth + 2 * Math.abs(oWidth / 2 - x);
     const b = oHeight + 2 * Math.abs(oHeight / 2 - y);
