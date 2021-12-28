@@ -32,16 +32,31 @@ export const NavigationDrawer: FC<NavigationDrawerProps> = ({
   const tokens = useContext(ThemeContext);
   const variant = useContext(VariantContext);
   const onClick = () => {
-    console.log("clicked");
+    console.log("clicked -------------------");
   };
   const NavigationItemMapper = (child: JSX.ReactFragment) => {
-    if (child.props && child.props.children && child.type !== NavigationItem) {
-      return React.Children.map(child.props.children, NavigationItemMapper);
+    // if (!React.isValidElement(child)) {
+    //   console.log("kaboom");
+    //   return child;
+    // }
+    if (child.type === NavigationItem) {
+      console.log("Nav item found");
+      return cloneElement(child, { onClick });
     }
-    console.log("[mapper] child - ", child.type === NavigationItem);
-    return child.type === NavigationItem
-      ? cloneElement(child, { onClick })
-      : child;
+    if (child.props && child.props.children) {
+      return cloneElement(child, {
+        children: React.Children.map(
+          child.props.children,
+          NavigationItemMapper
+        ),
+      });
+    }
+    return child;
+    // if (child.props.children && child.type !== NavigationItem) {
+    //   return React.Children.map(child.props.children, NavigationItemMapper);
+    // }
+    // console.log("[mapper] child - ", child.type === NavigationItem);
+    // return cloneElement(child, { onClick });
   };
 
   let styleObj: any = {
