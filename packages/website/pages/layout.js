@@ -31,7 +31,6 @@ const Application = dynamic(
   }
 );
 const tokens = { ...material_tokens_polyfill, ...material_tokens };
-
 export default function Layout() {
   const { ThemeContext, VariantContext } = useTheme();
   const [reactiveTokens, setReactiveTokens] = useState(tokens);

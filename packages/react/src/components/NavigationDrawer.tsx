@@ -3,6 +3,7 @@ import { css } from "@emotion/css";
 import { usePrevious } from "../hooks/usePrevious";
 import { applyReactiveStyle, m3 } from "@material-yue/common";
 import { useTheme } from "../hooks/useTheme";
+import { NavigationItem } from "./NavigationItem";
 
 const scrim = css({
   position: "fixed",
@@ -30,6 +31,18 @@ export const NavigationDrawer: FC<NavigationDrawerProps> = ({
   const { ThemeContext, VariantContext } = useTheme();
   const tokens = useContext(ThemeContext);
   const variant = useContext(VariantContext);
+  const onClick = () => {
+    console.log("clicked");
+  };
+  const NavigatorItemMapper = (child: JSX.ReactFragment) => {
+    if (child.props && child.props.children && child.type !== NavigationItem) {
+      return React.Children.map(child.props.children, NavigatorItemMapper);
+    }
+    console.log("[mapper] child - ", child.type === NavigationItem);
+    return child.type === NavigationItem
+      ? cloneElement(child, { onClick })
+      : child;
+  };
 
   let styleObj: any = {
     // transition: ".3s width ease-in-out",
@@ -56,9 +69,7 @@ export const NavigationDrawer: FC<NavigationDrawerProps> = ({
     };
   }
   const drawer = css(styleObj);
-  const onClick = () => {
-    console.log("clicked");
-  };
+
   useEffect(() => {
     // TODO: animations here
     if (mode === "drawer" && previousMode === "rail") {
@@ -72,11 +83,7 @@ export const NavigationDrawer: FC<NavigationDrawerProps> = ({
     <>
       {mode === "modal" && <Scrim />}
       <div data-mode={mode} className={`${drawer} ${drawerTheme}`}>
-        {React.Children.map(children, (child: JSX.ReactFragment) => {
-          console.log("child", child);
-          // TODO: search for NavigationItems and add the onClick handler
-          return cloneElement(child, { onClick });
-        })}
+        {React.Children.map(children, NavigatorItemMapper)}
       </div>
     </>
   );
