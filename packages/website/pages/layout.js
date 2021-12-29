@@ -82,6 +82,7 @@ export default function Layout() {
       <VariantContext.Provider value={""}>
         <div>
           <Application
+            activeItem={0}
             appBarArea={<>appbar</>}
             navigationArea={
               <>
@@ -89,7 +90,6 @@ export default function Layout() {
                 {navigationItems.map(({ label, icon, link }, i) => {
                   return (
                     <NavigationItem
-                      active={i === 0}
                       divider={i === 3}
                       key={i}
                       icon={icon}

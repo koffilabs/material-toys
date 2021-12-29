@@ -28,48 +28,58 @@ const Scrim = () => {
 };
 
 interface NavigationDrawerProps {
+  activeItem?: number;
   mode?: "drawer" | "modal" | "rail";
 }
 
 export const NavigationDrawer: FC<NavigationDrawerProps> = ({
+  activeItem,
   children,
   mode = "drawer",
 }): JSX.Element => {
   const { ThemeContext, VariantContext } = useTheme();
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(activeItem);
   const tokens = useContext(ThemeContext);
   const variant = useContext(VariantContext);
-  const onClick = (e: MouseEvent) => {
-    console.log("clicked", e);
-    // TODO: active state handling
+  const onClick = (activeIndex: number) => {
+    console.log("clicked", activeIndex);
+    setSelectedIndex(activeIndex);
   };
-  const NavigationItemMapper = (child: JSX.ReactFragment) => {
-    // if (!React.isValidElement(child)) {
-    //   console.log("kaboom");
-    //   return child;
-    // }
-    if (child.type === NavigationItem) {
-      return cloneElement(child, {
-        onClick: (e: MouseEvent) => {
-          onClick(e);
-          return child.props.onClick(e);
-        },
-      });
-    }
-    if (child.props && child.props.children) {
-      return cloneElement(child, {
-        children: React.Children.map(
-          child.props.children,
-          NavigationItemMapper
-        ),
-      });
-    }
-    return child;
-    // if (child.props.children && child.type !== NavigationItem) {
-    //   return React.Children.map(child.props.children, NavigationItemMapper);
-    // }
-    // console.log("[mapper] child - ", child.type === NavigationItem);
-    // return cloneElement(child, { onClick });
+  const NavigationItemMapperFactory = () => {
+    let itemIndex = 0;
+    const NavigationItemMapper = (child: JSX.ReactFragment) => {
+      // if (!React.isValidElement(child)) {
+      //   console.log("kaboom");
+      //   return child;
+      // }
+      if (child.type === NavigationItem) {
+        // console.log("item index", itemIndex);
+        itemIndex++;
+        return cloneElement(child, {
+          active: itemIndex - 1 === selectedIndex,
+          onClick: ((idx) => (e: MouseEvent) => {
+            console.log("click on", idx);
+            onClick(idx);
+            return child.props.onClick(e);
+          })(itemIndex - 1),
+        });
+      }
+      if (child.props && child.props.children) {
+        return cloneElement(child, {
+          children: React.Children.map(
+            child.props.children,
+            NavigationItemMapper
+          ),
+        });
+      }
+      return child;
+      // if (child.props.children && child.type !== NavigationItem) {
+      //   return React.Children.map(child.props.children, NavigationItemMapper);
+      // }
+      // console.log("[mapper] child - ", child.type === NavigationItem);
+      // return cloneElement(child, { onClick });
+    };
+    return NavigationItemMapper;
   };
 
   let styleObj: any = {
@@ -107,6 +117,7 @@ export const NavigationDrawer: FC<NavigationDrawerProps> = ({
       console.log("animation: drawer to rail");
     }
   }, [mode]);
+  const NavigationItemMapper = NavigationItemMapperFactory();
   return (
     <>
       {mode === "modal" && <Scrim />}
