@@ -1,4 +1,11 @@
-import React, { cloneElement, FC, useContext, useEffect, JSX } from "react";
+introducimport React, {
+  cloneElement,
+  FC,
+  useContext,
+  useEffect,
+  JSX,
+  useState,
+} from "react";
 import { css } from "@emotion/css";
 import { usePrevious } from "../hooks/usePrevious";
 import { applyReactiveStyle, m3 } from "@material-yue/common";
@@ -29,6 +36,7 @@ export const NavigationDrawer: FC<NavigationDrawerProps> = ({
   mode = "drawer",
 }): JSX.Element => {
   const { ThemeContext, VariantContext } = useTheme();
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const tokens = useContext(ThemeContext);
   const variant = useContext(VariantContext);
   const onClick = (e: MouseEvent) => {
