@@ -42,7 +42,6 @@ export const NavigationDrawer: FC<NavigationDrawerProps> = ({
   const tokens = useContext(ThemeContext);
   const variant = useContext(VariantContext);
   const onClick = (activeIndex: number) => {
-    console.log("clicked", activeIndex);
     setSelectedIndex(activeIndex);
   };
   const NavigationItemMapperFactory = () => {
@@ -58,7 +57,6 @@ export const NavigationDrawer: FC<NavigationDrawerProps> = ({
         return cloneElement(child, {
           active: itemIndex - 1 === selectedIndex,
           onClick: ((idx) => (e: MouseEvent) => {
-            console.log("click on", idx);
             onClick(idx);
             return child.props.onClick(e);
           })(itemIndex - 1),
@@ -73,11 +71,6 @@ export const NavigationDrawer: FC<NavigationDrawerProps> = ({
         });
       }
       return child;
-      // if (child.props.children && child.type !== NavigationItem) {
-      //   return React.Children.map(child.props.children, NavigationItemMapper);
-      // }
-      // console.log("[mapper] child - ", child.type === NavigationItem);
-      // return cloneElement(child, { onClick });
     };
     return NavigationItemMapper;
   };
