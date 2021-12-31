@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": "src",
-    "types": ["reflect-metadata", "jest"],
+    "types": ["jest", "node"],
     "paths": {
       "test-utils": ["./utils/test-utils"]
     },

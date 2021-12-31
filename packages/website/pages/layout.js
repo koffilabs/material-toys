@@ -96,9 +96,10 @@ export default function Layout() {
                       onClick={() => {
                         router.push(link);
                       }}
-                      content={<a>{label}</a>}
                       badge={i === 0 ? "100+" : ""}
-                    />
+                    >
+                      <a>{label}</a>
+                    </NavigationItem>
                   );
                 })}
                 <NavigationHeadline>Labels</NavigationHeadline>
@@ -110,8 +111,9 @@ export default function Layout() {
                       }}
                       key={i}
                       icon={icon}
-                      content={<a>{label}</a>}
-                    />
+                    >
+                      <a>{label}</a>
+                    </NavigationItem>
                   );
                 })}
               </>

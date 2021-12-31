@@ -6,7 +6,6 @@ import { Ripple } from "./Ripple";
 
 interface NavigationItemProps {
   icon?: React.Component;
-  content: ReactElement;
   badge?: string;
   active?: boolean;
   divider?: boolean;
@@ -17,7 +16,7 @@ const badgeClassName = css({
 });
 export const NavigationItem: FC<NavigationItemProps> = ({
   icon,
-  content,
+  children,
   badge,
   active = false,
   divider = false,
@@ -39,9 +38,8 @@ export const NavigationItem: FC<NavigationItemProps> = ({
       <Ripple>
         <div data-active={active} onClick={onClick} className={itemTheme}>
           <div className="state" />
-          {icon && icon}
-
-          {content}
+          {icon}
+          {children}
           <div className={badgeClassName}>{badge}</div>
         </div>
       </Ripple>

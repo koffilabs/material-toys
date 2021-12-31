@@ -10,5 +10,8 @@
     "dev": "yarn workspaces foreach --parallel --interlaced run dev",
     "bootstrap": "yarn install"
   },
-  "packageManager": "yarn@3.1.0"
+  "packageManager": "yarn@3.1.0",
+  "devDependencies": {
+    "@yarnpkg/sdks": "^2.6.0-rc.1"
+  }
 }
