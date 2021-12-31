@@ -11,14 +11,13 @@ export const spread = ({ theme, path }: ThemePath) => {
   }, theme);
   return node ? Object.keys(node).map((key) => `${key}:${node[key]};`) : [];
 };
-interface ApplyReactiveStyleArgs{
-  target: object,
-  theme: object,
-  node: object,
-  height?: number,
-  width?: number,
+interface ApplyReactiveStyleArgs {
+  target: object;
+  theme: object;
+  height?: number;
+  width?: number;
 }
-const exec = ({ dest, source: source, theme, node, width, height }) => {
+const exec = ({ dest, source: source, theme, width, height }) => {
   for (const key of Object.keys(source)) {
     switch (typeof source[key]) {
       case "function":
@@ -36,7 +35,6 @@ const exec = ({ dest, source: source, theme, node, width, height }) => {
           dest: dest[key],
           source: source[key],
           theme,
-          node,
           width,
           height,
         });
@@ -66,11 +64,16 @@ const exec = ({ dest, source: source, theme, node, width, height }) => {
   }
   return dest;
 };
-export const applyReactiveStyle = ({ target, theme, node, width, height }:ApplyReactiveStyleArgs) => {
+export const applyReactiveStyle = ({
+  target,
+  theme,
+  width,
+  height,
+}: ApplyReactiveStyleArgs) => {
   // let clone = JSON.parse(JSON.stringify(target));
   // const clone = cloneObject(target);
   // const clone = target;
   let dest = {};
-  exec({ dest, source: target, theme, node, width, height });
+  exec({ dest, source: target, theme, width, height });
   return dest;
 };

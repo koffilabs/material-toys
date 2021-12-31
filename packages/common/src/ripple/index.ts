@@ -47,7 +47,7 @@ export const useRipple = () => {
       rippleElement = document.createElement("div");
     }
     const elementRect = element.getBoundingClientRect();
-    const targetRect = event.target.getBoundingClientRect();
+    const targetRect = (<HTMLElement>event.target).getBoundingClientRect();
     const x = event.offsetX + (targetRect.x - elementRect.x);
     const y = event.offsetY + (targetRect.y - elementRect.y);
     const { target }: { target: EventTarget } = event;

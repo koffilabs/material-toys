@@ -4,11 +4,13 @@
   "main": "dist/common.cjs.js",
   "module": "dist/common.esm.js",
   "browser": "dist/common.umd.js",
+  "types": "dist/dts/main.d.ts",
   "license": "MIT",
   "scripts": {
     "test": "jest",
     "build": "rollup -c ./rollup.config.js",
-    "dev": "rollup -c ./rollup.config.js -w"
+    "dev": "rollup -c ./rollup.config.js -w",
+    "emitDeclarations": "tsc --emitDeclarationOnly --outDir dist"
   },
   "devDependencies": {
     "@types/jest": "^27.0.3",

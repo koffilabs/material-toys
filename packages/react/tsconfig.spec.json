@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": "src",
-    "types": ["jest", "node"],
+    "types": ["jest", "node", "react"],
     "paths": {
       "test-utils": ["./utils/test-utils"]
     },

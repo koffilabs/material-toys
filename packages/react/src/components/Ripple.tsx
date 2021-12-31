@@ -8,14 +8,16 @@ import React, {
 } from "react";
 import { useRipple } from "@material-yue/common";
 
-interface RippleProps {
-}
-export const Ripple = ({ children } : RippleProps, context) : JSX.Element => {
+interface RippleProps {}
+export const Ripple: FC<RippleProps> = ({ children }, context): JSX.Element => {
   const reactNode: ReactNode = children;
   const { ripple, rippleOut } = useRipple();
 
   const onPointerDown = (event: SyntheticEvent) => {
-    ripple({ event: event.nativeEvent, element: event.currentTarget });
+    ripple({
+      event: event.nativeEvent as PointerEvent,
+      element: event.currentTarget as HTMLElement,
+    });
   };
   const onPointerLeave = () => {
     rippleOut();
@@ -25,7 +27,7 @@ export const Ripple = ({ children } : RippleProps, context) : JSX.Element => {
   }, []);
   return (
     <>
-      {cloneElement(reactNode, {
+      {cloneElement(reactNode as ReactElement<any>, {
         onPointerDown,
         onPointerLeave,
         onPointerUp: onPointerLeave,

@@ -3,8 +3,10 @@ import React, {
   FC,
   useContext,
   useEffect,
-  JSX,
   useState,
+  ReactFragment,
+  ReactNode,
+  ReactElement,
 } from "react";
 import { css } from "@emotion/css";
 import { usePrevious } from "../hooks/usePrevious";
@@ -36,17 +38,17 @@ export const NavigationDrawer: FC<NavigationDrawerProps> = ({
   activeItem,
   children,
   mode = "drawer",
-}): JSX.Element => {
+}) => {
   const { ThemeContext, VariantContext } = useTheme();
   const [selectedIndex, setSelectedIndex] = useState(activeItem);
   const tokens = useContext(ThemeContext);
-  const variant = useContext(VariantContext);
+  const variant: string = useContext(VariantContext);
   const onClick = (activeIndex: number) => {
     setSelectedIndex(activeIndex);
   };
   const NavigationItemMapperFactory = () => {
     let itemIndex = 0;
-    const NavigationItemMapper = (child: JSX.ReactFragment) => {
+    const NavigationItemMapper = (child: ReactElement): ReactFragment => {
       // if (!React.isValidElement(child)) {
       //   console.log("kaboom");
       //   return child;
@@ -115,7 +117,7 @@ export const NavigationDrawer: FC<NavigationDrawerProps> = ({
     <>
       {mode === "modal" && <Scrim />}
       <div data-mode={mode} className={`${drawer} ${drawerTheme}`}>
-        {React.Children.map(children, NavigationItemMapper)}
+        {React.Children.map(children as ReactElement, NavigationItemMapper)}
       </div>
     </>
   );

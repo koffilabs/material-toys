@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "baseUrl": "src",
-    "types": ["reflect-metadata", "jest"],
     "paths": {
       "test-utils": ["./utils/test-utils"]
     },

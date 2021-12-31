@@ -1,4 +1,4 @@
-import {applyReactiveStyle, spread} from "./style";
+import { applyReactiveStyle, spread } from "./style";
 
 describe("util/style isolated unit tests suite", () => {
   test("should return color:red", () => {
@@ -39,17 +39,16 @@ describe("util/style isolated unit tests suite", () => {
   });
   test("applyReactiveStyle should return the right style object", () => {
     const target = {
-      color: "red"
+      color: "red",
     };
     const returned = applyReactiveStyle({
       target,
       theme: {
         button: target,
       },
-      node: {},
     });
     expect(returned).toMatchObject({
-      color: "red"
-    })
+      color: "red",
+    });
   });
 });

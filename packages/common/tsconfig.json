@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
+    "declaration": true,
+    "declarationDir": "dist/dts",
     "moduleResolution": "node",
     "target": "esnext",
     "lib": [
