@@ -8,7 +8,6 @@ jest.mock("emotion-rgba");
 
 describe("NavigationDrawer isolated unit tests suite", () => {
   it("should render the items", () => {
-    // expect(42).toBe(42);
     const { getByText } = render(
       <NavigationDrawer>
         <NavigationItem>Hello</NavigationItem>
@@ -16,5 +15,26 @@ describe("NavigationDrawer isolated unit tests suite", () => {
     );
     expect(getByText("Hello")).toBeInTheDocument();
   });
-  // it("should select the right menu item", () => {});
+  it("should select the first menu item", () => {
+    const { container } = render(
+      <NavigationDrawer activeItem={0}>
+        <NavigationItem>Hello</NavigationItem>
+        <NavigationItem>World</NavigationItem>
+      </NavigationDrawer>
+    );
+    const activeNode = container.querySelector("[data-active=true]");
+    expect(activeNode).toBeInTheDocument();
+    expect(activeNode?.textContent).toBe("Hello");
+  });
+  it("should select the second menu item", () => {
+    const { container } = render(
+      <NavigationDrawer activeItem={1}>
+        <NavigationItem>Hello</NavigationItem>
+        <NavigationItem>World</NavigationItem>
+      </NavigationDrawer>
+    );
+    const activeNode = container.querySelector("[data-active=true]");
+    expect(activeNode).toBeInTheDocument();
+    expect(activeNode?.textContent).toBe("World");
+  });
 });
