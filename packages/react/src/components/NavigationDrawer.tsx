@@ -60,7 +60,9 @@ export const NavigationDrawer: FC<NavigationDrawerProps> = ({
           active: itemIndex - 1 === selectedIndex,
           onClick: ((idx) => (e: MouseEvent) => {
             onClick(idx);
-            return child.props.onClick(e);
+            if (typeof child.props.onClick === "function") {
+              return child.props.onClick(e);
+            }
           })(itemIndex - 1),
         });
       }
