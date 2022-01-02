@@ -1,4 +1,4 @@
-import React, { FC, MouseEventHandler, ReactElement, useContext } from "react";
+import React, { MouseEventHandler, ReactNode, useContext } from "react";
 import { css } from "@emotion/css";
 import { useTheme } from "../hooks/useTheme";
 import { applyReactiveStyle, m3 } from "@material-yue/common";
@@ -9,19 +9,20 @@ interface NavigationItemProps {
   badge?: string;
   active?: boolean;
   divider?: boolean;
+  children: ReactNode;
   onClick?: MouseEventHandler;
 }
 const badgeClassName = css({
   marginLeft: "auto",
 });
-export const NavigationItem: FC<NavigationItemProps> = ({
+export const NavigationItem = ({
   icon,
   children,
   badge,
   active = false,
   divider = false,
   onClick = () => {},
-}) => {
+}: NavigationItemProps) => {
   const { ThemeContext, VariantContext } = useTheme();
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);

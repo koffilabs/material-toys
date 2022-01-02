@@ -1,6 +1,5 @@
 import React, {
   cloneElement,
-  FC,
   useContext,
   useEffect,
   useState,
@@ -31,14 +30,15 @@ const Scrim = () => {
 
 interface NavigationDrawerProps {
   activeItem?: number;
+  children: ReactNode;
   mode?: "drawer" | "modal" | "rail";
 }
 
-export const NavigationDrawer: FC<NavigationDrawerProps> = ({
+export const NavigationDrawer = ({
   activeItem,
   children,
   mode = "drawer",
-}) => {
+}: NavigationDrawerProps) => {
   const { ThemeContext, VariantContext } = useTheme();
   const [selectedIndex, setSelectedIndex] = useState(activeItem);
   const tokens = useContext(ThemeContext);

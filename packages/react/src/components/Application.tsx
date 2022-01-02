@@ -10,7 +10,6 @@ import {
   LAPTOP,
   DESKTOP,
 } from "../hooks/useMatchMedia";
-import { NavigationRail } from "./NavigationRail";
 interface ApplicationArgs {
   activeItem?: number;
   appBarArea: Component;
@@ -18,13 +17,13 @@ interface ApplicationArgs {
   bodyArea: Component;
   mobileNavigation?: "bar" | "drawer";
 }
-export const Application: FC<ApplicationArgs> = ({
+export const Application = ({
   activeItem,
   appBarArea,
   navigationArea,
   bodyArea,
   mobileNavigation = "bar",
-}) => {
+}: ApplicationArgs) => {
   const yueApplication = css(applicationStyle);
   const [mediaMatch] = useMatchMedia();
   const cname = `${yueApplication}${

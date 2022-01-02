@@ -1,7 +1,7 @@
-import React, { FC } from "react";
-interface NavigationHeadlineProps {}
-export const NavigationHeadline: FC<NavigationHeadlineProps> = ({
-  children,
-}) => {
+import React, { ReactNode } from "react";
+interface NavigationHeadlineProps {
+  children: ReactNode;
+}
+export const NavigationHeadline = ({ children }: NavigationHeadlineProps) => {
   return <h1>{children}</h1>;
 };

@@ -1,6 +1,6 @@
 import React, {
   cloneElement,
-  FC,
+  Context,
   ReactElement,
   ReactNode,
   SyntheticEvent,
@@ -8,8 +8,13 @@ import React, {
 } from "react";
 import { useRipple } from "@material-yue/common";
 
-interface RippleProps {}
-export const Ripple: FC<RippleProps> = ({ children }, context): JSX.Element => {
+interface RippleProps {
+  children: ReactNode;
+}
+export const Ripple = (
+  { children }: RippleProps,
+  context: Context<any>
+): JSX.Element => {
   const reactNode: ReactNode = children;
   const { ripple, rippleOut } = useRipple();
 
