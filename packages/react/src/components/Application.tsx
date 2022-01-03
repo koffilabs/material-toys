@@ -1,4 +1,4 @@
-import React, { Component, FC } from "react";
+import React, { Component } from "react";
 import { applicationStyle } from "@material-yue/common";
 import { css } from "@emotion/css";
 import { NavigationDrawer } from "./NavigationDrawer";
@@ -52,7 +52,6 @@ export const Application = ({
   console.log("mode", navigationMode);
   return (
     <div className={cname}>
-      {/*{mediaMatch}*/}
       <div className="appBar">{appBarArea}</div>
       <nav className="navigation">
         {mediaMatch === MOBILE && mobileNavigation === "bar" ? (

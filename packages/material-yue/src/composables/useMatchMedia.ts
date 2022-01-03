@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { onMounted, onUnmounted, Ref, ref } from "vue";
+
 export const MOBILE = "mobile";
 export const TABLET = "tablet";
 export const LAPTOP = "laptop";
 export const DESKTOP = "desktop";
-export const useMatchMedia: () => [string] = () => {
-  const [mediaMatch, setMediaMatch] = useState(MOBILE);
+export const useMatchMedia: () => { mediaMatch: Ref<string> } = () => {
+  const mediaMatch = ref(MOBILE);
   const mobileQuery = window.matchMedia("(max-width: 599px)");
   const tabletQuery = window.matchMedia(
     "(min-width: 600px) and (max-width: 1239px)"
@@ -16,35 +17,33 @@ export const useMatchMedia: () => [string] = () => {
   const setMatch = () => {
     switch (true) {
       case mobileQuery.matches:
-        setMediaMatch(MOBILE);
+        mediaMatch.value = MOBILE;
         break;
       case tabletQuery.matches:
-        setMediaMatch(TABLET);
+        mediaMatch.value = TABLET;
         break;
       case laptopQuery.matches:
-        setMediaMatch(LAPTOP);
+        mediaMatch.value = LAPTOP;
         break;
       case desktopQuery.matches:
-        setMediaMatch(DESKTOP);
+        mediaMatch.value = DESKTOP;
         break;
       default:
         break;
     }
   };
-  useEffect(() => {
-    setMatch();
-  }, []);
-  useEffect(() => {
+  setMatch();
+  onMounted(() => {
     mobileQuery.addEventListener("change", setMatch);
     tabletQuery.addEventListener("change", setMatch);
     laptopQuery.addEventListener("change", setMatch);
     desktopQuery.addEventListener("change", setMatch);
-    return () => {
-      mobileQuery.removeEventListener("change", setMatch);
-      tabletQuery.removeEventListener("change", setMatch);
-      laptopQuery.removeEventListener("change", setMatch);
-      desktopQuery.removeEventListener("change", setMatch);
-    };
-  }, []);
-  return [mediaMatch];
+  });
+  onUnmounted(() => {
+    mobileQuery.removeEventListener("change", setMatch);
+    tabletQuery.removeEventListener("change", setMatch);
+    laptopQuery.removeEventListener("change", setMatch);
+    desktopQuery.removeEventListener("change", setMatch);
+  });
+  return { mediaMatch };
 };
