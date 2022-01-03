@@ -3,7 +3,7 @@
   "main": "dist/material-yue.cjs.js",
   "module": "dist/material-yue.esm.js",
   "browser": "dist/material-yue.umd.js",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A Material You implementation using Vue.js",
   "repository": "https://github.com/koffilabs/material-yue.git",
   "license": "MIT",

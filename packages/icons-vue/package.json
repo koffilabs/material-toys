@@ -3,6 +3,7 @@
   "packageManager": "yarn@3.1.0",
   "main": "dist/material-yue-icons.cjs.js",
   "module": "dist/material-yue-icons.esm.js",
+  "version": "0.1.0",
   "scripts": {
     "generate": "node scripts/generateVueIcons.js",
     "postinstall": "node scripts/generateVueIcons.js",

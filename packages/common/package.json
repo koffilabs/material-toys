@@ -1,6 +1,6 @@
 {
   "name": "@material-yue/common",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "main": "dist/common.cjs.js",
   "module": "dist/common.esm.js",
   "browser": "dist/common.umd.js",
