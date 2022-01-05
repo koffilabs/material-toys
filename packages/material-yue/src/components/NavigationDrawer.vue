@@ -4,7 +4,9 @@
 
 <script>
 export default {
-  name: "NavigationDrawer"
+  name: "NavigationDrawer",
+  setup(){}
+
 }
 </script>
 

@@ -4,7 +4,8 @@
 
 <script>
 export default {
-  name: "NavigationBar"
+  name: "NavigationBar",
+  setup(){}
 }
 </script>
 

@@ -16,8 +16,8 @@
 </template>
 
 <script lang="ts">
-import NavigationBar from "./NavigationBar";
-import NavigationDrawer from "./NavigationDrawer";
+import NavigationBar from "./NavigationBar.vue";
+import NavigationDrawer from "./NavigationDrawer.vue";
 import {useMatchMedia} from "../composables/useMatchMedia";
 import {Component} from "react";
 import {css} from "@emotion/css";
