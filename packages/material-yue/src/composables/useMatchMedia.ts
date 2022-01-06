@@ -17,15 +17,19 @@ export const useMatchMedia: () => { mediaMatch: Ref<string> } = () => {
   const setMatch = () => {
     switch (true) {
       case mobileQuery.matches:
+        console.log("mobile");
         mediaMatch.value = MOBILE;
         break;
       case tabletQuery.matches:
+        console.log("tablet");
         mediaMatch.value = TABLET;
         break;
       case laptopQuery.matches:
+        console.log("laptop");
         mediaMatch.value = LAPTOP;
         break;
       case desktopQuery.matches:
+        console.log("desktop");
         mediaMatch.value = DESKTOP;
         break;
       default:

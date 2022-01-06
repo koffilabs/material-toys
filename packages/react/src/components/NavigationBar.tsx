@@ -1,5 +1,7 @@
-import React from "react";
-
-export const NavigationBar = ({children}) => {
-    return <div>NavigationBar {children}</div>
+import React, { ReactNode } from "react";
+interface NavigationBarArgs {
+  children: ReactNode;
 }
+export const NavigationBar = ({ children }: NavigationBarArgs) => {
+  return <div>NavigationBar {children}</div>;
+};

@@ -9,7 +9,7 @@
   >
 </template>
 <script lang="ts">
-import {computed, inject, Ref, ref, watchEffect} from "vue";
+import {computed, inject, Ref} from "vue";
 import { css } from "@emotion/css";
 import { applyReactiveStyle, m3 } from "@material-yue/common";
 import Ripple from "./Ripple.vue";
@@ -20,9 +20,7 @@ export default {
   components: {Ripple},
   setup(){
     const tokens: any = inject("tokens");
-    const variant: any = inject("variant");
-    console.log("tokens are", tokens)
-    console.log("the variant is", variant)
+    const variant: Ref<string> = inject("variant");
     const theme = m3(tokens, {variant:variant.value});
     const btn = computed(() => {
       return css(

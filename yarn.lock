@@ -2692,6 +2692,27 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@material-yue/website-vue@workspace:packages/website-vue":
+  version: 0.0.0-use.local
+  resolution: "@material-yue/website-vue@workspace:packages/website-vue"
+  dependencies:
+    "@emotion/css": ^11.7.1
+    "@material-yue/common": "workspace:^"
+    "@material-yue/icons-vue": "workspace:^"
+    "@material-yue/vue": "workspace:^"
+    "@vue/cli-plugin-babel": ~4.5.0
+    "@vue/cli-plugin-eslint": ~4.5.0
+    "@vue/cli-service": ~4.5.0
+    "@vue/compiler-sfc": ^3.0.0
+    babel-eslint: ^10.1.0
+    core-js: ^3.6.5
+    eslint: ^6.7.2
+    eslint-plugin-vue: ^7.0.0
+    vue: ^3.2.21
+    vue-router: 4
+  languageName: unknown
+  linkType: soft
+
 "@material-yue/website@workspace:packages/website-react":
   version: 0.0.0-use.local
   resolution: "@material-yue/website@workspace:packages/website-react"
@@ -21479,27 +21500,6 @@ __metadata:
   checksum: 013fa24c00d4261e16ebca60353fa6f848e417b5a44bdf28c16ebebd67fa61e960420bb314c8df05cfe2dad9b90efabcf38fd6875f2361922769a0384085ef1e
   languageName: node
   linkType: hard
-
-"website-vue@workspace:packages/website-vue":
-  version: 0.0.0-use.local
-  resolution: "website-vue@workspace:packages/website-vue"
-  dependencies:
-    "@emotion/css": ^11.7.1
-    "@material-yue/common": "workspace:^"
-    "@material-yue/icons-vue": "workspace:^"
-    "@material-yue/vue": "workspace:^"
-    "@vue/cli-plugin-babel": ~4.5.0
-    "@vue/cli-plugin-eslint": ~4.5.0
-    "@vue/cli-service": ~4.5.0
-    "@vue/compiler-sfc": ^3.0.0
-    babel-eslint: ^10.1.0
-    core-js: ^3.6.5
-    eslint: ^6.7.2
-    eslint-plugin-vue: ^7.0.0
-    vue: ^3.2.21
-    vue-router: 4
-  languageName: unknown
-  linkType: soft
 
 "websocket-driver@npm:>=0.5.1, websocket-driver@npm:^0.7.4":
   version: 0.7.4

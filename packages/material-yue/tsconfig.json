@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "moduleResolution": "node",
-    "target": "esnext",
+    "target": "es2015",
     "paths": {
       "vue": ["@vue/runtime-dom"]
     }
