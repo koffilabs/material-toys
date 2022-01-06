@@ -21,6 +21,8 @@ export default {
   setup(){
     const tokens: any = inject("tokens");
     const variant: any = inject("variant");
+    console.log("tokens are", tokens)
+    console.log("the variant is", variant)
     const theme = m3(tokens, {variant:variant.value});
     const btn = computed(() => {
       return css(
