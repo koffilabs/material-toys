@@ -1,4 +1,4 @@
-import "./core";
+// import "./core";
 import Button from "./components/Button.vue";
 import FAB from "./components/FAB.vue";
 import ExtendedFAB from "./components/ExtendedFAB.vue";

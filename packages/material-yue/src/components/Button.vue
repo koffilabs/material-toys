@@ -12,7 +12,7 @@
 import {computed, inject, Ref, ref, watchEffect} from "vue";
 import { css } from "@emotion/css";
 import { applyReactiveStyle, m3 } from "@material-yue/common";
-import Ripple from "./Ripple";
+import Ripple from "./Ripple.vue";
 
 export default {
   inheritAttrs: false,
@@ -27,6 +27,8 @@ export default {
           applyReactiveStyle({target: m3(tokens, {variant: variant.value}).components.Button, theme}),
       )
     });
+    // console.log("btn is", btn);
+    // const btn = "btn";
     return { btn };
   }
 }
