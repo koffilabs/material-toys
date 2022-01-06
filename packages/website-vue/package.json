@@ -1,5 +1,5 @@
 {
-  "name": "website-vue",
+  "name": "@material-yue/website-vue",
   "version": "0.1.0",
   "private": true,
   "scripts": {
