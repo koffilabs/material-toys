@@ -40,29 +40,38 @@ export default {
     const onClick = (activeIndex: number) => {
       selectedIndex.value = activeIndex;
     };
-    let styleObj: any = reactive({
-      // transition: ".3s width ease-in-out",
-      width: `${props.mode === "rail" ? "80" : "360"}px`,
-    });
-
+    // let styleObj = reactive({
+    //   width: `${props.mode === "rail" ? "80" : "360"}px`,
+    //
+    // })
     const drawerTheme = css(
         applyReactiveStyle({
           target: m3(tokens, { variant: variant.value }).components.NavigationDrawer,
           theme,
         })
     );
+    let styleObj;
+    // if (props.mode === "modal") {
+    //   styleObj = computed(() => ({
+    //     width: `${props.mode === "rail" ? "80" : "360"}px`,
+    //     position: "fixed",
+    //     top: 0,
+    //     left: 0,
+    //     bottom: 0,
+    //     zIndex: 110,
+    //   }));
+    // }else{
+    // }
+    styleObj = computed(() => ({
+      // transition: ".3s width ease-in-out",
+      width: `${props.mode === "rail" ? "80" : "360"}px`,
+    }));
+    console.log("styleobj", styleObj.value)
+    const drawer = ref(css(styleObj));
 
-    if (props.mode === "modal") {
-      styleObj = {
-        ...styleObj,
-        position: "fixed",
-        top: 0,
-        left: 0,
-        bottom: 0,
-        zIndex: 110,
-      };
-    }
-    const drawer = computed(() => css(styleObj));
+    watch(styleObj, (newStyle, oldStyle) => {
+      drawer.value = css(newStyle);
+    })
     watch(() => props.mode, (mode, previousMode) => {
       console.log("mode changed to", mode)
       if (mode === "drawer" && previousMode === "rail") {
