@@ -62,12 +62,18 @@ export default {
     //   }));
     // }else{
     // }
-    styleObj = computed(() => ({
-      // transition: ".3s width ease-in-out",
-      width: `${props.mode === "rail" ? "80" : "360"}px`,
-    }));
-    console.log("styleobj", styleObj.value)
-    const drawer = ref(css(styleObj));
+    // styleObj = computed(() => ({
+    //   // transition: ".3s width ease-in-out",
+    //   width: `${props.mode === "rail" ? "80" : "360"}px`,
+    // }));
+    // console.log("styleobj", styleObj.value)
+    // const drawer = ref(css(styleObj));
+    const drawer = computed(() => {
+     return css({
+       // transition: ".3s width ease-in-out",
+       width: `${props.mode === "rail" ? "80" : "360"}px`,
+     })
+    })
 
     watch(styleObj, (newStyle, oldStyle) => {
       drawer.value = css(newStyle);
