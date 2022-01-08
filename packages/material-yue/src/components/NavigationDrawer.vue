@@ -26,7 +26,7 @@ export default {
       default: "drawer",
     },
   },
-  setup(props: NavigationDrawerProps) {
+  setup(props: NavigationDrawerProps, context) {
     const tokens: any = inject("tokens");
     const variant: Ref<string> = inject("variant");
     const theme = m3(tokens, { variant: variant.value });
@@ -34,7 +34,8 @@ export default {
     const onClick = (activeIndex: number) => {
       selectedIndex.value = activeIndex;
     };
-
+    const children = context.slots.default();
+    // console.log("children", children);
     const drawerTheme = css(
       applyReactiveStyle({
         target: m3(tokens, { variant: variant.value }).components

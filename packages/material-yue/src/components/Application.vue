@@ -74,7 +74,6 @@ export default {
         ><slot name="navigationArea"></slot
       ></NavigationBar>
       <NavigationDrawer v-else :activeItem="activeItem" :mode="navigationMode">
-        {{ navigationMode }}
         <slot name="navigationArea"></slot>
       </NavigationDrawer>
     </nav>
