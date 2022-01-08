@@ -75,9 +75,6 @@ export default {
      })
     })
 
-    watch(styleObj, (newStyle, oldStyle) => {
-      drawer.value = css(newStyle);
-    })
     watch(() => props.mode, (mode, previousMode) => {
       console.log("mode changed to", mode)
       if (mode === "drawer" && previousMode === "rail") {
