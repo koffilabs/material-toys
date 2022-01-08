@@ -1,8 +1,3 @@
-<template>
-  <div :class="yueGrid">
-    <slot></slot>
-  </div>
-</template>
 <script type="ts">
 import {css} from "@emotion/css";
 import {breakpoints, gridStyle} from "@material-yue/common";
@@ -34,3 +29,8 @@ export default {
   }
 }
 </script>
+<template>
+  <div :class="yueGrid">
+    <slot></slot>
+  </div>
+</template>

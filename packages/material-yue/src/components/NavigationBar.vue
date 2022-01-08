@@ -1,14 +1,11 @@
-<template>
-<div>NavigationBar <slot></slot></div>
-</template>
-
 <script>
 export default {
   name: "NavigationBar",
-  setup(){}
-}
+  setup() {},
+};
 </script>
+<template>
+  <div>NavigationBar <slot></slot></div>
+</template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

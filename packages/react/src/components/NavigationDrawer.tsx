@@ -25,7 +25,7 @@ const scrim = css({
 });
 
 const Scrim = () => {
-  return <div className={scrim}>Scrim</div>;
+  return <div className={scrim} />;
 };
 
 interface NavigationDrawerProps {
