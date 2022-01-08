@@ -14,8 +14,6 @@ export default {
       rippleOut();
     };
     const element = context.slots.default()[0];
-    console.log(element);
-    console.log(context);
     // return () => h(element.type, {...element.props, onMousedown, onMouseup: onMouseleave, onMouseleave}, element.children)
     return () =>
       h(
