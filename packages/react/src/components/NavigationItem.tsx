@@ -40,7 +40,7 @@ export const NavigationItem = ({
         <div data-active={active} onClick={onClick} className={itemTheme}>
           <div className="state" />
           {icon}
-          {children}
+          <div className="children">{children}</div>
           <div className={badgeClassName}>{badge}</div>
         </div>
       </Ripple>

@@ -118,7 +118,7 @@ export const NavigationDrawer = ({
   return (
     <>
       {mode === "modal" && <Scrim />}
-      <div data-mode={mode} className={`${drawer} ${drawerTheme}`}>
+      <div data-mode={mode} className={`${drawerTheme}`}>
         {React.Children.map(children as ReactElement, NavigationItemMapper)}
       </div>
     </>

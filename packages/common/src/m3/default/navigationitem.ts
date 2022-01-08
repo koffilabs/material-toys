@@ -1,11 +1,31 @@
 import { M3Options } from "./index";
 import { fontWeights } from "./fontWeights";
 
-const duration = ".2s";
+const duration = ".3s";
 
 export const NavigationItem = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
+    "[data-mode=rail] & ": {
+      "&>*": {
+        opacity: "0",
+        width: 0,
+      },
+      svg: {
+        opacity: "1",
+        marginRight: "0",
+        flex: "none",
+      },
+      "&[data-active=true]": {
+        svg: {
+          transform: "translateY(-10px)",
+        },
+      },
+      ".children": {
+        width: 0,
+      },
+    },
+
     position: "relative",
     overflow: "hidden",
     display: "flex",
@@ -99,8 +119,11 @@ export const NavigationItem = (tokens, options?: M3Options) => {
       letterSpacing: tokens.MdSysTypescaleTitleSmallTracking,
     },
     svg: {
+      flexGrow: "0",
       fill: tokens[`MdSysColorOnSurfaceVariant${variant}`],
       marginRight: "12px",
+      marginLeft: "8px",
+      transition: `${duration} transform ease-in-out`,
     },
     // backgroundColor: "red",
     a: {
@@ -111,6 +134,9 @@ export const NavigationItem = (tokens, options?: M3Options) => {
       letterSpacing: tokens.MdSysTypescaleLabelLargeTracking,
       fontWeight: fontWeights[tokens.MdSysTypescaleLabelLargeWeight],
       fontSize: `${tokens.MdSysTypescaleLabelLargeSize}px`,
+    },
+    ".children": {
+      transition: `${duration} opacity ease-in-out`,
     },
   };
 };

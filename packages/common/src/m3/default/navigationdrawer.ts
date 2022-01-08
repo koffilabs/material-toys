@@ -4,7 +4,7 @@ import {
   MdSysTypescaleTitleSmallFont,
   MdSysTypescaleTitleSmallSize,
 } from "./tokens";
-const duration = ".1s";
+const duration = ".2s";
 
 export const NavigationDrawer = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
@@ -20,6 +20,7 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
     // border: "1px solid #333",
     height: "100%",
     backgroundColor: tokens[`MdSysColorSurface${variant}`],
+    transition: `${duration} width ease-in-out`,
     h1: {
       fontFamily: tokens.MdSysTypescaleTitleSmallFont,
       color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
@@ -38,7 +39,12 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
       marginBottom: "16px",
       backgroundColor: tokens.MdSysColorOutline,
     },
-    // modal
+    "&[data-mode=drawer]": {
+      width: "360px",
+    },
+    "&[data-mode=rail]": {
+      width: "80px",
+    },
     "&[data-mode=modal]": {
       boxShadow: `0 2px 1px -1px ${rgba(
         tokens.MdSysColorShadow,
