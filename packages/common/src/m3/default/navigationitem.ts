@@ -6,23 +6,20 @@ const duration = ".3s";
 export const NavigationItem = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
-    "[data-mode=rail] & ": {
-      "&>*": {
-        opacity: "0",
-        width: 0,
-      },
+    "[data-mode=rail] &,[data-collapsed=true] &": {
       svg: {
         opacity: "1",
         marginRight: "0",
         flex: "none",
       },
       "&[data-active=true]": {
-        svg: {
-          transform: "translateY(-10px)",
-        },
+        // svg: {
+        //   transform: "translateY(-10px)",
+        // },
       },
-      ".children": {
-        width: 0,
+      ".children,.badge": {
+        opacity: 0,
+        // width: 0,
       },
     },
 
@@ -121,9 +118,8 @@ export const NavigationItem = (tokens, options?: M3Options) => {
     svg: {
       flexGrow: "0",
       fill: tokens[`MdSysColorOnSurfaceVariant${variant}`],
-      marginRight: "12px",
       marginLeft: "8px",
-      transition: `${duration} transform ease-in-out`,
+      transition: `${duration} transform ease-in-out, ${duration} margin ease-in-out`,
     },
     // backgroundColor: "red",
     a: {
@@ -135,7 +131,12 @@ export const NavigationItem = (tokens, options?: M3Options) => {
       fontWeight: fontWeights[tokens.MdSysTypescaleLabelLargeWeight],
       fontSize: `${tokens.MdSysTypescaleLabelLargeSize}px`,
     },
+    ".badge": {
+      marginLeft: "auto",
+      transition: `${duration} opacity ease-in-out`,
+    },
     ".children": {
+      marginLeft: "12px",
       transition: `${duration} opacity ease-in-out`,
     },
   };

@@ -12,9 +12,6 @@ interface NavigationItemProps {
   children: ReactNode;
   onClick?: MouseEventHandler;
 }
-const badgeClassName = css({
-  marginLeft: "auto",
-});
 export const NavigationItem = ({
   icon,
   children,
@@ -41,7 +38,7 @@ export const NavigationItem = ({
           <div className="state" />
           {icon}
           <div className="children">{children}</div>
-          <div className={badgeClassName}>{badge}</div>
+          <div className="badge">{badge}</div>
         </div>
       </Ripple>
       {divider && <div className={"divider"} />}

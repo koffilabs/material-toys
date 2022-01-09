@@ -42,7 +42,7 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
     "&[data-mode=drawer]": {
       width: "360px",
     },
-    "&[data-mode=rail]": {
+    "&[data-mode=rail],&[data-collapsed=true]": {
       width: "80px",
     },
     "&[data-mode=modal]": {

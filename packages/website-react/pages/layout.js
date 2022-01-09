@@ -83,6 +83,7 @@ export default function Layout() {
         <div>
           <Application
             activeItem={0}
+            hasCollapseButton={true}
             appBarArea={<>appbar</>}
             navigationArea={
               <>

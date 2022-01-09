@@ -8,17 +8,17 @@ interface ButtonProps {
   children?: JSX.Element;
   className: string;
   disabled: boolean;
-  onClick?: Function;
+  onClick?: () => {};
 }
 export const Button = ({
   icon,
   disabled,
   children,
   className,
-}: ButtonProps): JSX.Element => {
+}: ButtonProps) => {
   const { ThemeContext, VariantContext } = useTheme();
   const tokens = useContext(ThemeContext);
-  const variant = useContext(VariantContext);
+  const variant: string = useContext(VariantContext);
 
   const theme = m3(tokens, { variant });
 

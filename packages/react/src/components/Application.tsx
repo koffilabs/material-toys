@@ -1,8 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { applicationStyle } from "@material-yue/common";
 import { css } from "@emotion/css";
 import { NavigationDrawer } from "./NavigationDrawer";
 import { NavigationBar } from "./NavigationBar";
+import { TopAppBar } from "./TopAppBar";
 import {
   useMatchMedia,
   MOBILE,
@@ -15,6 +16,7 @@ interface ApplicationArgs {
   appBarArea: Component;
   navigationArea: Component;
   bodyArea: Component;
+  hasCollapseButton?: boolean;
   mobileNavigation?: "bar" | "drawer";
 }
 export const Application = ({
@@ -22,8 +24,10 @@ export const Application = ({
   appBarArea,
   navigationArea,
   bodyArea,
+  hasCollapseButton = false,
   mobileNavigation = "bar",
 }: ApplicationArgs) => {
+  const [isNavigationCollapsed, setNavigationCollapsed] = useState(false);
   const yueApplication = css(applicationStyle);
   const [mediaMatch] = useMatchMedia();
   const cname = `${yueApplication}${
@@ -50,14 +54,26 @@ export const Application = ({
       ? "drawer"
       : "rail";
   console.log("mode", navigationMode);
+  const onCollapse = () => {
+    console.log("onCollapse!");
+    setNavigationCollapsed(!isNavigationCollapsed);
+  };
   return (
     <div className={cname}>
-      <div className="appBar">{appBarArea}</div>
+      <div className="appBar">
+        <TopAppBar onCollapse={onCollapse} navigationIcon={"collapse"}>
+          {appBarArea}
+        </TopAppBar>
+      </div>
       <nav className="navigation">
         {mediaMatch === MOBILE && mobileNavigation === "bar" ? (
           <NavigationBar>{navigationArea}</NavigationBar>
         ) : (
-          <NavigationDrawer activeItem={activeItem} mode={navigationMode}>
+          <NavigationDrawer
+            collapsed={isNavigationCollapsed}
+            activeItem={activeItem}
+            mode={navigationMode}
+          >
             {navigationArea}
           </NavigationDrawer>
         )}

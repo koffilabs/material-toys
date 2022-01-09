@@ -29,12 +29,14 @@ const Scrim = () => {
 };
 
 interface NavigationDrawerProps {
+  collapsed?: boolean;
   activeItem?: number;
   children: ReactNode;
   mode?: "drawer" | "modal" | "rail";
 }
 
 export const NavigationDrawer = ({
+  collapsed = false,
   activeItem,
   children,
   mode = "drawer",
@@ -118,7 +120,11 @@ export const NavigationDrawer = ({
   return (
     <>
       {mode === "modal" && <Scrim />}
-      <div data-mode={mode} className={`${drawerTheme}`}>
+      <div
+        data-mode={mode}
+        data-collapsed={collapsed}
+        className={`${drawerTheme}`}
+      >
         {React.Children.map(children as ReactElement, NavigationItemMapper)}
       </div>
     </>
