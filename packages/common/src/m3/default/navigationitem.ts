@@ -7,15 +7,15 @@ export const NavigationItem = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
     "[data-mode=rail] &,[data-collapsed=true] &": {
+      "&[data-active=true]": {
+        lineHeight: "32px",
+        height: "32px",
+        marginBottom: "24px",
+      },
       svg: {
         opacity: "1",
         // marginRight: "0",
         flex: "none",
-      },
-      "&[data-active=true]": {
-        // svg: {
-        //   transform: "translateY(-10px)",
-        // },
       },
       ".children,.badge": {
         opacity: 0,
@@ -25,12 +25,9 @@ export const NavigationItem = (tokens, options?: M3Options) => {
 
     position: "relative",
     overflow: "hidden",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
     height: "56px",
-    padding: "0 24px 0 16px",
     margin: 0,
+    padding: 0,
     // margin: "0 0",
     borderRadius: "32px",
     backgroundColor: tokens[`MdSysColorSurface${variant}`],
@@ -42,8 +39,16 @@ export const NavigationItem = (tokens, options?: M3Options) => {
     letterSpacing: tokens.MdSysTypescaleLabelLargeTracking,
     fontWeight: fontWeights[tokens.MdSysTypescaleLabelLargeWeight],
     color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
-    transition: `box-shadow ${duration} ease-in-out, background-color ${duration} ease-in-out, 
-  color ${duration} ease-in-out`,
+    transition: `box-shadow ${duration} ease-in-out, background-color ${duration} ease-in-out,
+  color ${duration} ease-in-out, height ${duration} ease-in-out, line-height ${duration} ease-in-out, margin ${duration} ease-in-out`,
+    ".itemContent": {
+      padding: "0 24px 0 16px",
+
+      display: "flex",
+      width: "336px",
+      justifyContent: "center",
+      alignItems: "center",
+    },
     userSelect: "none",
     "&[data-active=true]": {
       backgroundColor: tokens[`MdSysColorSecondaryContainer${variant}`],
@@ -118,7 +123,7 @@ export const NavigationItem = (tokens, options?: M3Options) => {
     svg: {
       flexGrow: "0",
       fill: tokens[`MdSysColorOnSurfaceVariant${variant}`],
-      marginLeft: "8px",
+      marginLeft: "0",
       transition: `${duration} transform ease-in-out, ${duration} margin ease-in-out`,
     },
     // backgroundColor: "red",

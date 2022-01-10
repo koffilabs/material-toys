@@ -4,7 +4,7 @@ import {
   MdSysTypescaleTitleSmallFont,
   MdSysTypescaleTitleSmallSize,
 } from "./tokens";
-const duration = ".2s";
+const duration = ".4s";
 
 export const NavigationDrawer = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
@@ -43,12 +43,18 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
     "&[data-mode=drawer]": {
       width: "360px",
       ".childrenContainer": {
-        width: "100%",
+        width: "336px",
       },
     },
+    ".divider": {
+      transition: `opacity ${duration} ease-in-out`,
+    },
+
     "&[data-mode=rail],&[data-collapsed=true]": {
       width: "80px",
-      // transform: "scaleX(.22222222222222)",
+      ".divider": {
+        opacity: 0,
+      },
     },
     "&[data-mode=modal]": {
       boxShadow: `0 2px 1px -1px ${rgba(

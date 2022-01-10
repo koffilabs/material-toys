@@ -36,9 +36,11 @@ export const NavigationItem = ({
       <Ripple>
         <div data-active={active} onClick={onClick} className={itemTheme}>
           <div className="state" />
-          {icon}
-          <div className="children">{children}</div>
-          <div className="badge">{badge}</div>
+          <div className="itemContent">
+            {icon}
+            <div className="children">{children}</div>
+            <div className="badge">{badge}</div>
+          </div>
         </div>
       </Ripple>
       {divider && <div className={"divider"} />}

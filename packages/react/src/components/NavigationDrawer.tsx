@@ -105,7 +105,7 @@ export const NavigationDrawer = ({
       zIndex: 110,
     };
   }
-  const drawer = css(styleObj);
+  // const drawer = css(styleObj);
 
   useEffect(() => {
     // TODO: animations here
@@ -125,9 +125,7 @@ export const NavigationDrawer = ({
         data-collapsed={collapsed}
         className={`${drawerTheme}`}
       >
-        <div className="childrenContainer">
-          {React.Children.map(children as ReactElement, NavigationItemMapper)}
-        </div>
+        {React.Children.map(children as ReactElement, NavigationItemMapper)}
       </div>
     </>
   );
