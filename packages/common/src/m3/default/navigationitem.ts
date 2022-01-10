@@ -9,7 +9,7 @@ export const NavigationItem = (tokens, options?: M3Options) => {
     "[data-mode=rail] &,[data-collapsed=true] &": {
       svg: {
         opacity: "1",
-        marginRight: "0",
+        // marginRight: "0",
         flex: "none",
       },
       "&[data-active=true]": {

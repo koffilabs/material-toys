@@ -125,7 +125,9 @@ export const NavigationDrawer = ({
         data-collapsed={collapsed}
         className={`${drawerTheme}`}
       >
-        {React.Children.map(children as ReactElement, NavigationItemMapper)}
+        <div className="childrenContainer">
+          {React.Children.map(children as ReactElement, NavigationItemMapper)}
+        </div>
       </div>
     </>
   );

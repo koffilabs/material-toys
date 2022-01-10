@@ -21,6 +21,7 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
     height: "100%",
     backgroundColor: tokens[`MdSysColorSurface${variant}`],
     transition: `${duration} width ease-in-out`,
+    willChange: "width",
     h1: {
       fontFamily: tokens.MdSysTypescaleTitleSmallFont,
       color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
@@ -41,9 +42,13 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
     },
     "&[data-mode=drawer]": {
       width: "360px",
+      ".childrenContainer": {
+        width: "100%",
+      },
     },
     "&[data-mode=rail],&[data-collapsed=true]": {
       width: "80px",
+      // transform: "scaleX(.22222222222222)",
     },
     "&[data-mode=modal]": {
       boxShadow: `0 2px 1px -1px ${rgba(
