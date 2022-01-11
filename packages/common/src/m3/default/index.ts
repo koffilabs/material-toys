@@ -4,7 +4,7 @@ import { FAB } from "./fab";
 import { ExtendedFAB } from "./extendedfab";
 import { Card } from "./card";
 import { NavigationDrawer } from "./navigationdrawer";
-import { NavigationItem } from "./navigationitem";
+import { NavigationItem, NavigationItemRippleTarget } from "./navigationitem";
 export interface M3Options {
   variant?: string;
 }
@@ -46,6 +46,7 @@ export const m3 = (tokens, options: M3Options = defaultOptions) => {
       Card: Card(tokens, options),
       NavigationDrawer: NavigationDrawer(tokens, options),
       NavigationItem: NavigationItem(tokens, options),
+      NavigationItemRippleTarget: NavigationItemRippleTarget(tokens, options),
     },
   };
 };

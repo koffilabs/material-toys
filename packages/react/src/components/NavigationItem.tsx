@@ -30,16 +30,28 @@ export const NavigationItem = ({
       theme,
     })
   );
-
+  const rippleTarget = css(
+    applyReactiveStyle({
+      target: m3(tokens, { variant }).components.NavigationItemRippleTarget,
+      theme,
+    })
+  );
+  // const rippleTarget = css({
+  //   overflow: "hidden",
+  //   borderRadius: "24px",
+  // });
   return (
     <>
       <Ripple>
-        <div data-active={active} onClick={onClick} className={itemTheme}>
-          <div className="state" />
-          <div className="itemContent">
-            {icon}
-            <div className="children">{children}</div>
-            <div className="badge">{badge}</div>
+        <div onClick={onClick} className={rippleTarget}>
+          <div data-active={active} className={itemTheme}>
+            <div className="state" />
+            <div className="itemContent">
+              {icon}
+              <div className="children">{children}</div>
+              <div className="badge">{badge}</div>
+            </div>
+            <div className="railContent">{children}</div>
           </div>
         </div>
       </Ripple>

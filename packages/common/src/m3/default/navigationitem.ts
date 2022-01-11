@@ -1,22 +1,47 @@
 import { M3Options } from "./index";
 import { fontWeights } from "./fontWeights";
 
-const duration = ".3s";
-
+const duration = ".4s";
+// const easing = "cubic-bezier(.075, .75, .875, .36)";
+const easing = "cubic-bezier(0.4, 0.0, 0.2, 1)";
+export const NavigationItemRippleTarget = (tokens, options?: M3Options) => {
+  const variant = options.variant ?? "";
+  return {
+    "[data-mode=rail] &,[data-collapsed=true] &": {
+      borderRadius: 0,
+    },
+    overflow: "hidden",
+    borderRadius: "32px",
+    height: "56px",
+    position: "relative",
+    transition: `${duration} border-radius ${easing}`,
+    ".ripple": {
+      // TODO: replace me,
+      //    cannot find md.sys.color.on-surface-state-layer
+      backgroundColor: tokens[`MdSysColorOnSurface${variant}`],
+    },
+  };
+};
 export const NavigationItem = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
     "[data-mode=rail] &,[data-collapsed=true] &": {
       "&[data-active=true]": {
-        lineHeight: "32px",
         height: "32px",
         marginBottom: "24px",
+        ".railContent": {
+          opacity: 1,
+          transform: "translate(-50%, 0)",
+        },
+        svg: {
+          transform: "translateY(-12px)",
+        },
       },
-      svg: {
-        opacity: "1",
-        // marginRight: "0",
-        flex: "none",
-      },
+      // svg: {
+      //   opacity: "1",
+      //   // marginRight: "0",
+      //   // flex: "none",
+      // },
       ".children,.badge": {
         opacity: 0,
         // width: 0,
@@ -24,7 +49,7 @@ export const NavigationItem = (tokens, options?: M3Options) => {
     },
 
     position: "relative",
-    overflow: "hidden",
+    overflow: "visible",
     height: "56px",
     margin: 0,
     padding: 0,
@@ -39,11 +64,23 @@ export const NavigationItem = (tokens, options?: M3Options) => {
     letterSpacing: tokens.MdSysTypescaleLabelLargeTracking,
     fontWeight: fontWeights[tokens.MdSysTypescaleLabelLargeWeight],
     color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
-    transition: `box-shadow ${duration} ease-in-out, background-color ${duration} ease-in-out,
-  color ${duration} ease-in-out, height ${duration} ease-in-out, line-height ${duration} ease-in-out, margin ${duration} ease-in-out`,
+    transition: `box-shadow ${duration} ${easing}, background-color ${duration} ${easing},
+  color ${duration} ${easing}, height ${duration} ${easing}, margin ${duration} ${easing}`,
+    ".railContent": {
+      opacity: 0,
+      position: "absolute",
+      top: "18px",
+      left: "28px",
+      zIndex: 100,
+      transform: "translate(-50%, 5px)",
+      transition: `${duration} opacity ${easing}, ${duration} transform ${easing}`,
+      "*": {
+        fontSize: "12px",
+      },
+    },
     ".itemContent": {
       padding: "0 24px 0 16px",
-
+      height: "56px",
       display: "flex",
       width: "336px",
       justifyContent: "center",
@@ -69,6 +106,7 @@ export const NavigationItem = (tokens, options?: M3Options) => {
       width: "100%",
       height: "100%",
       opacity: "0",
+      borderRadius: "32px",
       backgroundColor: tokens[`MdSysColorOnSurface${variant}`],
       transition: `opacity ${duration} ease-in-out`,
     },
@@ -105,11 +143,6 @@ export const NavigationItem = (tokens, options?: M3Options) => {
         opacity: ".20",
       },
     },
-    ".ripple": {
-      // TODO: replace me,
-      //    cannot find md.sys.color.on-surface-state-layer
-      backgroundColor: tokens[`MdSysColorOnSurface${variant}`],
-    },
 
     // badge style end
     h1: {
@@ -124,7 +157,7 @@ export const NavigationItem = (tokens, options?: M3Options) => {
       flexGrow: "0",
       fill: tokens[`MdSysColorOnSurfaceVariant${variant}`],
       marginLeft: "0",
-      transition: `${duration} transform ease-in-out, ${duration} margin ease-in-out`,
+      transition: `${duration} transform ${easing}`,
     },
     // backgroundColor: "red",
     a: {

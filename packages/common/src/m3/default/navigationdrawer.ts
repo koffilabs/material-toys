@@ -5,6 +5,8 @@ import {
   MdSysTypescaleTitleSmallSize,
 } from "./tokens";
 const duration = ".4s";
+// const easing = "cubic-bezier(.075, .75, .875, .36)";
+const easing = "cubic-bezier(0.4, 0.0, 0.2, 1)";
 
 export const NavigationDrawer = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
@@ -20,7 +22,7 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
     // border: "1px solid #333",
     height: "100%",
     backgroundColor: tokens[`MdSysColorSurface${variant}`],
-    transition: `${duration} width ease-in-out`,
+    transition: `${duration} width ${easing}`,
     willChange: "width",
     h1: {
       fontFamily: tokens.MdSysTypescaleTitleSmallFont,
