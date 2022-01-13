@@ -31,7 +31,7 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
       fontWeight: tokens.MdSysTypeScaleTitleSmallWeight,
       lineHeight: `${tokens.MdSysTypescaleTitleSmallLineHeight}px`,
       letterSpacing: tokens.MdSysTypescaleTitleSmallTracking,
-      marginLeft: "20px",
+      marginLeft: "15px",
       marginBottom: "17px",
     },
     "& .divider": {

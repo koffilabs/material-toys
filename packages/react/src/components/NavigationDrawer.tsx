@@ -82,7 +82,6 @@ export const NavigationDrawer = ({
   };
 
   let styleObj: any = {
-    // transition: ".3s width ease-in-out",
     width: `${mode === "rail" ? "80" : "360"}px`,
   };
   const theme = m3(tokens, { variant });
@@ -107,15 +106,14 @@ export const NavigationDrawer = ({
   }
   // const drawer = css(styleObj);
 
-  useEffect(() => {
-    // TODO: animations here
-    if (mode === "drawer" && previousMode === "rail") {
-      console.log("animation: rail to drawer");
-    }
-    if (mode === "rail" && previousMode === "drawer") {
-      console.log("animation: drawer to rail");
-    }
-  }, [mode]);
+  // useEffect(() => {
+  //   if (mode === "drawer" && previousMode === "rail") {
+  //     console.log("animation: rail to drawer");
+  //   }
+  //   if (mode === "rail" && previousMode === "drawer") {
+  //     console.log("animation: drawer to rail");
+  //   }
+  // }, [mode]);
   const NavigationItemMapper = NavigationItemMapperFactory();
   return (
     <>
