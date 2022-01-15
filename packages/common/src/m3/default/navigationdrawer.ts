@@ -51,10 +51,17 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
     ".divider": {
       transition: `opacity ${duration} ease-in-out`,
     },
+    ".secondary": {
+      opacity: 1,
+      transition: `opacity ${duration} ease-in-out`,
+    },
 
     "&[data-mode=rail],&[data-collapsed=true]": {
       width: "80px",
       ".divider": {
+        opacity: 0,
+      },
+      ".secondary": {
         opacity: 0,
       },
     },

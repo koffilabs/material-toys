@@ -103,20 +103,22 @@ export default function Layout() {
                     </NavigationItem>
                   );
                 })}
-                <NavigationHeadline>Labels</NavigationHeadline>
-                {secondaryNavigationItems.map(({ label, icon, link }, i) => {
-                  return (
-                    <NavigationItem
-                      onClick={() => {
-                        router.push(link);
-                      }}
-                      key={i}
-                      icon={icon}
-                    >
-                      <a>{label}</a>
-                    </NavigationItem>
-                  );
-                })}
+                <div className="secondary">
+                  <NavigationHeadline>Labels</NavigationHeadline>
+                  {secondaryNavigationItems.map(({ label, icon, link }, i) => {
+                    return (
+                      <NavigationItem
+                        onClick={() => {
+                          router.push(link);
+                        }}
+                        key={i}
+                        icon={icon}
+                      >
+                        <a>{label}</a>
+                      </NavigationItem>
+                    );
+                  })}
+                </div>
               </>
             }
             bodyArea={<>body</>}
