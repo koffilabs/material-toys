@@ -18,6 +18,7 @@ interface ApplicationArgs {
   bodyArea: Component;
   hasCollapseButton?: boolean;
   mobileNavigation?: "bar" | "drawer";
+  railLabels?: "show" | "selected" | "none";
 }
 export const Application = ({
   activeItem,
@@ -26,6 +27,7 @@ export const Application = ({
   bodyArea,
   hasCollapseButton = false,
   mobileNavigation = "bar",
+  railLabels = "selected",
 }: ApplicationArgs) => {
   const [isNavigationCollapsed, setNavigationCollapsed] = useState(false);
   // @ts-ignore
@@ -54,7 +56,6 @@ export const Application = ({
       : mediaMatch === LAPTOP || mediaMatch === DESKTOP
       ? "drawer"
       : "rail";
-  console.log("mode", navigationMode);
   const onCollapse = () => {
     console.log("onCollapse!");
     setNavigationCollapsed(!isNavigationCollapsed);
@@ -71,6 +72,7 @@ export const Application = ({
           <NavigationBar>{navigationArea}</NavigationBar>
         ) : (
           <NavigationDrawer
+            railLabels={railLabels}
             collapsed={isNavigationCollapsed}
             activeItem={activeItem}
             mode={navigationMode}

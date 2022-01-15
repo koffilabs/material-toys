@@ -32,6 +32,7 @@ interface NavigationDrawerProps {
   collapsed?: boolean;
   activeItem?: number;
   children: ReactNode;
+  railLabels?: "show" | "selected" | "none";
   mode?: "drawer" | "modal" | "rail";
 }
 
@@ -39,6 +40,7 @@ export const NavigationDrawer = ({
   collapsed = false,
   activeItem,
   children,
+  railLabels = "selected",
   mode = "drawer",
 }: NavigationDrawerProps) => {
   const { ThemeContext, VariantContext } = useTheme();
@@ -50,7 +52,7 @@ export const NavigationDrawer = ({
   };
   const NavigationItemMapperFactory = () => {
     let itemIndex = 0;
-    const NavigationItemMapper = (child: ReactElement): ReactFragment => {
+    const NavigationItemMapper = (child: ReactElement): ReactNode => {
       // if (!React.isValidElement(child)) {
       //   console.log("kaboom");
       //   return child;
@@ -60,6 +62,7 @@ export const NavigationDrawer = ({
         itemIndex++;
         return cloneElement(child, {
           active: itemIndex - 1 === selectedIndex,
+          railLabel: railLabels,
           onClick: ((idx) => (e: MouseEvent) => {
             onClick(idx);
             if (typeof child.props.onClick === "function") {

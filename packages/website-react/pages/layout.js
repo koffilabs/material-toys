@@ -85,6 +85,7 @@ export default function Layout() {
             activeItem={0}
             hasCollapseButton={true}
             appBarArea={<>appbar</>}
+            railLabels={"none"}
             navigationArea={
               <>
                 <NavigationHeadline>Mail</NavigationHeadline>

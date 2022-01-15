@@ -11,6 +11,7 @@ interface NavigationItemProps {
   divider?: boolean;
   children: ReactNode;
   onClick?: MouseEventHandler;
+  railLabel?: "show" | "selected" | "none";
 }
 export const NavigationItem = ({
   icon,
@@ -19,6 +20,7 @@ export const NavigationItem = ({
   active = false,
   divider = false,
   onClick = () => {},
+  railLabel = "selected",
 }: NavigationItemProps) => {
   const { ThemeContext, VariantContext } = useTheme();
   const tokens = useContext(ThemeContext);
@@ -51,7 +53,9 @@ export const NavigationItem = ({
               <div className="children">{children}</div>
               <div className="badge">{badge}</div>
             </div>
-            <div className="railContent">{children}</div>
+            {railLabel !== "none" && (
+              <div className="railContent">{children}</div>
+            )}
           </div>
         </div>
       </Ripple>
