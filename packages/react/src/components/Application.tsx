@@ -28,6 +28,7 @@ export const Application = ({
   mobileNavigation = "bar",
 }: ApplicationArgs) => {
   const [isNavigationCollapsed, setNavigationCollapsed] = useState(false);
+  // @ts-ignore
   const yueApplication = css(applicationStyle);
   const [mediaMatch] = useMatchMedia();
   const cname = `${yueApplication}${

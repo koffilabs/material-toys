@@ -8,12 +8,14 @@ jest.mock("emotion-rgba");
 
 describe("NavigationDrawer isolated unit tests suite", () => {
   it("should render the items", () => {
-    const { getByText } = render(
+    const { getAllByText } = render(
       <NavigationDrawer>
         <NavigationItem>Hello</NavigationItem>
       </NavigationDrawer>
     );
-    expect(getByText("Hello")).toBeInTheDocument();
+    for (let node of getAllByText("Hello")) {
+      expect(node).toBeInTheDocument();
+    }
   });
   it("should not have an active item", () => {
     const { container } = render(
@@ -32,7 +34,7 @@ describe("NavigationDrawer isolated unit tests suite", () => {
         <NavigationItem>World</NavigationItem>
       </NavigationDrawer>
     );
-    const activeNode = container.querySelector("[data-active=true]");
+    const activeNode = container.querySelector("[data-active=true] .children");
     expect(activeNode).toBeInTheDocument();
     expect(activeNode?.textContent).toBe("Hello");
   });
@@ -43,43 +45,43 @@ describe("NavigationDrawer isolated unit tests suite", () => {
         <NavigationItem>World</NavigationItem>
       </NavigationDrawer>
     );
-    const activeNode = container.querySelector("[data-active=true]");
+    const activeNode = container.querySelector("[data-active=true] .children");
     expect(activeNode).toBeInTheDocument();
     expect(activeNode?.textContent).toBe("World");
   });
   it("should select the second menu item using click", () => {
-    const { getByText, container } = render(
+    const { getAllByText, container } = render(
       <NavigationDrawer activeItem={0}>
         <NavigationItem>Hello</NavigationItem>
         <NavigationItem>World</NavigationItem>
       </NavigationDrawer>
     );
-    fireEvent.click(getByText("World"), {});
-    const activeNode = container.querySelector("[data-active=true]");
+    fireEvent.click(getAllByText("World")[0], {});
+    const activeNode = container.querySelector("[data-active=true] .children");
     expect(activeNode).toBeInTheDocument();
     expect(activeNode?.textContent).toBe("World");
   });
   it("should select the second menu item using click, when there is no active item", () => {
-    const { getByText, container } = render(
+    const { getAllByText, container } = render(
       <NavigationDrawer>
         <NavigationItem>Hello</NavigationItem>
         <NavigationItem>World</NavigationItem>
       </NavigationDrawer>
     );
-    fireEvent.click(getByText("World"), {});
-    const activeNode = container.querySelector("[data-active=true]");
+    fireEvent.click(getAllByText("World")[0], {});
+    const activeNode = container.querySelector("[data-active=true] .children");
     expect(activeNode).toBeInTheDocument();
     expect(activeNode?.textContent).toBe("World");
   });
   it("should call the onClick handler", () => {
     const onClick = jest.fn();
-    const { getByText, container } = render(
+    const { getAllByText, container } = render(
       <NavigationDrawer>
         <NavigationItem>Hello</NavigationItem>
         <NavigationItem onClick={onClick}>World</NavigationItem>
       </NavigationDrawer>
     );
-    fireEvent.click(getByText("World"), {});
+    fireEvent.click(getAllByText("World")[0], {});
     expect(onClick).toHaveBeenCalled();
   });
 });
