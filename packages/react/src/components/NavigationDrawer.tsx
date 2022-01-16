@@ -37,7 +37,7 @@ interface NavigationDrawerProps {
 }
 
 export const NavigationDrawer = ({
-  collapsed = false,
+  collapsed,
   activeItem,
   children,
   railLabels = "selected",

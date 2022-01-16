@@ -69,7 +69,10 @@ export const Application = ({
       </div>
       <nav className="navigation">
         {mediaMatch === MOBILE && mobileNavigation === "bar" ? (
-          <NavigationBar>{navigationArea}</NavigationBar>
+          <NavigationBar>
+            navbar here
+            {/*{navigationArea}*/}
+          </NavigationBar>
         ) : (
           <NavigationDrawer
             railLabels={railLabels}

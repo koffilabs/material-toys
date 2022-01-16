@@ -86,6 +86,7 @@ export default function Layout() {
             hasCollapseButton={true}
             appBarArea={<>appbar</>}
             railLabels={"selected"}
+            mobileNavigaton={"drawer"}
             navigationArea={
               <>
                 <NavigationHeadline>Mail</NavigationHeadline>
