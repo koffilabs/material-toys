@@ -26,18 +26,33 @@ export const NavigationItem = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
     "[data-mode=rail] &,[data-collapsed=true] &": {
-      "&[data-active=true]:not([data-rail-label=none]),&[data-rail-label=show]":
-        {
-          height: "32px",
-          marginBottom: "24px",
-          ".railContent": {
-            opacity: 1,
-            transform: "translate(-50%, 0)",
-          },
-          svg: {
-            transform: "translateY(-12px)",
-          },
+      "&[data-active=true]:not([data-rail-label=none])": {
+        height: "32px",
+        marginBottom: "24px",
+        ".railContent": {
+          opacity: 1,
+          transform: "translate(-50%, 0)",
         },
+        svg: {
+          transform: "translateY(-12px)",
+        },
+      },
+      "&[data-rail-label=show]": {
+        height: "32px",
+        marginBottom: "24px",
+        paddingBottom: "6px",
+        ".railContent": {
+          opacity: 1,
+          transform: "translate(-50%, 0)",
+        },
+        svg: {
+          transform: "translateY(-12px)",
+        },
+        ".state": {
+          borderRadius: 0,
+          height: "56px",
+        },
+      },
       // svg: {
       //   opacity: "1",
       //   // marginRight: "0",
@@ -70,7 +85,7 @@ export const NavigationItem = (tokens, options?: M3Options) => {
     ".railContent": {
       opacity: 0,
       position: "absolute",
-      top: "18px",
+      top: "13px",
       left: "28px",
       zIndex: 100,
       transform: "translate(-50%, 5px)",

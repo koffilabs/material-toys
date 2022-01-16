@@ -85,7 +85,7 @@ export default function Layout() {
             activeItem={0}
             hasCollapseButton={true}
             appBarArea={<>appbar</>}
-            railLabels={"selected"}
+            railLabels={"show"}
             mobileNavigaton={"drawer"}
             navigationArea={
               <>
