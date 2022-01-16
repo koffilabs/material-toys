@@ -46,7 +46,11 @@ export const NavigationItem = ({
     <>
       <Ripple>
         <div onClick={onClick} className={rippleTarget}>
-          <div data-active={active} className={itemTheme}>
+          <div
+            data-rail-label={railLabel}
+            data-active={active}
+            className={itemTheme}
+          >
             <div className="state" />
             <div className="itemContent">
               {icon}

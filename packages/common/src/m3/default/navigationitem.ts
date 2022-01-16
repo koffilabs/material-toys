@@ -26,17 +26,18 @@ export const NavigationItem = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
     "[data-mode=rail] &,[data-collapsed=true] &": {
-      "&[data-active=true]": {
-        height: "32px",
-        marginBottom: "24px",
-        ".railContent": {
-          opacity: 1,
-          transform: "translate(-50%, 0)",
+      "&[data-active=true]:not([data-rail-label=none]),&[data-rail-label=show]":
+        {
+          height: "32px",
+          marginBottom: "24px",
+          ".railContent": {
+            opacity: 1,
+            transform: "translate(-50%, 0)",
+          },
+          svg: {
+            transform: "translateY(-12px)",
+          },
         },
-        svg: {
-          transform: "translateY(-12px)",
-        },
-      },
       // svg: {
       //   opacity: "1",
       //   // marginRight: "0",
