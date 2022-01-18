@@ -53,12 +53,7 @@ export const NavigationDrawer = ({
   const NavigationItemMapperFactory = () => {
     let itemIndex = 0;
     const NavigationItemMapper = (child: ReactElement): ReactNode => {
-      // if (!React.isValidElement(child)) {
-      //   console.log("kaboom");
-      //   return child;
-      // }
       if (child.type === NavigationItem) {
-        // console.log("item index", itemIndex);
         itemIndex++;
         return cloneElement(child, {
           active: itemIndex - 1 === selectedIndex,
@@ -109,14 +104,6 @@ export const NavigationDrawer = ({
   }
   // const drawer = css(styleObj);
 
-  // useEffect(() => {
-  //   if (mode === "drawer" && previousMode === "rail") {
-  //     console.log("animation: rail to drawer");
-  //   }
-  //   if (mode === "rail" && previousMode === "drawer") {
-  //     console.log("animation: drawer to rail");
-  //   }
-  // }, [mode]);
   const NavigationItemMapper = NavigationItemMapperFactory();
   return (
     <>

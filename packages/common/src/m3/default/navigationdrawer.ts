@@ -11,7 +11,8 @@ const easing = "cubic-bezier(0.4, 0.0, 0.2, 1)";
 export const NavigationDrawer = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
-    display: "inline-block",
+    display: "inline-flex",
+    flexDirection: "column",
     overflow: "hidden",
     position: "relative",
     borderRadius: "12px",
@@ -54,6 +55,9 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
     ".secondary": {
       opacity: 1,
       transition: `opacity ${duration} ease-in-out`,
+      ".railContent": {
+        display: "none",
+      },
     },
 
     "&[data-mode=rail],&[data-collapsed=true]": {
