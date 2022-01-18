@@ -10,6 +10,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <title>Material Yue</title>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
           <link
@@ -20,6 +21,16 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          <style global jsx>
+            {`
+              html,
+              body,
+              #__next,
+              div#__next > div {
+                height: 100%;
+              }
+            `}
+          </style>
         </body>
       </Html>
     );

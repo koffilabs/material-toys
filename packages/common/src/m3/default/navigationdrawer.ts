@@ -13,6 +13,7 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
   return {
     display: "inline-flex",
     flexDirection: "column",
+    // justifyContent: "center",
     overflow: "hidden",
     position: "relative",
     borderRadius: "12px",
