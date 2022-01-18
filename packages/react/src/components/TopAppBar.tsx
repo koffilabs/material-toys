@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 import { MenuIcon } from "@material-yue/icons-react";
 import { RippleIcon } from "./RippleIcon";
+import { DESKTOP, LAPTOP, useMatchMedia } from "../hooks/useMatchMedia";
 interface TopAppBarProps {
   onCollapse: () => void;
   children: ReactNode;
@@ -11,12 +12,14 @@ export const TopAppBar = ({
   children,
   onCollapse = () => {},
 }: TopAppBarProps) => {
+  const [mediaMatch] = useMatchMedia();
   const clickHandler = (e: React.MouseEvent<HTMLElement>) => {
     onCollapse && onCollapse();
   };
   return (
     <div onClick={clickHandler}>
-      {navigationIcon === "collapse" && <RippleIcon icon={MenuIcon} />}
+      {(mediaMatch === LAPTOP || mediaMatch === DESKTOP) &&
+        navigationIcon === "collapse" && <RippleIcon icon={MenuIcon} />}
       {children}
     </div>
   );
