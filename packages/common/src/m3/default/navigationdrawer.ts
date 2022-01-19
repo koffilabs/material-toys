@@ -11,12 +11,22 @@ const easing = "cubic-bezier(0.4, 0.0, 0.2, 1)";
 export const NavigationDrawer = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
+    "&[data-justify=start]": {
+      justifyContent: "flex-start",
+    },
+    "&[data-justify=center]": {
+      justifyContent: "center",
+    },
+    "&[data-justify=end]": {
+      justifyContent: "flex-end",
+    },
     display: "inline-flex",
     flexDirection: "column",
-    // justifyContent: "center",
     overflow: "hidden",
     position: "relative",
     borderRadius: "12px",
+    paddingTop: "12px",
+    paddingBottom: "12px",
     paddingLeft: "12px",
     paddingRight: "12px",
     marginRight: "8px",
@@ -35,6 +45,8 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
       letterSpacing: tokens.MdSysTypescaleTitleSmallTracking,
       marginLeft: "15px",
       marginBottom: "17px",
+      opacity: 1,
+      transition: `${duration} opacity ${easing}`,
     },
     "& .divider": {
       content: "''",
@@ -63,10 +75,7 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
 
     "&[data-mode=rail],&[data-collapsed=true]": {
       width: "80px",
-      ".divider": {
-        opacity: 0,
-      },
-      ".secondary": {
+      "h1,.divider,.secondary": {
         opacity: 0,
       },
     },

@@ -58,7 +58,7 @@ export const NavigationItem = (tokens, options?: M3Options) => {
       //   // marginRight: "0",
       //   // flex: "none",
       // },
-      ".children,.badge": {
+      "h1,.children,.badge": {
         opacity: 0,
         // width: 0,
       },
@@ -161,14 +161,7 @@ export const NavigationItem = (tokens, options?: M3Options) => {
     },
 
     // badge style end
-    h1: {
-      fontFamily: tokens.MdSysTypescaleTitleSmallFont,
-      color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
-      fontSize: `${tokens.MdSysTypescaleTitleSmallSize}px`,
-      fontWeight: fontWeights[tokens.MdSysTypeScaleTitleSmallWeight],
-      lineHeight: `${tokens.MdSysTypescaleTitleSmallLineHeight}px`,
-      letterSpacing: tokens.MdSysTypescaleTitleSmallTracking,
-    },
+
     svg: {
       flexGrow: "0",
       fill: tokens[`MdSysColorOnSurfaceVariant${variant}`],

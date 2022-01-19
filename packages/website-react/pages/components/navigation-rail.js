@@ -17,6 +17,7 @@ import {
   ChangeHistoryIcon,
   CheckBoxOutlineBlankIcon,
 } from "@material-yue/icons-react";
+import classes from "./navigation-rail.module.scss";
 import Link from "next/link";
 import {
   material_tokens,
@@ -24,6 +25,7 @@ import {
 } from "@material-yue/common/dist/common.esm";
 import React, { useState } from "react";
 import { Layout } from "../../components/Layout";
+import { ComponentCanvas } from "../../components/ComponentCanvas";
 
 const Application = dynamic(
   () =>
@@ -66,29 +68,128 @@ export default function NavigationRail() {
     <Layout>
       <ThemeContext.Provider value={reactiveTokens}>
         <VariantContext.Provider value={""}>
-          <div>
-            <NavigationDrawer
-              railLabels={"selected"}
-              activeItem={0}
-              mode="rail"
-            >
-              <NavigationHeadline>Mail</NavigationHeadline>
-              {navigationItems.map(({ label, icon, link }, i) => {
-                return (
-                  <NavigationItem
-                    divider={i === 3}
-                    key={i}
-                    icon={icon}
-                    onClick={() => {
-                      // router.push(link);
-                    }}
-                    badge={i === 0 ? "100+" : ""}
-                  >
-                    <a>{label}</a>
-                  </NavigationItem>
-                );
-              })}
-            </NavigationDrawer>
+          <div style={{ display: "flex", flex: 1, flexDirection: "column" }}>
+            <ComponentCanvas>
+              <div className={classes["rail-container"]}>
+                <NavigationDrawer
+                  railLabels={"selected"}
+                  activeItem={0}
+                  mode="rail"
+                >
+                  {navigationItems.map(({ label, icon, link }, i) => {
+                    return (
+                      <NavigationItem
+                        key={i}
+                        icon={icon}
+                        badge={i === 0 ? "100+" : ""}
+                      >
+                        <a>{label}</a>
+                      </NavigationItem>
+                    );
+                  })}
+                </NavigationDrawer>
+              </div>
+              <div className={classes["rail-container"]}>
+                <NavigationDrawer
+                  railLabels={"selected"}
+                  activeItem={0}
+                  mode="rail"
+                  justify={"center"}
+                >
+                  {navigationItems.map(({ label, icon, link }, i) => {
+                    return (
+                      <NavigationItem
+                        key={i}
+                        icon={icon}
+                        badge={i === 0 ? "100+" : ""}
+                      >
+                        <a>{label}</a>
+                      </NavigationItem>
+                    );
+                  })}
+                </NavigationDrawer>
+              </div>
+              <div className={classes["rail-container"]}>
+                <NavigationDrawer
+                  railLabels={"show"}
+                  activeItem={0}
+                  mode="rail"
+                  justify={"end"}
+                >
+                  {navigationItems.map(({ label, icon, link }, i) => {
+                    return (
+                      <NavigationItem
+                        key={i}
+                        icon={icon}
+                        badge={i === 0 ? "100+" : ""}
+                      >
+                        <a>{label}</a>
+                      </NavigationItem>
+                    );
+                  })}
+                </NavigationDrawer>
+              </div>
+            </ComponentCanvas>
+            Blah blah
+            <ComponentCanvas>
+              <div className={classes["rail-container"]}>
+                <NavigationDrawer
+                  railLabels={"show"}
+                  activeItem={0}
+                  mode="rail"
+                >
+                  {navigationItems.map(({ label, icon, link }, i) => {
+                    return (
+                      <NavigationItem
+                        key={i}
+                        icon={icon}
+                        badge={i === 0 ? "100+" : ""}
+                      >
+                        <a>{label}</a>
+                      </NavigationItem>
+                    );
+                  })}
+                </NavigationDrawer>
+              </div>
+              <div className={classes["rail-container"]}>
+                <NavigationDrawer
+                  railLabels={"selected"}
+                  activeItem={0}
+                  mode="rail"
+                >
+                  {navigationItems.map(({ label, icon, link }, i) => {
+                    return (
+                      <NavigationItem
+                        key={i}
+                        icon={icon}
+                        badge={i === 0 ? "100+" : ""}
+                      >
+                        <a>{label}</a>
+                      </NavigationItem>
+                    );
+                  })}
+                </NavigationDrawer>
+              </div>
+              <div className={classes["rail-container"]}>
+                <NavigationDrawer
+                  railLabels={"none"}
+                  activeItem={0}
+                  mode="rail"
+                >
+                  {navigationItems.map(({ label, icon, link }, i) => {
+                    return (
+                      <NavigationItem
+                        key={i}
+                        icon={icon}
+                        badge={i === 0 ? "100+" : ""}
+                      >
+                        <a>{label}</a>
+                      </NavigationItem>
+                    );
+                  })}
+                </NavigationDrawer>
+              </div>
+            </ComponentCanvas>
           </div>
         </VariantContext.Provider>
       </ThemeContext.Provider>

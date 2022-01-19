@@ -34,6 +34,7 @@ interface NavigationDrawerProps {
   children: ReactNode;
   railLabels?: "show" | "selected" | "none";
   mode?: "drawer" | "modal" | "rail";
+  justify?: "start" | "center" | "end";
 }
 
 export const NavigationDrawer = ({
@@ -42,6 +43,7 @@ export const NavigationDrawer = ({
   children,
   railLabels = "selected",
   mode = "drawer",
+  justify = "start",
 }: NavigationDrawerProps) => {
   const { ThemeContext, VariantContext } = useTheme();
   const [selectedIndex, setSelectedIndex] = useState(activeItem);
@@ -111,6 +113,7 @@ export const NavigationDrawer = ({
       <div
         data-mode={mode}
         data-collapsed={collapsed}
+        data-justify={justify}
         className={`${drawerTheme}`}
       >
         {React.Children.map(children as ReactElement, NavigationItemMapper)}
