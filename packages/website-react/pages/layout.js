@@ -3,8 +3,8 @@ import {
   useTheme,
   NavigationItem,
   NavigationHeadline,
-} from "@material-yue/react";
-// import {} from "@material-yue/react";
+} from "@material-toys/react";
+// import {} from "@material-toys/react";
 import { useRouter } from "next/router";
 
 import {
@@ -15,17 +15,17 @@ import {
   OutlinedCircleIcon,
   ChangeHistoryIcon,
   CheckBoxOutlineBlankIcon,
-} from "@material-yue/icons-react";
+} from "@material-toys/icons-react";
 import Link from "next/link";
 import {
   material_tokens,
   material_tokens_polyfill,
-} from "@material-yue/common/dist/common.esm";
+} from "@material-toys/common/dist/common.esm";
 import { useState } from "react";
 
 const Application = dynamic(
   () =>
-    import("@material-yue/react").then((mod) => {
+    import("@material-toys/react").then((mod) => {
       return mod.Application;
     }),
   {

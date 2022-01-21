@@ -6,7 +6,7 @@ import React, {
   SyntheticEvent,
   useEffect,
 } from "react";
-import { useRipple } from "@material-yue/common";
+import { useRipple } from "@material-toys/common";
 
 interface RippleProps {
   children: ReactNode;

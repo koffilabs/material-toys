@@ -1,9 +1,9 @@
 {
-  "name": "@material-yue/icons",
+  "name": "@material-toys/icons",
   "version": "0.1.0",
   "description": "> TODO: description",
   "author": "Nicola Rizzo <nicola.rizzo@gmail.com>",
-  "homepage": "https://github.com/koffilabs/material-yue#readme",
+  "homepage": "https://github.com/koffilabs/material-toys#readme",
   "license": "MIT",
   "main": "scripts/generateIcons.js",
   "directories": {
@@ -18,14 +18,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/koffilabs/material-yue.git"
+    "url": "git+https://github.com/koffilabs/material-toys.git"
   },
   "scripts": {
     "generate": "scripts/generateIcons.js",
     "build": "rollup -c ./rollup.config.js"
   },
   "bugs": {
-    "url": "https://github.com/koffilabs/material-yue/issues"
+    "url": "https://github.com/koffilabs/material-toys/issues"
   },
   "devDependencies": {
     "@rollup/plugin-alias": "^3.1.8",

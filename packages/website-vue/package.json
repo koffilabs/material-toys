@@ -1,5 +1,5 @@
 {
-  "name": "@material-yue/website-vue",
+  "name": "@material-toys/website-vue",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,9 +9,9 @@
   },
   "dependencies": {
     "@emotion/css": "^11.7.1",
-    "@material-yue/common": "workspace:^",
-    "@material-yue/icons-vue": "workspace:^",
-    "@material-yue/vue": "workspace:^",
+    "@material-toys/common": "workspace:^",
+    "@material-toys/icons-vue": "workspace:^",
+    "@material-toys/vue": "workspace:^",
     "core-js": "^3.6.5",
     "vue": "^3.2.21",
     "vue-router": "4"

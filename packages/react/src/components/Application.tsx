@@ -1,5 +1,5 @@
 import React, { Component, useState } from "react";
-import { applicationStyle } from "@material-yue/common";
+import { applicationStyle } from "@material-toys/common";
 import { css } from "@emotion/css";
 import { NavigationDrawer } from "./NavigationDrawer";
 import { NavigationBar } from "./NavigationBar";

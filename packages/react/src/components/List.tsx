@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 interface ListProps {
   items: Array<any>;
   itemComponent: React.JSXElementConstructor<any>;

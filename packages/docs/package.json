@@ -1,5 +1,5 @@
 {
-  "name": "@material-yue/docs",
+  "name": "@material-toys/docs",
   "version": "0.1.0",
   "main": "main.js",
   "license": "MIT",
@@ -11,9 +11,9 @@
   },
   "dependencies": {
     "@emotion/css": "^11.1.3",
-    "@material-yue/common": "workspace:^",
-    "@material-yue/icons-vue": "workspace:^",
-    "@material-yue/vue": "^0.1.0",
+    "@material-toys/common": "workspace:^",
+    "@material-toys/icons-vue": "workspace:^",
+    "@material-toys/vue": "^0.1.0",
     "vue": "^3.2.21",
     "vue-router": "^3.5.2"
   },

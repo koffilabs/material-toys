@@ -4,8 +4,8 @@ import {
   NavigationItem,
   NavigationHeadline,
   NavigationDrawer,
-} from "@material-yue/react";
-// import {} from "@material-yue/react";
+} from "@material-toys/react";
+// import {} from "@material-toys/react";
 import { useRouter } from "next/router";
 
 import {
@@ -16,20 +16,20 @@ import {
   OutlinedCircleIcon,
   ChangeHistoryIcon,
   CheckBoxOutlineBlankIcon,
-} from "@material-yue/icons-react";
+} from "@material-toys/icons-react";
 import classes from "./navigation-rail.module.scss";
 import Link from "next/link";
 import {
   material_tokens,
   material_tokens_polyfill,
-} from "@material-yue/common/dist/common.esm";
+} from "@material-toys/common/dist/common.esm";
 import React, { useState } from "react";
 import { Layout } from "../../components/Layout";
 import { ComponentCanvas } from "../../components/ComponentCanvas";
 
 const Application = dynamic(
   () =>
-    import("@material-yue/react").then((mod) => {
+    import("@material-toys/react").then((mod) => {
       return mod.Application;
     }),
   {

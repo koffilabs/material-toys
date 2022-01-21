@@ -1,4 +1,4 @@
-const {generateIcons} = require("@material-yue/icons");
+const { generateIcons } = require("@material-toys/icons");
 (async () => {
-    generateIcons({targetDir: `${__dirname}/../src/icons`, targetLib: "vue"})
+  generateIcons({ targetDir: `${__dirname}/../src/icons`, targetLib: "vue" });
 })();

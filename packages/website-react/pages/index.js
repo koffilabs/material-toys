@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { EditIcon, AddIcon } from "@material-yue/icons-react";
+import { EditIcon, AddIcon } from "@material-toys/icons-react";
 import {
   Button,
   Card,
@@ -7,10 +7,10 @@ import {
   FAB,
   Grid,
   useTheme,
-} from "@material-yue/react";
+} from "@material-toys/react";
 //
-import { material_tokens } from "@material-yue/common";
-import { material_tokens_polyfill } from "@material-yue/common";
+import { material_tokens } from "@material-toys/common";
+import { material_tokens_polyfill } from "@material-toys/common";
 import { useEffect, useState } from "react";
 
 const tokens = { ...material_tokens_polyfill, ...material_tokens };
@@ -32,7 +32,7 @@ export default function Home() {
       <VariantContext.Provider value={""}>
         <div className="container">
           <Head>
-            <title>Material Yue</title>
+            <title>Material Toys</title>
             <link rel="icon" href="/favicon.ico" />
             <link rel="preconnect" href="https://fonts.googleapis.com" />
             <link

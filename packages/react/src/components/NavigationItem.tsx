@@ -1,7 +1,7 @@
 import React, { MouseEventHandler, ReactNode, useContext } from "react";
 import { css } from "@emotion/css";
 import { useTheme } from "../hooks/useTheme";
-import { applyReactiveStyle, m3 } from "@material-yue/common";
+import { applyReactiveStyle, m3 } from "@material-toys/common";
 import { Ripple } from "./Ripple";
 
 interface NavigationItemProps {

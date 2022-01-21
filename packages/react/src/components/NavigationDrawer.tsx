@@ -9,7 +9,7 @@ import React, {
 } from "react";
 import { css } from "@emotion/css";
 import { usePrevious } from "../hooks/usePrevious";
-import { applyReactiveStyle, m3 } from "@material-yue/common";
+import { applyReactiveStyle, m3 } from "@material-toys/common";
 import { useTheme } from "../hooks/useTheme";
 import { NavigationItem } from "./NavigationItem";
 

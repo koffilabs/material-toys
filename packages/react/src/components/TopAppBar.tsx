@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { MenuIcon } from "@material-yue/icons-react";
+import { MenuIcon } from "@material-toys/icons-react";
 import { RippleIcon } from "./RippleIcon";
 import { DESKTOP, LAPTOP, useMatchMedia } from "../hooks/useMatchMedia";
 interface TopAppBarProps {

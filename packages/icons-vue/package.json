@@ -1,8 +1,8 @@
 {
-  "name": "@material-yue/icons-vue",
+  "name": "@material-toys/icons-vue",
   "packageManager": "yarn@3.1.0",
-  "main": "dist/material-yue-icons.cjs.js",
-  "module": "dist/material-yue-icons.esm.js",
+  "main": "dist/material-toys-icons.cjs.js",
+  "module": "dist/material-toys-icons.esm.js",
   "version": "0.1.0",
   "scripts": {
     "generate": "node scripts/generateVueIcons.js",
@@ -10,7 +10,7 @@
     "build": "rollup -c ./rollup.config.js"
   },
   "dependencies": {
-    "@material-yue/icons": "workspace:^",
+    "@material-toys/icons": "workspace:^",
     "@rollup/plugin-alias": "^3.1.8",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",

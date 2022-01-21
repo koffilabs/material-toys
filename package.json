@@ -1,13 +1,13 @@
 {
   "private": true,
-  "name": "material_yue_monorepo",
+  "name": "material_toys_monorepo",
   "version": "0.1.0",
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
     "build-all": "yarn workspaces foreach run build",
-    "build-icons": "yarn workspace @material-yue/icons run build",
+    "build-icons": "yarn workspace @material-toys/icons run build",
     "dev": "yarn workspaces foreach --parallel --interlaced run dev",
     "bootstrap": "yarn install"
   },

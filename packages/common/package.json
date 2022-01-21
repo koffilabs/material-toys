@@ -1,5 +1,5 @@
 {
-  "name": "@material-yue/common",
+  "name": "@material-toys/common",
   "version": "0.1.0",
   "main": "dist/common.cjs.js",
   "module": "dist/common.esm.js",
