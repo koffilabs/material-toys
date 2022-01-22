@@ -3,14 +3,14 @@
 </template>
 <script lang="ts">
 import { computed, inject, onMounted, ref } from "vue";
-import {css, cx} from "@emotion/css";
-import {applyReactiveStyle, m3} from "@material-yue/common";
-import useClipPathData from '../composables/useClipPathData';
-import useResizeEvents from '../composables/useResizeEvents';
+import { css, cx } from "@emotion/css";
+import { applyReactiveStyle, m3 } from "@material-toys/common";
+import useClipPathData from "../composables/useClipPathData";
+import useResizeEvents from "../composables/useResizeEvents";
 
 export default {
   name: "Card",
-  setup(){
+  setup() {
     const tokens: any = inject("tokens");
     const theme = m3(tokens);
     // const theme: any = inject("theme");
@@ -19,22 +19,39 @@ export default {
     const width = ref(0);
     const height = ref(0);
 
-    const card = computed(() => css(
-        style.value = applyReactiveStyle({target: m3(tokens).components.Card, theme, width, height}),
-    ));
-    const resizingCard = computed(() => css(
-        style.value = [applyReactiveStyle({target: theme.components.Card, theme, width, height}), setDynamic({
-          target: theme.components._resizingComponent,
+    const card = computed(() =>
+      css(
+        (style.value = applyReactiveStyle({
+          target: m3(tokens).components.Card,
           theme,
+          width,
           height,
-          width
-        })],
-    ));
+        }))
+      )
+    );
+    const resizingCard = computed(() =>
+      css(
+        (style.value = [
+          applyReactiveStyle({
+            target: theme.components.Card,
+            theme,
+            width,
+            height,
+          }),
+          setDynamic({
+            target: theme.components._resizingComponent,
+            theme,
+            height,
+            width,
+          }),
+        ])
+      )
+    );
 
-    useClipPathData({root, style})
-    useResizeEvents({root, cname: resizingCard, width, height});
+    useClipPathData({ root, style });
+    useResizeEvents({ root, cname: resizingCard, width, height });
 
     return { card, root };
-  }
-}
+  },
+};
 </script>

@@ -1,9 +1,9 @@
 // import MyButton from "./Button.vue";
-import Button from "@material-yue/vue/src/components/Button.vue";
+import Button from "@material-toys/vue/src/components/Button.vue";
 
 import { provide, reactive } from "vue";
-import { theme } from "@material-yue/common";
-// import { Button } from "@material-yue/vue";
+import { theme } from "@material-toys/common";
+// import { Button } from "@material-toys/vue";
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
   title: "Example/Button",

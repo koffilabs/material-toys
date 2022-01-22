@@ -2,7 +2,12 @@
   <header>
     <div class="wrapper">
       <div>
-        <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          width="32"
+          height="32"
+          viewBox="0 0 32 32"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <g fill="none" fill-rule="evenodd">
             <path
               d="M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z"
@@ -21,21 +26,37 @@
         <h1>Acme</h1>
       </div>
       <div>
-        <Button size="small" @click="$emit('logout')" label="Log out" v-if="user" />
-        <Button size="small" @click="$emit('login')" label="Log in" v-if="!user" />
-        <Button primary size="small" @click="$emit('createAccount')" label="Sign up" v-if="!user" />
+        <Button
+          size="small"
+          @click="$emit('logout')"
+          label="Log out"
+          v-if="user"
+        />
+        <Button
+          size="small"
+          @click="$emit('login')"
+          label="Log in"
+          v-if="!user"
+        />
+        <Button
+          primary
+          size="small"
+          @click="$emit('createAccount')"
+          label="Sign up"
+          v-if="!user"
+        />
       </div>
     </div>
   </header>
 </template>
 
 <script>
-import './header.css';
+import "./header.css";
 // import MyButton from './Button.vue';
-import {Button} from "@material-yue/vue/build/material-yue.umd";
+import { Button } from "@material-toys/vue/build/material-toys.umd";
 
 export default {
-  name: 'my-header',
+  name: "my-header",
 
   components: { Button },
 
@@ -45,6 +66,6 @@ export default {
     },
   },
 
-  emits: ['login', 'logout', 'createAccount'],
+  emits: ["login", "logout", "createAccount"],
 };
 </script>

@@ -95,18 +95,10 @@
   </div>
   <div :class="line">
     <h1>Extended FAB</h1>
-    <ExtendedFAB>
-      Compose
-    </ExtendedFAB>
-    <ExtendedFAB class="surface">
-      Compose
-    </ExtendedFAB>
-    <ExtendedFAB class="secondary">
-      Compose
-    </ExtendedFAB>
-    <ExtendedFAB class="tertiary">
-      Compose
-    </ExtendedFAB>
+    <ExtendedFAB> Compose </ExtendedFAB>
+    <ExtendedFAB class="surface"> Compose </ExtendedFAB>
+    <ExtendedFAB class="secondary"> Compose </ExtendedFAB>
+    <ExtendedFAB class="tertiary"> Compose </ExtendedFAB>
   </div>
   <div :class="line">
     <h1>Extended FAB with icons</h1>
@@ -136,24 +128,24 @@
       <div :class="someContent">
         <h3>Title - Elevated</h3>
         <h5>Subhead</h5>
-        Use a card to display content and actions on a single topic.
-        Cards should be easy to scan for relevant information.
+        Use a card to display content and actions on a single topic. Cards
+        should be easy to scan for relevant information.
       </div>
     </Card>
     <Card class="filled">
       <div :class="someContent">
         <h3>Title - Filled</h3>
         <h5>Subhead</h5>
-        Use a card to display content and actions on a single topic.
-        Cards should be easy to scan for relevant information.
+        Use a card to display content and actions on a single topic. Cards
+        should be easy to scan for relevant information.
       </div>
     </Card>
     <Card class="outlined">
       <div :class="someContent">
         <h3>Title - Outlined</h3>
         <h5>Subhead</h5>
-        Use a card to display content and actions on a single topic.
-        Cards should be easy to scan for relevant information.
+        Use a card to display content and actions on a single topic. Cards
+        should be easy to scan for relevant information.
       </div>
     </Card>
   </div>
@@ -162,43 +154,55 @@
       <div :class="someContent">
         <h3>Title - Elevated</h3>
         <h5>Subhead</h5>
-        Use a card to display content and actions on a single topic.
-        Cards should be easy to scan for relevant information.
+        Use a card to display content and actions on a single topic. Cards
+        should be easy to scan for relevant information.
       </div>
     </Card>
     <Card class="filled col-lg-3 col-12 col-sm-6">
       <div :class="someContent">
         <h3>Title - Filled</h3>
         <h5>Subhead</h5>
-        Use a card to display content and actions on a single topic.
-        Cards should be easy to scan for relevant information.
+        Use a card to display content and actions on a single topic. Cards
+        should be easy to scan for relevant information.
       </div>
     </Card>
     <Card class="outlined col-lg-3 col-12">
       <div :class="someContent">
         <h3>Title - Outlined</h3>
         <h5>Subhead</h5>
-        Use a card to display content and actions on a single topic.
-        Cards should be easy to scan for relevant information.
+        Use a card to display content and actions on a single topic. Cards
+        should be easy to scan for relevant information.
       </div>
     </Card>
-        <div class="col-4">4 cols here</div>
+    <div class="col-4">4 cols here</div>
   </Grid>
 
-  <ExtendedFAB @click="toggleDarkMode" style="position:fixed;right:0;bottom:0">
+  <ExtendedFAB
+    @click="toggleDarkMode"
+    style="position: fixed; right: 0; bottom: 0"
+  >
     <template v-slot:icon><DarkModeIcon></DarkModeIcon></template>
     <template v-slot:default>Toggle Dark Mode</template>
   </ExtendedFAB>
 </template>
 <script>
-import {css} from "@emotion/css";
-import {Button, Card, FAB, ExtendedFAB, Grid } from "@material-yue/vue";
-import {EditIcon, AddIcon, DarkModeIcon} from "@material-yue/icons-vue";
-import {provide, ref} from "vue";
+import { css } from "@emotion/css";
+import { Button, Card, FAB, ExtendedFAB, Grid } from "@material-toys/vue";
+import { EditIcon, AddIcon, DarkModeIcon } from "@material-toys/icons-vue";
+import { provide, ref } from "vue";
 
 export default {
-  name: "material-yue-docs",
-  components: {Button, Grid, Card, FAB, ExtendedFAB, EditIcon, AddIcon, DarkModeIcon },
+  name: "material-toys-docs",
+  components: {
+    Button,
+    Grid,
+    Card,
+    FAB,
+    ExtendedFAB,
+    EditIcon,
+    AddIcon,
+    DarkModeIcon,
+  },
   setup() {
     // console.log("morph is", morph);
     // console.log(Card);
@@ -207,19 +211,20 @@ export default {
 
     const toggleDarkMode = () => {
       document.body.style.color = variant.value === "Dark" ? "#333" : "#f0f0f0";
-      document.body.style.backgroundColor = variant.value === "Dark" ? "#f0f0f0" : "#333";
+      document.body.style.backgroundColor =
+        variant.value === "Dark" ? "#f0f0f0" : "#333";
       variant.value = variant.value === "Dark" ? "" : "Dark";
-    }
+    };
     const line = css({
       padding: "1.618rem",
       h1: {
         fontFamily: "Roboto, sans-serif",
-        fontSize: "1.2rem"
+        fontSize: "1.2rem",
       },
       button: {
         margin: "0 1rem",
-      }
-    })
+      },
+    });
     const someContent = css({
       fontFamily: "Roboto",
       padding: "16px 0",
@@ -230,24 +235,25 @@ export default {
       },
       h5: {
         margin: ".2rem 0 1rem 0",
-      }
-    })
+      },
+    });
     const page = css({
       background: "#ddd",
-      border:"1px dashed #333",
+      border: "1px dashed #333",
       height: "100%",
       padding: "22px",
       display: "grid",
-      gridTemplate: "'button . .' 1fr " +
-          "'. card .' 1fr " +
-          "'. . .' 1fr " +
-          "/ 1fr 1fr 1fr",
+      gridTemplate:
+        "'button . .' 1fr " +
+        "'. card .' 1fr " +
+        "'. . .' 1fr " +
+        "/ 1fr 1fr 1fr",
     });
     const customCard = css({
-      margin: "0 1rem"
+      margin: "0 1rem",
     });
     const customButton = css({
-      margin: "0 1rem"
+      margin: "0 1rem",
     });
     const onClick = async () => {
       // await morph({
@@ -255,7 +261,7 @@ export default {
       //   to: "[data-end]",
       // });
       // visibility.value = "visible";
-    }
+    };
 
     return {
       line,
