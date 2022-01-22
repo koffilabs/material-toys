@@ -61,7 +61,7 @@ export const useRipple = () => {
     // rippleElement.style.backgroundColor = "";
     // color && (rippleElement.style.backgroundImage = `radial-gradient(circle at 50% 50%, ${color}, ${color} 40%, rgba(0, 0, 0, .3) 50%, ${color} 60%, ${color} 80%`);
     rippleElement.style.zIndex = "100";
-    // rippleElement.style.filter = "blur(35px)";
+    rippleElement.style.filter = "blur(10px)";
     rippleElement.style.position = "absolute";
     rippleElement.style.top = `${y}px`;
     rippleElement.style.left = `${x}px`;
