@@ -11,6 +11,20 @@ const easing = "cubic-bezier(0.4, 0.0, 0.2, 1)";
 export const NavigationDrawer = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
+    ".buttonsContainer": {
+      position: "absolute",
+      padding: "16px 0 0 0", // no specifications
+      left: "0",
+      right: "0",
+      top: "0",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      textAlign: "center",
+      "&>button": {
+        margin: 0,
+      },
+    },
     "&[data-justify=start]": {
       justifyContent: "flex-start",
     },

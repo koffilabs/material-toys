@@ -6,7 +6,9 @@ import React, {
   ReactFragment,
   ReactNode,
   ReactElement,
+  ComponentType,
 } from "react";
+import { FAB } from "./FAB";
 import { css } from "@emotion/css";
 import { usePrevious } from "../hooks/usePrevious";
 import { applyReactiveStyle, m3 } from "@material-toys/common";
@@ -31,6 +33,8 @@ const Scrim = () => {
 interface NavigationDrawerProps {
   collapsed?: boolean;
   activeItem?: number;
+  fab?: ComponentType<typeof FAB>;
+  menu?: ReactNode;
   children: ReactNode;
   railLabels?: "show" | "selected" | "none";
   mode?: "drawer" | "modal" | "rail";
@@ -41,6 +45,8 @@ export const NavigationDrawer = ({
   collapsed,
   activeItem,
   children,
+  fab,
+  menu,
   railLabels = "selected",
   mode = "drawer",
   justify = "start",
@@ -116,6 +122,10 @@ export const NavigationDrawer = ({
         data-justify={justify}
         className={`${drawerTheme}`}
       >
+        <div className="buttonsContainer">
+          {menu}
+          {fab}
+        </div>
         {React.Children.map(children as ReactElement, NavigationItemMapper)}
       </div>
     </>

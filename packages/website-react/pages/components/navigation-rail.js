@@ -4,13 +4,16 @@ import {
   NavigationItem,
   NavigationHeadline,
   NavigationDrawer,
+  FAB,
 } from "@material-toys/react";
 // import {} from "@material-toys/react";
 import { useRouter } from "next/router";
+import { MenuIcon } from "@material-toys/icons-react";
 
 import {
   InboxIcon,
   SendIcon,
+  EditIcon,
   FavoriteBorderIcon,
   DeleteOutlineIcon,
   OutlinedCircleIcon,
@@ -175,6 +178,34 @@ export default function NavigationRail() {
                   railLabels={"none"}
                   activeItem={0}
                   mode="rail"
+                >
+                  {navigationItems.map(({ label, icon, link }, i) => {
+                    return (
+                      <NavigationItem
+                        key={i}
+                        icon={icon}
+                        badge={i === 0 ? "100+" : ""}
+                      >
+                        <a>{label}</a>
+                      </NavigationItem>
+                    );
+                  })}
+                </NavigationDrawer>
+              </div>
+            </ComponentCanvas>
+            <ComponentCanvas>
+              <div className={classes["rail-container"]}>
+                <NavigationDrawer
+                  railLabels={"selected"}
+                  activeItem={0}
+                  fab={
+                    <FAB className="level1">
+                      <EditIcon />
+                    </FAB>
+                  }
+                  menu={<MenuIcon />}
+                  mode="rail"
+                  justify={"center"}
                 >
                   {navigationItems.map(({ label, icon, link }, i) => {
                     return (

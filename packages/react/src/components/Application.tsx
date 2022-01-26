@@ -57,7 +57,6 @@ export const Application = ({
       ? "drawer"
       : "rail";
   const onCollapse = () => {
-    console.log("onCollapse!");
     setNavigationCollapsed(!isNavigationCollapsed);
   };
   return (
