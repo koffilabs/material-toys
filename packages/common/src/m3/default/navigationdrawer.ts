@@ -13,14 +13,41 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
   return {
     ".buttonsContainer": {
       position: "absolute",
-      padding: "16px 0 0 0", // no specifications
+      padding: "48px 0 0 0", // no specifications
       left: "0",
       right: "0",
       top: "0",
       display: "flex",
+      gap: "16px",
       flexDirection: "column",
       alignItems: "center",
       textAlign: "center",
+      ".menuContainer": {
+        position: "relative",
+        overflow: "hidden",
+        cursor: "pointer",
+        ".ripple": {
+          backgroundColor: tokens[`MdSysColorOnPrimaryContainer${variant}`],
+        },
+        "&:hover": {
+        //   cursor: "pointer",
+        //   "&>.state": {
+        //     opacity: ".12",
+        //   },
+        // },
+        ".state": {
+          top: "0",
+          left: "0",
+          position: "absolute",
+          width: "100%",
+          height: "100%",
+          opacity: ".12",
+          background: "transparent",
+          transition: `opacity ${duration} ease-in-out`,
+
+          // backgroundColor: tokens[`MdSysColorOnPrimaryContainer${variant}`],
+        },
+      },
       "&>button": {
         margin: 0,
       },

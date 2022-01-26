@@ -21,7 +21,6 @@ import {
   CheckBoxOutlineBlankIcon,
 } from "@material-toys/icons-react";
 import classes from "./navigation-rail.module.scss";
-import Link from "next/link";
 import {
   material_tokens,
   material_tokens_polyfill,
@@ -203,7 +202,7 @@ export default function NavigationRail() {
                       <EditIcon />
                     </FAB>
                   }
-                  menu={<MenuIcon />}
+                  menu={<MenuIcon size={24} />}
                   mode="rail"
                   justify={"center"}
                 >

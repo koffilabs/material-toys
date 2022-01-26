@@ -14,6 +14,7 @@ import { usePrevious } from "../hooks/usePrevious";
 import { applyReactiveStyle, m3 } from "@material-toys/common";
 import { useTheme } from "../hooks/useTheme";
 import { NavigationItem } from "./NavigationItem";
+import { Ripple } from "./Ripple";
 
 const scrim = css({
   position: "fixed",
@@ -123,7 +124,14 @@ export const NavigationDrawer = ({
         className={`${drawerTheme}`}
       >
         <div className="buttonsContainer">
-          {menu}
+          {menu && (
+            <Ripple>
+              <div className="menuContainer">
+                {menu}
+                <div className="state" />
+              </div>
+            </Ripple>
+          )}
           {fab}
         </div>
         {React.Children.map(children as ReactElement, NavigationItemMapper)}
