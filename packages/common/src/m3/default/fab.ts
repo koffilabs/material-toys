@@ -11,6 +11,7 @@ export const FAB = (tokens, options?: M3Options) => {
     gridTemplateColumns: "auto 1fr",
     justifyItems: "start",
     alignItems: "center",
+
     // justifyContent: "center",
     // alignItems: "center",
     gap: "0",
@@ -42,6 +43,9 @@ export const FAB = (tokens, options?: M3Options) => {
       tokens.MdSysColorShadow,
       0.12
     )}`,
+    ".textContainer": {
+      opacity: 0,
+    },
     "&>.state": {
       top: "0",
       left: "0",
@@ -156,6 +160,7 @@ export const FAB = (tokens, options?: M3Options) => {
     },
     ".textContainer": {
       padding: " 0 16px 0 0",
+      transition: `opacity ${duration} ease-in-out`,
     },
   };
 };

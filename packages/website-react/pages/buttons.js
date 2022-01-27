@@ -22,10 +22,13 @@ export default function Home() {
   // }, [])
   const [isExtended, setExtended] = useState(true);
   useEffect(() => {
-    setTimeout(() => {
-      setExtended(false);
-      console.log("set ok");
-    }, 3000);
+    const interval = setInterval(() => {
+      console.log(isExtended);
+      setExtended((isExtended) => !isExtended);
+    }, 2000);
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
   return (
     <ThemeContext.Provider value={reactiveTokens}>
@@ -48,6 +51,7 @@ export default function Home() {
 
           <main>
             <div>
+              {isExtended ? "true" : "false"}
               <Button icon={<AddIcon size="18px" />} className="elevated">
                 Elevated Button
               </Button>
@@ -83,7 +87,7 @@ export default function Home() {
             </div>
             <div>
               <h1>Extended FAB with icons</h1>
-              <FAB icon={<EditIcon />} extended={isExtended}>
+              <FAB icon={<EditIcon />} extended={true}>
                 Compose
               </FAB>
               <FAB icon={<EditIcon />} className="surface">
@@ -149,6 +153,13 @@ export default function Home() {
               </Card>
             </Grid>
           </main>
+          <FAB
+            style={{ position: "fixed", right: "16px", bottom: "16px" }}
+            icon={<EditIcon />}
+            extended={isExtended}
+          >
+            Compose
+          </FAB>
           <style jsx>{`
                       .someContent {
                         font-family: "Roboto", sans-serif;

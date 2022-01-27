@@ -10,6 +10,7 @@ import { applyReactiveStyle, m3 } from "@material-toys/common";
 import { useTheme } from "../hooks/useTheme";
 import { Ripple } from "./Ripple";
 interface FABProps {
+  style?: any;
   disabled: boolean;
   extended?: boolean;
   className: string;
@@ -22,6 +23,7 @@ export const FAB = ({
   icon,
   disabled,
   className,
+  style,
   extended = false,
 }: FABProps) => {
   const textNode = useRef(null);
@@ -56,15 +58,28 @@ export const FAB = ({
   );
   const [computedWidth, setComputedWidth] = useState("0px");
   useEffect(() => {
+    console.log("extended from fab is", extended);
     if (extended) {
-      console.log("textNode is", textNode, BASE_WIDTH);
       const { width } = (
         textNode.current as HTMLElement
       ).getBoundingClientRect();
       setComputedWidth(`${(icon ? width : 0) + parseFloat(BASE_WIDTH)}px`);
+      root.current.animate(
+        [
+          {
+            width: BASE_WIDTH,
+          },
+          {
+            width: `${(icon ? width : 0) + parseFloat(BASE_WIDTH)}px`,
+          },
+        ],
+        {
+          duration: 100,
+          fill: "forwards",
+          easing: "ease-in-out",
+        }
+      );
     } else {
-      setComputedWidth(BASE_WIDTH);
-      console.log("animating? changed to false", BASE_WIDTH);
       root.current.animate(
         [
           {
@@ -80,13 +95,14 @@ export const FAB = ({
           easing: "ease-in-out",
         }
       );
+      setComputedWidth(BASE_WIDTH);
     }
   }, [extended]);
   return (
     <Ripple>
       <button
         ref={root}
-        style={{ width: computedWidth }}
+        style={{ ...style }}
         data-extended={extended}
         disabled={disabled}
         className={`${fab} ${className ? className : ""}`}
