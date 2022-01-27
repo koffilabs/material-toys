@@ -23,7 +23,6 @@ export default function Home() {
   const [isExtended, setExtended] = useState(true);
   useEffect(() => {
     const interval = setInterval(() => {
-      console.log(isExtended);
       setExtended((isExtended) => !isExtended);
     }, 2000);
     return () => {
@@ -51,7 +50,6 @@ export default function Home() {
 
           <main>
             <div>
-              {isExtended ? "true" : "false"}
               <Button icon={<AddIcon size="18px" />} className="elevated">
                 Elevated Button
               </Button>

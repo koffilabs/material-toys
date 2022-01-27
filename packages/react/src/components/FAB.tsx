@@ -9,6 +9,7 @@ import { css } from "@emotion/css";
 import { applyReactiveStyle, m3 } from "@material-toys/common";
 import { useTheme } from "../hooks/useTheme";
 import { Ripple } from "./Ripple";
+import { usePrevious } from "../hooks/usePrevious";
 interface FABProps {
   style?: any;
   disabled: boolean;
@@ -57,44 +58,76 @@ export const FAB = ({
     })
   );
   const [computedWidth, setComputedWidth] = useState("0px");
+  const previousExtended = usePrevious(extended);
+
   useEffect(() => {
-    console.log("extended from fab is", extended);
     if (extended) {
-      const { width } = (
-        textNode.current as HTMLElement
-      ).getBoundingClientRect();
+      const { width } = textNode.current
+        ? (textNode.current as HTMLElement).getBoundingClientRect()
+        : { width: 0 };
       setComputedWidth(`${(icon ? width : 0) + parseFloat(BASE_WIDTH)}px`);
-      root.current.animate(
-        [
+      root.current &&
+        (root.current as HTMLElement).animate(
+          [
+            {
+              width: BASE_WIDTH,
+            },
+            {
+              width: `${(icon ? width : 0) + parseFloat(BASE_WIDTH)}px`,
+            },
+          ],
           {
-            width: BASE_WIDTH,
-          },
+            duration: typeof previousExtended !== "undefined" ? 150 : 0,
+            fill: "forwards",
+            easing: "ease-in-out",
+          }
+        );
+      textNode.current &&
+        (textNode.current as HTMLElement).animate(
+          [
+            {
+              opacity: 0,
+            },
+            { opacity: 1 },
+          ],
           {
-            width: `${(icon ? width : 0) + parseFloat(BASE_WIDTH)}px`,
-          },
-        ],
-        {
-          duration: 100,
-          fill: "forwards",
-          easing: "ease-in-out",
-        }
-      );
+            duration: typeof previousExtended !== "undefined" ? 100 : 0,
+            fill: "forwards",
+            delay: 50,
+            easing: "ease-in-out",
+          }
+        );
     } else {
-      root.current.animate(
-        [
+      root.current &&
+        (root.current as HTMLElement).animate(
+          [
+            {
+              width: computedWidth,
+            },
+            {
+              width: BASE_WIDTH,
+            },
+          ],
           {
-            width: computedWidth,
-          },
+            duration: typeof previousExtended !== "undefined" ? 150 : 0,
+            fill: "forwards",
+            easing: "ease-in-out",
+          }
+        );
+      textNode.current &&
+        (textNode.current as HTMLElement).animate(
+          [
+            {
+              opacity: 1,
+            },
+            { opacity: 0 },
+          ],
           {
-            width: BASE_WIDTH,
-          },
-        ],
-        {
-          duration: 100,
-          fill: "forwards",
-          easing: "ease-in-out",
-        }
-      );
+            duration: typeof previousExtended !== "undefined" ? 100 : 0,
+            fill: "forwards",
+            easing: "ease-in-out",
+          }
+        );
       setComputedWidth(BASE_WIDTH);
     }
   }, [extended]);
@@ -102,7 +135,7 @@ export const FAB = ({
     <Ripple>
       <button
         ref={root}
-        style={{ ...style }}
+        style={{ width: computedWidth, ...style }}
         data-extended={extended}
         disabled={disabled}
         className={`${fab} ${className ? className : ""}`}

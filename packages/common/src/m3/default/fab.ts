@@ -33,7 +33,7 @@ export const FAB = (tokens, options?: M3Options) => {
     },
 
     transition: `box-shadow ${duration} ease-in-out, background-color ${duration} ease-in-out, 
-  fill ${duration} ease-in-out, opacity ${duration} ease-in-out`,
+  fill ${duration} ease-in-out`,
     fill: tokens[`MdSysColorOnPrimaryContainer${variant}`],
     // level 3
     boxShadow: `0 3px 3px -2px ${rgba(
@@ -43,9 +43,7 @@ export const FAB = (tokens, options?: M3Options) => {
       tokens.MdSysColorShadow,
       0.12
     )}`,
-    ".textContainer": {
-      opacity: 0,
-    },
+
     "&>.state": {
       top: "0",
       left: "0",
@@ -151,6 +149,9 @@ export const FAB = (tokens, options?: M3Options) => {
     },
     "&[data-extended=true]": {
       // width: "auto",
+      ".textContainer": {
+        opacity: "1",
+      },
     },
     ".iconContainer": {
       // width: "100%",
@@ -159,8 +160,9 @@ export const FAB = (tokens, options?: M3Options) => {
       margin: 0,
     },
     ".textContainer": {
+      opacity: "0",
       padding: " 0 16px 0 0",
-      transition: `opacity ${duration} ease-in-out`,
+      willChange: "opacity",
     },
   };
 };
