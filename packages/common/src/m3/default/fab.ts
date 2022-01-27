@@ -7,23 +7,32 @@ export const FAB = (tokens, options?: M3Options) => {
   return {
     outline: "none",
     border: "none",
+    display: "inline-grid",
+    gridTemplateColumns: "auto 1fr",
+    justifyItems: "start",
+    alignItems: "center",
+    // justifyContent: "center",
+    // alignItems: "center",
+    gap: "0",
+    flexWrap: "nowrap",
     background: tokens[`MdSysColorPrimaryContainer${variant}`],
     borderRadius: "16px",
     position: "relative",
     margin: "8px",
     height: "56px",
-    width: "56px",
+    // width: "56px",
     lineHeight: `${tokens.MdSysTypescaleLabelLargeLineHeight}px`,
     textAlign: "center",
-    willChange: "transform opacity",
+    willChange: "transform, opacity, width",
     overflow: "hidden",
-    padding: "16px",
+    padding: "0",
+    // padding: "16px",
     ".ripple": {
       backgroundColor: tokens[`MdSysColorOnPrimaryContainer${variant}`],
     },
 
     transition: `box-shadow ${duration} ease-in-out, background-color ${duration} ease-in-out, 
-  fill ${duration} ease-in-out`,
+  fill ${duration} ease-in-out, opacity ${duration} ease-in-out`,
     fill: tokens[`MdSysColorOnPrimaryContainer${variant}`],
     // level 3
     boxShadow: `0 3px 3px -2px ${rgba(
@@ -122,13 +131,31 @@ export const FAB = (tokens, options?: M3Options) => {
       height: "40px",
       width: "40px",
       borderRadius: "12px",
-      padding: "8px",
+      // padding: "8px",
+      ".iconContainer": {
+        width: "40px",
+      },
     },
     "&.large": {
       height: "96px",
-      width: "96px",
+      // width: "96px",
       borderRadius: "28px",
-      padding: "16px",
+      ".iconContainer": {
+        width: "96px",
+      },
+      // padding: "16px",
+    },
+    "&[data-extended=true]": {
+      // width: "auto",
+    },
+    ".iconContainer": {
+      // width: "100%",
+      padding: 0,
+      width: "56px",
+      margin: 0,
+    },
+    ".textContainer": {
+      padding: " 0 16px 0 0",
     },
   };
 };
