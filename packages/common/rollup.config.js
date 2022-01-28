@@ -11,6 +11,7 @@ export default [
       name: "bundle",
       file: pkg.browser,
       format: "umd",
+      sourcemap: process.env.NODE_ENV !== "production",
     },
     plugins: [
       // babel({ babelHelpers: "bundled" }),
@@ -33,8 +34,16 @@ export default [
       }), // so Rollup can find `ms`
     ],
     output: [
-      { file: pkg.main, format: "cjs" },
-      { file: pkg.module, format: "es" },
+      {
+        file: pkg.main,
+        format: "cjs",
+        sourcemap: process.env.NODE_ENV !== "production",
+      },
+      {
+        file: pkg.module,
+        format: "es",
+        sourcemap: process.env.NODE_ENV !== "production",
+      },
     ],
   },
 ];
