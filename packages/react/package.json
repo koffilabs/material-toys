@@ -4,6 +4,10 @@
   "module": "dist/esm/index.js",
   "packageManager": "yarn@3.1.0",
   "version": "0.1.0",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "rollup -c ./rollup.config.js",
     "test": "jest",
@@ -24,6 +28,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rollup": "^2.59.0",
+    "rollup-plugin-dts": "^4.1.0",
     "rollup-plugin-esbuild": "^4.7.2",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.1",
