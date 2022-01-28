@@ -197,11 +197,7 @@ export default function NavigationRail() {
                 <NavigationDrawer
                   railLabels={"selected"}
                   activeItem={0}
-                  fab={
-                    <FAB className="level1">
-                      <EditIcon />
-                    </FAB>
-                  }
+                  fab={<FAB icon={<EditIcon />} className="level1" />}
                   menu={<MenuIcon size={24} />}
                   mode="rail"
                   justify={"center"}
