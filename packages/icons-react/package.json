@@ -3,10 +3,9 @@
   "packageManager": "yarn@3.1.0",
   "main": "dist/material-toys-icons.cjs.js",
   "module": "dist/material-toys-icons.esm.js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "scripts": {
     "generate": "node scripts/generateReactIcons.js",
-    "postinstall": "node scripts/generateReactIcons.js",
     "build": "rollup -c ./rollup.config.js"
   },
   "dependencies": {
