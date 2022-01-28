@@ -151,6 +151,11 @@ export const FAB = (tokens, options?: M3Options) => {
       // width: "auto",
       ".textContainer": {
         opacity: "1",
+        padding: "0 16px 0 16px",
+        whiteSpace: "pre",
+        "&:nth-of-type(3)": {
+          paddingLeft: "0",
+        },
       },
     },
     ".iconContainer": {
@@ -161,7 +166,7 @@ export const FAB = (tokens, options?: M3Options) => {
     },
     ".textContainer": {
       opacity: "0",
-      padding: " 0 16px 0 0",
+      padding: "0 16px 0 16px",
       willChange: "opacity",
     },
   };

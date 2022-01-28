@@ -21,14 +21,14 @@ export default function Home() {
   //     }, 2000);
   // }, [])
   const [isExtended, setExtended] = useState(true);
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setExtended((isExtended) => !isExtended);
-    }, 2000);
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setExtended((isExtended) => !isExtended);
+  //   }, 2000);
+  //   return () => {
+  //     clearInterval(interval);
+  //   };
+  // }, []);
   return (
     <ThemeContext.Provider value={reactiveTokens}>
       <VariantContext.Provider value={""}>
@@ -79,22 +79,28 @@ export default function Home() {
             <div>
               <h1>Extended FAB</h1>
               <FAB extended={true}>Compose</FAB>
-              <FAB className="surface">Compose</FAB>
-              <FAB className="secondary">Compose</FAB>
-              <FAB className="tertiary">Compose</FAB>
+              <FAB extended className="surface">
+                Compose again
+              </FAB>
+              <FAB extended className="secondary">
+                Compose
+              </FAB>
+              <FAB extended className="tertiary">
+                Compose
+              </FAB>
             </div>
             <div>
               <h1>Extended FAB with icons</h1>
               <FAB icon={<EditIcon />} extended={true}>
                 Compose
               </FAB>
-              <FAB icon={<EditIcon />} className="surface">
+              <FAB icon={<EditIcon />} extended className="surface">
                 Compose
               </FAB>
-              <FAB icon={<EditIcon />} className="secondary">
+              <FAB icon={<EditIcon />} extended className="secondary">
                 Compose
               </FAB>
-              <FAB icon={<EditIcon />} className="tertiary">
+              <FAB icon={<EditIcon />} extended className="tertiary">
                 Compose
               </FAB>
             </div>

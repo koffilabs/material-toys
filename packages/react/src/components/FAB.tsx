@@ -65,7 +65,9 @@ export const FAB = ({
       const { width } = textNode.current
         ? (textNode.current as HTMLElement).getBoundingClientRect()
         : { width: 0 };
-      setComputedWidth(`${(icon ? width : 0) + parseFloat(BASE_WIDTH)}px`);
+      // setComputedWidth(`${(icon ? width : width) + parseFloat(BASE_WIDTH)}px`);
+      const w = `${width + parseFloat(BASE_WIDTH)}px`;
+      setComputedWidth(w);
       root.current &&
         (root.current as HTMLElement).animate(
           [
@@ -73,7 +75,7 @@ export const FAB = ({
               width: BASE_WIDTH,
             },
             {
-              width: `${(icon ? width : 0) + parseFloat(BASE_WIDTH)}px`,
+              width: icon ? w : width,
             },
           ],
           {
@@ -135,7 +137,7 @@ export const FAB = ({
     <Ripple>
       <button
         ref={root}
-        style={{ width: computedWidth, ...style }}
+        style={{ ...style }}
         data-extended={extended}
         disabled={disabled}
         className={`${fab} ${className ? className : ""}`}
