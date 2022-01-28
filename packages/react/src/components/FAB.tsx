@@ -75,7 +75,7 @@ export const FAB = ({
               width: BASE_WIDTH,
             },
             {
-              width: icon ? w : width,
+              width: icon ? w : `${width}px`,
             },
           ],
           {
