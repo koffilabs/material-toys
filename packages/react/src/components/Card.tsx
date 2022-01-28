@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { ReactNode, useContext } from "react";
 import { css } from "@emotion/css";
 import { applyReactiveStyle, m3 } from "@material-toys/common";
 import { useTheme } from "../hooks/useTheme";
@@ -7,11 +7,12 @@ interface CardProps {
   disabled: boolean;
   className: string;
   onClick?: Function;
+  children: ReactNode;
 }
-export const Card = ({ children, className }: CardProps): JSX.Element => {
+export const Card = ({ children, className }: CardProps) => {
   const { ThemeContext, VariantContext } = useTheme();
   const tokens = useContext(ThemeContext);
-  const variant = useContext(VariantContext);
+  const variant: string = useContext(VariantContext);
 
   const theme = m3(tokens, { variant });
 

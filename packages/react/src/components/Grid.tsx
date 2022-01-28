@@ -1,8 +1,10 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { css } from "@emotion/css";
 import { breakpoints, gridStyle } from "@material-toys/common";
-
-export const Grid = ({ children }) => {
+interface GridProps {
+  children: ReactNode;
+}
+export const Grid = ({ children }: GridProps) => {
   const columnsStyles = [];
   for (let breakpoint of [
     "EXTRA_SMALL",
@@ -11,7 +13,7 @@ export const Grid = ({ children }) => {
     "MEDIUM",
     "LARGE",
   ]) {
-    const prefix = breakpoints[breakpoint].prefix;
+    const prefix: string = breakpoints[breakpoint].prefix;
     const mediaStyle = {
       [breakpoints[breakpoint].query]: {},
     };
