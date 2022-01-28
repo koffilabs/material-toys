@@ -19,13 +19,13 @@ export default [
       {
         file: pkg.main,
         format: "cjs",
-        sourcemap: true,
+        sourcemap: process.env.NODE_ENV !== "production",
         name: "material-toys",
       },
       {
         file: pkg.module,
         format: "esm",
-        sourcemap: true,
+        sourcemap: process.env.NODE_ENV !== "production",
       },
     ],
     plugins: [

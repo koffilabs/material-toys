@@ -6,7 +6,8 @@
   "version": "0.1.4",
   "types": "dist/index.d.ts",
   "files": [
-    "dist", "icons"
+    "dist",
+    "icons"
   ],
   "scripts": {
     "generate": "node scripts/generateReactIcons.js",
