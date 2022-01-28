@@ -9,7 +9,7 @@ interface NavigationItemProps {
   badge?: string;
   active?: boolean;
   divider?: boolean;
-  children: ReactNode;
+  children?: ReactNode;
   onClick?: MouseEventHandler;
   railLabel?: "show" | "selected" | "none";
 }

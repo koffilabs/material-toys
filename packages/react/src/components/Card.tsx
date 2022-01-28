@@ -7,7 +7,7 @@ interface CardProps {
   disabled: boolean;
   className: string;
   onClick?: Function;
-  children: ReactNode;
+  children?: ReactNode;
 }
 export const Card = ({ children, className }: CardProps) => {
   const { ThemeContext, VariantContext } = useTheme();

@@ -36,7 +36,7 @@ interface NavigationDrawerProps {
   activeItem?: number;
   fab?: ComponentType<typeof FAB>;
   menu?: ReactNode;
-  children: ReactNode;
+  children?: ReactNode;
   railLabels?: "show" | "selected" | "none";
   mode?: "drawer" | "modal" | "rail";
   justify?: "start" | "center" | "end";

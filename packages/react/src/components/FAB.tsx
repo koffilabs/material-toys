@@ -16,7 +16,7 @@ interface FABProps {
   extended?: boolean;
   className: string;
   icon?: ReactNode;
-  children: ReactNode;
+  children?: ReactNode;
   onClick?: () => {};
 }
 export const FAB = ({

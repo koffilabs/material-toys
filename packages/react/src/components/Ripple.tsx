@@ -9,7 +9,7 @@ import React, {
 import { useRipple } from "@material-toys/common";
 
 interface RippleProps {
-  children: ReactNode;
+  children?: ReactNode;
 }
 export const Ripple = (
   { children }: RippleProps,

@@ -1,9 +1,13 @@
 {
   "name": "@material-toys/icons-react",
   "packageManager": "yarn@3.1.0",
-  "main": "dist/material-toys-icons.cjs.js",
-  "module": "dist/material-toys-icons.esm.js",
-  "version": "0.1.1",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "version": "0.1.2",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "generate": "node scripts/generateReactIcons.js",
     "build": "rollup -c ./rollup.config.js"
@@ -18,6 +22,7 @@
   "devDependencies": {
     "react": "^17.0.2",
     "rollup": "^2.60.1",
+    "rollup-plugin-dts": "^4.1.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-terser": "^7.0.2"
   }

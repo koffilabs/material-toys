@@ -2570,6 +2570,7 @@ __metadata:
     esbuild: ^0.14.0
     react: ^17.0.2
     rollup: ^2.60.1
+    rollup-plugin-dts: ^4.1.0
     rollup-plugin-esbuild: ^4.7.2
     rollup-plugin-peer-deps-external: ^2.2.4
     rollup-plugin-terser: ^7.0.2

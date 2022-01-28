@@ -1,10 +1,13 @@
 {
   "name": "@material-toys/common",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "main": "dist/common.cjs.js",
   "module": "dist/common.esm.js",
   "browser": "dist/common.umd.js",
   "types": "dist/dts/main.d.ts",
+  "files": [
+    "dist"
+  ],
   "license": "MIT",
   "scripts": {
     "test": "jest",

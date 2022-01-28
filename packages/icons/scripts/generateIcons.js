@@ -2,7 +2,7 @@ const { readFile, writeFile, readdir, rm, mkdir } = require("fs").promises;
 const { toPascalCase, toValidName, toIconType } = require("./util");
 const START_DIRECTORY = `${__dirname}/../resources/icons`;
 module.exports.generateIcons = async ({ targetDir, targetLib }) => {
-  const extension = targetLib === "vue" ? "vue" : "tsx";
+  const extension = targetLib === "vue" ? "vue" : "jsx";
   const startDate = Date.now();
   let iconsCounter = 0;
   console.log("Icons generator - start");
@@ -67,7 +67,7 @@ export default Icon;
       }
     }
   }
-  await writeFile(`${targetDir}/index.ts`, indexContents);
+  await writeFile(`${targetDir}/index.js`, indexContents);
   const endDate = Date.now();
   console.log(
     `${iconsCounter} icons generated in ${(endDate - startDate) / 1e3} seconds.`

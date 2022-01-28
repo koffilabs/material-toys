@@ -4,7 +4,7 @@ import { RippleIcon } from "./RippleIcon";
 import { DESKTOP, LAPTOP, useMatchMedia } from "../hooks/useMatchMedia";
 interface TopAppBarProps {
   onCollapse: () => void;
-  children: ReactNode;
+  children?: ReactNode;
   navigationIcon?: "collapse" | "";
 }
 export const TopAppBar = ({

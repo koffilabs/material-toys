@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import { css } from "@emotion/css";
 import { breakpoints, gridStyle } from "@material-toys/common";
 interface GridProps {
-  children: ReactNode;
+  children?: ReactNode;
 }
 export const Grid = ({ children }: GridProps) => {
   const columnsStyles = [];
