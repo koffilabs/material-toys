@@ -1,9 +1,10 @@
 import Head from "next/head";
 import { EditIcon, AddIcon } from "@material-toys/icons-react";
 import { Button, Card, FAB, Grid, useTheme } from "@material-toys/react";
-//
-import { material_tokens } from "@material-toys/common";
-import { material_tokens_polyfill } from "@material-toys/common";
+import {
+  material_tokens,
+  material_tokens_polyfill,
+} from "@material-toys/common";
 import { useEffect, useState } from "react";
 
 const tokens = { ...material_tokens_polyfill, ...material_tokens };

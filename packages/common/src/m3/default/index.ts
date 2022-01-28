@@ -1,7 +1,6 @@
 // import { rgba } from "emotion-rgba";
 import { Button } from "./button";
 import { FAB } from "./fab";
-import { ExtendedFAB } from "./extendedfab";
 import { Card } from "./card";
 import { NavigationDrawer } from "./navigationdrawer";
 import { NavigationItem, NavigationItemRippleTarget } from "./navigationitem";
@@ -42,7 +41,6 @@ export const m3 = (tokens, options: M3Options = defaultOptions) => {
       // },
       Button: Button(tokens, options),
       FAB: FAB(tokens, options),
-      ExtendedFAB: ExtendedFAB(tokens, options),
       Card: Card(tokens, options),
       NavigationDrawer: NavigationDrawer(tokens, options),
       NavigationItem: NavigationItem(tokens, options),
