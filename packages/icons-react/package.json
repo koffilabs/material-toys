@@ -3,10 +3,10 @@
   "packageManager": "yarn@3.1.0",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist", "icons"
   ],
   "scripts": {
     "generate": "node scripts/generateReactIcons.js",
