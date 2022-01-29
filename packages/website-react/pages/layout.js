@@ -14,6 +14,7 @@ import {
   OutlinedCircleIcon,
   ChangeHistoryIcon,
   CheckBoxOutlineBlankIcon,
+  MenuIcon,
 } from "@material-toys/icons-react";
 import Link from "next/link";
 import {
@@ -82,6 +83,7 @@ export default function Layout() {
         <div>
           <Application
             activeItem={0}
+            menuIcon={<MenuIcon />}
             hasCollapseButton={true}
             appBarArea={<>appbar</>}
             railLabels={"show"}

@@ -8,8 +8,8 @@
   "repository": "https://github.com/koffilabs/material-toys.git",
   "license": "MIT",
   "scripts": {
-    "build": "rollup -c ./rollup.config.js",
-    "dev": "rollup -c ./rollup.config.js -w"
+    "_build": "rollup -c ./rollup.config.js",
+    "_dev": "rollup -c ./rollup.config.js -w"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",

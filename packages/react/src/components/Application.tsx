@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component, ReactNode, useState } from "react";
 import { applicationStyle } from "@material-toys/common";
 import { css } from "@emotion/css";
 import { NavigationDrawer } from "./NavigationDrawer";
@@ -13,6 +13,7 @@ import {
 } from "../hooks/useMatchMedia";
 interface ApplicationArgs {
   activeItem?: number;
+  menuIcon?: Component;
   appBarArea: Component;
   navigationArea: Component;
   bodyArea: Component;
@@ -25,6 +26,7 @@ export const Application = ({
   appBarArea,
   navigationArea,
   bodyArea,
+  menuIcon,
   hasCollapseButton = false,
   mobileNavigation = "bar",
   railLabels = "selected",
@@ -62,7 +64,11 @@ export const Application = ({
   return (
     <div className={cname}>
       <div className="appBar">
-        <TopAppBar onCollapse={onCollapse} navigationIcon={"collapse"}>
+        <TopAppBar
+          menuIcon={menuIcon}
+          onCollapse={onCollapse}
+          navigationIcon={"collapse"}
+        >
           {appBarArea}
         </TopAppBar>
       </div>

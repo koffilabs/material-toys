@@ -2615,7 +2615,6 @@ __metadata:
     "@emotion/css": ^11.5.0
     "@emotion/react": ^11.6.0
     "@material-toys/common": "workspace:^"
-    "@material-toys/icons-react": "workspace:^"
     "@rollup/plugin-commonjs": ^21.0.1
     "@rollup/plugin-node-resolve": ^13.0.6
     "@rollup/plugin-typescript": ^8.3.0

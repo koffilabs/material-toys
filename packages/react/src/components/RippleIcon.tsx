@@ -4,9 +4,9 @@ import { css } from "@emotion/css";
 
 interface RippleIconProps {
   // TODO: use the right type instead
-  icon: any;
+  icon: ReactNode;
 }
-export const RippleIcon = ({ icon: Icon }: RippleIconProps) => {
+export const RippleIcon = ({ icon }: RippleIconProps) => {
   const rippleIconClassName = css({
     cursor: "pointer",
     display: "inline-block",
@@ -18,9 +18,7 @@ export const RippleIcon = ({ icon: Icon }: RippleIconProps) => {
     // FIXME Ripple
     <div className={rippleIconClassName}>
       <Ripple>
-        <div className="state">
-          <Icon />
-        </div>
+        <div className="state">{icon}</div>
       </Ripple>
     </div>
   );
