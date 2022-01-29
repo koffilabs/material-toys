@@ -6,15 +6,15 @@ import { Ripple } from "./Ripple";
 interface ButtonProps {
   icon: any;
   children?: JSX.Element;
-  className: string;
-  disabled: boolean;
+  className?: string;
+  disabled?: boolean;
   onClick?: () => {};
 }
 export const Button = ({
   icon,
-  disabled,
+  disabled = false,
   children,
-  className,
+  className = "elevated",
 }: ButtonProps) => {
   const { ThemeContext, VariantContext } = useTheme();
   const tokens = useContext(ThemeContext);
@@ -30,7 +30,7 @@ export const Button = ({
   );
   return (
     <Ripple>
-      <button className={`${btn} ${className}`}>
+      <button className={`${btn} ${className}`} disabled={disabled}>
         <div className="state" />
         {icon}
         <div>{children}</div>
