@@ -3,7 +3,7 @@
   "packageManager": "yarn@3.1.0",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "types": "dist/index.d.ts",
   "license": "MIT",
   "files": [
@@ -15,16 +15,15 @@
     "build": "rollup -c ./rollup.config.js"
   },
   "dependencies": {
-    "@material-toys/icons": "workspace:^",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
     "esbuild": "^0.14.0",
     "rollup-plugin-esbuild": "^4.7.2"
   },
   "devDependencies": {
+    "@material-toys/icons": "workspace:^",
     "react": "^17.0.2",
     "rollup": "^2.60.1",
-    "rollup-plugin-dts": "^4.1.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-terser": "^7.0.2"
   }
