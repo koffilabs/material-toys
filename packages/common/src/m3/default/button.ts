@@ -1,8 +1,7 @@
-import { rgba } from "emotion-rgba";
+import { rgba } from "../../util/rgba";
 import { M3Options } from "./index";
 
 const duration = ".1s";
-const delay = ".4s"; // ripple animation duration
 export const Button = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {

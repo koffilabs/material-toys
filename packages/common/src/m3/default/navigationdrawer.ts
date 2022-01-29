@@ -1,9 +1,6 @@
-import { rgba } from "emotion-rgba";
+import { rgba } from "../../util/rgba";
 import { M3Options } from "./index";
-import {
-  MdSysTypescaleTitleSmallFont,
-  MdSysTypescaleTitleSmallSize,
-} from "./tokens";
+
 const duration = ".4s";
 // const easing = "cubic-bezier(.075, .75, .875, .36)";
 const easing = "cubic-bezier(0.4, 0.0, 0.2, 1)";

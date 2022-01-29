@@ -1,6 +1,6 @@
 {
   "name": "@material-toys/common",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "main": "dist/common.cjs.js",
   "module": "dist/common.esm.js",
   "browser": "dist/common.umd.js",
@@ -24,8 +24,5 @@
     "ts-jest": "^27.0.5",
     "tslib": "^2.3.1",
     "typescript": "^4.4.3"
-  },
-  "dependencies": {
-    "emotion-rgba": "^0.0.9"
   }
 }

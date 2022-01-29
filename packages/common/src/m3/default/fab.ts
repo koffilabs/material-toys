@@ -1,4 +1,4 @@
-import { rgba } from "emotion-rgba";
+import { rgba } from "../../util/rgba";
 import { M3Options } from "./index";
 
 const duration = ".1s";

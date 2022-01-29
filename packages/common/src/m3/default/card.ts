@@ -1,5 +1,5 @@
-import { rgba } from "emotion-rgba";
-import { M3Options } from './index';
+import { rgba } from "../../util/rgba";
+import { M3Options } from "./index";
 const duration = ".1s";
 
 export const Card = (tokens, options?: M3Options) => {
@@ -48,8 +48,10 @@ export const Card = (tokens, options?: M3Options) => {
       boxShadow: `0 2px 1px -1px ${rgba(
         tokens.MdSysColorShadow,
         0.2
-      )}, 0 1px 1px 0 ${rgba(tokens.MdSysColorShadow, 0.14)}, 0 1px 3px 0 ${rgba(
-        tokens.MdSysColorShadow,0.12)}`,
+      )}, 0 1px 1px 0 ${rgba(
+        tokens.MdSysColorShadow,
+        0.14
+      )}, 0 1px 3px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
       "&:hover": {
         // level 2
         boxShadow: `0 3px 1px -2px ${rgba(
@@ -66,33 +68,38 @@ export const Card = (tokens, options?: M3Options) => {
         boxShadow: `0 2px 1px -1px ${rgba(
           tokens.MdSysColorShadow,
           0.2
-        )}, 0 1px 1px 0 ${rgba(tokens.MdSysColorShadow, 0.14)}, 0 1px 3px 0 ${rgba(
-          tokens.MdSysColorShadow,0.12)}`,
+        )}, 0 1px 1px 0 ${rgba(
+          tokens.MdSysColorShadow,
+          0.14
+        )}, 0 1px 3px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
       },
       "&:active": {
         // level 1
         boxShadow: `0 2px 1px -1px ${rgba(
           tokens.MdSysColorShadow,
           0.2
-        )}, 0 1px 1px 0 ${rgba(tokens.MdSysColorShadow, 0.14)}, 0 1px 3px 0 ${rgba(
-          tokens.MdSysColorShadow,0.12)}`,
+        )}, 0 1px 1px 0 ${rgba(
+          tokens.MdSysColorShadow,
+          0.14
+        )}, 0 1px 3px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
       },
     },
     "&.filled": {
       background: tokens[`MdSysColorSurfaceVariant${variant}`],
       // level 0
-      boxShadow: `0 0 0 0 ${rgba(
+      boxShadow: `0 0 0 0 ${rgba(tokens.MdSysColorShadow, 0.2)}, 0 0 0 0 ${rgba(
         tokens.MdSysColorShadow,
-        0.2
-      )}, 0 0 0 0 ${rgba(tokens.MdSysColorShadow, 0.14)}, 0 0 0 0 ${rgba(
-        tokens.MdSysColorShadow,0.12)}`,
+        0.14
+      )}, 0 0 0 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
       "&:hover": {
         // level 1
         boxShadow: `0 2px 1px -1px ${rgba(
           tokens.MdSysColorShadow,
           0.2
-        )}, 0 1px 1px 0 ${rgba(tokens.MdSysColorShadow, 0.14)}, 0 1px 3px 0 ${rgba(
-          tokens.MdSysColorShadow,0.12)}`,
+        )}, 0 1px 1px 0 ${rgba(
+          tokens.MdSysColorShadow,
+          0.14
+        )}, 0 1px 3px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
         "&>.state": {
           background: tokens[`MdSysColorOnSurface${variant}`],
         },
@@ -102,8 +109,10 @@ export const Card = (tokens, options?: M3Options) => {
         boxShadow: `0 2px 1px -1px ${rgba(
           tokens.MdSysColorShadow,
           0.2
-        )}, 0 1px 1px 0 ${rgba(tokens.MdSysColorShadow, 0.14)}, 0 1px 3px 0 ${rgba(
-          tokens.MdSysColorShadow,0.12)}`,
+        )}, 0 1px 1px 0 ${rgba(
+          tokens.MdSysColorShadow,
+          0.14
+        )}, 0 1px 3px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
       },
       "&:active": {
         // level 0
@@ -111,27 +120,26 @@ export const Card = (tokens, options?: M3Options) => {
           tokens.MdSysColorShadow,
           0.2
         )}, 0 0 0 0 ${rgba(tokens.MdSysColorShadow, 0.14)}, 0 0 0 0 ${rgba(
-          tokens.MdSysColorShadow,0.12)}`,
+          tokens.MdSysColorShadow,
+          0.12
+        )}`,
       },
     },
     "&.outlined": {
       background: tokens[`MdSysColorSurface${variant}`],
-      border:`1px solid ${tokens.MdSysColorOutline}`,
+      border: `1px solid ${tokens.MdSysColorOutline}`,
       // level 0
-      boxShadow: `0 0 0 0 ${rgba(
+      boxShadow: `0 0 0 0 ${rgba(tokens.MdSysColorShadow, 0.2)}, 0 0 0 0 ${rgba(
         tokens.MdSysColorShadow,
-        0.2
-      )}, 0 0 0 0 ${rgba(tokens.MdSysColorShadow, 0.14)}, 0 0 0 0 ${rgba(
-        tokens.MdSysColorShadow,0.12)}`,
+        0.14
+      )}, 0 0 0 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
       "&:hover": {
         "&>.state": {
           background: tokens[`MdSysColorOnSurface${variant}`],
         },
       },
-      "&:focus": {
-      },
-      "&:active": {
-      },
-    }
-  }
-}
+      "&:focus": {},
+      "&:active": {},
+    },
+  };
+};

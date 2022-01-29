@@ -2549,7 +2549,6 @@ __metadata:
   resolution: "@material-toys/common@workspace:packages/common"
   dependencies:
     "@types/jest": ^27.0.3
-    emotion-rgba: ^0.0.9
     esbuild: ^0.13.12
     jest: ^27.2.2
     rollup: ^2.60.0
@@ -8797,13 +8796,6 @@ __metadata:
   version: 3.0.0
   resolution: "emojis-list@npm:3.0.0"
   checksum: ddaaa02542e1e9436c03970eeed445f4ed29a5337dfba0fe0c38dfdd2af5da2429c2a0821304e8a8d1cadf27fdd5b22ff793571fa803ae16852a6975c65e8e70
-  languageName: node
-  linkType: hard
-
-"emotion-rgba@npm:^0.0.9":
-  version: 0.0.9
-  resolution: "emotion-rgba@npm:0.0.9"
-  checksum: eacf890b0b1018fdea2cd2c6915d4bac50ea3ade31a1f371ac24d397827a5237dc7804f86cfd9985cf2c3721b1df6a0d2a768d9f31f70ac749ed3234fbc81d00
   languageName: node
   linkType: hard
 
