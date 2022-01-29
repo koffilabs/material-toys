@@ -4,6 +4,7 @@
   "main": "dist/material-toys-icons.cjs.js",
   "module": "dist/material-toys-icons.esm.js",
   "version": "0.1.0",
+  "license": "MIT",
   "scripts": {
     "generate": "node scripts/generateVueIcons.js",
     "postinstall": "node scripts/generateVueIcons.js",
