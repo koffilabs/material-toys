@@ -42,9 +42,6 @@ export default function Home() {
         </Head>
 
         <main>
-          <Button icon={<AddIcon size="18px" />} className="elevated">
-            Elevated Button
-          </Button>
           <div>
             <Button icon={<AddIcon size="18px" />} className="elevated">
               Elevated Button
