@@ -13,6 +13,9 @@ export const Card = (tokens, options?: M3Options) => {
     paddingRight: "16px",
     marginRight: "8px",
     marginLeft: "8px",
+    backgroundColor: tokens[`MdSysColorSurface${variant}`],
+    color: tokens[`MdSysColorOnSurface${variant}`],
+
     transition: `box-shadow ${duration} ease-in-out, background-color ${duration} ease-in-out, 
       color ${duration} ease-in-out`,
     "&>.state": {
@@ -22,7 +25,6 @@ export const Card = (tokens, options?: M3Options) => {
       width: "100%",
       height: "100%",
       opacity: "0",
-      zIndex: "-1",
       background: tokens[`MdSysColorOnSurface${variant}`],
       transition: `opacity ${duration} ease-in-out`,
     },
@@ -43,7 +45,6 @@ export const Card = (tokens, options?: M3Options) => {
       },
     },
     "&.elevated": {
-      background: tokens[`MdSysColorSurface${variant}`],
       // level 1
       boxShadow: `0 2px 1px -1px ${rgba(
         tokens.MdSysColorShadow,
