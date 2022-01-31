@@ -24,7 +24,7 @@ export default function Home() {
   //   };
   // }, []);
   return (
-    <MT variant={"Dark"}>
+    <MT variant={""}>
       <div className="container">
         <Head>
           <title>Material Toys</title>
