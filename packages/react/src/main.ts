@@ -9,3 +9,4 @@ export { NavigationHeadline } from "./components/NavigationHeadline";
 // const {useTheme} = require("./hooks/useTheme");
 export { useTheme } from "./hooks/useTheme";
 // export {useTheme};
+export { MT } from "./components/MT";

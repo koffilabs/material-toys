@@ -19,7 +19,6 @@ export const Button = ({
   const { ThemeContext, VariantContext } = useTheme();
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
-
   const theme = m3(tokens, { variant });
 
   const btn = css(

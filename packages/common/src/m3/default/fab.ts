@@ -35,6 +35,7 @@ export const FAB = (tokens, options?: M3Options) => {
     transition: `box-shadow ${duration} ease-in-out, background-color ${duration} ease-in-out, 
   fill ${duration} ease-in-out`,
     fill: tokens[`MdSysColorOnPrimaryContainer${variant}`],
+    color: tokens[`MdSysColorOnPrimaryContainer${variant}`],
     // level 3
     boxShadow: `0 3px 3px -2px ${rgba(
       tokens.MdSysColorShadow,
