@@ -53,9 +53,10 @@ export const NavigationDrawer = ({
   justify = "start",
 }: NavigationDrawerProps) => {
   const { ThemeContext, VariantContext } = useTheme();
-  const [selectedIndex, setSelectedIndex] = useState(activeItem);
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
+  // TODO: refactor, should reuse NavigationItemMapperFactory in NavigationBar
+  const [selectedIndex, setSelectedIndex] = useState(activeItem);
   const onClick = (activeIndex: number) => {
     setSelectedIndex(activeIndex);
   };
