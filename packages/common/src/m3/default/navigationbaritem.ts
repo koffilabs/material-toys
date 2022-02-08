@@ -1,125 +1,94 @@
 import { M3Options } from "./index";
 import { fontWeights } from "./fontWeights";
 
-const duration = ".4s";
+const duration = ".2s";
 // const easing = "cubic-bezier(.075, .75, .875, .36)";
 const easing = "cubic-bezier(0.4, 0.0, 0.2, 1)";
-export const NavigationItemRippleTarget = (tokens, options?: M3Options) => {
+
+export const NavigationBarItem = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
-    "[data-mode=rail] &,[data-collapsed=true] &": {
-      borderRadius: 0,
-    },
-    overflow: "hidden",
-    borderRadius: "32px",
-    height: "56px",
     position: "relative",
-    transition: `${duration} border-radius ${easing}`,
-    "[data-mode=bar] &": {
-      width: "64px",
-      overflow: "visible",
-      height: "32px",
-      ".railContent": {
-        opacity: 1,
-        // transform: "translate(-50%, 0)",
-      },
-      "h1,.children,.badge": {
-        opacity: 0,
-        // width: 0,
-      },
-    },
-
-    ".ripple": {
-      // TODO: replace me,
-      //    cannot find md.sys.color.on-surface-state-layer
-      backgroundColor: tokens[`MdSysColorOnSurface${variant}`],
-    },
-  };
-};
-export const NavigationItem = (tokens, options?: M3Options) => {
-  const variant = options.variant ?? "";
-  return {
-    "[data-mode=rail] &,[data-collapsed=true] &": {
-      "&[data-active=true]:not([data-rail-label=none])": {
-        height: "32px",
-        marginBottom: "24px",
-        ".railContent": {
-          opacity: 1,
-          transform: "translate(-50%, 0)",
-        },
-        svg: {
-          transform: "translateY(-12px)",
-        },
-      },
-      "&[data-rail-label=show]": {
-        height: "32px",
-        marginBottom: "24px",
-        paddingBottom: "6px",
-        ".railContent": {
-          opacity: 1,
-          transform: "translate(-50%, 0)",
-        },
-        svg: {
-          transform: "translateY(-12px)",
-        },
-        ".state": {
-          borderRadius: 0,
-          height: "56px",
-        },
-      },
-      // svg: {
-      //   opacity: "1",
-      //   // marginRight: "0",
-      //   // flex: "none",
-      // },
-      "h1,.children,.badge": {
-        opacity: 0,
-        // width: 0,
-      },
-    },
-
-    position: "relative",
-    overflow: "visible",
-    height: "56px",
+    paddingTop: "16px",
+    paddingBottom: "16px",
+    flex: "1 1 0",
     margin: 0,
-    padding: 0,
     // margin: "0 0",
-    borderRadius: "32px",
+    // borderRadius: "32px",
     backgroundColor: tokens[`MdSysColorSurface${variant}`],
     // badge style
     fontFamily: tokens.MdSysTypescaleLabelLargeFont,
     // lineHeight: `${tokens.MdSysTypescaleLabelLargeLineHeight}px`,
-    lineHeight: "56px",
     fontSize: `${tokens.MdSysTypescaleLabelLargeSize}px`,
     letterSpacing: tokens.MdSysTypescaleLabelLargeTracking,
     fontWeight: fontWeights[tokens.MdSysTypescaleLabelLargeWeight],
     color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
     transition: `box-shadow ${duration} ${easing}, background-color ${duration} ${easing},
   color ${duration} ${easing}, height ${duration} ${easing}, margin ${duration} ${easing}`,
-    ".railContent": {
-      opacity: 0,
-      position: "absolute",
-      top: "13px",
-      left: "28px",
-      zIndex: 100,
-      transform: "translate(-50%, 5px)",
-      transition: `${duration} opacity ${easing}, ${duration} transform ${easing}`,
-      "*": {
-        fontSize: "12px",
+    ".mt-iconContainer": {
+      overflow: "hidden",
+      // border: "1px solid red",
+      marginBottom: "4px",
+      height: "24px",
+      padding: "0",
+      width: "24px",
+      textAlign: "center",
+      position: "relative",
+      ".mt-icon, .mt-activeIcon": {
+        position: "absolute",
+      },
+      ".mt-activeIcon": {
+        // opacity: "0",
       },
     },
-    ".itemContent": {
-      padding: "0 24px 0 16px",
-      height: "56px",
+    ".mt-activeIndicator": {
+      top: "-3px",
+      position: "absolute",
+      height: "32px",
+      paddingTop: "4px",
+      width: "64px",
+      borderRadius: "16px",
+      transform: "scale(0, 1)",
+      transformOrigin: "center center",
+      opacity: "0",
+      transition: `${duration} transform ${easing}, ${duration} opacity ${easing}`,
+    },
+    ".mt-itemContent": {
+      position: "relative",
+      transition: `${duration} transform ${easing}`,
+      "&.mt-no-icon, &.mt-selected": {
+        transform: "translateY(12px)",
+        ".mt-children": {
+          opacity: "0",
+        },
+      },
+      zIndex: 1,
+      // padding: "0 24px 0 16px",
       display: "flex",
-      width: "336px",
+      flexDirection: "column",
       justifyContent: "center",
       alignItems: "center",
     },
     userSelect: "none",
     "&[data-active=true]": {
-      backgroundColor: tokens[`MdSysColorSecondaryContainer${variant}`],
-      // backgroundColor: "red",
+      // ".mt-icon": {
+      //   display: "none",
+      // },
+      // ".mt-activeIcon": {
+      //   display: "block",
+      // },
+      ".mt-selected": {
+        transform: "translateY(0)",
+        ".mt-children": {
+          opacity: 1,
+        },
+      },
+
+      ".mt-activeIndicator": {
+        transform: "scale(1, 1)",
+        opacity: "1",
+        backgroundColor: tokens[`MdSysColorSecondaryContainer${variant}`],
+      },
       svg: {
         fill: tokens[`MdSysColorOnSecondaryContainer${variant}`],
       },
@@ -128,7 +97,7 @@ export const NavigationItem = (tokens, options?: M3Options) => {
       },
     },
 
-    "&>.state": {
+    "&>.mt-state": {
       zIndex: "0",
       top: "0",
       left: "0",
@@ -147,7 +116,7 @@ export const NavigationItem = (tokens, options?: M3Options) => {
       a: {
         color: tokens[`MdSysColorOnSurface${variant}`],
       },
-      "&>.state": {
+      "&>.mt-state": {
         opacity: ".16",
       },
     },
@@ -166,6 +135,7 @@ export const NavigationItem = (tokens, options?: M3Options) => {
       cursor: "pointer",
       color: tokens[`MdSysColorOnSurface${variant}`],
       fill: tokens[`MdSysColorOnSurface${variant}`],
+
       a: {
         color: tokens[`MdSysColorOnSurface${variant}`],
       },
@@ -193,12 +163,13 @@ export const NavigationItem = (tokens, options?: M3Options) => {
       fontSize: `${tokens.MdSysTypescaleLabelLargeSize}px`,
     },
     ".badge": {
-      marginLeft: "auto",
-      transition: `${duration} opacity ease-in-out`,
+      // TODO
+      display: "none",
     },
-    ".children": {
-      marginLeft: "12px",
-      transition: `${duration} opacity ease-in-out`,
+    ".mt-children": {
+      transition: `${duration} opacity ${easing}`,
+      // marginLeft: "12px",
+      // transition: `${duration} opacity ease-in-out`,
     },
   };
 };

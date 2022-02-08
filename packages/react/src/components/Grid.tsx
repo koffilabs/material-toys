@@ -4,6 +4,9 @@ import { breakpoints, gridStyle } from "@material-toys/common";
 interface GridProps {
   children?: ReactNode;
 }
+interface MediaStyle {
+  [key: string]: any;
+}
 export const Grid = ({ children }: GridProps) => {
   const columnsStyles = [];
   for (let breakpoint of [
@@ -14,7 +17,7 @@ export const Grid = ({ children }: GridProps) => {
     "LARGE",
   ]) {
     const prefix: string = breakpoints[breakpoint].prefix;
-    const mediaStyle = {
+    const mediaStyle: MediaStyle = {
       [breakpoints[breakpoint].query]: {},
     };
     columnsStyles.push(mediaStyle);

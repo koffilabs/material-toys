@@ -36,15 +36,15 @@ export default [
       esbuild({
         include: [/\.tsx?$/, /\.vue\?.*?lang=ts/],
         minify: process.env.NODE_ENV === "production",
-        useTsconfigDeclarationDir: true,
+        useTsconfigDeclarationDir: false,
       }),
       // postcss(),
       terser(),
     ],
   },
-  {
-    input: "dist/esm/types/main.d.ts",
-    output: [{ file: "dist/index.d.ts", format: "esm" }],
-    plugins: [dts()],
-  },
+  // {
+  // input: "dist/esm/types/main.d.ts",
+  // output: [{ file: "dist/index.d.ts", format: "esm" }],
+  // plugins: [dts()],
+  // },
 ];

@@ -3,6 +3,7 @@ interface Breakpoint {
   prefix: string;
 }
 interface Breakpoints {
+  [index: string]: Breakpoint;
   EXTRA_SMALL: Breakpoint;
   SMALL_FLUID: Breakpoint;
   SMALL: Breakpoint;

@@ -25,13 +25,15 @@ import { useState } from "react";
 
 const Application = dynamic(
   () =>
-    import("@material-toys/react").then((mod) => {
+    import("../components/Application").then((mod) => {
+      console.log("mod", mod);
       return mod.Application;
     }),
   {
     ssr: false,
   }
 );
+// import { Application } from "../components/Application";
 const tokens = { ...material_tokens_polyfill, ...material_tokens };
 export default function Layout() {
   const router = useRouter();
