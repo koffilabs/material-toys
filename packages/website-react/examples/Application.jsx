@@ -112,21 +112,41 @@ export const Application = ({
       <nav className="navigation">
         {mediaMatch === MOBILE && mobileNavigation === "bar" ? (
           <NavigationBar labels={"show"} activeItem={0}>
-            {navigationBarItems.map(
-              ({ label, iconsAnimations, icon, activeIcon, link }, i) => {
-                return (
-                  <NavigationBarItem
-                    key={i}
-                    icon={icon}
-                    activeIcon={activeIcon}
-                    iconsAnimations={iconsAnimations}
-                    badge={i === 0 ? "100+" : ""}
-                  >
-                    <a>{label}</a>
-                  </NavigationBarItem>
-                );
-              }
-            )}
+            <NavigationBarItem
+              icon={<OutlinedInboxIcon size={24} />}
+              activeIcon={<InboxIcon size={24} />}
+              link="/layout"
+              iconsAnimations={zoomIn}
+            >
+              Inbox
+            </NavigationBarItem>
+            <NavigationBarItem
+              icon={<OutlinedTheatersIcon size={24} />}
+              activeIcon={<TheatersIcon size={24} />}
+              link="/layout"
+              iconsAnimations={rectReveal}
+            >
+              Movies
+            </NavigationBarItem>
+
+            <NavigationBarItem
+              icon={<OutlinedFavoriteBorderIcon size={24} />}
+              activeIcon={<FavoriteIcon size={24} />}
+              link="/layout"
+              badge={8}
+              iconsAnimations={zoomIn}
+            >
+              Favorites
+            </NavigationBarItem>
+            <NavigationBarItem
+              icon={<OutlinedDeleteIcon size={24} />}
+              activeIcon={<DeleteIcon size={24} />}
+              link="/layout"
+              badge=""
+              iconsAnimations={fadeIn}
+            >
+              Trash
+            </NavigationBarItem>
           </NavigationBar>
         ) : (
           <NavigationDrawer

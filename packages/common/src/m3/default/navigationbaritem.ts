@@ -16,7 +16,6 @@ export const NavigationBarItem = (tokens, options?: M3Options) => {
     // margin: "0 0",
     // borderRadius: "32px",
     backgroundColor: tokens[`MdSysColorSurface${variant}`],
-    // badge style
     fontFamily: tokens.MdSysTypescaleLabelLargeFont,
     // lineHeight: `${tokens.MdSysTypescaleLabelLargeLineHeight}px`,
     fontSize: `${tokens.MdSysTypescaleLabelLargeSize}px`,
@@ -26,7 +25,7 @@ export const NavigationBarItem = (tokens, options?: M3Options) => {
     transition: `box-shadow ${duration} ${easing}, background-color ${duration} ${easing},
   color ${duration} ${easing}, height ${duration} ${easing}, margin ${duration} ${easing}`,
     ".mt-iconContainer": {
-      overflow: "hidden",
+      overflow: "visible",
       // border: "1px solid red",
       marginBottom: "4px",
       height: "24px",
@@ -144,8 +143,6 @@ export const NavigationBarItem = (tokens, options?: M3Options) => {
       },
     },
 
-    // badge style end
-
     svg: {
       flexGrow: "0",
       fill: tokens[`MdSysColorOnSurfaceVariant${variant}`],
@@ -162,9 +159,27 @@ export const NavigationBarItem = (tokens, options?: M3Options) => {
       fontWeight: fontWeights[tokens.MdSysTypescaleLabelLargeWeight],
       fontSize: `${tokens.MdSysTypescaleLabelLargeSize}px`,
     },
-    ".badge": {
-      // TODO
-      display: "none",
+    ".mt-badge": {
+      width: "16px",
+      height: "16px",
+      borderRadius: "8px",
+      top: "-4px",
+      right: "-8px",
+      zIndex: 10,
+      backgroundColor: tokens[`MdSysColorError${variant}`],
+      color: tokens[`MdSysColorOnError${variant}`],
+      "&:empty": {
+        //small
+        top: "-1.5px",
+
+        right: "-3px",
+
+        width: "6px",
+        height: "6px",
+        borderRadius: "3px",
+        // display: "none",
+      },
+      position: "absolute",
     },
     ".mt-children": {
       transition: `${duration} opacity ${easing}`,

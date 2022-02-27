@@ -80,7 +80,6 @@ export default function NavBar() {
                           icon={icon}
                           activeIcon={activeIcon}
                           iconsAnimations={iconsAnimations}
-                          badge={i === 0 ? "100+" : ""}
                         >
                           <a>{label}</a>
                         </NavigationBarItem>

@@ -121,9 +121,11 @@ export const NavigationBarItem = ({
           <div className="mt-activeIcon" ref={activeIconNode}>
             {activeIcon}
           </div>
+          {typeof badge !== "undefined" && (
+            <div className="mt-badge">{badge}</div>
+          )}
         </div>
         <div className="mt-children">{children}</div>
-        <div className="badge">{badge}</div>
       </div>
     </div>
   );
