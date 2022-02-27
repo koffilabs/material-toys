@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React, { ReactNode, useContext } from "react";
 import { css } from "@emotion/css";
 import { applyReactiveStyle, m3 } from "@material-toys/common";
 import { useTheme } from "../hooks/useTheme";
 import { Ripple } from "./Ripple";
 interface ButtonProps {
   icon: any;
-  children?: JSX.Element;
+  children?: ReactNode;
   className?: string;
   disabled?: boolean;
   onClick?: () => {};
