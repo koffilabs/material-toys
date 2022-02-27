@@ -1,10 +1,10 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import { applicationStyle } from "@material-toys/common";
 import { css } from "@emotion/css";
 import { zoomIn, fadeIn, circleReveal, rectReveal } from "@material-toys/react";
 import {
-  SportsEsportsIcon,
-  OutlinedSportsEsportsIcon,
+  InboxIcon,
+  OutlinedInboxIcon,
   OutlinedTheatersIcon,
   TheatersIcon,
   OutlinedFavoriteBorderIcon,
@@ -38,7 +38,6 @@ export const Application = ({
   mobileNavigation = "bar",
   railLabels = "selected",
 }) => {
-  console.log("Application body2");
   const [isNavigationCollapsed, setNavigationCollapsed] = useState(false);
   // @ts-ignore
   const yueApplication = css(applicationStyle);
@@ -71,8 +70,8 @@ export const Application = ({
   };
   const navigationBarItems = [
     {
-      icon: <OutlinedSportsEsportsIcon size={24} />,
-      activeIcon: <SportsEsportsIcon size={24} />,
+      icon: <OutlinedInboxIcon size={24} />,
+      activeIcon: <InboxIcon size={24} />,
       link: "/layout",
       label: "Inbox",
       iconsAnimations: zoomIn,

@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 
 import {
   InboxIcon,
-  SendIcon,
+  OutlinedTheatersIcon,
   FavoriteBorderIcon,
   DeleteOutlineIcon,
   OutlinedCircleIcon,
@@ -25,15 +25,13 @@ import { useState } from "react";
 
 const Application = dynamic(
   () =>
-    import("../components/Application").then((mod) => {
-      console.log("mod", mod);
+    import("../examples/Application").then((mod) => {
       return mod.Application;
     }),
   {
     ssr: false,
   }
 );
-// import { Application } from "../components/Application";
 const tokens = { ...material_tokens_polyfill, ...material_tokens };
 export default function Layout() {
   const router = useRouter();
@@ -47,9 +45,9 @@ export default function Layout() {
       label: "Inbox",
     },
     {
-      icon: <SendIcon size={24} />,
+      icon: <OutlinedTheatersIcon size={24} />,
       link: "/",
-      label: "Outbox",
+      label: "Movies",
     },
     {
       icon: <FavoriteBorderIcon size={24} />,
@@ -88,7 +86,7 @@ export default function Layout() {
             menuIcon={<MenuIcon />}
             hasCollapseButton={true}
             appBarArea={<>appbar</>}
-            railLabels={"show"}
+            railLabels={"selected"}
             mobileNavigaton={"drawer"}
             navigationArea={
               <>
