@@ -11,6 +11,8 @@ import {
   FavoriteIcon,
   OutlinedDeleteIcon,
   DeleteIcon,
+  MenuIcon,
+  OutlinedAccountCircleIcon,
 } from "@material-toys/icons-react";
 import {
   NavigationDrawer,
@@ -30,10 +32,7 @@ export const Application2 = () => {
 };
 export const Application = ({
   activeItem,
-  appBarArea,
   navigationArea,
-  bodyArea,
-  menuIcon,
   hasCollapseButton = false,
   mobileNavigation = "bar",
   railLabels = "selected",
@@ -102,12 +101,11 @@ export const Application = ({
     <div className={cname}>
       <div className="appBar">
         <TopAppBar
-          menuIcon={menuIcon}
+          navigationIcon={<MenuIcon />}
           onCollapse={onCollapse}
-          navigationIcon={"collapse"}
-        >
-          {appBarArea}
-        </TopAppBar>
+          headline={"Title Large"}
+          trailingIcon={<OutlinedAccountCircleIcon />}
+        />
       </div>
       <nav className="navigation">
         {mediaMatch === MOBILE && mobileNavigation === "bar" ? (
@@ -159,7 +157,7 @@ export const Application = ({
           </NavigationDrawer>
         )}
       </nav>
-      <main className="body">{bodyArea}</main>
+      <main className="body">Hello</main>
     </div>
   );
 };

@@ -6,6 +6,7 @@ import { NavigationDrawer } from "./navigationdrawer";
 import { NavigationBar } from "./navigationbar";
 import { NavigationItem, NavigationItemRippleTarget } from "./navigationitem";
 import { NavigationBarItem } from "./navigationbaritem";
+import { TopAppBar } from "./topappbar";
 export interface M3Options {
   variant?: string;
 }
@@ -49,6 +50,7 @@ export const m3 = (tokens, options: M3Options = defaultOptions) => {
       NavigationItem: NavigationItem(tokens, options),
       NavigationItemRippleTarget: NavigationItemRippleTarget(tokens, options),
       NavigationBarItem: NavigationBarItem(tokens, options),
+      TopAppBar: TopAppBar(tokens, options),
     },
   };
 };

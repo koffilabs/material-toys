@@ -83,9 +83,7 @@ export default function Layout() {
         <div>
           <Application
             activeItem={0}
-            menuIcon={<MenuIcon />}
             hasCollapseButton={true}
-            appBarArea={<>appbar</>}
             railLabels={"selected"}
             mobileNavigaton={"drawer"}
             navigationArea={
@@ -124,7 +122,6 @@ export default function Layout() {
                 </div>
               </>
             }
-            bodyArea={<>body</>}
             mobileNavigation="bar"
           />
         </div>

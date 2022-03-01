@@ -11,7 +11,7 @@ export const RippleIcon = ({ icon }: RippleIconProps) => {
     cursor: "pointer",
     display: "inline-block",
     ".state": {
-      background: "white",
+      background: "transparent",
     },
   });
   return (

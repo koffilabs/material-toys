@@ -22,7 +22,10 @@ export const applicationStyle = {
   },
   ".body": {
     gridArea: "body",
-    background: "#f99",
+    background: "#333",
+    color: "#ddd",
+    padding: "1.618rem",
+    fontFamily: "Roboto, sans-serif",
   },
   [breakpoints.EXTRA_SMALL.query]: {
     gridTemplateColumns: "auto",
