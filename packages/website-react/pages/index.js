@@ -1,5 +1,7 @@
 import Head from "next/head";
 import { EditIcon, AddIcon } from "@material-toys/icons-react";
+import Image from "next/image";
+
 import {
   Button,
   Card,
@@ -24,7 +26,6 @@ export default function Home() {
       <VariantContext.Provider value={""}>
         <div className="container">
           <Head>
-            <title>Material Toys</title>
             <link rel="icon" href="/favicon.ico" />
             <link rel="preconnect" href="https://fonts.googleapis.com" />
             <link
@@ -39,6 +40,8 @@ export default function Home() {
           </Head>
 
           <main>Material Toys homepage</main>
+          <Image src="/MT.svg" alt="" width={188} height={94} />
+
           <style jsx>{`
             main {
               font-family: "Roboto", sans-serif;
