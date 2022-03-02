@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { EditIcon, AddIcon } from "@material-toys/icons-react";
 import Image from "next/image";
-
+import classes from "./index.module.scss";
 import {
   Button,
   Card,
@@ -22,36 +22,45 @@ export default function Home() {
   const [reactiveTokens, setReactiveTokens] = useState(tokens);
 
   return (
-    <ThemeContext.Provider value={reactiveTokens}>
-      <VariantContext.Provider value={""}>
-        <div className="container">
-          <Head>
-            <link rel="icon" href="/favicon.ico" />
-            <link rel="preconnect" href="https://fonts.googleapis.com" />
-            <link
-              rel="preconnect"
-              href="https://fonts.gstatic.com"
-              crossOrigin="true"
-            />
-            <link
-              href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-              rel="stylesheet"
-            />
-          </Head>
-
-          <main>Material Toys homepage</main>
-          <Image src="/MT.svg" alt="" width={188} height={94} />
-
-          <style jsx>{`
-            main {
-              font-family: "Roboto", sans-serif;
-              padding: 1.618rem;
-              // width: "200px",
-              font-size: 1rem;
-            }
-          `}</style>
+    <>
+      <div className={classes.topbar}>
+        <div className={classes.container}>
+          <Image src="/MT.svg" alt="" width={94} height={46} />
+          <nav>
+            <ul>
+              <li>quickstart</li>
+              <li>docs</li>
+              <li>about</li>
+            </ul>
+          </nav>
         </div>
-      </VariantContext.Provider>
-    </ThemeContext.Provider>
+      </div>
+
+      <div className={classes.container}>
+        <Head>
+          <link rel="icon" href="/favicon.ico" />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="true"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+            rel="stylesheet"
+          />
+        </Head>
+
+        <div className="container">
+          <main className={classes.content}>
+            <section className={classes.cover}>
+              <h1>Material Toys</h1>
+              <h2>A Material You implementation for React</h2>
+            </section>
+          </main>
+        </div>
+      </div>
+      <style jsx>{``}</style>
+    </>
   );
 }
