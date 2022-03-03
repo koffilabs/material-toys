@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { EditIcon, AddIcon } from "@material-toys/icons-react";
-import Image from "next/image";
+import Link from "next/link";
 import classes from "./index.module.scss";
 import {
   Button,
@@ -14,6 +14,7 @@ import {
 import { material_tokens } from "@material-toys/common";
 import { material_tokens_polyfill } from "@material-toys/common";
 import { useEffect, useState } from "react";
+import { Logo } from "./components/Logo";
 
 const tokens = { ...material_tokens_polyfill, ...material_tokens };
 // tokens ok
@@ -25,12 +26,21 @@ export default function Home() {
     <>
       <div className={classes.topbar}>
         <div className={classes.container}>
-          <Image src="/MT.svg" alt="" width={94} height={46} />
+          {/*<Image src="/MT.svg" alt="" width={94} height={46} />*/}
+          <Logo />
+
           <nav>
             <ul>
-              <li>quickstart</li>
-              <li>docs</li>
-              <li>about</li>
+              <li>
+                {" "}
+                <Link href="/quickstart">quickstart</Link>
+              </li>
+              <li>
+                <Link href="/layout">docs</Link>
+              </li>
+              <li>
+                <Link href="/about">about</Link>
+              </li>
             </ul>
           </nav>
         </div>
@@ -60,7 +70,6 @@ export default function Home() {
           </main>
         </div>
       </div>
-      <style jsx>{``}</style>
     </>
   );
 }

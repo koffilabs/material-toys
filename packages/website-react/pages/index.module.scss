@@ -1,7 +1,5 @@
-$text-color: rgba(0, 0, 0, .8);
-
-
-
+$text-color: rgba(0, 0, 0, .7);
+$accent-color: hsl(330, 90%, 30%);
 .container{
   width: 100%;
   max-width:1280px;
@@ -27,8 +25,13 @@ $text-color: rgba(0, 0, 0, .8);
   h1 {
     font-weight: 400;
     text-align: center;
-    font-size: 3rem;
+    font-size: 4rem;
     margin: 1rem auto 0;
+    //@supports (-webkit-background-clip: text) {
+    //  background-clip: text;
+    //  color:transparent;
+    //  background-image:linear-gradient(to right, $accent-color, #333);
+    //}
   }
   h2 {
     font-weight: 500;
@@ -38,14 +41,29 @@ $text-color: rgba(0, 0, 0, .8);
   }
 }
 .topbar {
-  padding: 1rem;
-  background: #fff;
+  padding: 3rem;
+  //position: absolute;
+  background: $accent-color;
   width: 100%;
-  border-bottom: 1px solid #ccc;
+  //border-bottom: 1px solid #ccc;
+  a{
+    color: #fff;
+    text-decoration: none;
+
+  }
+  svg{
+    path {
+      fill: #fff;
+    }
+    rect {
+      stroke: #fff;
+      fill: none;
+    }
+  }
   .container{
     display: flex;
     nav{
-      color:$text-color;
+      color:#fff;
       margin-left: auto;
       ul{
         list-style: none;
