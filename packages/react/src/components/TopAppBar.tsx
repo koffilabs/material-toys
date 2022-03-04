@@ -8,16 +8,17 @@ interface TopAppBarProps {
   type?: "center-aligned" | "small" | "medium" | "large";
   onCollapse: () => void;
   headline: string;
-  navigationIcon: Component;
-  trailingIcon?: Component;
+  navigationIcon: JSX.Element;
+  trailingIcons?: JSX.Element[];
 }
 export const TopAppBar = ({
   type = "center-aligned",
   navigationIcon,
-  trailingIcon,
+  trailingIcons = [],
   headline,
   onCollapse = () => {},
 }: TopAppBarProps) => {
+  console.log("icons", trailingIcons);
   const { ThemeContext, VariantContext } = useTheme();
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
@@ -33,7 +34,6 @@ export const TopAppBar = ({
       theme,
     })
   );
-
   return (
     <div data-type={type} className={barTheme} onClick={clickHandler}>
       <div className="mt-leading-navigation-icon">
@@ -43,8 +43,11 @@ export const TopAppBar = ({
         {/*}*/}
       </div>
       <div className="mt-headline">{headline}</div>
-      <div className="mt-trailing-icon">
-        {trailingIcon && <RippleIcon icon={trailingIcon} />}
+      <div className="mt-trailing-icons">
+        {trailingIcons &&
+          trailingIcons.map((trailingIcon: ReactNode) => (
+            <RippleIcon icon={trailingIcon} />
+          ))}
       </div>
     </div>
   );

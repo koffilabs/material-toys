@@ -104,7 +104,7 @@ export const Application = ({
           navigationIcon={<MenuIcon />}
           onCollapse={onCollapse}
           headline={"Title Large"}
-          trailingIcon={<OutlinedAccountCircleIcon />}
+          trailingIcons={[<OutlinedAccountCircleIcon />]}
         />
       </div>
       <nav className="navigation">

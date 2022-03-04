@@ -32,6 +32,7 @@ export const TopAppBar = (tokens, options?: M3Options) => {
       height: "64px",
       ".mt-headline": {
         flex: 1,
+        letterSpacing: tokens.MdSysTypescaleTitleLargeTracking,
         textAlign: "center",
         lineHeight: "64px",
         fontFamily: tokens.MdSysTypescaleTitleLargeFont,
@@ -42,14 +43,50 @@ export const TopAppBar = (tokens, options?: M3Options) => {
         marginTop: "20px",
         width: "48px",
         paddingLeft: "16px",
-        paddingRight: "24",
+        paddingRight: "24px",
       },
-      ".mt-trailing-icon": {
+      ".mt-trailing-icons": {
+        display: "flex",
         marginTop: "20px",
         width: "48px",
         paddingRight: "16px",
-        paddingLeft: "24",
         marginLeft: "auto",
+      },
+    },
+    "&[data-type=small]": {
+      height: "64px",
+      ".mt-headline": {
+        letterSpacing: tokens.MdSysTypescaleTitleLargeTracking,
+        flex: 1,
+        textAlign: "left",
+        lineHeight: "64px",
+        fontFamily: tokens.MdSysTypescaleTitleLargeFont,
+        fontSize: tokens.MdSysTypescaleTitleLargeSize,
+        color: tokens[`MdSysColorOnSurface${variant}`],
+      },
+      ".mt-leading-navigation-icon": {
+        marginTop: "20px",
+        width: "48px",
+        paddingLeft: "16px",
+        paddingRight: "16px",
+      },
+      ".mt-trailing-icons": {
+        display: "flex",
+        alignContent: "center",
+        alignItems: "center",
+        flexWrap: "nowrap",
+        justifyContent: "space-evenly",
+        flexDirection: "row",
+        marginLeft: "auto",
+        paddingRight: "16px",
+
+        div: {
+          width: "48px",
+          textAlign: "center",
+          svg: {
+            margin: "auto",
+          },
+        },
       },
     },
   };
