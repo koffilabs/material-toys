@@ -89,5 +89,85 @@ export const TopAppBar = (tokens, options?: M3Options) => {
         },
       },
     },
+    "&[data-type=medium]": {
+      height: "112px",
+      ".mt-headline": {
+        letterSpacing: tokens.MdSysTypescaleTitleLargeTracking,
+        flex: 1,
+        textAlign: "left",
+        // lineHeight: "64px",
+        alignSelf: "flex-end",
+        padding: 0,
+        marginBottom: "20px",
+        fontFamily: tokens.MdSysTypescaleTitleLargeFont,
+        fontSize: tokens.MdSysTypescaleTitleLargeSize,
+        color: tokens[`MdSysColorOnSurface${variant}`],
+      },
+      ".mt-leading-navigation-icon": {
+        marginTop: "20px",
+        width: "48px",
+        paddingLeft: "16px",
+        paddingRight: "16px",
+      },
+      ".mt-trailing-icons": {
+        display: "flex",
+        alignContent: "center",
+        alignItems: "flex-start",
+        flexWrap: "nowrap",
+        justifyContent: "space-evenly",
+        flexDirection: "row",
+        marginLeft: "auto",
+        paddingRight: "16px",
+        marginTop: "20px",
+
+        div: {
+          width: "48px",
+          textAlign: "center",
+          svg: {
+            margin: "auto",
+          },
+        },
+      },
+    },
+    "&[data-type=large]": {
+      height: "152px",
+      ".mt-headline": {
+        letterSpacing: tokens.MdSysTypescaleTitleLargeTracking,
+        flex: 1,
+        textAlign: "left",
+        // lineHeight: "64px",
+        alignSelf: "flex-end",
+        padding: 0,
+        marginBottom: "20px",
+        fontFamily: tokens.MdSysTypescaleTitleLargeFont,
+        fontSize: tokens.MdSysTypescaleTitleLargeSize,
+        color: tokens[`MdSysColorOnSurface${variant}`],
+      },
+      ".mt-leading-navigation-icon": {
+        marginTop: "20px",
+        width: "48px",
+        paddingLeft: "16px",
+        paddingRight: "16px",
+      },
+      ".mt-trailing-icons": {
+        display: "flex",
+        alignContent: "center",
+        alignItems: "flex-start",
+        flexWrap: "nowrap",
+        justifyContent: "space-evenly",
+        flexDirection: "row",
+        marginLeft: "auto",
+        paddingRight: "16px",
+        marginTop: "20px",
+
+        div: {
+          width: "48px",
+          textAlign: "center",
+          svg: {
+            margin: "auto",
+          },
+        },
+      },
+    },
   };
 };

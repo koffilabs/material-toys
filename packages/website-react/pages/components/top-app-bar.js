@@ -23,7 +23,7 @@ export default function TopAppBarPage() {
             <div className={classes["bar-container"]}>
               <TopAppBar
                 navigationIcon={<MenuIcon />}
-                headline={"Title Large"}
+                headline={"Center aligned"}
                 trailingIcons={[<OutlinedAccountCircleIcon />]}
               />
             </div>
@@ -31,7 +31,31 @@ export default function TopAppBarPage() {
               <TopAppBar
                 type="small"
                 navigationIcon={<ArrowBackIcon />}
-                headline={"Title Large"}
+                headline={"Small"}
+                trailingIcons={[
+                  <AttachFileIcon />,
+                  <EventIcon />,
+                  <MoreVertIcon />,
+                ]}
+              />
+            </div>{" "}
+            <div className={classes["bar-container"]}>
+              <TopAppBar
+                type="medium"
+                navigationIcon={<ArrowBackIcon />}
+                headline={"Medium"}
+                trailingIcons={[
+                  <AttachFileIcon />,
+                  <EventIcon />,
+                  <MoreVertIcon />,
+                ]}
+              />
+            </div>{" "}
+            <div className={classes["bar-container"]}>
+              <TopAppBar
+                type="large"
+                navigationIcon={<ArrowBackIcon />}
+                headline={"Large"}
                 trailingIcons={[
                   <AttachFileIcon />,
                   <EventIcon />,
