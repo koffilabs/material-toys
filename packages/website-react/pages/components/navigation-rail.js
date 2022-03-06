@@ -2,7 +2,6 @@ import dynamic from "next/dynamic";
 import {
   useTheme,
   NavigationItem,
-  NavigationHeadline,
   NavigationDrawer,
   FAB,
 } from "@material-toys/react";

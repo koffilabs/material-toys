@@ -25,3 +25,4 @@ export const Logo = () => (
     </g>
   </svg>
 );
+export default Logo;

@@ -15,6 +15,7 @@ export const TopAppBar = (tokens, options?: M3Options) => {
     flexWrap: "nowrap",
     justifyContent: "space-evenly",
     flexDirection: "row",
+    overflow: "visible",
 
     backgroundColor: tokens[`MdSysColorSurface${variant}`],
     svg: {

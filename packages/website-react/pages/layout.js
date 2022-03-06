@@ -14,7 +14,6 @@ import {
   OutlinedCircleIcon,
   ChangeHistoryIcon,
   CheckBoxOutlineBlankIcon,
-  MenuIcon,
 } from "@material-toys/icons-react";
 import Link from "next/link";
 import {
