@@ -5,6 +5,7 @@ export { Grid } from "./components/Grid";
 export { NavigationItem } from "./components/NavigationItem";
 export { NavigationBarItem } from "./components/NavigationBarItem";
 export { TopAppBar } from "./components/TopAppBar";
+export { Surface } from "./components/Surface";
 
 export {
   useMatchMedia,

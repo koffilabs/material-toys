@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { applicationStyle } from "@material-toys/common";
+import { applicationStyle } from "./style";
+// import { applicationStyle } from "@material-toys/common";
+
 import { css } from "@emotion/css";
 import { zoomIn, fadeIn, circleReveal, rectReveal } from "@material-toys/react";
 import {
@@ -19,6 +21,7 @@ import {
   NavigationBar,
   NavigationBarItem,
   TopAppBar,
+  Surface,
 } from "@material-toys/react";
 import {
   useMatchMedia,
@@ -157,7 +160,9 @@ export const Application = ({
           </NavigationDrawer>
         )}
       </nav>
-      <main className="body">Hello</main>
+      <main className="body">
+        <Surface style={{ color: "red", margin: 0 }}>Hello</Surface>
+      </main>
     </div>
   );
 };

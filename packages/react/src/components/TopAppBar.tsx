@@ -18,13 +18,11 @@ export const TopAppBar = ({
   headline,
   onCollapse = () => {},
 }: TopAppBarProps) => {
-  console.log("icons", trailingIcons);
   const { ThemeContext, VariantContext } = useTheme();
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
   const theme = m3(tokens, { variant });
 
-  const [mediaMatch] = useMatchMedia();
   const clickHandler = (e: React.MouseEvent<HTMLElement>) => {
     onCollapse && onCollapse();
   };
@@ -45,8 +43,8 @@ export const TopAppBar = ({
       <div className="mt-headline">{headline}</div>
       <div className="mt-trailing-icons">
         {trailingIcons &&
-          trailingIcons.map((trailingIcon: ReactNode) => (
-            <RippleIcon icon={trailingIcon} />
+          trailingIcons.map((trailingIcon: ReactNode, index) => (
+            <RippleIcon key={index} icon={trailingIcon} />
           ))}
       </div>
     </div>
