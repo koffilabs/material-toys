@@ -2,6 +2,7 @@ import { breakpoints } from "@material-toys/common";
 
 export const applicationStyle = {
   display: "grid",
+  background: "transparent",
   position: "absolute",
   top: 0,
   left: 0,
@@ -18,12 +19,13 @@ export const applicationStyle = {
     gridArea: "appbar",
   },
   ".navigation": {
+    background: "transparent",
     gridArea: "nav",
   },
   ".body": {
     gridArea: "body",
-    background: "#333",
-    color: "#ddd",
+    background: "transparent",
+    color: "#333",
     padding: "1.618rem",
     fontFamily: "Roboto, sans-serif",
   },
