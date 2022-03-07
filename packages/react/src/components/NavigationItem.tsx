@@ -5,7 +5,7 @@ import { applyReactiveStyle, m3 } from "@material-toys/common";
 import { Ripple } from "./Ripple";
 
 interface NavigationItemProps {
-  icon?: React.Component;
+  icon?: ReactNode | null;
   badge?: string;
   active?: boolean;
   divider?: boolean;

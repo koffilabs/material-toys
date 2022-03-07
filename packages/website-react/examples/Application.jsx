@@ -31,9 +31,6 @@ import {
     DESKTOP,
 } from "@material-toys/react";
 
-export const Application2 = () => {
-    return <div>Application here</div>;
-};
 export const Application = ({
                                 activeItem,
                                 navigationArea,

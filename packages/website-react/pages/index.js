@@ -9,12 +9,9 @@ import classes from "./index.module.scss";
 
 import {
   InboxIcon,
-  OutlinedTheatersIcon,
-  FavoriteBorderIcon,
-  DeleteOutlineIcon,
-  OutlinedCircleIcon,
-  ChangeHistoryIcon,
-  CheckBoxOutlineBlankIcon,
+  HomeIcon,
+  BoltIcon,
+  InfoIcon,
 } from "@material-toys/icons-react";
 import Link from "next/link";
 import {
@@ -23,10 +20,10 @@ import {
 } from "@material-toys/common/dist/common.esm";
 import { useState } from "react";
 
-const Application = dynamic(
+const MainLayout = dynamic(
   () =>
-    import("../examples/Application").then((mod) => {
-      return mod.Application;
+    import("../components/MainLayout").then((mod) => {
+      return mod.MainLayout;
     }),
   {
     ssr: false,
@@ -38,50 +35,11 @@ export default function Index() {
 
   const { ThemeContext, VariantContext } = useTheme();
   const [reactiveTokens, setReactiveTokens] = useState(tokens);
-  const navigationItems = [
-    {
-      icon: <InboxIcon size={24} />,
-      link: "/",
-      label: "Inbox",
-    },
-    {
-      icon: <OutlinedTheatersIcon size={24} />,
-      link: "/",
-      label: "Movies",
-    },
-    {
-      icon: <FavoriteBorderIcon size={24} />,
-      link: "/",
-      label: "Favorites",
-    },
-    {
-      icon: <DeleteOutlineIcon size={24} />,
-      link: "/",
-      label: "Trash",
-    },
-  ];
-  const secondaryNavigationItems = [
-    {
-      icon: <OutlinedCircleIcon size={24} />,
-      link: "/",
-      label: "Label",
-    },
-    {
-      icon: <ChangeHistoryIcon size={24} />,
-      link: "/",
-      label: "Label",
-    },
-    {
-      icon: <CheckBoxOutlineBlankIcon size={24} />,
-      link: "/",
-      label: "Label",
-    },
-  ];
   return (
     <ThemeContext.Provider value={reactiveTokens}>
       <VariantContext.Provider value={""}>
         <div className={classes}>
-          <Application
+          <MainLayout
             activeItem={0}
             hasCollapseButton={true}
             railLabels={"selected"}
@@ -89,36 +47,100 @@ export default function Index() {
             navigationArea={
               <>
                 <NavigationHeadline>Mail</NavigationHeadline>
-                {navigationItems.map(({ label, icon, link }, i) => {
-                  return (
-                    <NavigationItem
-                      divider={i === 3}
-                      key={i}
-                      icon={icon}
-                      onClick={() => {
-                        router.push(link);
-                      }}
-                      badge={i === 0 ? "100+" : ""}
-                    >
-                      <a>{label}</a>
-                    </NavigationItem>
-                  );
-                })}
+                <NavigationItem
+                  icon={<HomeIcon />}
+                  onClick={() => {
+                    router.push("/");
+                  }}
+                >
+                  <a>Material Toys</a>
+                </NavigationItem>
+                <NavigationItem
+                  icon={<BoltIcon />}
+                  onClick={() => {
+                    router.push("/");
+                  }}
+                >
+                  <a>Quick Start</a>
+                </NavigationItem>
+                <NavigationItem
+                  icon={<InfoIcon />}
+                  divider={true}
+                  onClick={() => {
+                    router.push("/");
+                  }}
+                >
+                  <a>About</a>
+                </NavigationItem>
                 <div className="secondary">
-                  <NavigationHeadline>Labels</NavigationHeadline>
-                  {secondaryNavigationItems.map(({ label, icon, link }, i) => {
-                    return (
-                      <NavigationItem
-                        onClick={() => {
-                          router.push(link);
-                        }}
-                        key={i}
-                        icon={icon}
-                      >
-                        <a>{label}</a>
-                      </NavigationItem>
-                    );
-                  })}
+                  <NavigationHeadline>Buttons</NavigationHeadline>
+                  <NavigationItem
+                    onClick={() => {
+                      router.push("/");
+                    }}
+                  >
+                    <a>Button</a>
+                  </NavigationItem>
+                  <NavigationItem
+                    onClick={() => {
+                      router.push("/");
+                    }}
+                  >
+                    <a>FAB</a>
+                  </NavigationItem>
+                  <NavigationItem
+                    divider={true}
+                    onClick={() => {
+                      router.push("/");
+                    }}
+                  >
+                    <a>Extended FAB</a>
+                  </NavigationItem>
+                  <NavigationHeadline>Layout</NavigationHeadline>
+                  <NavigationItem
+                    onClick={() => {
+                      router.push("/");
+                    }}
+                  >
+                    <a>Card</a>
+                  </NavigationItem>
+                  <NavigationItem
+                    divider={true}
+                    onClick={() => {
+                      router.push("/");
+                    }}
+                  >
+                    <a>Grid</a>
+                  </NavigationItem>
+                  <NavigationHeadline>Navigation</NavigationHeadline>
+                  <NavigationItem
+                    onClick={() => {
+                      router.push("/");
+                    }}
+                  >
+                    <a>Navigation Drawer</a>
+                  </NavigationItem>
+                  <NavigationItem
+                    onClick={() => {
+                      router.push("/");
+                    }}
+                  >
+                    <a>Navigation Rail</a>
+                  </NavigationItem>
+                  <NavigationItem
+                    onClick={() => {
+                      router.push("/");
+                    }}
+                  >
+                    <a>Navigation Bar</a>
+                  </NavigationItem>
+                  <NavigationItem
+                    onClick={() => {
+                      router.push("/");
+                    }}
+                  >
+                    <a>Top App Bar</a>
+                  </NavigationItem>
                 </div>
               </>
             }
