@@ -4,23 +4,28 @@ export const applicationStyle = {
   display: "grid",
   background: "transparent",
   position: "absolute",
+  overflow: "hidden",
   top: 0,
   left: 0,
   right: 0,
   bottom: 0,
-  gridTemplateColumns: "auto 1fr",
   gridTemplateRows: "auto 1fr",
-  gridTemplateAreas: `"appbar appbar"
-    "nav body"`,
+  // gridTemplateRows: "auto 1fr",
+  gridTemplateAreas: `"appbar"
+    "content"`,
   gridColumnGap: "8px", // old syntax
   gap: "8px",
   padding: "0",
   ".appBar": {
     gridArea: "appbar",
   },
+  ".content": {
+    display: "flex",
+    gridArea: "content",
+    overflow: "hidden",
+  },
   ".navigation": {
     background: "transparent",
-    gridArea: "nav",
   },
   ".body": {
     gridArea: "body",
@@ -30,42 +35,35 @@ export const applicationStyle = {
     fontFamily: "Roboto, sans-serif",
   },
   [breakpoints.EXTRA_SMALL.query]: {
-    gridTemplateColumns: "auto",
     gridTemplateRows: "auto 1fr auto",
     gridTemplateAreas: `"appbar"
-    "body"
-    "nav"`,
+    "content"`,
   },
   [breakpoints.SMALL.query]: {
-    gridTemplateColumns: "auto 1fr",
     gridTemplateRows: "auto 1fr",
     gridTemplateAreas: `"appbar appbar"
-    "nav body"`,
+    "content"`,
   },
   [breakpoints.SMALL_FLUID.query]: {
-    gridTemplateColumns: "auto 1fr",
     gridTemplateRows: "auto 1fr",
-    gridTemplateAreas: `"appbar appbar"
-    "nav body"`,
+    gridTemplateAreas: `"appbar"
+    "content"`,
   },
   [breakpoints.MEDIUM.query]: {
-    gridTemplateColumns: "auto 1fr",
     gridTemplateRows: "auto 1fr",
-    gridTemplateAreas: `"appbar appbar"
-    "nav body"`,
+    gridTemplateAreas: `"appbar"
+    "content"`,
   },
   [breakpoints.LARGE.query]: {
-    gridTemplateColumns: "auto 1fr",
     gridTemplateRows: "auto 1fr",
-    gridTemplateAreas: `"appbar appbar"
-    "nav body"`,
+    gridTemplateAreas: `"appbar"
+    "content"`,
   },
   "&.drawer": {
     [breakpoints.EXTRA_SMALL.query]: {
-      gridTemplateColumns: "auto 1fr",
       gridTemplateRows: "auto 1fr",
-      gridTemplateAreas: `"appbar appbar"
-    "nav body"`,
+      gridTemplateAreas: `"appbar"
+    "content"`,
     },
   },
 };

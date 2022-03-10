@@ -117,60 +117,62 @@ export const MainLayout = ({
             trailingIcons={[<OutlinedAccountCircleIcon />]}
           />
         </div>
-        <nav className="navigation">
-          {mediaMatch === MOBILE && mobileNavigation === "bar" ? (
-            <NavigationBar labels={"show"} activeItem={0}>
-              <NavigationBarItem
-                icon={<OutlinedInboxIcon size={24} />}
-                activeIcon={<InboxIcon size={24} />}
-                link="/layout"
-                iconsAnimations={zoomIn}
-              >
-                Inbox
-              </NavigationBarItem>
-              <NavigationBarItem
-                icon={<OutlinedTheatersIcon size={24} />}
-                activeIcon={<TheatersIcon size={24} />}
-                link="/layout"
-                iconsAnimations={rectReveal}
-              >
-                Movies
-              </NavigationBarItem>
+        <div className="content">
+          <nav className="navigation">
+            {mediaMatch === MOBILE && mobileNavigation === "bar" ? (
+              <NavigationBar labels={"show"} activeItem={0}>
+                <NavigationBarItem
+                  icon={<OutlinedInboxIcon size={24} />}
+                  activeIcon={<InboxIcon size={24} />}
+                  link="/layout"
+                  iconsAnimations={zoomIn}
+                >
+                  Inbox
+                </NavigationBarItem>
+                <NavigationBarItem
+                  icon={<OutlinedTheatersIcon size={24} />}
+                  activeIcon={<TheatersIcon size={24} />}
+                  link="/layout"
+                  iconsAnimations={rectReveal}
+                >
+                  Movies
+                </NavigationBarItem>
 
-              <NavigationBarItem
-                icon={<OutlinedFavoriteBorderIcon size={24} />}
-                activeIcon={<FavoriteIcon size={24} />}
-                link="/layout"
-                badge={8}
-                iconsAnimations={zoomIn}
+                <NavigationBarItem
+                  icon={<OutlinedFavoriteBorderIcon size={24} />}
+                  activeIcon={<FavoriteIcon size={24} />}
+                  link="/layout"
+                  badge={8}
+                  iconsAnimations={zoomIn}
+                >
+                  Favorites
+                </NavigationBarItem>
+                <NavigationBarItem
+                  icon={<OutlinedDeleteIcon size={24} />}
+                  activeIcon={<DeleteIcon size={24} />}
+                  link="/layout"
+                  badge=""
+                  iconsAnimations={fadeIn}
+                >
+                  Trash
+                </NavigationBarItem>
+              </NavigationBar>
+            ) : (
+              <NavigationDrawer
+                railLabels={railLabels}
+                collapsed={isNavigationCollapsed}
+                activeItem={activeItem}
+                mode={navigationMode}
               >
-                Favorites
-              </NavigationBarItem>
-              <NavigationBarItem
-                icon={<OutlinedDeleteIcon size={24} />}
-                activeIcon={<DeleteIcon size={24} />}
-                link="/layout"
-                badge=""
-                iconsAnimations={fadeIn}
-              >
-                Trash
-              </NavigationBarItem>
-            </NavigationBar>
-          ) : (
-            <NavigationDrawer
-              railLabels={railLabels}
-              collapsed={isNavigationCollapsed}
-              activeItem={activeItem}
-              mode={navigationMode}
-            >
-              {navigationArea}
-            </NavigationDrawer>
-          )}
-        </nav>
-        <main className="body">
-          <h1>Material Toys</h1>
-          <h2>A Material You implementation for React</h2>
-        </main>
+                {navigationArea}
+              </NavigationDrawer>
+            )}
+          </nav>
+          <main className="body">
+            <h1>Material Toys</h1>
+            <h2>A Material You implementation for React</h2>
+          </main>
+        </div>
       </div>
     </Surface>
   );

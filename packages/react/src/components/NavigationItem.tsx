@@ -32,6 +32,12 @@ export const NavigationItem = ({
       theme,
     })
   );
+  const railTheme = css(
+    applyReactiveStyle({
+      target: m3(tokens, { variant }).components.RailContainer,
+      theme,
+    })
+  );
   const rippleTarget = css(
     applyReactiveStyle({
       target: m3(tokens, { variant }).components.NavigationItemRippleTarget,
@@ -44,6 +50,9 @@ export const NavigationItem = ({
   // });
   return (
     <>
+      <div data-active={active} className={railTheme}>
+        {railLabel !== "none" && <div className="railContent">{children}</div>}
+      </div>
       <Ripple>
         <div onClick={onClick} className={rippleTarget}>
           <div
@@ -57,9 +66,6 @@ export const NavigationItem = ({
               <div className="children">{children}</div>
               <div className="badge">{badge}</div>
             </div>
-            {railLabel !== "none" && (
-              <div className="railContent">{children}</div>
-            )}
           </div>
         </div>
       </Ripple>

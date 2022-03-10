@@ -8,6 +8,11 @@ const easing = "cubic-bezier(0.4, 0.0, 0.2, 1)";
 export const NavigationDrawer = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
+    ".listContainer": {
+      height: "100%",
+      flex: 1,
+      overflow: "visible",
+    },
     ".buttonsContainer": {
       position: "absolute",
       padding: "48px 0 0 0", // no specifications
@@ -20,8 +25,9 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
       alignItems: "center",
       textAlign: "center",
       ".menuContainer": {
+        border: "3px dashed black",
         position: "relative",
-        overflow: "hidden",
+        overflow: "scroll",
         cursor: "pointer",
         ".ripple": {
           backgroundColor: tokens[`MdSysColorOnPrimaryContainer${variant}`],
@@ -61,7 +67,7 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
     },
     display: "inline-flex",
     flexDirection: "column",
-    overflow: "hidden",
+    overflow: "scroll",
     position: "relative",
     borderRadius: "12px",
     paddingTop: "12px",

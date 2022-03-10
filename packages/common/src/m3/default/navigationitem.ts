@@ -10,7 +10,10 @@ export const NavigationItemRippleTarget = (tokens, options?: M3Options) => {
     "[data-mode=rail] &,[data-collapsed=true] &": {
       borderRadius: 0,
     },
-    overflow: "hidden",
+    zIndex: 10,
+
+    whiteSpace: "nowrap",
+    overflow: "hidden", //TODO, hidden or visible?
     borderRadius: "32px",
     height: "56px",
     position: "relative",
@@ -19,10 +22,6 @@ export const NavigationItemRippleTarget = (tokens, options?: M3Options) => {
       width: "64px",
       overflow: "visible",
       height: "32px",
-      ".railContent": {
-        opacity: 1,
-        // transform: "translate(-50%, 0)",
-      },
       "h1,.children,.badge": {
         opacity: 0,
         // width: 0,
@@ -36,6 +35,40 @@ export const NavigationItemRippleTarget = (tokens, options?: M3Options) => {
     },
   };
 };
+export const RailContainer = (tokens, options?: M3Options) => {
+  const variant = options.variant ?? "";
+  return {
+    position: "absolute",
+    width: "56px",
+    height: "56px",
+    zIndex: 0,
+    ".railContent": {
+      whiteSpace: "nowrap",
+      height: "56px",
+      fontFamily: tokens.MdSysTypescaleLabelLargeFont,
+
+      opacity: 0,
+      position: "absolute",
+      top: "30px",
+      left: "28px",
+      zIndex: 100,
+      transform: "translate(-50%, 5px)",
+      transition: `${duration} opacity ${easing}, ${duration} transform ${easing}`,
+      "*": {
+        fontSize: "12px",
+      },
+    },
+    "[data-mode=rail] &,[data-collapsed=true] &": {
+      "&[data-active=true]:not([data-rail-label=none])": {
+        marginBottom: "24px",
+        ".railContent": {
+          opacity: 1,
+          transform: "translate(-50%, 0)",
+        },
+      },
+    },
+  };
+};
 export const NavigationItem = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
@@ -43,10 +76,6 @@ export const NavigationItem = (tokens, options?: M3Options) => {
       "&[data-active=true]:not([data-rail-label=none])": {
         height: "32px",
         marginBottom: "24px",
-        ".railContent": {
-          opacity: 1,
-          transform: "translate(-50%, 0)",
-        },
         svg: {
           transform: "translateY(-12px)",
         },
@@ -55,10 +84,6 @@ export const NavigationItem = (tokens, options?: M3Options) => {
         height: "32px",
         marginBottom: "24px",
         paddingBottom: "6px",
-        ".railContent": {
-          opacity: 1,
-          transform: "translate(-50%, 0)",
-        },
         svg: {
           transform: "translateY(-12px)",
         },
@@ -96,18 +121,6 @@ export const NavigationItem = (tokens, options?: M3Options) => {
     color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
     transition: `box-shadow ${duration} ${easing}, background-color ${duration} ${easing},
   color ${duration} ${easing}, height ${duration} ${easing}, margin ${duration} ${easing}`,
-    ".railContent": {
-      opacity: 0,
-      position: "absolute",
-      top: "13px",
-      left: "28px",
-      zIndex: 100,
-      transform: "translate(-50%, 5px)",
-      transition: `${duration} opacity ${easing}, ${duration} transform ${easing}`,
-      "*": {
-        fontSize: "12px",
-      },
-    },
     ".itemContent": {
       padding: "0 24px 0 16px",
       height: "56px",

@@ -4,7 +4,11 @@ import { FAB } from "./fab";
 import { Card } from "./card";
 import { NavigationDrawer } from "./navigationdrawer";
 import { NavigationBar } from "./navigationbar";
-import { NavigationItem, NavigationItemRippleTarget } from "./navigationitem";
+import {
+  NavigationItem,
+  NavigationItemRippleTarget,
+  RailContainer,
+} from "./navigationitem";
 import { NavigationBarItem } from "./navigationbaritem";
 import { TopAppBar } from "./topappbar";
 import { Surface } from "./surface";
@@ -53,6 +57,7 @@ export const m3 = (tokens, options: M3Options = defaultOptions) => {
       NavigationBarItem: NavigationBarItem(tokens, options),
       TopAppBar: TopAppBar(tokens, options),
       Surface: Surface(tokens, options),
+      RailContainer: RailContainer(tokens, options),
     },
   };
 };

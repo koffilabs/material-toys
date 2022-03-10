@@ -1,9 +1,7 @@
 import React, {
   cloneElement,
   useContext,
-  useEffect,
   useState,
-  ReactFragment,
   ReactNode,
   ReactElement,
   ComponentType,
@@ -135,7 +133,9 @@ export const NavigationDrawer = ({
           )}
           {fab}
         </div>
-        {React.Children.map(children as ReactElement, NavigationItemMapper)}
+        <div className="listContainer">
+          {React.Children.map(children as ReactElement, NavigationItemMapper)}
+        </div>
       </div>
     </>
   );
