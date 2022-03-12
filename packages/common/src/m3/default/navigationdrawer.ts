@@ -126,10 +126,6 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
     "&[data-mode=rail],&[data-collapsed=true]": {
       width: "80px",
       overflow: "hidden",
-      // TODO: check the specs: does the rail have a scrollbar?
-      // "&:hover": {
-      //   overflowY: "scroll",
-      // },
 
       ".listContainer": {
         width: "56px",
@@ -147,6 +143,9 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
         tokens.MdSysColorShadow,
         0.14
       )}, 0 1px 3px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
+      "&[data-collapsed=true]": {
+        border: "1px solid red",
+      },
     },
   };
 };

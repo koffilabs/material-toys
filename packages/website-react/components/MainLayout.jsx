@@ -34,7 +34,6 @@ import {
 export const MainLayout = ({
   activeItem,
   navigationArea,
-  hasCollapseButton = false,
   mobileNavigation = "bar",
   railLabels = "selected",
 }) => {
@@ -55,18 +54,16 @@ export const MainLayout = ({
   // mobile: navigation bar
   // tablet: navigation rail
   // laptop: permanent navigation drawer
-  const navigationMode =
-    mediaMatch === MOBILE
-      ? "modal"
-      : mediaMatch === TABLET
-      ? mobileNavigation === "drawer"
-        ? "modal"
-        : "rail"
-      : mediaMatch === LAPTOP || mediaMatch === DESKTOP
-      ? "drawer"
-      : "rail";
+  // const navigationMode =
+  //   mediaMatch === MOBILE || mediaMatch === TABLET ? "modal" : "drawer";
+  const [navMode, setNavMode] = useState(
+    mediaMatch === MOBILE || mediaMatch === TABLET ? "modal" : "drawer"
+  );
   const onCollapse = () => {
-    setNavigationCollapsed(!isNavigationCollapsed);
+    setNavMode((state) => {
+      return state === "modal" ? "drawer" : "modal";
+    });
+    // setNavigationCollapsed(!isNavigationCollapsed);
   };
   const navigationBarItems = [
     {
@@ -162,7 +159,7 @@ export const MainLayout = ({
                 railLabels={railLabels}
                 collapsed={isNavigationCollapsed}
                 activeItem={activeItem}
-                mode={navigationMode}
+                mode={navMode}
               >
                 {navigationArea}
               </NavigationDrawer>

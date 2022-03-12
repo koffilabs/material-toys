@@ -43,7 +43,6 @@ export default function Index() {
             activeItem={0}
             hasCollapseButton={true}
             railLabels={"selected"}
-            mobileNavigaton={"drawer"}
             navigationArea={
               <>
                 <NavigationHeadline>Mail</NavigationHeadline>
@@ -144,7 +143,7 @@ export default function Index() {
                 </div>
               </>
             }
-            mobileNavigation="bar"
+            mobileNavigation="drawer"
           />
         </div>
       </VariantContext.Provider>
