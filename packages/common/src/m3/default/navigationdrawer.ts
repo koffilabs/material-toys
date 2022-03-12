@@ -10,8 +10,10 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
   return {
     ".listContainer": {
       height: "100%",
+      width: "336px",
       flex: 1,
       overflow: "visible",
+      transition: `width ${duration} ease-in-out`,
     },
     ".buttonsContainer": {
       position: "absolute",
@@ -27,7 +29,7 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
       ".menuContainer": {
         border: "3px dashed black",
         position: "relative",
-        overflow: "scroll",
+        overflowY: "scroll",
         cursor: "pointer",
         ".ripple": {
           backgroundColor: tokens[`MdSysColorOnPrimaryContainer${variant}`],
@@ -67,7 +69,7 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
     },
     display: "inline-flex",
     flexDirection: "column",
-    overflow: "scroll",
+    overflow: "hidden",
     position: "relative",
     borderRadius: "12px",
     paddingTop: "12px",
@@ -81,6 +83,9 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
     backgroundColor: tokens[`MdSysColorSurface${variant}`],
     transition: `${duration} width ${easing}`,
     willChange: "width",
+    "&:hover": {
+      overflowY: "scroll",
+    },
     h1: {
       fontFamily: tokens.MdSysTypescaleTitleSmallFont,
       color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
@@ -120,6 +125,16 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
 
     "&[data-mode=rail],&[data-collapsed=true]": {
       width: "80px",
+      overflow: "hidden",
+      // TODO: check the specs: does the rail have a scrollbar?
+      // "&:hover": {
+      //   overflowY: "scroll",
+      // },
+
+      ".listContainer": {
+        width: "56px",
+      },
+
       "h1,.divider,.secondary": {
         opacity: 0,
       },
