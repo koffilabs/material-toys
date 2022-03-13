@@ -7,7 +7,7 @@ const easing = "cubic-bezier(0.4, 0.0, 0.2, 1)";
 export const NavigationItemRippleTarget = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
-    "[data-mode=rail] &,[data-collapsed=true] &": {
+    "[data-mode=rail] &,[data-mode=drawer][data-collapsed=true] &": {
       borderRadius: 0,
     },
     zIndex: 10,
@@ -58,7 +58,7 @@ export const RailContainer = (tokens, options?: M3Options) => {
         fontSize: "12px",
       },
     },
-    "[data-mode=rail] &,[data-collapsed=true] &": {
+    "[data-mode=rail] &,[data-mode=drawer][data-collapsed=true] &": {
       "&[data-active=true]:not([data-rail-label=none])": {
         marginBottom: "24px",
         ".railContent": {
@@ -72,7 +72,7 @@ export const RailContainer = (tokens, options?: M3Options) => {
 export const NavigationItem = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
-    "[data-mode=rail] &,[data-collapsed=true] &": {
+    "[data-mode=rail] &,[data-mode=drawer] [data-collapsed=true] &": {
       "&[data-active=true]:not([data-rail-label=none])": {
         height: "32px",
         marginBottom: "24px",

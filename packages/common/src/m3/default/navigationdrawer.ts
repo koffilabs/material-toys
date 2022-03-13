@@ -123,7 +123,7 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
       },
     },
 
-    "&[data-mode=rail],&[data-collapsed=true]": {
+    "&[data-mode=rail],&[data-mode=drawer][data-collapsed=true]": {
       width: "80px",
       overflow: "hidden",
 
@@ -145,6 +145,7 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
       )}, 0 1px 3px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
       "&[data-collapsed=true]": {
         border: "1px solid red",
+        transform: "translateX(-100%)",
       },
     },
   };

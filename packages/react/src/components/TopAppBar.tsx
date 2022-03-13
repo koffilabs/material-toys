@@ -6,7 +6,7 @@ import { applyReactiveStyle, m3 } from "@material-toys/common";
 import { useTheme } from "../hooks/useTheme";
 interface TopAppBarProps {
   type?: "center-aligned" | "small" | "medium" | "large";
-  onCollapse: () => void;
+  onNavButtonClick: () => void;
   headline: string;
   navigationIcon: JSX.Element;
   trailingIcons?: JSX.Element[];
@@ -16,7 +16,7 @@ export const TopAppBar = ({
   navigationIcon,
   trailingIcons = [],
   headline,
-  onCollapse = () => {},
+  onNavButtonClick = () => {},
 }: TopAppBarProps) => {
   const { ThemeContext, VariantContext } = useTheme();
   const tokens = useContext(ThemeContext);
@@ -24,7 +24,7 @@ export const TopAppBar = ({
   const theme = m3(tokens, { variant });
 
   const clickHandler = (e: React.MouseEvent<HTMLElement>) => {
-    onCollapse && onCollapse();
+    onNavButtonClick && onNavButtonClick();
   };
   const barTheme = css(
     applyReactiveStyle({

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { applicationStyle } from "./mainLayoutStyle";
 // import { applicationStyle } from "@material-toys/common";
 
@@ -37,7 +37,6 @@ export const MainLayout = ({
   mobileNavigation = "bar",
   railLabels = "selected",
 }) => {
-  const [isNavigationCollapsed, setNavigationCollapsed] = useState(false);
   // @ts-ignore
   const mtApplication = css(applicationStyle);
   const [mediaMatch] = useMatchMedia();
@@ -49,52 +48,25 @@ export const MainLayout = ({
   // mobile: modal navigation drawer
   // tablet: modal navigation drawer
   // laptop: navigation drawer
-
-  // mobileNavigation === bar
-  // mobile: navigation bar
-  // tablet: navigation rail
-  // laptop: permanent navigation drawer
-  // const navigationMode =
-  //   mediaMatch === MOBILE || mediaMatch === TABLET ? "modal" : "drawer";
-  const [navMode, setNavMode] = useState(
-    mediaMatch === MOBILE || mediaMatch === TABLET ? "modal" : "drawer"
-  );
+  const isModal = mediaMatch === MOBILE || mediaMatch === TABLET;
+  const [isNavigationCollapsed, setNavigationCollapsed] = useState(isModal);
+  console.log("ismodal is", isModal);
+  const [navMode, setNavMode] = useState(isModal ? "modal" : "drawer");
   const onCollapse = () => {
-    setNavMode((state) => {
-      return state === "modal" ? "drawer" : "modal";
-    });
-    // setNavigationCollapsed(!isNavigationCollapsed);
+    // setNavMode((state) => {
+    //   return state === "modal" ? "drawer" : "modal";
+    // });
+    setNavigationCollapsed(!isNavigationCollapsed);
   };
-  const navigationBarItems = [
-    {
-      icon: <OutlinedInboxIcon size={24} />,
-      activeIcon: <InboxIcon size={24} />,
-      link: "/layout",
-      label: "Inbox",
-      iconsAnimations: zoomIn,
-    },
-    {
-      icon: <OutlinedTheatersIcon size={24} />,
-      activeIcon: <TheatersIcon size={24} />,
-      link: "/",
-      iconsAnimations: rectReveal,
-      label: "Movies",
-    },
-    {
-      icon: <OutlinedFavoriteBorderIcon size={24} />,
-      activeIcon: <FavoriteIcon size={24} />,
-      link: "/layout",
-      label: "Favorites",
-      iconsAnimations: circleReveal,
-    },
-    {
-      icon: <OutlinedDeleteIcon size={24} />,
-      activeIcon: <DeleteIcon size={24} />,
-      link: "/layout",
-      label: "Trash",
-      iconsAnimations: fadeIn,
-    },
-  ];
+  useEffect(() => {
+    if (isModal) {
+      setNavigationCollapsed(true);
+    }
+    console.log("isNavigationCollapsed is", isNavigationCollapsed);
+  }, [isModal]);
+  useEffect(() => {
+    console.log("isNavigationCollapsed is", isNavigationCollapsed);
+  }, [isNavigationCollapsed]);
   return (
     <Surface
       style={{
@@ -109,61 +81,24 @@ export const MainLayout = ({
         <div className="appBar">
           <TopAppBar
             navigationIcon={<MenuIcon />}
-            onCollapse={onCollapse}
+            onNavButtonClick={onCollapse}
             headline={"Material Toys"}
             trailingIcons={[<OutlinedAccountCircleIcon />]}
           />
         </div>
         <div className="content">
           <nav className="navigation">
-            {mediaMatch === MOBILE && mobileNavigation === "bar" ? (
-              <NavigationBar labels={"show"} activeItem={0}>
-                <NavigationBarItem
-                  icon={<OutlinedInboxIcon size={24} />}
-                  activeIcon={<InboxIcon size={24} />}
-                  link="/layout"
-                  iconsAnimations={zoomIn}
-                >
-                  Inbox
-                </NavigationBarItem>
-                <NavigationBarItem
-                  icon={<OutlinedTheatersIcon size={24} />}
-                  activeIcon={<TheatersIcon size={24} />}
-                  link="/layout"
-                  iconsAnimations={rectReveal}
-                >
-                  Movies
-                </NavigationBarItem>
-
-                <NavigationBarItem
-                  icon={<OutlinedFavoriteBorderIcon size={24} />}
-                  activeIcon={<FavoriteIcon size={24} />}
-                  link="/layout"
-                  badge={8}
-                  iconsAnimations={zoomIn}
-                >
-                  Favorites
-                </NavigationBarItem>
-                <NavigationBarItem
-                  icon={<OutlinedDeleteIcon size={24} />}
-                  activeIcon={<DeleteIcon size={24} />}
-                  link="/layout"
-                  badge=""
-                  iconsAnimations={fadeIn}
-                >
-                  Trash
-                </NavigationBarItem>
-              </NavigationBar>
-            ) : (
-              <NavigationDrawer
-                railLabels={railLabels}
-                collapsed={isNavigationCollapsed}
-                activeItem={activeItem}
-                mode={navMode}
-              >
-                {navigationArea}
-              </NavigationDrawer>
-            )}
+            <NavigationDrawer
+              onDismiss={() => {
+                setNavigationCollapsed(true);
+              }}
+              railLabels={railLabels}
+              collapsed={isNavigationCollapsed}
+              activeItem={activeItem}
+              mode={navMode}
+            >
+              {navigationArea}
+            </NavigationDrawer>
           </nav>
           <main className="body">
             <h1>Material Toys</h1>

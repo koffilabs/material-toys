@@ -25,11 +25,12 @@ const scrim = css({
   background: "rgba(0, 0, 0, .4)",
 });
 
-const Scrim = () => {
-  return <div className={scrim} />;
+const Scrim = ({ ...props }) => {
+  return <div className={scrim} {...props} />;
 };
 
 interface NavigationDrawerProps {
+  onDismiss?: () => void;
   collapsed?: boolean;
   activeItem?: number;
   fab?: ComponentType<typeof FAB>;
@@ -46,6 +47,7 @@ export const NavigationDrawer = ({
   children,
   fab,
   menu,
+  onDismiss = () => {},
   railLabels = "selected",
   mode = "drawer",
   justify = "start",
@@ -115,7 +117,7 @@ export const NavigationDrawer = ({
   const NavigationItemMapper = NavigationItemMapperFactory();
   return (
     <>
-      {mode === "modal" && <Scrim />}
+      {mode === "modal" && !collapsed && <Scrim onClick={onDismiss} />}
       <div
         data-mode={mode}
         data-collapsed={collapsed}
