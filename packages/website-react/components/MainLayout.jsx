@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { applicationStyle } from "./mainLayoutStyle";
 // import { applicationStyle } from "@material-toys/common";
 
@@ -48,10 +48,10 @@ export const MainLayout = ({
   // mobile: modal navigation drawer
   // tablet: modal navigation drawer
   // laptop: navigation drawer
-  const isModal = mediaMatch === MOBILE || mediaMatch === TABLET;
-  const [isNavigationCollapsed, setNavigationCollapsed] = useState(isModal);
-  console.log("ismodal is", isModal);
-  const [navMode, setNavMode] = useState(isModal ? "modal" : "drawer");
+  const isModalAtStart = mediaMatch === MOBILE || mediaMatch === TABLET;
+  const [isNavigationCollapsed, setNavigationCollapsed] =
+    useState(isModalAtStart);
+  const [navMode, setNavMode] = useState(isModalAtStart ? "modal" : "drawer");
   const onCollapse = () => {
     // setNavMode((state) => {
     //   return state === "modal" ? "drawer" : "modal";
@@ -59,11 +59,12 @@ export const MainLayout = ({
     setNavigationCollapsed(!isNavigationCollapsed);
   };
   useEffect(() => {
-    if (isModal) {
-      setNavigationCollapsed(true);
-    }
-    console.log("isNavigationCollapsed is", isNavigationCollapsed);
-  }, [isModal]);
+    console.log("mediaMatch changed to", mediaMatch);
+    const isModal = mediaMatch === MOBILE || mediaMatch === TABLET;
+    setNavigationCollapsed(isModal);
+    setNavMode(isModal ? "modal" : "drawer");
+  }, [mediaMatch]);
+
   useEffect(() => {
     console.log("isNavigationCollapsed is", isNavigationCollapsed);
   }, [isNavigationCollapsed]);
