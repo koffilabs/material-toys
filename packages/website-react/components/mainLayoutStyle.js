@@ -1,5 +1,5 @@
 import { breakpoints } from "@material-toys/common";
-
+const duration = ".4s";
 export const applicationStyle = {
   display: "grid",
   background: "transparent",
@@ -32,7 +32,12 @@ export const applicationStyle = {
     background: "transparent",
     color: "#333",
     padding: "1.618rem",
+    marginLeft: "360px",
     fontFamily: "Roboto, sans-serif",
+    transition: `margin-left ${duration} ease-in-out`,
+    "&.collapsed": {
+      marginLeft: "0",
+    },
   },
   [breakpoints.EXTRA_SMALL.query]: {
     gridTemplateRows: "auto 1fr auto",

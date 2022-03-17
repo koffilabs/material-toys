@@ -45,7 +45,7 @@ export default function Index() {
             railLabels={"selected"}
             navigationArea={
               <>
-                <NavigationHeadline>Mail</NavigationHeadline>
+                <NavigationHeadline>Main</NavigationHeadline>
                 <NavigationItem
                   icon={<HomeIcon />}
                   onClick={() => {

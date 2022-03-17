@@ -1,35 +1,13 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { applicationStyle } from "./mainLayoutStyle";
-// import { applicationStyle } from "@material-toys/common";
 
 import { css } from "@emotion/css";
-import { zoomIn, fadeIn, circleReveal, rectReveal } from "@material-toys/react";
 import {
-  InboxIcon,
-  OutlinedInboxIcon,
-  OutlinedTheatersIcon,
-  TheatersIcon,
-  OutlinedFavoriteBorderIcon,
-  FavoriteIcon,
-  OutlinedDeleteIcon,
-  DeleteIcon,
   MenuIcon,
   OutlinedAccountCircleIcon,
 } from "@material-toys/icons-react";
-import {
-  NavigationDrawer,
-  NavigationBar,
-  NavigationBarItem,
-  TopAppBar,
-  Surface,
-} from "@material-toys/react";
-import {
-  useMatchMedia,
-  MOBILE,
-  TABLET,
-  LAPTOP,
-  DESKTOP,
-} from "@material-toys/react";
+import { NavigationDrawer, TopAppBar, Surface } from "@material-toys/react";
+import { useMatchMedia, MOBILE, TABLET } from "@material-toys/react";
 
 export const MainLayout = ({
   activeItem,
@@ -59,15 +37,11 @@ export const MainLayout = ({
     setNavigationCollapsed(!isNavigationCollapsed);
   };
   useEffect(() => {
-    console.log("mediaMatch changed to", mediaMatch);
     const isModal = mediaMatch === MOBILE || mediaMatch === TABLET;
     setNavigationCollapsed(isModal);
     setNavMode(isModal ? "modal" : "drawer");
   }, [mediaMatch]);
-
-  useEffect(() => {
-    console.log("isNavigationCollapsed is", isNavigationCollapsed);
-  }, [isNavigationCollapsed]);
+  const mainClassName = `body ${navMode === "modal" ? "collapsed" : ""}`;
   return (
     <Surface
       style={{
@@ -81,7 +55,7 @@ export const MainLayout = ({
       <div className={cname}>
         <div className="appBar">
           <TopAppBar
-            navigationIcon={<MenuIcon />}
+            navigationIcon={navMode === "modal" ? <MenuIcon /> : null}
             onNavButtonClick={onCollapse}
             headline={"Material Toys"}
             trailingIcons={[<OutlinedAccountCircleIcon />]}
@@ -90,6 +64,7 @@ export const MainLayout = ({
         <div className="content">
           <nav className="navigation">
             <NavigationDrawer
+              style={{ position: "absolute" }}
               onDismiss={() => {
                 setNavigationCollapsed(true);
               }}
@@ -101,7 +76,7 @@ export const MainLayout = ({
               {navigationArea}
             </NavigationDrawer>
           </nav>
-          <main className="body">
+          <main className={mainClassName}>
             <h1>Material Toys</h1>
             <h2>A Material You implementation for React</h2>
           </main>

@@ -77,7 +77,7 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
     paddingLeft: "12px",
     paddingRight: "12px",
     marginRight: "8px",
-    marginLeft: "8px",
+    marginLeft: "0",
     // border: "1px solid #333",
     height: "100%",
     backgroundColor: tokens[`MdSysColorSurface${variant}`],

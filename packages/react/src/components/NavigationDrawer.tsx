@@ -51,6 +51,7 @@ export const NavigationDrawer = ({
   railLabels = "selected",
   mode = "drawer",
   justify = "start",
+  ...props
 }: NavigationDrawerProps) => {
   const { ThemeContext, VariantContext } = useTheme();
   const tokens = useContext(ThemeContext);
@@ -122,6 +123,7 @@ export const NavigationDrawer = ({
         data-mode={mode}
         data-collapsed={collapsed}
         data-justify={justify}
+        {...props}
         className={`${drawerTheme}`}
       >
         <div className="buttonsContainer">
