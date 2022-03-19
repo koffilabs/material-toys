@@ -18,7 +18,7 @@ import {
   material_tokens,
   material_tokens_polyfill,
 } from "@material-toys/common/dist/common.esm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const MainLayout = dynamic(
   () =>
@@ -29,12 +29,14 @@ const MainLayout = dynamic(
     ssr: false,
   }
 );
+
 const tokens = { ...material_tokens_polyfill, ...material_tokens };
 export default function Index() {
   const router = useRouter();
 
   const { ThemeContext, VariantContext } = useTheme();
   const [reactiveTokens, setReactiveTokens] = useState(tokens);
+
   return (
     <ThemeContext.Provider value={reactiveTokens}>
       <VariantContext.Provider value={""}>

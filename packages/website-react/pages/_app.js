@@ -8,9 +8,6 @@ export default function app({ Component, pageProps }) {
         {`
           html,
           body,
-          .mt-loading * {
-            transition: none !important;
-          }
           #__next,
           div#__next > div {
             height: 100%;

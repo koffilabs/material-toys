@@ -27,12 +27,12 @@ export const applicationStyle = {
   ".navigation": {
     background: "transparent",
   },
+
   ".body": {
     gridArea: "body",
     background: "transparent",
     color: "#333",
     padding: "1.618rem",
-    marginLeft: "360px",
     fontFamily: "Roboto, sans-serif",
     transition: `margin-left ${duration} ease-in-out`,
     "&.collapsed": {
@@ -58,6 +58,9 @@ export const applicationStyle = {
     gridTemplateRows: "auto 1fr",
     gridTemplateAreas: `"appbar"
     "content"`,
+    ".body": {
+      marginLeft: "360px",
+    },
   },
   [breakpoints.LARGE.query]: {
     gridTemplateRows: "auto 1fr",
