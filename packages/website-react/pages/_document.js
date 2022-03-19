@@ -21,19 +21,9 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
         </Head>
-        <body>
+        <body className={"mt-loading"}>
           <Main />
           <NextScript />
-          <style global jsx>
-            {`
-              html,
-              body,
-              #__next,
-              div#__next > div {
-                height: 100%;
-              }
-            `}
-          </style>
         </body>
       </Html>
     );
