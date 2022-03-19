@@ -12,6 +12,9 @@ export default function app({ Component, pageProps }) {
           div#__next > div {
             height: 100%;
           }
+          .mt-loading * {
+            //transition: none !important;
+          }
         `}
       </style>
     </>

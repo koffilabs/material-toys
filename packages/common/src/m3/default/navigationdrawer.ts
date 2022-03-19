@@ -81,7 +81,7 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
     // border: "1px solid #333",
     height: "100%",
     backgroundColor: tokens[`MdSysColorSurface${variant}`],
-    transition: `${duration} width ${easing}`,
+    transition: `${duration} width ${easing}, transform ${duration} ease-in-out`,
     willChange: "width",
     "&:hover": {
       overflowY: "scroll",
@@ -143,7 +143,6 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
         tokens.MdSysColorShadow,
         0.14
       )}, 0 1px 3px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
-      transition: `transform ${duration} ease-in-out`,
       "&[data-collapsed=true]": {
         transform: "translateX(-100%)",
       },

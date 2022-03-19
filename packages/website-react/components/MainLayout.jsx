@@ -41,7 +41,7 @@ export const MainLayout = ({
     setNavigationCollapsed(isModal);
     setNavMode(isModal ? "modal" : "drawer");
   }, [mediaMatch]);
-  const mainClassName = `body ${navMode === "modal" ? "collapsed" : ""}`;
+  const mainClassName = `body ${isModalAtStart ? "collapsed" : ""}`;
   return (
     <Surface
       style={{
