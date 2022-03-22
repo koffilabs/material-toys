@@ -3,7 +3,7 @@ export const MOBILE = "mobile";
 export const TABLET = "tablet";
 export const LAPTOP = "laptop";
 export const DESKTOP = "desktop";
-export const useMatchMedia: () => [string | null] = () => {
+export const useMatchMedia: () => [string] = () => {
   const mobileQuery = window.matchMedia("(max-width: 599px)");
   const tabletQuery = window.matchMedia(
     "(min-width: 600px) and (max-width: 1239px)"
@@ -12,7 +12,7 @@ export const useMatchMedia: () => [string | null] = () => {
     "(min-width: 1240px) and (max-width: 1439px)"
   );
   const desktopQuery = window.matchMedia("(min-width: 1440px)");
-  let initialMatch;
+  let initialMatch = "";
   switch (true) {
     case mobileQuery.matches:
       initialMatch = MOBILE;
@@ -30,7 +30,7 @@ export const useMatchMedia: () => [string | null] = () => {
       break;
   }
 
-  const [mediaMatch, setMediaMatch] = useState<string | null>(initialMatch);
+  const [mediaMatch, setMediaMatch] = useState<string>(initialMatch);
   const setMatch = () => {
     switch (true) {
       case mobileQuery.matches:
