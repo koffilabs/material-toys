@@ -32,13 +32,13 @@ export default function Index() {
       <VariantContext.Provider value={""}>
         <div className={classes}>
           <Layout
-            activeItem={0}
+            activeItem={1}
             hasCollapseButton={true}
             railLabels={"selected"}
             mobileNavigation="drawer"
           >
             <h1>Material Toys</h1>
-            <h2>A Material You implementation for React</h2>
+            <h2>Quickstart here</h2>
           </Layout>
         </div>
       </VariantContext.Provider>
