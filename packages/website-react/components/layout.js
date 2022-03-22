@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { applicationStyle } from "./mainLayoutStyle";
-
+// import { applicationStyle } from "./mainLayoutStyle";
+import classes from "./Layout.module.scss";
 import { css } from "@emotion/css";
 import {
   MenuIcon,
@@ -36,11 +36,11 @@ export default ({
       router.push(url);
     }, 500);
   };
-  const mtApplication = css(applicationStyle);
+  // const mtApplication = css(applicationStyle);
   const [mediaMatch] = useMatchMedia();
-  const cname = `${mtApplication}${
-    mobileNavigation === "drawer" ? " drawer" : ""
-  }`;
+  // const cname = `${mtApplication}${
+  //   mobileNavigation === "drawer" ? " drawer" : ""
+  // }`;
 
   // mobileNavigation === drawer
   // mobile: modal navigation drawer
@@ -61,7 +61,7 @@ export default ({
     setNavigationCollapsed(isModal);
     setNavMode(isModal ? "modal" : "drawer");
   }, [mediaMatch]);
-  const mainClassName = `body ${isModalAtStart ? "collapsed" : ""}`;
+  const mainClassName = `${classes.body} ${isModalAtStart ? "collapsed" : ""}`;
   return (
     <Surface
       style={{
@@ -72,7 +72,7 @@ export default ({
         bottom: "0",
       }}
     >
-      <div className={cname}>
+      <div className={classes.layout}>
         <div className="appBar">
           <TopAppBar
             navigationIcon={navMode === "modal" ? <MenuIcon /> : null}

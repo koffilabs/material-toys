@@ -59,7 +59,6 @@ export const applicationStyle = {
     gridTemplateAreas: `"appbar"
     "content"`,
     ".body": {
-      border: "1px solid red",
       marginLeft: "360px",
     },
   },

@@ -1,10 +1,79 @@
-.container{
-  border:1px solid black;
-  display: flex;
-  height: 100%;
-}
-.menu{
-  border: 1px solid red;
+$duration: .4s;
+.layout{
+  display: grid;
+  background: transparent;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: "appbar"
+  "content";
+  grid-column-gap: 8px;
+  gap: 8px;
+  padding: 0;
+    .appBar{
+      grid-area: appbar,
+    }
+    .content {
+      display: flex;
+      grid-area: content;
+      overflow: hidden;
+    }
+    .navigation {
+      background: transparent,
+    }
+
+.body {
+  grid-area: body;
+  background: transparent;
+  color: #333;
   padding: 1.618rem;
-  min-width: 300px;
+  font-family: Roboto, sans-serif;
+  transition: margin-left $duration ease-in-out;
+    &.collapsed{
+      margin-left: 0;
+    }
+  }
+//[breakpoints.EXTRA_SMALL.query]: {
+//  gridTemplateRows: auto 1fr auto,
+//  gridTemplateAreas: `appbar
+//  content`,
+//},
+//[breakpoints.SMALL.query]: {
+//  gridTemplateRows: auto 1fr,
+//  gridTemplateAreas: `appbar appbar
+//  content`,
+//},
+@media(min-width: 1240px) {
+  grid-template-rows: auto 1fr;
+  grid-template-areas: "appbar"
+  "content";
+  .body {
+    margin-left: 360px,
+  }
+
+}
+//[breakpoints.MEDIUM.query]: {
+//  gridTemplateRows: auto 1fr,
+//  gridTemplateAreas: `appbar
+//  content`,
+//.body: {
+//  marginLeft: 360px,
+//},
+//},
+//[breakpoints.LARGE.query]: {
+//  gridTemplateRows: auto 1fr,
+//  gridTemplateAreas: `appbar
+//  content`,
+//},
+//&.drawer {
+//[breakpoints.EXTRA_SMALL.query]: {
+//  gridTemplateRows: auto 1fr,
+//  gridTemplateAreas: `appbar
+//  content`,
+//},
+//},
 }
