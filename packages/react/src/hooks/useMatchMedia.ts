@@ -3,8 +3,8 @@ export const MOBILE = "mobile";
 export const TABLET = "tablet";
 export const LAPTOP = "laptop";
 export const DESKTOP = "desktop";
-export const useMatchMedia: () => [string] = () => {
-  const [mediaMatch, setMediaMatch] = useState(MOBILE);
+export const useMatchMedia: () => [string | null] = () => {
+  const [mediaMatch, setMediaMatch] = useState<string | null>(null);
   const mobileQuery = window.matchMedia("(max-width: 599px)");
   const tabletQuery = window.matchMedia(
     "(min-width: 600px) and (max-width: 1239px)"

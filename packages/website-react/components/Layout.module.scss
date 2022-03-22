@@ -15,7 +15,7 @@ $duration: .4s;
   gap: 8px;
   padding: 0;
     .appBar{
-      grid-area: appbar,
+      grid-area: appbar;
     }
     .content {
       display: flex;
@@ -23,7 +23,7 @@ $duration: .4s;
       overflow: hidden;
     }
     .navigation {
-      background: transparent,
+      background: transparent;
     }
 
 .body {
@@ -52,7 +52,7 @@ $duration: .4s;
   grid-template-areas: "appbar"
   "content";
   .body {
-    margin-left: 360px,
+    margin-left: 360px;
   }
 
 }
