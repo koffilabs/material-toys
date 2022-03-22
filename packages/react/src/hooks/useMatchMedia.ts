@@ -4,7 +4,6 @@ export const TABLET = "tablet";
 export const LAPTOP = "laptop";
 export const DESKTOP = "desktop";
 export const useMatchMedia: () => [string | null] = () => {
-  const [mediaMatch, setMediaMatch] = useState<string | null>(null);
   const mobileQuery = window.matchMedia("(max-width: 599px)");
   const tabletQuery = window.matchMedia(
     "(min-width: 600px) and (max-width: 1239px)"
@@ -13,6 +12,25 @@ export const useMatchMedia: () => [string | null] = () => {
     "(min-width: 1240px) and (max-width: 1439px)"
   );
   const desktopQuery = window.matchMedia("(min-width: 1440px)");
+  let initialMatch;
+  switch (true) {
+    case mobileQuery.matches:
+      initialMatch = MOBILE;
+      break;
+    case tabletQuery.matches:
+      initialMatch = TABLET;
+      break;
+    case laptopQuery.matches:
+      initialMatch = LAPTOP;
+      break;
+    case desktopQuery.matches:
+      initialMatch = DESKTOP;
+      break;
+    default:
+      break;
+  }
+
+  const [mediaMatch, setMediaMatch] = useState<string | null>(initialMatch);
   const setMatch = () => {
     switch (true) {
       case mobileQuery.matches:
@@ -31,6 +49,7 @@ export const useMatchMedia: () => [string | null] = () => {
         break;
     }
   };
+
   useEffect(() => {
     setMatch();
   }, []);

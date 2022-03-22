@@ -33,8 +33,8 @@ export const TopAppBar = ({
     })
   );
   return (
-    <div data-type={type} className={barTheme} onClick={clickHandler}>
-      <div className="mt-leading-navigation-icon">
+    <div data-type={type} className={barTheme}>
+      <div onClick={clickHandler} className="mt-leading-navigation-icon">
         {/*{(mediaMatch === LAPTOP || mediaMatch === DESKTOP) &&*/}
         {/*  navigationIcon === "collapse" && */}
         <RippleIcon icon={navigationIcon} />
