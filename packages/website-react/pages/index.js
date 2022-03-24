@@ -1,9 +1,5 @@
 import dynamic from "next/dynamic";
-import {
-  useTheme,
-  NavigationItem,
-  NavigationHeadline,
-} from "@material-toys/react";
+import { useTheme } from "@material-toys/react";
 import classes from "./index.module.scss";
 
 import {

@@ -24,6 +24,7 @@ $duration: .4s;
     }
     .navigation {
       background: transparent;
+      z-index:100;
     }
 
 .body {
@@ -32,9 +33,9 @@ $duration: .4s;
   color: #333;
   padding: 1.618rem;
   font-family: Roboto, sans-serif;
-  transition: margin-left $duration ease-in-out;
+  transition: transform $duration ease-in-out;
     &.collapsed{
-      margin-left: 0;
+      transform: translateX(-360px);
     }
   }
 //[breakpoints.EXTRA_SMALL.query]: {
@@ -52,7 +53,7 @@ $duration: .4s;
   grid-template-areas: "appbar"
   "content";
   .body {
-    margin-left: 360px;
+    margin-left: 0;
   }
 
 }

@@ -61,7 +61,9 @@ export default ({
     setNavigationCollapsed(isModal);
     setNavMode(isModal ? "modal" : "drawer");
   }, [mediaMatch]);
-  const mainClassName = `${classes.body} ${isModalAtStart ? "collapsed" : ""}`;
+  const mainClassName = `${classes.body} ${
+    isModalAtStart ? classes.collapsed : ""
+  }`;
   return (
     <Surface
       style={{
@@ -81,10 +83,10 @@ export default ({
             trailingIcons={[<OutlinedAccountCircleIcon />]}
           />
         </div>
-        <div className="content">
-          <nav className="navigation">
+        <div className={classes.content}>
+          <nav className={classes.navigation}>
             <NavigationDrawer
-              style={{ position: "absolute" }}
+              // style={{ position: "absolute" }}
               onDismiss={() => {
                 setNavigationCollapsed(true);
               }}
