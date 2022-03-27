@@ -31,10 +31,10 @@ export default ({
 }) => {
   // @ts-ignore
   const router = useRouter();
-  const navigateTo = (url) => {
-    setTimeout(() => {
-      router.push(url);
-    }, 500);
+  const navigateTo = (url, attrs = {}) => {
+    // setTimeout(() => {
+    router.push(url, null, { shallow: true });
+    // }, 0);
   };
   // const mtApplication = css(applicationStyle);
   const [mediaMatch] = useMatchMedia();
@@ -107,7 +107,7 @@ export default ({
               <NavigationItem
                 icon={<BoltIcon />}
                 onClick={() => {
-                  navigateTo("/quickstart");
+                  navigateTo("/quickstart", "quickstart");
                 }}
               >
                 <a>Quick Start</a>

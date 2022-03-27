@@ -31,15 +31,15 @@ export default function Index() {
     <ThemeContext.Provider value={reactiveTokens}>
       <VariantContext.Provider value={""}>
         <div className={classes}>
-          <Layout
-            activeItem={1}
-            hasCollapseButton={true}
-            railLabels={"selected"}
-            mobileNavigation="drawer"
-          >
-            <h1>Material Toys</h1>
-            <h2>Quickstart here</h2>
-          </Layout>
+          {/*<Layout*/}
+          {/*  activeItem={1}*/}
+          {/*  hasCollapseButton={true}*/}
+          {/*  railLabels={"selected"}*/}
+          {/*  mobileNavigation="drawer"*/}
+          {/*>*/}
+          <h1>Material Toys</h1>
+          <h2>Quickstart here</h2>
+          {/*</Layout>*/}
         </div>
       </VariantContext.Provider>
     </ThemeContext.Provider>
