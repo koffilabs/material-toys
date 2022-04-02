@@ -126,19 +126,21 @@ export const NavigationDrawer = ({
         {...props}
         className={`${drawerTheme}`}
       >
-        <div className="buttonsContainer">
-          {menu && (
-            <Ripple>
-              <div className="menuContainer">
-                {menu}
-                <div className="state" />
-              </div>
-            </Ripple>
-          )}
-          {fab}
-        </div>
-        <div className="listContainer">
-          {React.Children.map(children as ReactElement, NavigationItemMapper)}
+        <div className="scroller">
+          <div className="buttonsContainer">
+            {menu && (
+              <Ripple>
+                <div className="menuContainer">
+                  {menu}
+                  <div className="state" />
+                </div>
+              </Ripple>
+            )}
+            {fab}
+          </div>
+          <div className="listContainer">
+            {React.Children.map(children as ReactElement, NavigationItemMapper)}
+          </div>
         </div>
       </div>
     </>

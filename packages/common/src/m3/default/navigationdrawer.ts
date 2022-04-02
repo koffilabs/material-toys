@@ -84,8 +84,36 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
     backgroundColor: tokens[`MdSysColorSurface${variant}`],
     transition: `${duration} width ${easing}, transform ${duration} ease-in-out`,
     willChange: "width",
-    "&:hover": {
+    ".scroller": {
+      overflowX: "hidden",
       overflowY: "scroll",
+      "&::-webkit-scrollbar": {
+        width: "5px",
+        height: "8px",
+        backgroundColor: "transparent",
+      },
+      "&::-webkit-scrollbar-thumb": {
+        background: "transparent",
+      },
+
+      scrollbarColor: "transparent transparent",
+      scrollbarWidth: "thin",
+      "&:hover": {
+        "&::-webkit-scrollbar": {
+          width: "5px",
+          height: "8px",
+          backgroundColor:
+            tokens[`MdSysColorSurface${variant}`] /* or add it to the track */,
+        },
+        "&::-webkit-scrollbar-thumb": {
+          background: tokens[`MdSysColorOnSurfaceVariant${variant}`],
+        },
+
+        scrollbarColor:
+          tokens[`MdSysColorOnSurfaceVariant${variant}`] +
+          " " +
+          tokens[`MdSysColorSurface${variant}`],
+      },
     },
     h1: {
       fontFamily: tokens.MdSysTypescaleTitleSmallFont,
