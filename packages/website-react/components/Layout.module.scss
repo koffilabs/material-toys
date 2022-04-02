@@ -33,9 +33,10 @@ $duration: .4s;
   color: #333;
   padding: 1.618rem;
   font-family: Roboto, sans-serif;
-  transition: transform $duration ease-in-out;
+  margin-left:0;
+  transition: margin-left $duration ease-in-out;
     &.collapsed{
-      transform: translateX(-360px);
+      margin-left:-360px;
     }
   }
 //[breakpoints.EXTRA_SMALL.query]: {
