@@ -85,6 +85,7 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
     transition: `${duration} width ${easing}, transform ${duration} ease-in-out`,
     willChange: "width",
     ".scroller": {
+      zIndex: 1, // iOS fix, otherwise the scrollbar will be clipped!
       overflowX: "hidden",
       overflowY: "scroll",
       "&::-webkit-scrollbar": {
@@ -100,8 +101,6 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
       scrollbarWidth: "thin",
       "&:hover": {
         "&::-webkit-scrollbar": {
-          width: "5px",
-          height: "8px",
           backgroundColor:
             tokens[`MdSysColorSurface${variant}`] /* or add it to the track */,
         },
