@@ -1,7 +1,7 @@
 import { rgba } from "../../util/rgba";
 import { M3Options } from "./index";
 
-const duration = ".4s";
+const duration = ".2s";
 // const easing = "cubic-bezier(.075, .75, .875, .36)";
 const easing = "cubic-bezier(0.4, 0.0, 0.2, 1)";
 
@@ -27,7 +27,6 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
       alignItems: "center",
       textAlign: "center",
       ".menuContainer": {
-        border: "3px dashed black",
         position: "relative",
         overflowY: "scroll",
         cursor: "pointer",
@@ -73,10 +72,7 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
     position: "relative",
     borderTopRightRadius: "12px",
     borderBottomTopRightRadius: "12px",
-    paddingTop: "12px",
-    paddingBottom: "12px",
-    paddingLeft: "12px",
-    paddingRight: "12px",
+    padding: "0",
     marginRight: "8px",
     marginLeft: "0",
     // border: "1px solid #333",
@@ -85,6 +81,7 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
     transition: `${duration} width ${easing}, transform ${duration} ease-in-out`,
     willChange: "width",
     ".scroller": {
+      padding: "12px",
       zIndex: 1, // iOS fix, otherwise the scrollbar will be clipped!
       overflowX: "hidden",
       overflowY: "scroll",
