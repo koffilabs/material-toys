@@ -1,6 +1,6 @@
-$duration: .4s;
+$duration: .3s;
 .layout{
-  display: grid;
+  display: flex;
   background: transparent;
   position: absolute;
   overflow: hidden;
@@ -20,25 +20,28 @@ $duration: .4s;
     .content {
       display: flex;
       grid-area: content;
+
       overflow: hidden;
     }
     .navigation {
       background: transparent;
-      z-index:100;
     }
-
+.contentWrapper{
+  flex:1;
+  margin-left:0;
+  transition: margin-left $duration ease-in-out;
+  &.collapsed{
+    margin-left:-360px;
+  }
+}
+}
 .body {
   grid-area: body;
   background: transparent;
   color: #333;
   padding: 1.618rem;
   font-family: Roboto, sans-serif;
-  margin-left:0;
-  transition: margin-left $duration ease-in-out;
-    &.collapsed{
-      margin-left:-360px;
-    }
-  }
+
 //[breakpoints.EXTRA_SMALL.query]: {
 //  gridTemplateRows: auto 1fr auto,
 //  gridTemplateAreas: `appbar

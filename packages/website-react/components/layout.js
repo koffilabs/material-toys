@@ -1,7 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-// import { applicationStyle } from "./mainLayoutStyle";
 import classes from "./Layout.module.scss";
-import { css } from "@emotion/css";
 import {
   MenuIcon,
   OutlinedAccountCircleIcon,
@@ -14,12 +12,7 @@ import {
   NavigationItem,
 } from "@material-toys/react";
 import { useMatchMedia, MOBILE, TABLET } from "@material-toys/react";
-import {
-  InboxIcon,
-  HomeIcon,
-  BoltIcon,
-  InfoIcon,
-} from "@material-toys/icons-react";
+import { HomeIcon, BoltIcon, InfoIcon } from "@material-toys/icons-react";
 import { useRouter } from "next/router";
 
 export default ({
@@ -64,6 +57,9 @@ export default ({
   const mainClassName = `${classes.body} ${
     isModalAtStart ? classes.collapsed : ""
   }`;
+  const wrapperClassName = `${classes.contentWrapper} ${
+    isModalAtStart ? classes.collapsed : ""
+  }`;
   return (
     <Surface
       style={{
@@ -75,125 +71,127 @@ export default ({
       }}
     >
       <div className={classes.layout}>
-        <div className="appBar">
-          <TopAppBar
-            navigationIcon={navMode === "modal" ? <MenuIcon /> : null}
-            onNavButtonClick={onCollapse}
-            headline={"Material Toys"}
-            trailingIcons={[<OutlinedAccountCircleIcon />]}
-          />
-        </div>
-        <div className={classes.content}>
-          <nav className={classes.navigation}>
-            <NavigationDrawer
-              // style={{ position: "absolute" }}
-              onDismiss={() => {
-                setNavigationCollapsed(true);
+        <nav className={classes.navigation}>
+          <NavigationDrawer
+            // style={{ position: "absolute" }}
+            onDismiss={() => {
+              setNavigationCollapsed(true);
+            }}
+            railLabels={railLabels}
+            collapsed={isNavigationCollapsed}
+            activeItem={activeItem}
+            mode={navMode}
+          >
+            <NavigationHeadline>Main</NavigationHeadline>
+            <NavigationItem
+              icon={<HomeIcon />}
+              onClick={() => {
+                navigateTo("/");
               }}
-              railLabels={railLabels}
-              collapsed={isNavigationCollapsed}
-              activeItem={activeItem}
-              mode={navMode}
             >
-              <NavigationHeadline>Main</NavigationHeadline>
+              <a>Material Toys</a>
+            </NavigationItem>
+            <NavigationItem
+              icon={<BoltIcon />}
+              onClick={() => {
+                navigateTo("/quickstart", "quickstart");
+              }}
+            >
+              <a>Quick Start</a>
+            </NavigationItem>
+            <NavigationItem
+              icon={<InfoIcon />}
+              divider={true}
+              onClick={() => {
+                navigateTo("/");
+              }}
+            >
+              <a>About</a>
+            </NavigationItem>
+            <div className="secondary">
+              <NavigationHeadline>Buttons</NavigationHeadline>
               <NavigationItem
-                icon={<HomeIcon />}
                 onClick={() => {
                   navigateTo("/");
                 }}
               >
-                <a>Material Toys</a>
+                <a>Button</a>
               </NavigationItem>
               <NavigationItem
-                icon={<BoltIcon />}
                 onClick={() => {
-                  navigateTo("/quickstart", "quickstart");
+                  navigateTo("/");
                 }}
               >
-                <a>Quick Start</a>
+                <a>FAB</a>
               </NavigationItem>
               <NavigationItem
-                icon={<InfoIcon />}
                 divider={true}
                 onClick={() => {
                   navigateTo("/");
                 }}
               >
-                <a>About</a>
+                <a>Extended FAB</a>
               </NavigationItem>
-              <div className="secondary">
-                <NavigationHeadline>Buttons</NavigationHeadline>
-                <NavigationItem
-                  onClick={() => {
-                    navigateTo("/");
-                  }}
-                >
-                  <a>Button</a>
-                </NavigationItem>
-                <NavigationItem
-                  onClick={() => {
-                    navigateTo("/");
-                  }}
-                >
-                  <a>FAB</a>
-                </NavigationItem>
-                <NavigationItem
-                  divider={true}
-                  onClick={() => {
-                    navigateTo("/");
-                  }}
-                >
-                  <a>Extended FAB</a>
-                </NavigationItem>
-                <NavigationHeadline>Layout</NavigationHeadline>
-                <NavigationItem
-                  onClick={() => {
-                    navigateTo("/");
-                  }}
-                >
-                  <a>Card</a>
-                </NavigationItem>
-                <NavigationItem
-                  divider={true}
-                  onClick={() => {
-                    navigateTo("/");
-                  }}
-                >
-                  <a>Grid</a>
-                </NavigationItem>
-                <NavigationHeadline>Navigation</NavigationHeadline>
-                <NavigationItem
-                  onClick={() => {
-                    navigateTo("/");
-                  }}
-                >
-                  <a>Navigation Drawer</a>
-                </NavigationItem>
-                <NavigationItem
-                  onClick={() => {
-                    navigateTo("/");
-                  }}
-                >
-                  <a>Navigation Rail</a>
-                </NavigationItem>
-                <NavigationItem
-                  onClick={() => {
-                    navigateTo("/");
-                  }}
-                >
-                  <a>Navigation Bar</a>
-                </NavigationItem>
-                <NavigationItem
-                  onClick={() => {
-                    navigateTo("/");
-                  }}
-                >
-                  <a>Top App Bar</a>
-                </NavigationItem>
-              </div>
-            </NavigationDrawer>
-          </nav>
-          <main className={mainClassName}>{children}</main>
+              <NavigationHeadline>Layout</NavigationHeadline>
+              <NavigationItem
+                onClick={() => {
+                  navigateTo("/");
+                }}
+              >
+                <a>Card</a>
+              </NavigationItem>
+              <NavigationItem
+                divider={true}
+                onClick={() => {
+                  navigateTo("/");
+                }}
+              >
+                <a>Grid</a>
+              </NavigationItem>
+              <NavigationHeadline>Navigation</NavigationHeadline>
+              <NavigationItem
+                onClick={() => {
+                  navigateTo("/");
+                }}
+              >
+                <a>Navigation Drawer</a>
+              </NavigationItem>
+              <NavigationItem
+                onClick={() => {
+                  navigateTo("/");
+                }}
+              >
+                <a>Navigation Rail</a>
+              </NavigationItem>
+              <NavigationItem
+                onClick={() => {
+                  navigateTo("/");
+                }}
+              >
+                <a>Navigation Bar</a>
+              </NavigationItem>
+              <NavigationItem
+                onClick={() => {
+                  navigateTo("/");
+                }}
+              >
+                <a>Top App Bar</a>
+              </NavigationItem>
+            </div>
+          </NavigationDrawer>
+        </nav>
+        <div className={wrapperClassName}>
+          <div className="appBar">
+            <TopAppBar
+              navigationIcon={navMode === "modal" ? <MenuIcon /> : null}
+              onNavButtonClick={onCollapse}
+              headline={"Material Toys"}
+              trailingIcons={[<OutlinedAccountCircleIcon />]}
+            />
+          </div>
+          <div className={classes.content}>
+            <main className={mainClassName}>{children}</main>
+          </div>
         </div>
       </div>
     </Surface>
