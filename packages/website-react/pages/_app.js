@@ -23,8 +23,6 @@ export default function app({ Component, pageProps }) {
   const { ThemeContext, VariantContext } = useTheme();
   const [reactiveTokens, setReactiveTokens] = useState(tokens);
 
-  console.log("Component", Component);
-  console.log("pageProps", pageProps);
   return (
     <>
       <ThemeContext.Provider value={reactiveTokens}>
