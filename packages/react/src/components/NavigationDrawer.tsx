@@ -35,6 +35,7 @@ interface NavigationDrawerProps {
   activeItem?: number;
   fab?: ComponentType<typeof FAB>;
   menu?: ReactNode;
+  header?: ReactNode;
   children?: ReactNode;
   railLabels?: "show" | "selected" | "none";
   mode?: "drawer" | "modal" | "rail";
@@ -47,6 +48,7 @@ export const NavigationDrawer = ({
   children,
   fab,
   menu,
+  header,
   onDismiss = () => {},
   railLabels = "selected",
   mode = "drawer",
@@ -126,6 +128,7 @@ export const NavigationDrawer = ({
         {...props}
         className={`${drawerTheme}`}
       >
+        <header>{header}</header>
         <div className="scroller">
           <div className="buttonsContainer">
             {menu && (

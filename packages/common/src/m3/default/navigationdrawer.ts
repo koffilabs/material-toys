@@ -80,6 +80,7 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
     backgroundColor: tokens[`MdSysColorSurface${variant}`],
     transition: `${duration} width ${easing}, transform ${duration} ease-in-out`,
     willChange: "width",
+    header: {},
     ".scroller": {
       padding: "12px",
       zIndex: 1, // iOS fix, otherwise the scrollbar will be clipped!

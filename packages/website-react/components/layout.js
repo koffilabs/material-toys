@@ -14,6 +14,7 @@ import {
 import { useMatchMedia, MOBILE, TABLET } from "@material-toys/react";
 import { HomeIcon, BoltIcon, InfoIcon } from "@material-toys/icons-react";
 import { useRouter } from "next/router";
+import Logo from "../pages/components/Logo";
 
 export default ({
   activeItem,
@@ -76,6 +77,12 @@ export default ({
       <div className={classes.layout}>
         <nav className={classes.navigation}>
           <NavigationDrawer
+            header={
+              <div className={classes.logo}>
+                <Logo />
+                Material Toys
+              </div>
+            }
             // style={{ position: "absolute" }}
             onDismiss={() => {
               setNavigationCollapsed(true);
@@ -85,7 +92,6 @@ export default ({
             activeItem={activeItem}
             mode={navMode}
           >
-            <NavigationHeadline>Main</NavigationHeadline>
             <NavigationItem
               icon={<HomeIcon />}
               onClick={() => {
