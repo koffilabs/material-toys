@@ -20,7 +20,7 @@ const Layout = dynamic(
 const tokens = { ...material_tokens_polyfill, ...material_tokens };
 
 // tokens.MdSysColorSurface = "#f7f4e7";
-// tokens.MdSysColorSecondaryContainer = "hsl(330, 90%, 90%)";
+tokens.MdSysColorSecondaryContainer = "hsl(210, 90%, 90%)";
 export default function app({ Component, pageProps }) {
   const { ThemeContext, VariantContext } = useTheme();
   const [reactiveTokens, setReactiveTokens] = useState(tokens);
