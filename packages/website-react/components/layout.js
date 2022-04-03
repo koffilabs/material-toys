@@ -80,7 +80,6 @@ export default ({
             header={
               <div className={classes.logo}>
                 <Logo />
-                Material Toys
               </div>
             }
             // style={{ position: "absolute" }}

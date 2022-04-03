@@ -19,26 +19,24 @@ const Layout = dynamic(
 );
 
 const tokens = { ...material_tokens_polyfill, ...material_tokens };
+tokens.MdSysColorSurfaceLight = "red";
+
 export default function Index() {
   const { ThemeContext, VariantContext } = useTheme();
   const [reactiveTokens, setReactiveTokens] = useState(tokens);
 
   return (
-    <ThemeContext.Provider value={reactiveTokens}>
-      <VariantContext.Provider value={""}>
-        <div className={classes}>
-          {/*<Layout*/}
-          {/*  activeItem={0}*/}
-          {/*  hasCollapseButton={true}*/}
-          {/*  rai*/}
-          {/*  lLabels={"selected"}*/}
-          {/*  mobileNavigation="drawer"*/}
-          {/*>*/}
-          <h1>Material Toys</h1>
-          <h2>A Material You implementation for React</h2>
-          {/*</Layout>*/}
-        </div>
-      </VariantContext.Provider>
-    </ThemeContext.Provider>
+    <div className={classes}>
+      {/*<Layout*/}
+      {/*  activeItem={0}*/}
+      {/*  hasCollapseButton={true}*/}
+      {/*  rai*/}
+      {/*  lLabels={"selected"}*/}
+      {/*  mobileNavigation="drawer"*/}
+      {/*>*/}
+      <h1>Material Toys</h1>
+      <h2>A Material You implementation for React</h2>
+      {/*</Layout>*/}
+    </div>
   );
 }
