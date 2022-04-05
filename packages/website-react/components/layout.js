@@ -15,6 +15,7 @@ import { useMatchMedia, MOBILE, TABLET } from "@material-toys/react";
 import { HomeIcon, BoltIcon, InfoIcon } from "@material-toys/icons-react";
 import { useRouter } from "next/router";
 import Logo from "../pages/components/Logo";
+import { useSwipeable } from "react-swipeable";
 
 export default ({
   activeItem,
@@ -64,6 +65,16 @@ export default ({
   const wrapperClassName = `${classes.contentWrapper} ${
     isModalAtStart ? classes.collapsed : ""
   }`;
+  const swipeHandlers = useSwipeable(
+    {
+      onSwipedLeft: (eventData) => {
+        setNavigationCollapsed(true);
+      },
+    },
+    {
+      preventDefaultTouchmoveEvent: true,
+    }
+  );
   return (
     <Surface
       style={{
@@ -75,7 +86,7 @@ export default ({
       }}
     >
       <div className={classes.layout}>
-        <nav className={classes.navigation}>
+        <nav {...swipeHandlers} className={classes.navigation}>
           <NavigationDrawer
             header={
               <div className={classes.logo}>
