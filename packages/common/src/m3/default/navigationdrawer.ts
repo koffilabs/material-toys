@@ -154,6 +154,9 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
     },
 
     "&[data-mode=rail]": {
+      ".scroller": {
+        overflowY: "hidden",
+      },
       width: "80px",
       overflow: "hidden",
 
