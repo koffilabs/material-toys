@@ -34,12 +34,14 @@ export const TopAppBar = ({
   );
   return (
     <div data-type={type} className={barTheme}>
-      <div onClick={clickHandler} className="mt-leading-navigation-icon">
-        {/*{(mediaMatch === LAPTOP || mediaMatch === DESKTOP) &&*/}
-        {/*  navigationIcon === "collapse" && */}
-        <RippleIcon icon={navigationIcon} />
-        {/*}*/}
-      </div>
+      {navigationIcon && (
+        <div onClick={clickHandler} className="mt-leading-navigation-icon">
+          {/*{(mediaMatch === LAPTOP || mediaMatch === DESKTOP) &&*/}
+          {/*  navigationIcon === "collapse" && */}
+          <RippleIcon icon={navigationIcon} />
+          {/*}*/}
+        </div>
+      )}
       <div className="mt-headline">{headline}</div>
       <div className="mt-trailing-icons">
         {trailingIcons &&

@@ -1,4 +1,3 @@
-// TODO: import from node_modules (the library should provide a global css)
 import "../css/main.scss";
 import dynamic from "next/dynamic";
 import { useTheme } from "@material-toys/react";

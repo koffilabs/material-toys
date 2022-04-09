@@ -47,7 +47,7 @@ export default ({
   const isModalAtStart = mediaMatch === MOBILE || mediaMatch === TABLET;
   const [isNavigationCollapsed, setNavigationCollapsed] =
     useState(isModalAtStart);
-  const [navMode, setNavMode] = useState(isModalAtStart ? "modal" : "drawer");
+  const [navMode, setNavMode] = useState(isModalAtStart ? "rail" : "drawer");
   const onCollapse = () => {
     // setNavMode((state) => {
     //   return state === "modal" ? "drawer" : "modal";
@@ -57,7 +57,7 @@ export default ({
   useEffect(() => {
     const isModal = mediaMatch === MOBILE || mediaMatch === TABLET;
     setNavigationCollapsed(isModal);
-    setNavMode(isModal ? "modal" : "drawer");
+    setNavMode(isModal ? "rail" : "drawer");
   }, [mediaMatch]);
   const mainClassName = `${classes.body} ${
     isModalAtStart ? classes.collapsed : ""
@@ -88,11 +88,6 @@ export default ({
       <div className={classes.layout}>
         <nav {...swipeHandlers} className={classes.navigation}>
           <NavigationDrawer
-            header={
-              <div className={classes.logo}>
-                <Logo />
-              </div>
-            }
             // style={{ position: "absolute" }}
             onDismiss={() => {
               setNavigationCollapsed(true);
@@ -102,6 +97,7 @@ export default ({
             activeItem={activeItem}
             mode={navMode}
           >
+            <NavigationHeadline>Main</NavigationHeadline>
             <NavigationItem
               icon={<HomeIcon />}
               onClick={() => {
@@ -120,83 +116,12 @@ export default ({
             </NavigationItem>
             <NavigationItem
               icon={<InfoIcon />}
-              divider={true}
               onClick={() => {
                 navigateTo("/");
               }}
             >
               <a>About</a>
             </NavigationItem>
-            <div className="secondary">
-              <NavigationHeadline>Buttons</NavigationHeadline>
-              <NavigationItem
-                onClick={() => {
-                  navigateTo("/");
-                }}
-              >
-                <a>Button</a>
-              </NavigationItem>
-              <NavigationItem
-                onClick={() => {
-                  navigateTo("/");
-                }}
-              >
-                <a>FAB</a>
-              </NavigationItem>
-              <NavigationItem
-                divider={true}
-                onClick={() => {
-                  navigateTo("/");
-                }}
-              >
-                <a>Extended FAB</a>
-              </NavigationItem>
-              <NavigationHeadline>Layout</NavigationHeadline>
-              <NavigationItem
-                onClick={() => {
-                  navigateTo("/");
-                }}
-              >
-                <a>Card</a>
-              </NavigationItem>
-              <NavigationItem
-                divider={true}
-                onClick={() => {
-                  navigateTo("/");
-                }}
-              >
-                <a>Grid</a>
-              </NavigationItem>
-              <NavigationHeadline>Navigation</NavigationHeadline>
-              <NavigationItem
-                onClick={() => {
-                  navigateTo("/");
-                }}
-              >
-                <a>Navigation Drawer</a>
-              </NavigationItem>
-              <NavigationItem
-                onClick={() => {
-                  navigateTo("/");
-                }}
-              >
-                <a>Navigation Rail</a>
-              </NavigationItem>
-              <NavigationItem
-                onClick={() => {
-                  navigateTo("/");
-                }}
-              >
-                <a>Navigation Bar</a>
-              </NavigationItem>
-              <NavigationItem
-                onClick={() => {
-                  navigateTo("/");
-                }}
-              >
-                <a>Top App Bar</a>
-              </NavigationItem>
-            </div>
           </NavigationDrawer>
         </nav>
         <div className={wrapperClassName}>
@@ -204,7 +129,11 @@ export default ({
             <TopAppBar
               navigationIcon={navMode === "modal" ? <MenuIcon /> : null}
               onNavButtonClick={onCollapse}
-              headline={"Material Toys"}
+              headline={
+                <div className={classes.logo}>
+                  <Logo />
+                </div>
+              }
               trailingIcons={[<OutlinedAccountCircleIcon />]}
             />
           </div>
