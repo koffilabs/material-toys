@@ -1,18 +1,31 @@
 import React, { useEffect, useMemo, useState } from "react";
 import classes from "./Layout.module.scss";
-import {
-  MenuIcon,
-  OutlinedAccountCircleIcon,
-} from "@material-toys/icons-react";
+
 import {
   NavigationDrawer,
+  NavigationBar,
+  NavigationBarItem,
   TopAppBar,
   Surface,
   NavigationHeadline,
   NavigationItem,
+  useMatchMedia,
+  MOBILE,
+  TABLET,
+  zoomIn,
+  fadeIn,
+  circleReveal,
+  rectReveal,
 } from "@material-toys/react";
-import { useMatchMedia, MOBILE, TABLET } from "@material-toys/react";
-import { HomeIcon, BoltIcon, InfoIcon } from "@material-toys/icons-react";
+import {
+  OutlinedAccountCircleIcon,
+  OutlinedHomeIcon,
+  HomeIcon,
+  OutlinedBoltIcon,
+  BoltIcon,
+  OutlinedInfoIcon,
+  InfoIcon,
+} from "@material-toys/icons-react";
 import { useRouter } from "next/router";
 import Logo from "../pages/components/Logo";
 import { useSwipeable } from "react-swipeable";
@@ -86,44 +99,46 @@ export default ({
       }}
     >
       <div className={classes.layout}>
-        <nav {...swipeHandlers} className={classes.navigation}>
-          <NavigationDrawer
-            // style={{ position: "absolute" }}
-            onDismiss={() => {
-              setNavigationCollapsed(true);
-            }}
-            railLabels={railLabels}
-            collapsed={isNavigationCollapsed}
-            activeItem={activeItem}
-            mode={navMode}
-          >
-            <NavigationHeadline>Main</NavigationHeadline>
-            <NavigationItem
-              icon={<HomeIcon />}
-              onClick={() => {
-                navigateTo("/");
+        {mediaMatch !== MOBILE && (
+          <nav {...swipeHandlers} className={classes.navigation}>
+            <NavigationDrawer
+              // style={{ position: "absolute" }}
+              onDismiss={() => {
+                setNavigationCollapsed(true);
               }}
+              railLabels={railLabels}
+              collapsed={isNavigationCollapsed}
+              activeItem={activeItem}
+              mode={navMode}
             >
-              <a>Material Toys</a>
-            </NavigationItem>
-            <NavigationItem
-              icon={<BoltIcon />}
-              onClick={() => {
-                navigateTo("/quickstart", "quickstart");
-              }}
-            >
-              <a>Quick Start</a>
-            </NavigationItem>
-            <NavigationItem
-              icon={<InfoIcon />}
-              onClick={() => {
-                navigateTo("/");
-              }}
-            >
-              <a>About</a>
-            </NavigationItem>
-          </NavigationDrawer>
-        </nav>
+              <NavigationHeadline>Main</NavigationHeadline>
+              <NavigationItem
+                icon={<HomeIcon />}
+                onClick={() => {
+                  navigateTo("/");
+                }}
+              >
+                <a>Material Toys</a>
+              </NavigationItem>
+              <NavigationItem
+                icon={<BoltIcon />}
+                onClick={() => {
+                  navigateTo("/quickstart", "quickstart");
+                }}
+              >
+                <a>Quick Start</a>
+              </NavigationItem>
+              <NavigationItem
+                icon={<InfoIcon />}
+                onClick={() => {
+                  navigateTo("/");
+                }}
+              >
+                <a>About</a>
+              </NavigationItem>
+            </NavigationDrawer>
+          </nav>
+        )}
         <div className={wrapperClassName}>
           <div className="appBar">
             <TopAppBar
@@ -139,6 +154,38 @@ export default ({
           </div>
           <div className={classes.content}>
             <main className={mainClassName}>{children}</main>
+            {mediaMatch === MOBILE && (
+              <nav>
+                <NavigationBar labels={"show"} activeItem={0}>
+                  <NavigationBarItem
+                    icon={<OutlinedHomeIcon size={24} />}
+                    activeIcon={<HomeIcon size={24} />}
+                    link="/layout"
+                    iconsAnimations={zoomIn}
+                  >
+                    Inbox
+                  </NavigationBarItem>
+                  <NavigationBarItem
+                    icon={<OutlinedBoltIcon size={24} />}
+                    activeIcon={<BoltIcon size={24} />}
+                    link="/layout"
+                    iconsAnimations={rectReveal}
+                  >
+                    Movies
+                  </NavigationBarItem>
+
+                  <NavigationBarItem
+                    icon={<OutlinedInfoIcon size={24} />}
+                    activeIcon={<InfoIcon size={24} />}
+                    link="/layout"
+                    badge={8}
+                    iconsAnimations={zoomIn}
+                  >
+                    Favorites
+                  </NavigationBarItem>
+                </NavigationBar>
+              </nav>
+            )}
           </div>
         </div>
       </div>
