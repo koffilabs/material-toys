@@ -66,7 +66,7 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
     "&[data-justify=end]": {
       justifyContent: "flex-end",
     },
-    display: "inline-flex",
+    display: "flex",
     flexDirection: "column",
     overflow: "hidden",
     position: "relative",
@@ -85,7 +85,7 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
       padding: "0 12px",
       zIndex: 1, // iOS fix, otherwise the scrollbar will be clipped!
       overflowX: "hidden",
-      overflowY: "scroll",
+      overflowY: "auto",
       "&::-webkit-scrollbar": {
         width: "5px",
         height: "8px",
@@ -113,14 +113,18 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
       },
     },
     h1: {
+      display: "flex",
+      alignItems: "center",
       fontFamily: tokens.MdSysTypescaleTitleSmallFont,
       color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
       fontSize: `${tokens.MdSysTypescaleTitleSmallSize}px`,
       fontWeight: tokens.MdSysTypeScaleTitleSmallWeight,
       lineHeight: `${tokens.MdSysTypescaleTitleSmallLineHeight}px`,
       letterSpacing: tokens.MdSysTypescaleTitleSmallTracking,
+      height: `56px`,
+      margin: "0",
       marginLeft: "15px",
-      marginBottom: "17px",
+      // marginBottom: "17px",
       opacity: 1,
       transition: `${duration} opacity ${easing}`,
     },
