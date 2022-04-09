@@ -21,8 +21,8 @@ import {
   OutlinedAccountCircleIcon,
   OutlinedHomeIcon,
   HomeIcon,
-  OutlinedBoltIcon,
-  BoltIcon,
+  OutlinedFastForwardIcon,
+  FastForwardIcon,
   OutlinedInfoIcon,
   InfoIcon,
 } from "@material-toys/icons-react";
@@ -121,7 +121,7 @@ export default ({
                 <a>Material Toys</a>
               </NavigationItem>
               <NavigationItem
-                icon={<BoltIcon />}
+                icon={<FastForwardIcon />}
                 onClick={() => {
                   navigateTo("/quickstart", "quickstart");
                 }}
@@ -166,8 +166,8 @@ export default ({
                     Inbox
                   </NavigationBarItem>
                   <NavigationBarItem
-                    icon={<OutlinedBoltIcon size={24} />}
-                    activeIcon={<BoltIcon size={24} />}
+                    icon={<OutlinedFastForwardIcon size={24} />}
+                    activeIcon={<FastForwardIcon size={24} />}
                     link="/layout"
                     iconsAnimations={rectReveal}
                   >
