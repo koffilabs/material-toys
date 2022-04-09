@@ -31,8 +31,7 @@ export default function app({ Component, pageProps }) {
           <Layout
             activeItem={0}
             hasCollapseButton={true}
-            rai
-            lLabels={"selected"}
+            railLabels={"selected"}
             mobileNavigation="drawer"
           >
             <Component {...pageProps} />
