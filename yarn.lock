@@ -2595,6 +2595,25 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@material-toys/docs@workspace:packages/website-docs":
+  version: 0.0.0-use.local
+  resolution: "@material-toys/docs@workspace:packages/website-docs"
+  dependencies:
+    "@material-toys/common": "workspace:^"
+    "@material-toys/icons-react": "workspace:^"
+    "@material-toys/react": "workspace:^"
+    "@next/bundle-analyzer": ^12.1.0
+    eslint: 7.28.0
+    eslint-config-next: 12.1.0
+    next: latest
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-swipeable: ^6.2.1
+    sass: ^1.49.0
+    styled-jsx: ^4.0.1
+  languageName: unknown
+  linkType: soft
+
 "@material-toys/icons-react@workspace:^, @material-toys/icons-react@workspace:packages/icons-react":
   version: 0.0.0-use.local
   resolution: "@material-toys/icons-react@workspace:packages/icons-react"
