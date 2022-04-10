@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./Layout.module.scss";
 
 import {
@@ -31,7 +31,6 @@ import Logo from "../pages/components/Logo";
 import { useSwipeable } from "react-swipeable";
 
 export default ({
-  activeItem,
   navigationArea,
   mobileNavigation = "bar",
   railLabels = "selected",
@@ -39,8 +38,11 @@ export default ({
 }) => {
   // @ts-ignore
   const router = useRouter();
-  const navigateTo = (url, attrs = {}) => {
+  const [activeItem, setActiveItem] = useState(0);
+
+  const navigateTo = (url, aI) => {
     router.push(url, null, { shallow: true });
+    setActiveItem(aI);
     if (mediaMatch === MOBILE || mediaMatch === TABLET) {
       setTimeout(() => {
         setNavigationCollapsed(true);
@@ -115,7 +117,7 @@ export default ({
               <NavigationItem
                 icon={<HomeIcon />}
                 onClick={() => {
-                  navigateTo("/");
+                  navigateTo("/", 0);
                 }}
               >
                 <a>Material Toys</a>
@@ -123,15 +125,15 @@ export default ({
               <NavigationItem
                 icon={<FastForwardIcon />}
                 onClick={() => {
-                  navigateTo("/quickstart", "quickstart");
+                  navigateTo("/quickstart", 1);
                 }}
               >
-                <a>Quick Start</a>
+                <a>Quick start</a>
               </NavigationItem>
               <NavigationItem
                 icon={<InfoIcon />}
                 onClick={() => {
-                  navigateTo("/");
+                  navigateTo("/", 2);
                 }}
               >
                 <a>About</a>
@@ -156,32 +158,37 @@ export default ({
             <main className={mainClassName}>{children}</main>
             {mediaMatch === MOBILE && (
               <nav>
-                <NavigationBar labels={"show"} activeItem={0}>
+                <NavigationBar labels={"show"} activeItem={activeItem}>
                   <NavigationBarItem
                     icon={<OutlinedHomeIcon size={24} />}
                     activeIcon={<HomeIcon size={24} />}
                     link="/layout"
+                    onClick={() => {
+                      navigateTo("/", 0);
+                    }}
                     iconsAnimations={zoomIn}
                   >
-                    Inbox
+                    Material Toys
                   </NavigationBarItem>
                   <NavigationBarItem
                     icon={<OutlinedFastForwardIcon size={24} />}
                     activeIcon={<FastForwardIcon size={24} />}
                     link="/layout"
+                    onClick={() => {
+                      navigateTo("/quickstart", 1);
+                    }}
                     iconsAnimations={rectReveal}
                   >
-                    Movies
+                    Quick start
                   </NavigationBarItem>
 
                   <NavigationBarItem
                     icon={<OutlinedInfoIcon size={24} />}
                     activeIcon={<InfoIcon size={24} />}
                     link="/layout"
-                    badge={8}
                     iconsAnimations={zoomIn}
                   >
-                    Favorites
+                    About
                   </NavigationBarItem>
                 </NavigationBar>
               </nav>

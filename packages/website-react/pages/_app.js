@@ -23,12 +23,13 @@ tokens.MdSysColorSecondaryContainer = "hsl(210, 90%, 90%)";
 export default function app({ Component, pageProps }) {
   const { ThemeContext, VariantContext } = useTheme();
   const [reactiveTokens, setReactiveTokens] = useState(tokens);
+  let activeItem = 0;
   return (
     <>
       <ThemeContext.Provider value={reactiveTokens}>
         <VariantContext.Provider value={""}>
           <Layout
-            activeItem={0}
+            activeItem={activeItem}
             hasCollapseButton={true}
             railLabels={"selected"}
             mobileNavigation="drawer"

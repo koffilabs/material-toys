@@ -39,20 +39,16 @@ $duration: .2s;
       grid-area: appbar;
     }
     .content {
-      position:absolute;
-      top:0;
-      bottom:0;
-      left: 0;
-      right: 0;
       display: grid;
       grid-template-rows: 1fr auto;
       grid-template-areas: "main"
       "navbar";
-      grid-area: content;
+      grid-area: maincontent;
 
       overflow: hidden;
       main{
         grid-area: main;
+        place-self: stretch;
 
       }
       nav{
@@ -63,7 +59,11 @@ $duration: .2s;
       background: transparent;
     }
 .contentWrapper{
-  position:relative;
+  display:grid;
+  grid-template-rows: auto 1fr auto;
+grid-template-areas: "topbar"
+"maincontent"
+"bottombar";
   flex:1;
   margin-left:0;
   transition: margin-left $duration ease-in-out;
