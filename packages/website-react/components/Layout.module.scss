@@ -11,8 +11,8 @@ $duration: .2s;
   grid-template-rows: auto 1fr;
   grid-template-areas: "appbar"
   "content";
-  grid-column-gap: 8px;
-  gap: 8px;
+  grid-column-gap: 0;
+  gap: 0;
   .logo{
     margin: 0;
     display:flex;
@@ -56,6 +56,9 @@ $duration: .2s;
       }
     }
     .navigation {
+      padding: 0;
+      border:1px dashed black;
+      //width: 100%;
       background: transparent;
     }
 .contentWrapper{

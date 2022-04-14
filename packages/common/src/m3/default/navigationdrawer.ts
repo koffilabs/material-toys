@@ -70,15 +70,15 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
     flexDirection: "column",
     overflow: "hidden",
     position: "relative",
-    borderTopRightRadius: "12px",
-    borderBottomTopRightRadius: "12px",
+    borderTopRightRadius: "0",
+    borderBottomTopRightRadius: "0",
     padding: "0",
     marginRight: "8px",
     marginLeft: "0",
     // border: "1px solid #333",
     height: "100%",
     backgroundColor: tokens[`MdSysColorSurface${variant}`],
-    transition: `${duration} width ${easing}, transform ${duration} ease-in-out`,
+    transition: `${duration} width ${easing}, transform ${duration} ease-in-out, border-radius ${duration} ease-in-out`,
     willChange: "width",
     header: {},
     "&.primary": {
@@ -178,6 +178,8 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
       },
     },
     "&[data-mode=modal]": {
+      borderTopRightRadius: "12px",
+      borderBottomTopRightRadius: "12px",
       boxShadow: `0 2px 1px -1px ${rgba(
         tokens.MdSysColorShadow,
         0.2
