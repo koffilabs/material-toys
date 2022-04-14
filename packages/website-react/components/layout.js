@@ -104,6 +104,7 @@ export default ({
         {mediaMatch !== MOBILE && (
           <nav {...swipeHandlers} className={classes.navigation}>
             <NavigationDrawer
+              className="primary"
               // style={{ position: "absolute" }}
               onDismiss={() => {
                 setNavigationCollapsed(true);
@@ -144,6 +145,7 @@ export default ({
         <div className={wrapperClassName}>
           <div className="appBar">
             <TopAppBar
+              className="primary"
               navigationIcon={navMode === "modal" ? <MenuIcon /> : null}
               onNavButtonClick={onCollapse}
               headline={
@@ -158,9 +160,12 @@ export default ({
             <main className={mainClassName}>{children}</main>
             {mediaMatch === MOBILE && (
               <nav>
-                <NavigationBar className="primary" labels={"show"} activeItem={activeItem}>
+                <NavigationBar
+                  className="primary"
+                  labels={"show"}
+                  activeItem={activeItem}
+                >
                   <NavigationBarItem
-                    className="primary"
                     icon={<OutlinedHomeIcon size={24} />}
                     activeIcon={<HomeIcon size={24} />}
                     link="/layout"

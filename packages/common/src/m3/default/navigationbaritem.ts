@@ -24,13 +24,13 @@ export const NavigationBarItem = (tokens, options?: M3Options) => {
     color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
     transition: `box-shadow ${duration} ${easing}, background-color ${duration} ${easing},
   color ${duration} ${easing}, height ${duration} ${easing}, margin ${duration} ${easing}`,
-    "&.primary": {
+    ".primary &": {
       backgroundColor: tokens[`MdSysColorPrimaryContainer${variant}`],
     },
-    "&.secondary": {
+    ".secondary &": {
       backgroundColor: tokens[`MdSysColorSecondaryContainer${variant}`],
     },
-    "&.tertiary": {
+    ".tertiary &": {
       backgroundColor: tokens[`MdSysColorTertiaryContainer${variant}`],
     },
     ".mt-iconContainer": {

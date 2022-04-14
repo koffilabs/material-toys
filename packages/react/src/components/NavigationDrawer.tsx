@@ -40,6 +40,7 @@ interface NavigationDrawerProps {
   railLabels?: "show" | "selected" | "none";
   mode?: "drawer" | "modal" | "rail";
   justify?: "start" | "center" | "end";
+  className?: string;
 }
 
 export const NavigationDrawer = ({
@@ -53,6 +54,7 @@ export const NavigationDrawer = ({
   railLabels = "selected",
   mode = "drawer",
   justify = "start",
+  className = "",
   ...props
 }: NavigationDrawerProps) => {
   const { ThemeContext, VariantContext } = useTheme();
@@ -126,7 +128,7 @@ export const NavigationDrawer = ({
         data-collapsed={collapsed}
         data-justify={justify}
         {...props}
-        className={`${drawerTheme}`}
+        className={`${drawerTheme}${className ? ` ${className}` : ""}`}
       >
         <header>{header}</header>
         <div className="scroller">

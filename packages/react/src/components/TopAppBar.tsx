@@ -10,6 +10,7 @@ interface TopAppBarProps {
   headline: string;
   navigationIcon: JSX.Element;
   trailingIcons?: JSX.Element[];
+  className?: string;
 }
 export const TopAppBar = ({
   type = "center-aligned",
@@ -17,6 +18,7 @@ export const TopAppBar = ({
   trailingIcons = [],
   headline,
   onNavButtonClick = () => {},
+  className = "",
 }: TopAppBarProps) => {
   const { ThemeContext, VariantContext } = useTheme();
   const tokens = useContext(ThemeContext);
@@ -33,7 +35,10 @@ export const TopAppBar = ({
     })
   );
   return (
-    <div data-type={type} className={barTheme}>
+    <div
+      data-type={type}
+      className={`${barTheme}${className ? ` ${className}` : ""}`}
+    >
       {navigationIcon && (
         <div onClick={clickHandler} className="mt-leading-navigation-icon">
           {/*{(mediaMatch === LAPTOP || mediaMatch === DESKTOP) &&*/}

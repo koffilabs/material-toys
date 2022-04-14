@@ -18,6 +18,7 @@ export const NavigationItemRippleTarget = (tokens, options?: M3Options) => {
     height: "56px",
     position: "relative",
     transition: `${duration} border-radius ${easing}`,
+
     "[data-mode=bar] &": {
       width: "64px",
       overflow: "visible",
@@ -121,6 +122,15 @@ export const NavigationItem = (tokens, options?: M3Options) => {
     color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
     transition: `box-shadow ${duration} ${easing}, background-color ${duration} ${easing},
   color ${duration} ${easing}, height ${duration} ${easing}, margin ${duration} ${easing}`,
+    ".primary &": {
+      backgroundColor: tokens[`MdSysColorPrimaryContainer${variant}`],
+    },
+    ".secondary &": {
+      backgroundColor: tokens[`MdSysColorSecondaryContainer${variant}`],
+    },
+    ".tertiary &": {
+      backgroundColor: tokens[`MdSysColorTertiaryContainer${variant}`],
+    },
     ".itemContent": {
       padding: "0 24px 0 16px",
       height: "56px",
@@ -133,6 +143,15 @@ export const NavigationItem = (tokens, options?: M3Options) => {
     "&[data-active=true]": {
       backgroundColor: tokens[`MdSysColorSecondaryContainer${variant}`],
       // backgroundColor: "red",
+      "&.primary": {
+        backgroundColor: tokens[`MdSysColorPrimaryContainer${variant}`],
+      },
+      "&.secondary": {
+        backgroundColor: tokens[`MdSysColorSecondaryContainer${variant}`],
+      },
+      "&.tertiary": {
+        backgroundColor: tokens[`MdSysColorTertiaryContainer${variant}`],
+      },
       svg: {
         fill: tokens[`MdSysColorOnSecondaryContainer${variant}`],
       },

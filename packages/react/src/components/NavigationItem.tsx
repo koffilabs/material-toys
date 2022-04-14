@@ -12,6 +12,7 @@ interface NavigationItemProps {
   children?: ReactNode;
   onClick?: MouseEventHandler;
   railLabel?: "show" | "selected" | "none";
+  className?: string;
 }
 export const NavigationItem = ({
   icon,
@@ -21,6 +22,7 @@ export const NavigationItem = ({
   divider = false,
   onClick = () => {},
   railLabel = "selected",
+  className = "",
 }: NavigationItemProps) => {
   const { ThemeContext, VariantContext } = useTheme();
   const tokens = useContext(ThemeContext);
@@ -50,7 +52,10 @@ export const NavigationItem = ({
   // });
   return (
     <>
-      <div data-active={active} className={railTheme}>
+      <div
+        data-active={active}
+        className={`${railTheme}${className ? ` ${className}` : ""}`}
+      >
         {railLabel !== "none" && <div className="railContent">{children}</div>}
       </div>
       <Ripple>
@@ -58,7 +63,7 @@ export const NavigationItem = ({
           <div
             data-rail-label={railLabel}
             data-active={active}
-            className={itemTheme}
+            className={`${itemTheme}${className ? ` ${className}` : ""}`}
           >
             <div className="state" />
             <div className="itemContent">

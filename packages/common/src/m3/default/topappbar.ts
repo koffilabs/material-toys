@@ -13,6 +13,15 @@ export const TopAppBar = (tokens, options?: M3Options) => {
     overflow: "visible",
 
     backgroundColor: tokens[`MdSysColorSurface${variant}`],
+    "&.primary": {
+      backgroundColor: tokens[`MdSysColorPrimaryContainer${variant}`],
+    },
+    "&.secondary": {
+      backgroundColor: tokens[`MdSysColorSecondaryContainer${variant}`],
+    },
+    "&.tertiary": {
+      backgroundColor: tokens[`MdSysColorTertiaryContainer${variant}`],
+    },
     svg: {
       fill: tokens[`MdSysColorOnSurface${variant}`],
     },

@@ -28,7 +28,7 @@ interface NavigationBarItemProps {
   className?: string;
   onClick: MouseEventHandler;
 }
-interface Rest{
+interface Rest {
   className?: string;
 }
 export const NavigationBarItem = ({
@@ -40,7 +40,7 @@ export const NavigationBarItem = ({
   active = false,
   label = "show",
   onClick,
-  className,
+  className = "",
   ...props
 }: NavigationBarItemProps & Partial<Rest>) => {
   const previousActive = usePrevious(active);
@@ -99,14 +99,12 @@ export const NavigationBarItem = ({
 
     typeof onClick === "function" && onClick(e);
   };
-  // {`${barTheme}${props.className ? ` ${props.className}` : "" }`}
-  console.log("dynamic class name is", `${itemTheme}${className ? ` ${className}` : "" }`);
   return (
     <div
       onClick={_onClick}
       data-label={label}
       data-active={active}
-      className={`${itemTheme}${className ? ` ${className}` : "" }`}
+      className={`${itemTheme}${className ? ` ${className}` : ""}`}
     >
       <div className="state" />
       <div
