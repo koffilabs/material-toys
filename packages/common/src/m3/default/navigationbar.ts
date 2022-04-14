@@ -26,7 +26,7 @@ export const NavigationBar = (tokens, options?: M3Options) => {
     borderRadius: "0",
     padding: "0",
     // border: "1px solid #333",
-    backgroundColor: tokens[`MdSysColorSurface${variant}`],
+    backgroundColor: tokens[`MdSysColorPrimaryContainer${variant}`],
     transition: `${duration} width ${easing}`,
     willChange: "width",
     width: "100%",

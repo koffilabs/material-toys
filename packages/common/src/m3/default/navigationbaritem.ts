@@ -15,7 +15,7 @@ export const NavigationBarItem = (tokens, options?: M3Options) => {
     margin: 0,
     // margin: "0 0",
     // borderRadius: "32px",
-    backgroundColor: tokens[`MdSysColorSurface${variant}`],
+    backgroundColor: tokens[`MdSysColorPrimaryContainer${variant}`],
     fontFamily: tokens.MdSysTypescaleLabelLargeFont,
     // lineHeight: `${tokens.MdSysTypescaleLabelLargeLineHeight}px`,
     fontSize: `${tokens.MdSysTypescaleLabelLargeSize}px`,

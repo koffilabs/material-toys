@@ -19,7 +19,7 @@ const Layout = dynamic(
 );
 
 const tokens = { ...material_tokens_polyfill, ...material_tokens };
-tokens.MdSysColorSurfaceLight = "red";
+tokens.MdSysColorSurface = "red";
 
 export default function Index() {
   const { ThemeContext, VariantContext } = useTheme();
