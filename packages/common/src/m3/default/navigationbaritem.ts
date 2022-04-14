@@ -15,7 +15,7 @@ export const NavigationBarItem = (tokens, options?: M3Options) => {
     margin: 0,
     // margin: "0 0",
     // borderRadius: "32px",
-    backgroundColor: tokens[`MdSysColorPrimaryContainer${variant}`],
+    backgroundColor: tokens[`MdSysColorSurface${variant}`],
     fontFamily: tokens.MdSysTypescaleLabelLargeFont,
     // lineHeight: `${tokens.MdSysTypescaleLabelLargeLineHeight}px`,
     fontSize: `${tokens.MdSysTypescaleLabelLargeSize}px`,
@@ -24,6 +24,15 @@ export const NavigationBarItem = (tokens, options?: M3Options) => {
     color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
     transition: `box-shadow ${duration} ${easing}, background-color ${duration} ${easing},
   color ${duration} ${easing}, height ${duration} ${easing}, margin ${duration} ${easing}`,
+    "&.primary": {
+      backgroundColor: tokens[`MdSysColorPrimaryContainer${variant}`],
+    },
+    "&.secondary": {
+      backgroundColor: tokens[`MdSysColorSecondaryContainer${variant}`],
+    },
+    "&.tertiary": {
+      backgroundColor: tokens[`MdSysColorTertiaryContainer${variant}`],
+    },
     ".mt-iconContainer": {
       overflow: "visible",
       // border: "1px solid red",

@@ -13,11 +13,14 @@ interface NavigationBarArgs {
   children?: ReactNode;
   activeItem?: number;
   labels?: "show" | "selected" | "none";
+  className?: string;
 }
+
 export const NavigationBar = ({
   children,
   activeItem,
   labels = "show",
+  className
 }: NavigationBarArgs) => {
   const { ThemeContext, VariantContext } = useTheme();
   const tokens = useContext(ThemeContext);
@@ -64,7 +67,7 @@ export const NavigationBar = ({
   const NavigationItemMapper = NavigationItemMapperFactory();
 
   return (
-    <div data-mode="bar" className={`${barTheme}`}>
+    <div data-mode="bar" className={`${barTheme}${className ? ` ${className}` : "" }`}>
       {React.Children.map(children as ReactElement, NavigationItemMapper)}
     </div>
   );

@@ -26,10 +26,19 @@ export const NavigationBar = (tokens, options?: M3Options) => {
     borderRadius: "0",
     padding: "0",
     // border: "1px solid #333",
-    backgroundColor: tokens[`MdSysColorPrimaryContainer${variant}`],
+    backgroundColor: tokens[`MdSysColorSurface${variant}`],
     transition: `${duration} width ${easing}`,
     willChange: "width",
     width: "100%",
+    "&.primary": {
+      backgroundColor: tokens[`MdSysColorPrimaryContainer${variant}`],
+    },
+    "&.secondary": {
+      backgroundColor: tokens[`MdSysColorSecondaryContainer${variant}`],
+    },
+    "&.tertiary": {
+      backgroundColor: tokens[`MdSysColorTertiaryContainer${variant}`],
+    },
     h1: {
       fontFamily: tokens.MdSysTypescaleTitleSmallFont,
       color: tokens[`MdSysColorOnSurfaceVariant${variant}`],

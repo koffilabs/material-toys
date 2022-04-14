@@ -25,7 +25,11 @@ interface NavigationBarItemProps {
   active?: boolean;
   children?: ReactNode;
   label?: "show" | "selected" | "none";
+  className?: string;
   onClick: MouseEventHandler;
+}
+interface Rest{
+  className?: string;
 }
 export const NavigationBarItem = ({
   icon,
@@ -36,8 +40,9 @@ export const NavigationBarItem = ({
   active = false,
   label = "show",
   onClick,
+  className,
   ...props
-}: NavigationBarItemProps) => {
+}: NavigationBarItemProps & Partial<Rest>) => {
   const previousActive = usePrevious(active);
   const { ThemeContext, VariantContext } = useTheme();
   const tokens = useContext(ThemeContext);
@@ -94,14 +99,14 @@ export const NavigationBarItem = ({
 
     typeof onClick === "function" && onClick(e);
   };
-
+  // {`${barTheme}${props.className ? ` ${props.className}` : "" }`}
+  console.log("dynamic class name is", `${itemTheme}${className ? ` ${className}` : "" }`);
   return (
     <div
       onClick={_onClick}
       data-label={label}
       data-active={active}
-      className={itemTheme}
-      {...props}
+      className={`${itemTheme}${className ? ` ${className}` : "" }`}
     >
       <div className="state" />
       <div

@@ -158,8 +158,9 @@ export default ({
             <main className={mainClassName}>{children}</main>
             {mediaMatch === MOBILE && (
               <nav>
-                <NavigationBar labels={"show"} activeItem={activeItem}>
+                <NavigationBar className="primary" labels={"show"} activeItem={activeItem}>
                   <NavigationBarItem
+                    className="primary"
                     icon={<OutlinedHomeIcon size={24} />}
                     activeIcon={<HomeIcon size={24} />}
                     link="/layout"
@@ -171,6 +172,7 @@ export default ({
                     Material Toys
                   </NavigationBarItem>
                   <NavigationBarItem
+                    className="primary"
                     icon={<OutlinedFastForwardIcon size={24} />}
                     activeIcon={<FastForwardIcon size={24} />}
                     link="/layout"
@@ -183,6 +185,7 @@ export default ({
                   </NavigationBarItem>
 
                   <NavigationBarItem
+                    className="primary"
                     icon={<OutlinedInfoIcon size={24} />}
                     activeIcon={<InfoIcon size={24} />}
                     link="/layout"
