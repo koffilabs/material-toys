@@ -123,12 +123,15 @@ export const NavigationItem = (tokens, options?: M3Options) => {
     transition: `box-shadow ${duration} ${easing}, background-color ${duration} ${easing},
   color ${duration} ${easing}, height ${duration} ${easing}, margin ${duration} ${easing}`,
     ".primary &": {
+      color: tokens[`MdSysColorOnPrimary${variant}`],
       backgroundColor: tokens[`MdSysColorPrimaryContainer${variant}`],
     },
     ".secondary &": {
+      color: tokens[`MdSysColorSecondary${variant}`],
       backgroundColor: tokens[`MdSysColorSecondaryContainer${variant}`],
     },
     ".tertiary &": {
+      color: tokens[`MdSysColorTertiary${variant}`],
       backgroundColor: tokens[`MdSysColorTertiaryContainer${variant}`],
     },
     ".itemContent": {
@@ -144,12 +147,15 @@ export const NavigationItem = (tokens, options?: M3Options) => {
       backgroundColor: tokens[`MdSysColorSecondaryContainer${variant}`],
       // backgroundColor: "red",
       "&.primary": {
+        color: tokens[`MdSysColorPrimary${variant}`],
         backgroundColor: tokens[`MdSysColorPrimaryContainer${variant}`],
       },
       "&.secondary": {
+        color: tokens[`MdSysColorSecondary${variant}`],
         backgroundColor: tokens[`MdSysColorSecondaryContainer${variant}`],
       },
       "&.tertiary": {
+        color: tokens[`MdSysColorTertiary${variant}`],
         backgroundColor: tokens[`MdSysColorTertiaryContainer${variant}`],
       },
       svg: {

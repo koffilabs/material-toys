@@ -73,7 +73,7 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
     borderTopRightRadius: "0",
     borderBottomTopRightRadius: "0",
     padding: "0",
-    marginRight: "8px",
+    marginRight: "0",
     marginLeft: "0",
     // border: "1px solid #333",
     height: "100%",
@@ -82,12 +82,15 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
     willChange: "width",
     header: {},
     "&.primary": {
+      color: tokens[`MdSysColorPrimary${variant}`],
       backgroundColor: tokens[`MdSysColorPrimaryContainer${variant}`],
     },
     "&.secondary": {
+      color: tokens[`MdSysColorSecondary${variant}`],
       backgroundColor: tokens[`MdSysColorSecondaryContainer${variant}`],
     },
     "&.tertiary": {
+      color: tokens[`MdSysColorTertiary${variant}`],
       backgroundColor: tokens[`MdSysColorTertiaryContainer${variant}`],
     },
     ".scroller": {
