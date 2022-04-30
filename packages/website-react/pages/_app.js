@@ -1,7 +1,7 @@
 import "../css/main.scss";
 import dynamic from "next/dynamic";
 import { useTheme } from "@material-toys/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   material_tokens,
   material_tokens_polyfill,
@@ -21,10 +21,18 @@ const tokens = { ...material_tokens_polyfill, ...material_tokens };
 tokens.MdSysColorPrimaryContainer = tokens.MdSysColorSurface;
 // tokens.MdSysColorPrimary = "#fff";
 // tokens.MdSysColorOnSurfaceVariant = "#ffd";
-tokens.MdSysColorSecondaryContainer = "hsl(210, 90%, 90%)";
+// tokens.MdSysColorSecondaryContainer = "hsl(210, 90%, 90%)";
 export default function app({ Component, pageProps }) {
   const { ThemeContext, VariantContext } = useTheme();
   const [reactiveTokens, setReactiveTokens] = useState(tokens);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     tokens.MdSysColorPrimaryContainer = "red";
+  //     setReactiveTokens({ ...tokens });
+  //     console.log("after timeout");
+  //     // tokens.MdSysColorSecondaryContainer = "hsl(210, 90%, 90%)";
+  //   }, 3000);
+  // }, []);
   let activeItem = 0;
   return (
     <>

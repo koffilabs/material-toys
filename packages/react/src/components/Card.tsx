@@ -18,7 +18,7 @@ export const Card = ({ children, className }: CardProps) => {
 
   const card = css(
     applyReactiveStyle({
-      target: m3(tokens, { variant }).components.Card,
+      target: "components.Card",
       theme,
     })
   );

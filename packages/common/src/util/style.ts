@@ -12,7 +12,7 @@ export const spread = ({ theme, path }: ThemePath) => {
   return node ? Object.keys(node).map((key) => `${key}:${node[key]};`) : [];
 };
 interface ApplyReactiveStyleArgs {
-  target: object;
+  target: string;
   theme: object;
   height?: number;
   width?: number;
@@ -74,6 +74,11 @@ export const applyReactiveStyle = ({
   // const clone = cloneObject(target);
   // const clone = target;
   let dest = {};
-  exec({ dest, source: target, theme, width, height });
+  const targetPath = target.split(".");
+  let source = theme;
+  for (const key of targetPath) {
+    source = source[key];
+  }
+  exec({ dest, source, theme, width, height });
   return dest;
 };

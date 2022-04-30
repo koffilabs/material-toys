@@ -15,7 +15,7 @@ export const Surface = ({ children, ...props }: SurfaceProps) => {
 
   const surfaceTheme = css(
     applyReactiveStyle({
-      target: m3(tokens, { variant }).components.Surface,
+      target: "components.Surface",
       theme,
     })
   );

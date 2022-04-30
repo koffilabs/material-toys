@@ -23,7 +23,7 @@ export const Button = ({
 
   const btn = css(
     applyReactiveStyle({
-      target: m3(tokens, { variant }).components.Button,
+      target: "components.Button",
       theme,
     })
   );

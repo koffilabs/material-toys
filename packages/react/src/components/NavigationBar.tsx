@@ -60,7 +60,7 @@ export const NavigationBar = ({
   };
   const barTheme = css(
     applyReactiveStyle({
-      target: m3(tokens, { variant }).components.NavigationBar,
+      target: "components.NavigationBar",
       theme,
     })
   );

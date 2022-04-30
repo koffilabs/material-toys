@@ -52,7 +52,7 @@ export const NavigationBarItem = ({
   const activeIconNode = useRef(null);
   const itemTheme = css(
     applyReactiveStyle({
-      target: m3(tokens, { variant }).components.NavigationBarItem,
+      target: "components.NavigationBarItem",
       theme,
     })
   );

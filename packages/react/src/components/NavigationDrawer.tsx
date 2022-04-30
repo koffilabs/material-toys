@@ -101,7 +101,7 @@ export const NavigationDrawer = ({
 
   const drawerTheme = css(
     applyReactiveStyle({
-      target: m3(tokens, { variant }).components.NavigationDrawer,
+      target: "components.NavigationDrawer",
       theme,
     })
   );

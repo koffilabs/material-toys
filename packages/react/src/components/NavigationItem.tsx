@@ -30,19 +30,19 @@ export const NavigationItem = ({
   const theme = m3(tokens, { variant });
   const itemTheme = css(
     applyReactiveStyle({
-      target: m3(tokens, { variant }).components.NavigationItem,
+      target: "components.NavigationItem",
       theme,
     })
   );
   const railTheme = css(
     applyReactiveStyle({
-      target: m3(tokens, { variant }).components.RailContainer,
+      target: "components.RailContainer",
       theme,
     })
   );
   const rippleTarget = css(
     applyReactiveStyle({
-      target: m3(tokens, { variant }).components.NavigationItemRippleTarget,
+      target: "components.NavigationItemRippleTarget",
       theme,
     })
   );

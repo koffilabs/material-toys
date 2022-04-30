@@ -30,7 +30,7 @@ export const TopAppBar = ({
   };
   const barTheme = css(
     applyReactiveStyle({
-      target: m3(tokens, { variant }).components.TopAppBar,
+      target: "components.TopAppBar",
       theme,
     })
   );

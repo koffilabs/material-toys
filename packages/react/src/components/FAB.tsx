@@ -53,7 +53,7 @@ export const FAB = ({
         theme.components.FAB?.[".iconContainer"]?.width;
   const fab = css(
     applyReactiveStyle({
-      target: m3(tokens, { variant }).components.FAB,
+      target: "components.FAB",
       theme,
     })
   );
