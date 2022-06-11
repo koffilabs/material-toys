@@ -57,9 +57,11 @@ export const NavigationDrawer = ({
   className = "",
   ...props
 }: NavigationDrawerProps) => {
-  const { ThemeContext, VariantContext } = useTheme();
+  const { ThemeContext, VariantContext, ThemeFunctionContext } = useTheme();
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
+  const userTheme: any = useContext(ThemeFunctionContext);
+  console.log("the user theme is", userTheme);
   // TODO: refactor, should reuse NavigationItemMapperFactory in NavigationBar
   const [selectedIndex, setSelectedIndex] = useState(activeItem);
   const onClick = (activeIndex: number) => {
@@ -103,6 +105,8 @@ export const NavigationDrawer = ({
     applyReactiveStyle({
       target: "components.NavigationDrawer",
       theme,
+      // theme: { ...theme, ...userTheme() },
+      // theme: { ...theme },
     })
   );
 

@@ -17,7 +17,7 @@ import Link from "next/link";
 import {
   material_tokens,
   material_tokens_polyfill,
-} from "@material-toys/common/dist/common.esm";
+} from "@material-toys/common";
 import { useEffect, useState } from "react";
 
 const MainLayout = dynamic(
