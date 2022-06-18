@@ -62,6 +62,10 @@ export const NavigationDrawer = ({
   const { ThemeContext, VariantContext, ThemeFunctionContext } = useTheme();
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
+  useEffect(() => {
+    console.log("nav drawer re rendered");
+  });
+
   // const userTheme: any = useContext(ThemeFunctionContext);
   // useTraceUpdate({
   //   collapsed,

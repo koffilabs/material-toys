@@ -17,7 +17,6 @@ export const Ripple = (
 ): JSX.Element => {
   const reactNode: ReactNode = children;
   const { ripple, rippleOut } = useRipple();
-
   const onPointerDown = (event: SyntheticEvent) => {
     ripple({
       event: event.nativeEvent as PointerEvent,

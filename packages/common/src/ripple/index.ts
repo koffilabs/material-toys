@@ -25,25 +25,29 @@ export const useRipple = () => {
       typeof rippleComputedTiming.progress === "number"
         ? (1 - rippleComputedTiming.progress) * rippleComputedTiming.duration
         : 0;
-    // TODO: does not work on chromium based browsers now using only delay and the finish event,
-    //    the opacity is set to 0.12 immediately
-    setTimeout(() => {
-      const anim = rippleElement.animate(
-        [{ opacity: "0.12" }, { opacity: "0" }],
-        {
-          ...options,
-        }
-      );
-      anim.addEventListener(
-        "finish",
-        () => {
-          rippleElement.remove();
-          rippleElement = null;
-          outLock = false;
-        },
-        { once: true }
-      );
-    }, delay);
+    // TODO: the delay does not work on chromium based browsers now, the opacity is set to 0.12 immediately it seems
+    rippleAnimation.addEventListener(
+      "finish",
+      () => {
+        // console.log("animation end fired");
+        rippleElement.style.transform = "translate(-50%, -50%) scale(1)";
+        const anim = rippleElement.animate(
+          [{ opacity: 0.12 }, { opacity: 0 }],
+
+          options
+        );
+        anim.addEventListener(
+          "finish",
+          () => {
+            rippleElement.remove();
+            rippleElement = null;
+            outLock = false;
+          },
+          { once: true }
+        );
+      },
+      { once: true }
+    );
   };
   const ripple = ({ event, element }: RippleArguments) => {
     if (rippleElement) {
@@ -93,14 +97,14 @@ export const useRipple = () => {
       ],
       { ...options, fill: "forwards" }
     );
-    rippleAnimation.addEventListener(
-      "finish",
-      () => {
-        // rippleElement.remove()
-        // rippleElement.style.transform = "translate(-50%, -50%) scale(0)";
-      },
-      { once: true }
-    );
+    // rippleAnimation.addEventListener(
+    //   "finish",
+    //   () => {
+    //     // rippleElement.remove()
+    //     // rippleElement.style.transform = "translate(-50%, -50%) scale(0)";
+    //   },
+    //   { once: true }
+    // );
     // element.style.background = color;
   };
   return { ripple, rippleOut };
