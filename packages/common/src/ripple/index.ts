@@ -25,19 +25,25 @@ export const useRipple = () => {
       typeof rippleComputedTiming.progress === "number"
         ? (1 - rippleComputedTiming.progress) * rippleComputedTiming.duration
         : 0;
-    const anim = rippleElement.animate([{ opacity: 0.12 }, { opacity: 0 }], {
-      ...options,
-      delay,
-    });
-    anim.addEventListener(
-      "finish",
-      () => {
-        rippleElement.remove();
-        rippleElement = null;
-        outLock = false;
-      },
-      { once: true }
-    );
+    // TODO: does not work on chromium based browsers now using only delay and the finish event,
+    //    the opacity is set to 0.12 immediately
+    setTimeout(() => {
+      const anim = rippleElement.animate(
+        [{ opacity: "0.12" }, { opacity: "0" }],
+        {
+          ...options,
+        }
+      );
+      anim.addEventListener(
+        "finish",
+        () => {
+          rippleElement.remove();
+          rippleElement = null;
+          outLock = false;
+        },
+        { once: true }
+      );
+    }, delay);
   };
   const ripple = ({ event, element }: RippleArguments) => {
     if (rippleElement) {

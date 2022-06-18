@@ -5,6 +5,7 @@ import React, {
   ReactNode,
   ReactElement,
   ComponentType,
+  useEffect,
 } from "react";
 import { FAB } from "./FAB";
 import { css } from "@emotion/css";
@@ -13,7 +14,8 @@ import { applyReactiveStyle, m3 } from "@material-toys/common";
 import { useTheme } from "../hooks/useTheme";
 import { NavigationItem } from "./NavigationItem";
 import { Ripple } from "./Ripple";
-
+import { useTraceUpdate } from "../hooks/useTraceUpdate";
+// import { useTraceUpdate } from "../hooks/useTraceUpdate";
 const scrim = css({
   position: "fixed",
   top: 0,
@@ -60,8 +62,25 @@ export const NavigationDrawer = ({
   const { ThemeContext, VariantContext, ThemeFunctionContext } = useTheme();
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
-  const userTheme: any = useContext(ThemeFunctionContext);
-  console.log("the user theme is", userTheme);
+  // const userTheme: any = useContext(ThemeFunctionContext);
+  // useTraceUpdate({
+  //   collapsed,
+  //   activeItem,
+  //   children,
+  //   fab,
+  //   menu,
+  //   header,
+  //   onDismiss,
+  //   railLabels,
+  //   mode,
+  //   justify,
+  //   className,
+  //   ...props,
+  // });
+  // useEffect(() => {
+  //   console.log("nav drawer rerendered, collapsed");
+  // }, [collapsed]);
+  // console.log("the user theme is", userTheme);
   // TODO: refactor, should reuse NavigationItemMapperFactory in NavigationBar
   const [selectedIndex, setSelectedIndex] = useState(activeItem);
   const onClick = (activeIndex: number) => {

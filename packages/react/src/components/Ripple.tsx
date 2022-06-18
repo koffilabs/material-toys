@@ -27,9 +27,9 @@ export const Ripple = (
   const onPointerLeave = () => {
     rippleOut();
   };
-  useEffect(() => {
-    // reactNode.addEventListener()
-  }, []);
+  // useEffect(() => {
+  // reactNode.addEventListener()
+  // }, []);
   return (
     <>
       {cloneElement(reactNode as ReactElement<any>, {
