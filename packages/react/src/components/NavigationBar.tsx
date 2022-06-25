@@ -9,6 +9,8 @@ import { css } from "@emotion/css";
 import { applyReactiveStyle, m3 } from "@material-toys/common";
 import { useTheme } from "../hooks/useTheme";
 import { NavigationBarItem } from "./NavigationBarItem";
+import { merge } from "lodash";
+
 interface NavigationBarArgs {
   children?: ReactNode;
   activeItem?: number;
@@ -22,7 +24,8 @@ export const NavigationBar = ({
   labels = "show",
   className = "",
 }: NavigationBarArgs) => {
-  const { ThemeContext, VariantContext } = useTheme();
+  const { ThemeContext, VariantContext, ThemeFunctionContext } = useTheme();
+  const userTheme: any = useContext(ThemeFunctionContext);
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
   const theme = m3(tokens, { variant });
@@ -61,7 +64,7 @@ export const NavigationBar = ({
   const barTheme = css(
     applyReactiveStyle({
       target: "components.NavigationBar",
-      theme,
+      theme: merge(theme, userTheme(variant)),
     })
   );
   const NavigationItemMapper = NavigationItemMapperFactory();

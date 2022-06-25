@@ -55,6 +55,22 @@ export default function app({ Component, pageProps }) {
             backgroundColor: tokens[`MdSysColorSurface${variant}`],
           },
         },
+        NavigationBar: {
+          "&.primary": {
+            backgroundColor: tokens[`MdSysColorSurface${variant}`],
+          },
+        },
+        NavigationBarItem: {
+          ".primary &": {
+            backgroundColor: tokens[`MdSysColorSurface${variant}`],
+            // backgroundColor: "red",
+          },
+          "&[data-active=true]": {
+            ".mt-activeIndicator": {
+              backgroundColor: "hsl(210, 90%, 90%)",
+            },
+          },
+        },
         TopAppBar: {
           "&.primary": {
             backgroundColor: tokens[`MdSysColorSurface${variant}`],

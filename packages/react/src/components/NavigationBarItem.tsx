@@ -9,6 +9,8 @@ import { css } from "@emotion/css";
 import { useTheme } from "../hooks/useTheme";
 import { applyReactiveStyle, m3 } from "@material-toys/common";
 import { usePrevious } from "../hooks/usePrevious";
+import { merge } from "lodash";
+
 const animationOptions: KeyframeAnimationOptions = {
   fill: "forwards",
 };
@@ -44,7 +46,8 @@ export const NavigationBarItem = ({
   ...props
 }: NavigationBarItemProps & Partial<Rest>) => {
   const previousActive = usePrevious(active);
-  const { ThemeContext, VariantContext } = useTheme();
+  const { ThemeContext, VariantContext, ThemeFunctionContext } = useTheme();
+  const userTheme: any = useContext(ThemeFunctionContext);
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
   const theme = m3(tokens, { variant });
@@ -53,7 +56,7 @@ export const NavigationBarItem = ({
   const itemTheme = css(
     applyReactiveStyle({
       target: "components.NavigationBarItem",
-      theme,
+      theme: merge(theme, userTheme(variant)),
     })
   );
   useEffect(() => {
