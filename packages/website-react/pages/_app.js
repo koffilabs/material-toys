@@ -38,20 +38,34 @@ export default function app({ Component, pageProps }) {
   //   }, 3000);
   // }, []);
   let activeItem = 0;
-  const theme = () => {
-    console.log("should be executed");
+  const myTheme = (variant) => {
     return {
       components: {
+        NavigationItem: {
+          ".primary &": {
+            // backgroundColor: "red",
+            backgroundColor: tokens[`MdSysColorSurface${variant}`],
+            "&[data-active=true]": {
+              backgroundColor: "hsl(210, 90%, 90%)",
+            },
+          },
+        },
         NavigationDrawer: {
-          // backgroundColor: tokens[`MdSysColorSurface${variant}`],
-          // backgroundColor: "red",
+          "&.primary": {
+            backgroundColor: tokens[`MdSysColorSurface${variant}`],
+          },
+        },
+        TopAppBar: {
+          "&.primary": {
+            backgroundColor: tokens[`MdSysColorSurface${variant}`],
+          },
         },
       },
     };
   };
   return (
     <>
-      <MT tokens theme={theme} variant="">
+      <MT tokens theme={myTheme} variant="">
         {/*<ThemeContext.Provider value={reactiveTokens}>*/}
         {/*<VariantContext.Provider value={""}>*/}
         <Layout

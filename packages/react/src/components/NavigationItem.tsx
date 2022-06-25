@@ -3,6 +3,7 @@ import { css } from "@emotion/css";
 import { useTheme } from "../hooks/useTheme";
 import { applyReactiveStyle, m3 } from "@material-toys/common";
 import { Ripple } from "./Ripple";
+import { merge } from "lodash";
 
 interface NavigationItemProps {
   icon?: ReactNode | null;
@@ -24,26 +25,28 @@ export const NavigationItem = ({
   railLabel = "selected",
   className = "",
 }: NavigationItemProps) => {
-  const { ThemeContext, VariantContext } = useTheme();
+  const { ThemeContext, VariantContext, ThemeFunctionContext } = useTheme();
+  const userTheme: any = useContext(ThemeFunctionContext);
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
   const theme = m3(tokens, { variant });
+  const finalTheme = merge(theme, userTheme(variant));
   const itemTheme = css(
     applyReactiveStyle({
       target: "components.NavigationItem",
-      theme,
+      theme: finalTheme,
     })
   );
   const railTheme = css(
     applyReactiveStyle({
       target: "components.RailContainer",
-      theme,
+      theme: finalTheme,
     })
   );
   const rippleTarget = css(
     applyReactiveStyle({
       target: "components.NavigationItemRippleTarget",
-      theme,
+      theme: finalTheme,
     })
   );
   // const rippleTarget = css({

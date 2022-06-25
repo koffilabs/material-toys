@@ -4,6 +4,8 @@ import { DESKTOP, LAPTOP, useMatchMedia } from "../hooks/useMatchMedia";
 import { css } from "@emotion/css";
 import { applyReactiveStyle, m3 } from "@material-toys/common";
 import { useTheme } from "../hooks/useTheme";
+import { merge } from "lodash";
+
 interface TopAppBarProps {
   type?: "center-aligned" | "small" | "medium" | "large";
   onNavButtonClick: () => void;
@@ -20,7 +22,8 @@ export const TopAppBar = ({
   onNavButtonClick = () => {},
   className = "",
 }: TopAppBarProps) => {
-  const { ThemeContext, VariantContext } = useTheme();
+  const { ThemeContext, VariantContext, ThemeFunctionContext } = useTheme();
+  const userTheme: any = useContext(ThemeFunctionContext);
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
   const theme = m3(tokens, { variant });
@@ -31,7 +34,7 @@ export const TopAppBar = ({
   const barTheme = css(
     applyReactiveStyle({
       target: "components.TopAppBar",
-      theme,
+      theme: merge(theme, userTheme(variant)),
     })
   );
   return (
