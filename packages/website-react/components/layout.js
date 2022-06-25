@@ -44,13 +44,13 @@ export default ({
   });
 
   const navigateTo = (url, aI) => {
-    // router.push(url, null, { shallow: true });
-    // setActiveItem(aI);
-    // if (mediaMatch === MOBILE || mediaMatch === TABLET) {
-    //   setTimeout(() => {
-    //     setNavigationCollapsed(true);
-    //   }, 400);
-    // }
+    router.push(url, null, { shallow: true });
+    setActiveItem(aI);
+    if (mediaMatch === MOBILE || mediaMatch === TABLET) {
+      setTimeout(() => {
+        setNavigationCollapsed(true);
+      }, 400);
+    }
   };
   // const mtApplication = css(applicationStyle);
   const [mediaMatch] = useMatchMedia();
