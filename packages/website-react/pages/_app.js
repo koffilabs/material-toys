@@ -45,9 +45,6 @@ export default function app({ Component, pageProps }) {
           ".primary &": {
             // backgroundColor: "red",
             backgroundColor: tokens[`MdSysColorSurface${variant}`],
-            "&[data-active=true]": {
-              backgroundColor: "hsl(210, 90%, 90%)",
-            },
           },
         },
         NavigationDrawer: {
@@ -64,11 +61,6 @@ export default function app({ Component, pageProps }) {
           ".primary &": {
             backgroundColor: tokens[`MdSysColorSurface${variant}`],
             // backgroundColor: "red",
-          },
-          "&[data-active=true]": {
-            ".mt-activeIndicator": {
-              backgroundColor: "hsl(210, 90%, 90%)",
-            },
           },
         },
         TopAppBar: {
