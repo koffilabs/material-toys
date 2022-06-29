@@ -26,9 +26,6 @@ tokens.MdSysColorPrimaryContainer = tokens.MdSysColorSurface;
 export default function app({ Component, pageProps }) {
   const { ThemeContext, VariantContext } = useTheme();
   const [reactiveTokens, setReactiveTokens] = useState(tokens);
-  useEffect(() => {
-    console.log("app re rendered");
-  });
   // useEffect(() => {
   //   setTimeout(() => {
   //     tokens.MdSysColorPrimaryContainer = "red";

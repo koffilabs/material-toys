@@ -1,4 +1,4 @@
-import React, { ReactNode, useContext } from "react";
+import React, { ReactNode, useContext, useRef, useEffect } from "react";
 import { css } from "@emotion/css";
 import { applyReactiveStyle, m3 } from "@material-toys/common";
 import { useTheme } from "../hooks/useTheme";
@@ -13,18 +13,36 @@ export const Card = ({ children, className }: CardProps) => {
   const { ThemeContext, VariantContext } = useTheme();
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
-
+  const node = useRef(null);
   const theme = m3(tokens, { variant });
-
-  const card = css(
+  let width, height;
+  let card = css(
     applyReactiveStyle({
       target: "components.Card",
       theme,
+      width,
+      height,
     })
   );
+  useEffect(() => {
+    if (node?.current) {
+      ({ width, height } = node.current.getBoundingClientRect());
+      console.log("new width", width);
+      card = css(
+        applyReactiveStyle({
+          target: "components.Card",
+          theme,
+          width,
+          height,
+        })
+      );
+      console.log("new classname", card);
+      // should apply the new created class name
+    }
+  }, [node]);
   return (
     <Ripple>
-      <div className={`${card} ${className}`}>
+      <div ref={node} className={`${card} ${className}`}>
         <div className="state" />
         {children}
       </div>

@@ -111,7 +111,6 @@ export const NavigationDrawer = ({
       // theme: { ...theme },
     })
   );
-  console.log("should have merged", merge(theme, userTheme(variant)));
   const previousMode = usePrevious(mode);
   if (mode === "modal") {
     styleObj = {
