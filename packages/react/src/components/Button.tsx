@@ -3,6 +3,8 @@ import { css } from "@emotion/css";
 import { applyReactiveStyle, m3 } from "@material-toys/common";
 import { useTheme } from "../hooks/useTheme";
 import { Ripple } from "./Ripple";
+import { merge } from "lodash";
+
 interface ButtonProps {
   icon: any;
   children?: ReactNode;
@@ -16,15 +18,16 @@ export const Button = ({
   children,
   className = "elevated",
 }: ButtonProps) => {
-  const { ThemeContext, VariantContext } = useTheme();
+  const { ThemeContext, VariantContext, ThemeFunctionContext } = useTheme();
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
   const theme = m3(tokens, { variant });
+  const userTheme: any = useContext(ThemeFunctionContext);
 
   const btn = css(
     applyReactiveStyle({
       target: "components.Button",
-      theme,
+      theme: merge(theme, userTheme(variant)),
     })
   );
   return (
