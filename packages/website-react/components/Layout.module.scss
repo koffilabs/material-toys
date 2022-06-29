@@ -54,6 +54,7 @@ $duration: .2s;
 
       overflow: hidden;
       main{
+        overflow-y: auto;
         grid-area: main;
         place-self: stretch;
 

@@ -12,6 +12,18 @@ export default function Index() {
         veniam vero? Aperiam autem dolorum facere impedit iste minima omnis ut.
         Id.
       </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cum
+        doloremque excepturi expedita laboriosam magnam quibusdam, quisquam quo
+        veniam vero? Aperiam autem dolorum facere impedit iste minima omnis ut.
+        Id.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cum
+        doloremque excepturi expedita laboriosam magnam quibusdam, quisquam quo
+        veniam vero? Aperiam autem dolorum facere impedit iste minima omnis ut.
+        Id.
+      </p>
     </div>
   );
 }
