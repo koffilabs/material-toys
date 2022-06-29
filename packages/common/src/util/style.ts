@@ -2,7 +2,7 @@ interface ThemePath {
   theme: object;
   path: string;
 }
-const yueThemePrefix: string = "@yue:theme";
+const mtThemePrefix: string = "@mt:theme";
 const extractor: RegExp = /\[(.*?)\]/;
 export const spread = ({ theme, path }: ThemePath) => {
   const [, ...p]: Array<string> = path.split("/");
@@ -40,7 +40,7 @@ const exec = ({ dest, source: source, theme, width, height }) => {
         });
         break;
       default:
-        if (`${source[key]}`.startsWith(yueThemePrefix)) {
+        if (`${source[key]}`.startsWith(mtThemePrefix)) {
           try {
             const path = extractor.exec(source[key])[1].split(".");
             let value = theme,
@@ -52,7 +52,7 @@ const exec = ({ dest, source: source, theme, width, height }) => {
             dest[key] = value;
           } catch (e) {
             console.error(
-              `Error reading the ${yueThemePrefix} from ${source[key]}`
+              `Error reading the ${mtThemePrefix} from ${source[key]}`
             );
           }
         } else {

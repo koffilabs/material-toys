@@ -8,7 +8,7 @@ export const theme: any = {
   },
   components: {
     _resizingComponent: {
-      backgroundColor: "@yue:theme[colors.resizing]",
+      backgroundColor: "@mt:theme[colors.resizing]",
       backgroundImage: "none !important",
       clipPath: "none",
       color: "transparent",
@@ -41,7 +41,7 @@ export const theme: any = {
     Button: {
       fontSize: "1rem",
       border: "none",
-      color: "@yue:theme[colors.text]",
+      color: "@mt:theme[colors.text]",
       position: "relative",
       "text-transform": "capitalize",
       height: "80px",
@@ -49,7 +49,7 @@ export const theme: any = {
       lineHeight: "80px",
       width: "140px",
       textAlign: "center",
-      background: "@yue:theme[colors.primary]",
+      background: "@mt:theme[colors.primary]",
       willChange: "transform opacity",
       "clip-path": registerPath(
         "path('m40 0 " +

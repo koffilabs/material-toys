@@ -24,7 +24,7 @@ export const theme: any = {
       },
       "&:before": {
         content: "''",
-        background: "@yue:theme[colors.primary]",
+        background: "@mt:theme[colors.primary]",
         "z-index": -1,
         position: "absolute",
         top: "0",

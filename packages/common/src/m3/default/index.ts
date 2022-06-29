@@ -29,7 +29,7 @@ export const m3 = (tokens, options: M3Options = defaultOptions) => {
     },
     components: {
       _resizingComponent: {
-        backgroundColor: "@yue:theme[colors.resizing]",
+        backgroundColor: "@mt:theme[colors.resizing]",
         backgroundImage: "none !important",
         clipPath: "none",
         color: "transparent",

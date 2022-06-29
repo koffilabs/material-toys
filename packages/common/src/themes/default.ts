@@ -30,15 +30,15 @@ export const theme: any = {
     Button: {
       fontSize: "1rem",
       border: "none",
-      color: "@yue:theme[colors.text]",
+      color: "@mt:theme[colors.text]",
       position: "relative",
       "text-transform": "capitalize",
       height: "40px",
       lineHeight: "40px",
       width: "140px",
       textAlign: "center",
-      // background: "@yue:theme[colors.primary]",
-      background: "@yue:theme[colors.primary]",
+      // background: "@mt:theme[colors.primary]",
+      background: "@mt:theme[colors.primary]",
       willChange: "transform opacity",
       "&:hover": {
         cursor: "pointer",
