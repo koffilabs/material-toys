@@ -5,3 +5,7 @@ html, body{
   padding: 0;
   margin: 0;
 }
+body{
+  // prevent page moving on iOS
+  overflow: hidden;
+}

@@ -4,6 +4,12 @@ $duration: .2s;
   background: transparent;
   position: absolute;
   overflow: hidden;
+  //height: 100vh;
+  // prevent page moving on iOS
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  // prevent page moving on iOS end
+
   top: 0;
   left: 0;
   right: 0;
@@ -37,6 +43,7 @@ $duration: .2s;
   padding: 0;
     .appBar{
       grid-area: appbar;
+      border:1px dashed red;
     }
     .content {
       display: grid;

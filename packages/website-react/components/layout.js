@@ -39,9 +39,6 @@ export default ({
   // @ts-ignore
   const router = useRouter();
   const [activeItem, setActiveItem] = useState(0);
-  useEffect(() => {
-    console.log("layout re rendered");
-  });
 
   const navigateTo = (url, aI) => {
     router.push(url, null, { shallow: true });
