@@ -16,18 +16,18 @@ export const Card = (tokens, options?: M3Options) => {
     marginLeft: "8px",
     backgroundColor: tokens[`MdSysColorSurface${variant}`],
     color: tokens[`MdSysColorOnSurface${variant}`],
-    clipPath: registerPath(
-      "path('m40 0 " +
-        "c ${width-80},0 ${width-80},0 ${width-80},0 " +
-        "c 40,0 40,0 40,40 " +
-        "c 0,${height-80} 0,${height-80} 0,${height-80} " +
-        "c 0,40 0,40 -40,40 " +
-        "c -${width-80},0 -${width-80},0 -${width-80},0 " +
-        "c -40,0 -40,0 -40,-40 " +
-        "c 0,${-height+80} 0,${-height+80} 0,${-height+80} " +
-        "c 0,-40 0,-40 40,-40 " +
-        "')"
-    ),
+    // clipPath: registerPath(
+    //   "path('m40 0 " +
+    //     "c ${width-80},20 ${width-80},0 ${width-80},0 " +
+    //     "c 40,0 40,0 40,40 " +
+    //     "c 0,${height-80} 0,${height-80} 0,${height-80} " +
+    //     "c 0,40 0,40 -40,40 " +
+    //     "c -${width-80},0 -${width-80},0 -${width-80},0 " +
+    //     "c -40,0 -40,0 -40,-40 " +
+    //     "c 0,${-height+80} 0,${-height+80} 0,${-height+80} " +
+    //     "c 0,-40 0,-40 40,-40 " +
+    //     "')"
+    // ),
 
     transition: `box-shadow ${duration} ease-in-out, background-color ${duration} ease-in-out, 
       color ${duration} ease-in-out`,
