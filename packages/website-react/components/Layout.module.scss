@@ -19,6 +19,10 @@ $duration: .2s;
   "content";
   grid-column-gap: 0;
   gap: 0;
+  .topAppBarTarget{
+    cursor:pointer;
+  }
+
   .logo{
     margin: 0;
     display:flex;

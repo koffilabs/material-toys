@@ -11,13 +11,13 @@ interface TopAppBarProps {
   onNavButtonClick: () => void;
   headline: string;
   navigationIcon: JSX.Element;
-  trailingIcons?: JSX.Element[];
+  trailingIcons?: JSX.Element;
   className?: string;
 }
 export const TopAppBar = ({
   type = "center-aligned",
   navigationIcon,
-  trailingIcons = [],
+  trailingIcons,
   headline,
   onNavButtonClick = () => {},
   className = "",
@@ -52,10 +52,11 @@ export const TopAppBar = ({
       )}
       <div className="mt-headline">{headline}</div>
       <div className="mt-trailing-icons">
-        {trailingIcons &&
-          trailingIcons.map((trailingIcon: ReactNode, index) => (
-            <RippleIcon key={index} icon={trailingIcon} />
-          ))}
+        {/*{trailingIcons &&*/}
+        {/*  trailingIcons.map((trailingIcon: ReactNode, index) => (*/}
+        {/*    <RippleIcon key={index} icon={trailingIcon} />*/}
+        {/*  ))}*/}
+        {trailingIcons}
       </div>
     </div>
   );

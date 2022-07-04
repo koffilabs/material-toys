@@ -18,7 +18,8 @@ import {
   rectReveal,
 } from "@material-toys/react";
 import {
-  OutlinedAccountCircleIcon,
+  OutlinedDarkModeIcon,
+  OutlinedLightModeIcon,
   OutlinedHomeIcon,
   HomeIcon,
   OutlinedFastForwardIcon,
@@ -31,6 +32,7 @@ import Logo from "../pages/components/Logo";
 import { useSwipeable } from "react-swipeable";
 
 export default ({
+  setUIMode,
   navigationArea,
   mobileNavigation = "bar",
   railLabels = "selected",
@@ -62,6 +64,7 @@ export default ({
   const isModalAtStart = mediaMatch === MOBILE || mediaMatch === TABLET;
   const [isNavigationCollapsed, setNavigationCollapsed] =
     useState(isModalAtStart);
+
   const [navMode, setNavMode] = useState(isModalAtStart ? "rail" : "drawer");
   const onCollapse = () => {
     // setNavMode((state) => {
@@ -153,7 +156,19 @@ export default ({
                   <Logo />
                 </div>
               }
-              trailingIcons={[<OutlinedAccountCircleIcon />]}
+              trailingIcons={
+                <div
+                  className={classes.topAppBarTarget}
+                  onClick={() => {
+                    setUIMode((mode) => {
+                      return mode === "Light" ? "Dark" : "Light";
+                    });
+                  }}
+                >
+                  {/*{ <OutlinedLightModeIcon/><OutlinedDarkModeIcon />}*/}
+                  {<OutlinedDarkModeIcon />}
+                </div>
+              }
             />
           </div>
           <div className={classes.content}>

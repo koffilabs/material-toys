@@ -35,6 +35,8 @@ export default function app({ Component, pageProps }) {
   //   }, 3000);
   // }, []);
   let activeItem = 0;
+  const [UIMode, setUIMode] = useState("Light");
+
   const myTheme = (variant) => {
     return {
       components: {
@@ -70,10 +72,11 @@ export default function app({ Component, pageProps }) {
   };
   return (
     <>
-      <MT tokens theme={myTheme} variant="">
+      <MT tokens theme={myTheme} variant={UIMode}>
         {/*<ThemeContext.Provider value={reactiveTokens}>*/}
         {/*<VariantContext.Provider value={""}>*/}
         <Layout
+          setUIMode={setUIMode}
           activeItem={activeItem}
           hasCollapseButton={true}
           railLabels={"selected"}
