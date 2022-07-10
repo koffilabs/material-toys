@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import classes from "./Layout.module.scss";
-
+import { material_tokens } from "@material-toys/common";
 import {
   NavigationDrawer,
   NavigationBar,
@@ -33,6 +33,7 @@ import { useSwipeable } from "react-swipeable";
 
 export default ({
   setUIMode,
+  UIMode,
   navigationArea,
   mobileNavigation = "bar",
   railLabels = "selected",
@@ -153,7 +154,7 @@ export default ({
               onNavButtonClick={onCollapse}
               headline={
                 <div className={classes.logo}>
-                  <Logo />
+                  <Logo fill={material_tokens[`MdSysColor${UIMode}`]} />
                 </div>
               }
               trailingIcons={

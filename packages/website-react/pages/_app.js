@@ -77,6 +77,7 @@ export default function app({ Component, pageProps }) {
         {/*<VariantContext.Provider value={""}>*/}
         <Layout
           setUIMode={setUIMode}
+          UIMode={UIMode}
           activeItem={activeItem}
           hasCollapseButton={true}
           railLabels={"selected"}
