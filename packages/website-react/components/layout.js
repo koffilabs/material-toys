@@ -172,7 +172,11 @@ export default ({
                   }}
                 >
                   {/*{ <OutlinedLightModeIcon/><OutlinedDarkModeIcon />}*/}
-                  {<OutlinedDarkModeIcon />}
+                  {UIMode === "Light" ? (
+                    <OutlinedDarkModeIcon />
+                  ) : (
+                    <OutlinedLightModeIcon />
+                  )}
                 </div>
               }
             />
