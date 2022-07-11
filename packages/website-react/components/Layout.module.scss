@@ -1,4 +1,9 @@
 $duration: .2s;
+.no-transition{
+  *{
+    transition: none !important;
+  }
+}
 .layout{
   display: flex;
   background: transparent;

@@ -1,7 +1,7 @@
 import "../css/main.scss";
 import dynamic from "next/dynamic";
-import { MT, useTheme } from "@material-toys/react";
-import { useEffect, useState } from "react";
+import { MT } from "@material-toys/react";
+import { useState } from "react";
 import {
   material_tokens,
   material_tokens_polyfill,
@@ -24,16 +24,6 @@ tokens.MdSysColorPrimaryContainer = tokens.MdSysColorSurface;
 // tokens.MdSysColorSecondaryContainer = "hsl(210, 90%, 90%)";
 
 export default function app({ Component, pageProps }) {
-  const { ThemeContext, VariantContext } = useTheme();
-  const [reactiveTokens, setReactiveTokens] = useState(tokens);
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     tokens.MdSysColorPrimaryContainer = "red";
-  //     setReactiveTokens({ ...tokens });
-  //     console.log("after timeout");
-  //     // tokens.MdSysColorSecondaryContainer = "hsl(210, 90%, 90%)";
-  //   }, 3000);
-  // }, []);
   let activeItem = 0;
   const [UIMode, setUIMode] = useState("Light");
 
@@ -42,7 +32,6 @@ export default function app({ Component, pageProps }) {
       components: {
         NavigationItem: {
           ".primary &": {
-            // backgroundColor: "red",
             backgroundColor: tokens[`MdSysColorSurface${variant}`],
           },
         },
@@ -73,8 +62,6 @@ export default function app({ Component, pageProps }) {
   return (
     <>
       <MT tokens theme={myTheme} variant={UIMode}>
-        {/*<ThemeContext.Provider value={reactiveTokens}>*/}
-        {/*<VariantContext.Provider value={""}>*/}
         <Layout
           setUIMode={setUIMode}
           UIMode={UIMode}
@@ -85,8 +72,6 @@ export default function app({ Component, pageProps }) {
         >
           <Component {...pageProps} />
         </Layout>
-        {/*</VariantContext.Provider>*/}
-        {/*</ThemeContext.Provider>*/}
       </MT>
 
       <style global jsx>
@@ -98,8 +83,8 @@ export default function app({ Component, pageProps }) {
             height: 100%;
           }
 
-          .mt-loading * {
-            //transition: none !important;
+          .no-transitions * {
+            transition: none !important;
           }
         `}
       </style>

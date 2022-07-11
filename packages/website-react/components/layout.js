@@ -42,7 +42,7 @@ export default ({
   // @ts-ignore
   const router = useRouter();
   const [activeItem, setActiveItem] = useState(0);
-
+  const [transitionClass, setTransitionClass] = useState("");
   const navigateTo = (url, aI) => {
     router.push(url, null, { shallow: true });
     setActiveItem(aI);
@@ -78,6 +78,9 @@ export default ({
     setNavigationCollapsed(isModal);
     setNavMode(isModal ? "rail" : "drawer");
   }, [mediaMatch]);
+  useEffect(() => {
+    setTransitionClass("");
+  }, [UIMode]);
   const mainClassName = `${classes.body} ${
     isModalAtStart ? classes.collapsed : ""
   }`;
@@ -94,6 +97,7 @@ export default ({
       preventDefaultTouchmoveEvent: true,
     }
   );
+  const layoutClass = `${classes.layout} ${transitionClass}`;
   return (
     <Surface
       style={{
@@ -104,7 +108,7 @@ export default ({
         bottom: "0",
       }}
     >
-      <div className={classes.layout}>
+      <div className={layoutClass}>
         {mediaMatch !== MOBILE && (
           <nav {...swipeHandlers} className={classes.navigation}>
             <NavigationDrawer
@@ -162,6 +166,7 @@ export default ({
                   className={classes.topAppBarTarget}
                   onClick={() => {
                     setUIMode((mode) => {
+                      setTransitionClass(classes["no-transition"]);
                       return mode === "Light" ? "Dark" : "Light";
                     });
                   }}
