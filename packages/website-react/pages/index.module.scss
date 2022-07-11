@@ -2,7 +2,14 @@ $text-color: rgba(0, 0, 0, .7);
 $accent-color: hsl(330, 90%, 30%);
 .code{
   display:block;
-  margin:1.618rem 0;
+  margin:1rem 0;
+}
+.title{
+  margin-bottom: .4rem;
+}
+.subtitle{
+  margin-top: 0;
+  margin-bottom: 1.618rem;
 }
 .container{
   width: 100%;
@@ -18,12 +25,7 @@ $accent-color: hsl(330, 90%, 30%);
   display: grid;
   place-items: center;
 }
-.title {
-  font-weight: 400;
-  text-align: center;
-  font-size: 3rem;
-  margin: 1rem auto 0;
-}
+
 .body{
   color:$text-color;
   h1 {
