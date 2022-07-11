@@ -62,7 +62,6 @@ export const NavigationDrawer = ({
   const variant: string = useContext(VariantContext);
 
   const userTheme: any = useContext(ThemeFunctionContext);
-  console.log("the user theme is", userTheme);
   // TODO: refactor, should reuse NavigationItemMapperFactory in NavigationBar
   const [selectedIndex, setSelectedIndex] = useState(activeItem);
   const onClick = (activeIndex: number) => {

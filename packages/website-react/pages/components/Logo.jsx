@@ -1,5 +1,4 @@
 export const Logo = ({ fill } = { fill: "#474747" }) => {
-  console.log("the fill color is", fill);
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
