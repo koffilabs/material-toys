@@ -23,7 +23,7 @@ class MyDocument extends Document {
         </Head>
         <body className="mt-loading">
           <Main />
-          <NextScript />
+          {/*<NextScript />*/}
         </body>
       </Html>
     );

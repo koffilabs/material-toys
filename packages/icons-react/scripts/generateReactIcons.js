@@ -1,4 +1,4 @@
-const { generateIcons } = require("@material-toys/icons/scripts/generateIcons");
+const { generateIcons } = require("./generateIcons");
 (async () => {
   await generateIcons({
     targetDir: `${__dirname}/../icons`,

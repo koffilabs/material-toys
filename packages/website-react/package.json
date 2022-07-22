@@ -7,9 +7,9 @@
     "start": "next start"
   },
   "dependencies": {
-    "@material-toys/common": "workspace:^",
-    "@material-toys/icons-react": "workspace:^",
-    "@material-toys/react": "workspace:^",
+    "@material-toys/common": "*",
+    "@material-toys/icons-react": "*",
+    "@material-toys/react": "*",
     "@next/bundle-analyzer": "^12.1.0",
     "next": "latest",
     "react": "17.0.2",

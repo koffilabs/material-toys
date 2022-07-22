@@ -21,7 +21,7 @@
     "rollup-plugin-esbuild": "^4.7.2"
   },
   "devDependencies": {
-    "@material-toys/icons": "workspace:^",
+    "@material-toys/icons": "*",
     "react": "^17.0.2",
     "rollup": "^2.60.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",

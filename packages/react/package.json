@@ -25,7 +25,6 @@
     "@types/react": "^17.0.36",
     "esbuild": "^0.14.9",
     "jest": "^27.4.5",
-    "jest-dom": "^4.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rollup": "^2.59.0",
@@ -41,7 +40,7 @@
   "dependencies": {
     "@emotion/css": "^11.5.0",
     "@emotion/react": "^11.6.0",
-    "@material-toys/common": "workspace:^",
+    "@material-toys/common": "*",
     "postcss": "^8.4.4"
   }
 }

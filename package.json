@@ -6,17 +6,13 @@
     "packages/*"
   ],
   "scripts": {
-    "build-all": "yarn workspaces foreach run build",
-    "build-icons": "yarn workspace @material-toys/icons run build",
-    "dev": "yarn workspaces foreach --parallel --interlaced run dev",
-    "bootstrap": "yarn install"
   },
   "packageManager": "yarn@3.1.0",
   "devDependencies": {
-    "@yarnpkg/sdks": "^2.6.0-rc.1"
+    "@yarnpkg/sdks": "^2.6.0-rc.1",
+    "lerna": "^5.2.0"
   },
   "dependencies": {
-    "@vue/cli": "^4.5.15",
     "next": "12"
   }
 }
