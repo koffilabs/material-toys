@@ -5,7 +5,10 @@
   "workspaces": [
     "packages/*"
   ],
-  "scripts": {},
+  "scripts": {
+    "dev": "lerna run --scope @material-toys/react dev",
+    "serve": "lerna run --scope @material-toys/website serve"
+  },
   "packageManager": "npm@8.0.0",
   "devDependencies": {
     "lerna": "^5.2.0"
