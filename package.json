@@ -11,8 +11,7 @@
   },
   "packageManager": "npm@8.0.0",
   "devDependencies": {
-    "lerna": "^5.2.0"
-  },
-  "dependencies": {
+    "lerna": "^5.2.0",
+    "nx": "^14.4.3"
   }
 }
