@@ -2,7 +2,7 @@
   "name": "@material-toys/icons-react",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "types": "dist/index.d.ts",
   "license": "MIT",
   "files": [
@@ -21,10 +21,10 @@
     "rollup-plugin-esbuild": "^4.7.2"
   },
   "devDependencies": {
-    "@material-toys/icons": "^0.1.13",
+    "@material-toys/icons": "^0.1.14",
     "rollup": "^2.60.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-terser": "^7.0.2"
   },
-  "gitHead": "58e2bbb9d213006afcd49c20024e7393c48d6fda"
+  "gitHead": "353f91139212a60a63e419c6dc476148a545390d"
 }

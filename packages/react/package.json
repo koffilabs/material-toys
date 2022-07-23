@@ -2,7 +2,7 @@
   "name": "@material-toys/react",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "types": "dist/index.d.ts",
   "license": "MIT",
   "files": [
@@ -39,10 +39,10 @@
   "dependencies": {
     "@emotion/css": "^11.5.0",
     "@emotion/react": "^11.6.0",
-    "@material-toys/common": "^0.1.13",
+    "@material-toys/common": "^0.1.14",
     "postcss": "^8.4.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-  "gitHead": "58e2bbb9d213006afcd49c20024e7393c48d6fda"
+  "gitHead": "353f91139212a60a63e419c6dc476148a545390d"
 }

@@ -1,6 +1,6 @@
 {
   "name": "@material-toys/icons",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "> TODO: description",
   "author": "Nicola Rizzo",
   "homepage": "https://github.com/koffilabs/material-toys#readme",
@@ -13,9 +13,6 @@
   "files": [
     "lib"
   ],
-  "publishConfig": {
-    "registry": "https://registry.yarnpkg.com"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/koffilabs/material-toys.git"
@@ -39,5 +36,6 @@
   },
   "dependencies": {
     "vue": "next"
-  }
+  },
+  "gitHead": "353f91139212a60a63e419c6dc476148a545390d"
 }
