@@ -1,17 +1,16 @@
-// import classes from "./index.module.scss";
+import classes from "./index.module.scss";
 // import { Button, Card } from "@material-toys/react";
 
 export default function Index() {
   return (
-      <h1>Hello from material toys</h1>
-  //   <div>
-  //     <h1 className={classes.title}>Material Toys</h1>
-  //     <div className={classes.subtitle}>
-  //       A Material You implementation for React
-  //     </div>
-  //     <h3 className={classes.title}>Installation</h3>
-  //     <code className={classes.code}>npm i @material-toys/react</code>
-  //     <code className={classes.code}>yarn add @material-toys/react</code>
-  //   </div>
+    <div>
+      <h1 className={classes.title}>Material Toys</h1>
+      <div className={classes.subtitle}>
+        A Material You implementation for React
+      </div>
+      <h3 className={classes.title}>Installation</h3>
+      <code className={classes.code}>npm i @material-toys/react</code>
+      <code className={classes.code}>yarn add @material-toys/react</code>
+    </div>
   );
 }
