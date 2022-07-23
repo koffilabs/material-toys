@@ -2,7 +2,7 @@
   "name": "@material-toys/icons-react",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "types": "dist/index.d.ts",
   "license": "MIT",
   "files": [
