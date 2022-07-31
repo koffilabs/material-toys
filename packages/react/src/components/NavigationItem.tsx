@@ -4,7 +4,6 @@ import { useTheme } from "../hooks/useTheme";
 import { applyReactiveStyle, m3 } from "@material-toys/common";
 import { Ripple } from "./Ripple";
 import { merge } from "lodash";
-
 interface NavigationItemProps {
   icon?: ReactNode | null;
   badge?: string;

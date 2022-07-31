@@ -1,28 +1,26 @@
-export const Logo = () => (
-  <svg
-    width="94"
-    height="46"
-    viewBox="0 0 591 300"
-    version="1.1"
-    xmlSpace="preserve"
-    style={{
-      fillRule: "evenodd",
-      clipRule: "evenodd",
-      strokeLinecap: "round",
-      strokeMiterlimit: 1.5,
-    }}
-  >
-    <g id="MT-logo">
-      <path d="M587.967,296.801l-97.055,-0l-0,-194.112l97.055,0l0,194.112Zm-291.166,-194.112l97.055,0l0,194.112l-97.055,-0l-0,-194.112Z" />
-      <path d="M151.217,170.628l145.584,-164.994l-291.167,-0l145.583,164.994Z" />
-      <rect
-        x="5.634"
-        y="5.634"
-        width="582.334"
-        height="291.167"
-        style={{ strokeWidth: "6.25px" }}
-      />
-    </g>
-  </svg>
-);
+export const Logo = ({ fill } = { fill: "#474747" }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="125.567"
+      height="62.783"
+      viewBox="0 0 125.567 62.783"
+    >
+      <g transform="translate(0 22.5)">
+        <path
+          d="M64.356,26.856H85.283V-15H64.356Zm-41.856,0H43.428V-15H22.5Z"
+          transform="translate(40.283 13.428)"
+          fill={fill}
+        />
+        <path d="M31.392,13.077,62.783-22.5H0Z" fill={fill} />
+        <path
+          d="M64.356,26.856H85.283V-15H64.356Zm-41.856,0H43.428V-15H22.5Z"
+          transform="translate(40.283 13.428)"
+          fill={fill}
+        />
+        <path d="M31.392,40.283,62.783-22.5H0Z" fill={fill} />
+      </g>
+    </svg>
+  );
+};
 export default Logo;

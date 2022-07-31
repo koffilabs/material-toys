@@ -18,6 +18,10 @@ $duration: .2s;
   "content";
   grid-column-gap: 8px;
   gap: 8px;
+  .topAppBarTarget{
+    cursor:pointer;
+  }
+
   .logo{
     display:flex;
     align-items:center;

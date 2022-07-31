@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from "react";
 import classes from "./Layout.module.scss";
+import {material_tokens} from "@material-toys/common";
+
 import {
   OutlinedDarkModeIcon,
   OutlinedLightModeIcon,
@@ -10,12 +12,12 @@ import {
   FastForwardIcon,
   OutlinedInfoIcon,
   InfoIcon,
+  BoltIcon
 } from "@material-toys/icons-react";
 import {
   NavigationDrawer, TopAppBar, Surface, NavigationHeadline, NavigationItem,
 } from "@material-toys/react";
 import {useMatchMedia, MOBILE, TABLET} from "@material-toys/react";
-import {BoltIcon} from "@material-toys/icons-react";
 import {useRouter} from "next/router";
 import Logo from "../pages/components/Logo";
 import {useSwipeable} from "react-swipeable";
@@ -32,8 +34,9 @@ export default ({
   useEffect(() => {
     setTransitionClass("");
   }, [UIMode]);
-  const navigateTo = (url, attrs = {}) => {
+  const navigateTo = (url, aI) => {
     router.push(url, null, {shallow: true});
+    setActiveItem(aI);
 
     if (mediaMatch === MOBILE || mediaMatch === TABLET) {
       setTimeout(() => {
@@ -43,21 +46,10 @@ export default ({
   };
   // const mtApplication = css(applicationStyle);
   const [mediaMatch] = useMatchMedia();
-  // const cname = `${mtApplication}${
-  //   mobileNavigation === "drawer" ? " drawer" : ""
-  // }`;
-
-  // mobileNavigation === drawer
-  // mobile: modal navigation drawer
-  // tablet: modal navigation drawer
-  // laptop: navigation drawer
   const isModalAtStart = mediaMatch === MOBILE || mediaMatch === TABLET;
   const [isNavigationCollapsed, setNavigationCollapsed] = useState(isModalAtStart);
   const [navMode, setNavMode] = useState(isModalAtStart ? "modal" : "drawer");
   const onCollapse = () => {
-    // setNavMode((state) => {
-    //   return state === "modal" ? "drawer" : "modal";
-    // });
     setNavigationCollapsed(!isNavigationCollapsed);
   };
   useEffect(() => {
@@ -65,6 +57,13 @@ export default ({
     setNavigationCollapsed(isModal);
     setNavMode(isModal ? "modal" : "drawer");
   }, [mediaMatch]);
+  useEffect(() => {
+    setTransitionClass("");
+    console.log("uimode", UIMode)
+    console.log(material_tokens)
+    console.log("logo bg", material_tokens[`MdSysColorOnBackground${UIMode}`])
+  }, [UIMode]);
+
   const mainClassName = `${classes.body} ${isModalAtStart ? classes.collapsed : ""}`;
   const wrapperClassName = `${classes.contentWrapper} ${isModalAtStart ? classes.collapsed : ""}`;
   const swipeHandlers = useSwipeable({
@@ -83,23 +82,24 @@ export default ({
   >
     <div className={layoutClass}>
       <nav {...swipeHandlers} className={classes.navigation}>
-        <NavigationDrawer
-          header={<div className={classes.logo}>
-            <Logo/>
-          </div>}
+        <NavigationDrawer className="primary"
+
+                          header={<div className={classes.logo}>
+                            <Logo fill={material_tokens[`MdSysColorOnBackground${UIMode}`]}/>
+                          </div>}
           // style={{ position: "absolute" }}
-          onDismiss={() => {
-            setNavigationCollapsed(true);
-          }}
-          railLabels={railLabels}
-          collapsed={isNavigationCollapsed}
-          activeItem={activeItem}
-          mode={navMode}
+                          onDismiss={() => {
+                            setNavigationCollapsed(true);
+                          }}
+                          railLabels={railLabels}
+                          collapsed={isNavigationCollapsed}
+                          activeItem={activeItem}
+                          mode={navMode}
         >
           <NavigationItem
             icon={<HomeIcon/>}
             onClick={() => {
-              navigateTo("/");
+              navigateTo("/", 0);
             }}
           >
             <a>Material Toys</a>
@@ -107,7 +107,7 @@ export default ({
           <NavigationItem
             icon={<BoltIcon/>}
             onClick={() => {
-              navigateTo("/quickstart", "quickstart");
+              navigateTo("/quickstart", 1);
             }}
           >
             <a>Quick Start</a>
@@ -121,11 +121,11 @@ export default ({
           >
             <a>About</a>
           </NavigationItem>
-          <div className="secondary">
+          <div className="primary">
             <NavigationHeadline>Buttons</NavigationHeadline>
             <NavigationItem
               onClick={() => {
-                navigateTo("/");
+                navigateTo("/button", 2);
               }}
             >
               <a>Button</a>
