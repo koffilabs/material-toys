@@ -34,7 +34,6 @@ import { useSwipeable } from "react-swipeable";
 export default ({
   setUIMode,
   UIMode,
-  navigationArea,
   mobileNavigation = "bar",
   railLabels = "selected",
   children,
@@ -154,7 +153,7 @@ export default ({
           <div className="appBar">
             <TopAppBar
               className="primary"
-              navigationIcon={navMode === "modal" ? <MenuIcon /> : null}
+              navigationIcon={null}
               onNavButtonClick={onCollapse}
               headline={
                 <div className={classes.logo}>
