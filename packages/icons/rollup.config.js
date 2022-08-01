@@ -31,7 +31,6 @@ export default [
       esbuild({
         include: [/\.tsx?$/, /\.vue\?.*?lang=ts/],
         minify: process.env.NODE_ENV === "production",
-        useTsconfigDeclarationDir: true,
       }),
     ],
     output: [

@@ -1,6 +1,8 @@
-import React, {FC} from "react";
+import React, {FC, ReactNode} from "react";
 import {NavigationDrawer} from "./NavigationDrawer";
-
-export const NavigationRail: FC = ({children}) => {
+interface NavigationRailProps {
+    children?: ReactNode;
+}
+export const NavigationRail = ({children}: NavigationRailProps) => {
     return <NavigationDrawer mode="rail">{children}</NavigationDrawer>
 }

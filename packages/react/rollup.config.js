@@ -4,7 +4,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import { terser } from "rollup-plugin-terser";
 import external from "rollup-plugin-peer-deps-external";
 import esbuild from "rollup-plugin-esbuild";
-import dts from "rollup-plugin-dts";
+// import dts from "rollup-plugin-dts";
 
 // import postcss from 'rollup-plugin-postcss';
 
@@ -36,7 +36,6 @@ export default [
       esbuild({
         include: [/\.tsx?$/, /\.vue\?.*?lang=ts/],
         minify: process.env.NODE_ENV === "production",
-        // useTsconfigDeclarationDir: false,
       }),
       // postcss(),
       terser(),
