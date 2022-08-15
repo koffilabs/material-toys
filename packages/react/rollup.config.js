@@ -4,7 +4,6 @@ import commonjs from "@rollup/plugin-commonjs";
 import { terser } from "rollup-plugin-terser";
 import external from "rollup-plugin-peer-deps-external";
 import esbuild from "rollup-plugin-esbuild";
-// import dts from "rollup-plugin-dts";
 
 // import postcss from 'rollup-plugin-postcss';
 
@@ -40,10 +39,5 @@ export default [
       // postcss(),
       terser(),
     ],
-  },
-  // {
-  //   input: "dist/esm/types/main.d.ts",
-  //   output: [{ file: "dist/index.d.ts", format: "esm" }],
-  //   plugins: [dts()],
-  // },
+  }
 ];
