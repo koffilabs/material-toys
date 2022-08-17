@@ -23,6 +23,8 @@ const tokens = {...material_tokens_polyfill, ...material_tokens};
 
 
 // tokens.MdSysColorSurface = "#f7f4e7";
+tokens.MdSysColorSecondaryContainerLight = "#eae3f9";
+tokens.MdSysColorSurfaceLight = "#f7f4fc";
 // tokens.MdSysColorSecondaryContainer = "hsl(210, 90%, 90%)";
 export default function app({Component, pageProps}) {
   let activeItem = 0;
@@ -32,13 +34,14 @@ export default function app({Component, pageProps}) {
       components: {
         NavigationItem: {
           ".primary &": {
-            backgroundColor: tokens[`MdSysColorSurface${variant}`],
+            // backgroundColor: tokens[`MdSysColorSurface${variant}`],
+            backgroundColor: "transparent",
           },
         },
         NavigationDrawer: {
           "&.primary": {
-            backgroundColor: tokens[`MdSysColorSurface${variant}`],
-            // backgroundColor: "red",
+            // backgroundColor: tokens[`MdSysColorSurface${variant}`],
+            backgroundColor: "transparent",
           },
         },
         NavigationBar: {
@@ -53,9 +56,9 @@ export default function app({Component, pageProps}) {
           },
         },
         TopAppBar: {
+          backgroundColor: "transparent",
           "&.primary": {
-            backgroundColor: tokens[`MdSysColorSurface${variant}`],
-            // backgroundColor: "red",
+            // backgroundColor: tokens[`MdSysColorSurface${variant}`],
           },
         },
       },
@@ -64,8 +67,9 @@ export default function app({Component, pageProps}) {
 
   return (
     <>
-      <MT tokens theme={myTheme} variant={UIMode}>
+      <MT tokens={tokens} theme={myTheme} variant={UIMode}>
         <Layout
+          tokens={tokens}
           setUIMode={setUIMode}
           UIMode={UIMode}
           activeItem={activeItem}

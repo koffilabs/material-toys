@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import classes from "./Layout.module.scss";
-import {material_tokens} from "@material-toys/common";
+// import {material_tokens} from "@material-toys/common";
 
 import {
   OutlinedDarkModeIcon,
@@ -23,6 +23,7 @@ import Logo from "../pages/components/Logo";
 import {useSwipeable} from "react-swipeable";
 
 export default ({
+                  tokens,
                   setUIMode,
                   UIMode,
                   railLabels = "selected", children,
@@ -60,8 +61,8 @@ export default ({
   useEffect(() => {
     setTransitionClass("");
     console.log("uimode", UIMode)
-    console.log(material_tokens)
-    console.log("logo bg", material_tokens[`MdSysColorOnBackground${UIMode}`])
+    console.log(tokens)
+    console.log("logo bg", tokens[`MdSysColorOnBackground${UIMode}`])
   }, [UIMode]);
 
   const mainClassName = `${classes.body} ${isModalAtStart ? classes.collapsed : ""}`;
@@ -77,17 +78,20 @@ export default ({
 
   return (<Surface
     style={{
+      background: tokens[`MdSysColor${UIMode}`],
       position: "absolute", top: "0", left: "0", right: "0", bottom: "0",
     }}
   >
-    <div className={layoutClass}>
+    <div style={{
+      background: tokens[`MdSysColorSurface${UIMode}`],
+      position: "absolute", top: "0", left: "0", right: "0", bottom: "0",
+    }}
+         className={layoutClass}>
       <nav {...swipeHandlers} className={classes.navigation}>
         <NavigationDrawer className="primary"
-
                           header={<div className={classes.logo}>
-                            <Logo fill={material_tokens[`MdSysColorOnBackground${UIMode}`]}/>
+                            <Logo fill={tokens[`MdSysColorOnBackground${UIMode}`]}/>
                           </div>}
-          // style={{ position: "absolute" }}
                           onDismiss={() => {
                             setNavigationCollapsed(true);
                           }}

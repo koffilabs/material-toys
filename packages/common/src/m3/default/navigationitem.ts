@@ -71,6 +71,7 @@ export const RailContainer = (tokens, options?: M3Options) => {
   };
 };
 export const NavigationItem = (tokens, options?: M3Options) => {
+  console.log("token from common", tokens.MdSysColorSecondaryContainerLight)
   const variant = options.variant ?? "";
   return {
     "[data-mode=rail] &,[data-mode=drawer] [data-collapsed=true] &": {
