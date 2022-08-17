@@ -19,7 +19,7 @@ const Layout = dynamic(
 );
 
 const tokens = {...material_tokens_polyfill, ...material_tokens};
-tokens.MdSysColorPrimaryContainer = tokens.MdSysColorSurface;
+// tokens.MdSysColorPrimaryContainer = tokens.MdSysColorSurface;
 
 
 // tokens.MdSysColorSurface = "#f7f4e7";
