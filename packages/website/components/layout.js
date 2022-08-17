@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import classes from "./Layout.module.scss";
-// import {material_tokens} from "@material-toys/common";
 
 import {
   OutlinedDarkModeIcon,
@@ -217,7 +216,9 @@ export default ({
             </div>}/>
         </div>
         <div className={classes.content}>
-          <main className={mainClassName}>{children}</main>
+          <main
+            style={{background: tokens[`MdSysColorBackground${UIMode}`]}}
+            className={mainClassName}>{children}</main>
         </div>
       </div>
     </div>

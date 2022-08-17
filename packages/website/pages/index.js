@@ -1,9 +1,9 @@
 import classes from "./index.module.scss";
 export default function Index() {
   return (
-    <div className={classes}>
+    <div className={classes.container}>
       <h1>Material Toys</h1>
-      <h2>A Material m3 implementation for React</h2>
+      <p>A Material m3 implementation for React</p>
     </div>
   );
 }

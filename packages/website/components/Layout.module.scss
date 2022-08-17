@@ -61,9 +61,12 @@ $duration: .2s;
 }
 }
 .body {
+  width: 100%;
+  max-width: 1280px;
+  margin: auto;
   grid-area: body;
   background: transparent;
-  color: #333;
+  border-radius: 12px;
   padding: 1.618rem;
   font-family: Roboto, sans-serif;
 
