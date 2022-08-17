@@ -20,8 +20,6 @@ export const MT = ({
   theme = () => {},
   variant = "",
 }: AppProps) => {
-  console.log("tokens from MT", tokens.MdSysColorSecondaryContainerLight)
-  // TODO: add two new contexts for the user provided theme and the tokens
   const { ThemeContext, VariantContext, ThemeFunctionContext } = useTheme();
   const [reactiveTokens, setReactiveTokens] = useState({ ...defaultTokens, ...tokens });
   return (

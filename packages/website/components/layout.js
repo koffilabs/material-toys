@@ -59,9 +59,6 @@ export default ({
   }, [mediaMatch]);
   useEffect(() => {
     setTransitionClass("");
-    console.log("uimode", UIMode)
-    console.log(tokens)
-    console.log("logo bg", tokens[`MdSysColorOnBackground${UIMode}`])
   }, [UIMode]);
 
   const mainClassName = `${classes.body} ${isModalAtStart ? classes.collapsed : ""}`;
