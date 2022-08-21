@@ -114,7 +114,9 @@ export const Button = (tokens, options?: M3Options) => {
       },
     },
     "&.filled": {
-      color: tokens[`MdSysColorOnPrimary${variant}`],
+      "div":{
+        color: tokens[`MdSysColorOnPrimary${variant}`],
+      },
       fill: tokens[`MdSysColorOnPrimary${variant}`],
       background: tokens[`MdSysColorPrimary${variant}`],
       ".ripple": {
