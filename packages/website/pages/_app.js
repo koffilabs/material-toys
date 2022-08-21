@@ -43,6 +43,10 @@ export default function app({Component, pageProps}) {
             // backgroundColor: tokens[`MdSysColorSurface${variant}`],
             backgroundColor: "transparent",
           },
+          "&.primary[data-mode=modal]": {
+            backgroundColor: tokens[`MdSysColorSurface${variant}`],
+            // backgroundColor: "transparent",
+          },
         },
         NavigationBar: {
           "&.primary": {
