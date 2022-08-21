@@ -24,23 +24,7 @@ export default function Home() {
   //   };
   // }, []);
   return (
-    <MT variant={""}>
       <div className="container">
-        <Head>
-          <title>Material Toys</title>
-          <link rel="icon" href="/favicon.ico" />
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossOrigin="true"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-            rel="stylesheet"
-          />
-        </Head>
-
         <main>
           <div>
             <Button icon={<AddIcon size="18px" />} className="elevated">
@@ -177,6 +161,5 @@ export default function Home() {
 
                     `}</style>
       </div>
-    </MT>
   );
 }

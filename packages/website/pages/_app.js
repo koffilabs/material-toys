@@ -44,6 +44,7 @@ export default function app({Component, pageProps}) {
             backgroundColor: "transparent",
           },
           "&.primary[data-mode=modal]": {
+            "zIndex": 10,
             backgroundColor: tokens[`MdSysColorSurface${variant}`],
             // backgroundColor: "transparent",
           },

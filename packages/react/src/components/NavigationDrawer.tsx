@@ -20,13 +20,13 @@ const scrim = css({
   left: 0,
   right: 0,
   bottom: 0,
-  zIndex: 0,
+  zIndex: 5,
   // TODO: use tokens instead
   background: "rgba(0, 0, 0, .4)",
 });
 
 const Scrim = ({ ...props }) => {
-  return <div className={scrim} {...props} />;
+  return <div className={`scrim ${scrim}`} {...props} />;
 };
 
 interface NavigationDrawerProps {
