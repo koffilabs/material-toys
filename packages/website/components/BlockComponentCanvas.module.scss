@@ -3,11 +3,14 @@ $grid-size: 12px;
 .blockComponentCanvas{
   flex:1;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   overflow: hidden;
-  padding:1.618rem;
-  background-color: #ccc;
+  padding: 0 0 .75rem 0;
+  background: transparent;
+  align-items: center;
+  gap:1rem;
+  //background-color: #ccc;
   //background-image: linear-gradient(to left, white, white), linear-gradient(to left, $line-color, $line-color);
-  background-image: linear-gradient(to right, $line-color 1px, transparent 1px ), linear-gradient(to bottom, $line-color 1px, transparent 1px);
-  background-size: $grid-size $grid-size;
+  //background-image: linear-gradient(to right, $line-color 1px, transparent 1px ), linear-gradient(to bottom, $line-color 1px, transparent 1px);
+  //background-size: $grid-size $grid-size;
 }

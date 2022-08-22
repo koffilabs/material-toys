@@ -132,7 +132,7 @@ export default ({
             </NavigationItem>
             <NavigationItem
               onClick={() => {
-                navigateTo("/");
+                navigateTo("/fab");
               }}
             >
               <a>FAB</a>
@@ -140,7 +140,7 @@ export default ({
             <NavigationItem
               divider={true}
               onClick={() => {
-                navigateTo("/");
+                navigateTo("/extended-fab");
               }}
             >
               <a>Extended FAB</a>

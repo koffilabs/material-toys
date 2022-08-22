@@ -6,71 +6,37 @@ import {useEffect, useState} from "react";
 import {BlockComponentCanvas} from "../components/BlockComponentCanvas";
 import {CodeBlock} from "../components/CodeBlock";
 
-export default function button_page() {
+export default function fab_page() {
   const [isExtended, setExtended] = useState(true);
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setExtended((isExtended) => !isExtended);
-  //   }, 2000);
-  //   return () => {
-  //     clearInterval(interval);
-  //   };
-  // }, []);
   return (
     <div className="container">
       <main>
-        <h2>Button</h2>
-        <div>
+        <h2>Floating Action Button</h2>
           <BlockComponentCanvas>
-            <Button icon={<AddIcon size="18px"/>} className="elevated">
-              Elevated Button
-            </Button>
-            <Button icon={<AddIcon size="18px"/>} className="filled">
-              Filled Button
-            </Button>
-            <Button icon={<AddIcon size="18px"/>} className="filled-tonal">
-              Filled Tonal Button
-            </Button>
-            <Button icon={<AddIcon size="18px"/>} className="outlined">
-              Outlined Button
-            </Button>
-            <Button icon={<AddIcon size="18px"/>} className="text">
-              Text Button
-            </Button>
+            <FAB icon={<EditIcon/>} className="surface"/>
+            <FAB icon={<EditIcon/>}/>
+            <FAB icon={<EditIcon/>} className="level1"/>
+
+            <FAB icon={<EditIcon size="36px"/>} className="large"/>
+            <FAB icon={<EditIcon size="36px"/>} className="level1 large"/>
+            <FAB icon={<EditIcon/>} className="level1 small"/>
+            <FAB icon={<EditIcon/>} className="level1 small" disabled/>
           </BlockComponentCanvas>
             <CodeBlock code={`
-<Button icon={<AddIcon size="18px"/>} className="elevated">
-  Elevated Button
-</Button>
+<FAB icon={<EditIcon/>} className="surface"/>
 
-<Button icon={<AddIcon size="18px"/>} className="filled">
-  Filled Button
-</Button>
+<FAB icon={<EditIcon/>}/>
 
-<Button icon={<AddIcon size="18px"/>} className="filled-tonal">
-  Filled Tonal Button
-</Button>
+<FAB icon={<EditIcon/>} className="level1"/>
 
-<Button icon={<AddIcon size="18px"/>} className="outlined">
-  Outlined Button
-</Button>
+<FAB icon={<EditIcon size="36px"/>} className="large"/>
 
-<Button icon={<AddIcon size="18px"/>} className="text">
-  Text Button
-</Button>
+<FAB icon={<EditIcon size="36px"/>} className="level1 large"/>
+
+<FAB icon={<EditIcon/>} className="level1 small"/>
+
+<FAB icon={<EditIcon/>} className="level1 small" disabled/>
               `}></CodeBlock>
-        </div>
-        <div>
-          <FAB icon={<EditIcon/>} className="surface"/>
-          <FAB icon={<EditIcon/>}/>
-          <FAB icon={<EditIcon/>} className="level1"/>
-
-          <FAB icon={<EditIcon size="36px"/>} className="large"/>
-          <FAB icon={<EditIcon size="36px"/>} className="level1 large"/>
-          <FAB icon={<EditIcon/>} className="level1 small"/>
-          <FAB icon={<EditIcon/>} className="level1 small" disabled/>
-        </div>
-        <div>
           <h1>Extended FAB</h1>
           <FAB extended={true}>Compose</FAB>
           <FAB extended className="surface">
@@ -82,7 +48,6 @@ export default function button_page() {
           <FAB extended className="tertiary">
             Compose
           </FAB>
-        </div>
         <div>
           <h1>Extended FAB with icons</h1>
           <FAB icon={<EditIcon/>} extended={true}>

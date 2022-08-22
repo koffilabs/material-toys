@@ -6,72 +6,13 @@ import {useEffect, useState} from "react";
 import {BlockComponentCanvas} from "../components/BlockComponentCanvas";
 import {CodeBlock} from "../components/CodeBlock";
 
-export default function button_page() {
+export default function fab_page() {
   const [isExtended, setExtended] = useState(true);
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setExtended((isExtended) => !isExtended);
-  //   }, 2000);
-  //   return () => {
-  //     clearInterval(interval);
-  //   };
-  // }, []);
   return (
     <div className="container">
       <main>
-        <h2>Button</h2>
-        <div>
-          <BlockComponentCanvas>
-            <Button icon={<AddIcon size="18px"/>} className="elevated">
-              Elevated Button
-            </Button>
-            <Button icon={<AddIcon size="18px"/>} className="filled">
-              Filled Button
-            </Button>
-            <Button icon={<AddIcon size="18px"/>} className="filled-tonal">
-              Filled Tonal Button
-            </Button>
-            <Button icon={<AddIcon size="18px"/>} className="outlined">
-              Outlined Button
-            </Button>
-            <Button icon={<AddIcon size="18px"/>} className="text">
-              Text Button
-            </Button>
-          </BlockComponentCanvas>
-            <CodeBlock code={`
-<Button icon={<AddIcon size="18px"/>} className="elevated">
-  Elevated Button
-</Button>
-
-<Button icon={<AddIcon size="18px"/>} className="filled">
-  Filled Button
-</Button>
-
-<Button icon={<AddIcon size="18px"/>} className="filled-tonal">
-  Filled Tonal Button
-</Button>
-
-<Button icon={<AddIcon size="18px"/>} className="outlined">
-  Outlined Button
-</Button>
-
-<Button icon={<AddIcon size="18px"/>} className="text">
-  Text Button
-</Button>
-              `}></CodeBlock>
-        </div>
-        <div>
-          <FAB icon={<EditIcon/>} className="surface"/>
-          <FAB icon={<EditIcon/>}/>
-          <FAB icon={<EditIcon/>} className="level1"/>
-
-          <FAB icon={<EditIcon size="36px"/>} className="large"/>
-          <FAB icon={<EditIcon size="36px"/>} className="level1 large"/>
-          <FAB icon={<EditIcon/>} className="level1 small"/>
-          <FAB icon={<EditIcon/>} className="level1 small" disabled/>
-        </div>
-        <div>
-          <h1>Extended FAB</h1>
+        <h2>Extended FAB</h2>
+        <BlockComponentCanvas>
           <FAB extended={true}>Compose</FAB>
           <FAB extended className="surface">
             Compose again
@@ -82,22 +23,56 @@ export default function button_page() {
           <FAB extended className="tertiary">
             Compose
           </FAB>
-        </div>
-        <div>
-          <h1>Extended FAB with icons</h1>
+        </BlockComponentCanvas>
+        <CodeBlock code={`          
+<FAB extended={true}>Compose</FAB>
+
+<FAB extended className="surface">
+  Compose again
+</FAB>
+
+<FAB extended className="secondary">
+  Compose
+</FAB>
+
+<FAB extended className="tertiary">
+  Compose
+</FAB>
+
+`}>
+        </CodeBlock>
+        <h2>Extended FAB with Icon</h2>
+          <BlockComponentCanvas>
+            <FAB icon={<EditIcon/>} extended={true}>
+              Compose
+            </FAB>
+            <FAB icon={<EditIcon/>} extended className="surface">
+              Compose
+            </FAB>
+            <FAB icon={<EditIcon/>} extended className="secondary">
+              Compose
+            </FAB>
+            <FAB icon={<EditIcon/>} extended className="tertiary">
+              Compose
+            </FAB>
+          </BlockComponentCanvas>
+            <CodeBlock code={`
           <FAB icon={<EditIcon/>} extended={true}>
             Compose
           </FAB>
+          
           <FAB icon={<EditIcon/>} extended className="surface">
             Compose
           </FAB>
+          
           <FAB icon={<EditIcon/>} extended className="secondary">
             Compose
           </FAB>
+          
           <FAB icon={<EditIcon/>} extended className="tertiary">
             Compose
           </FAB>
-        </div>
+              `}></CodeBlock>
         <div>
           <Card className="elevated">
             <div className="someContent">
