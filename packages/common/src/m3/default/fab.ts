@@ -31,7 +31,7 @@ export const FAB = (tokens, options?: M3Options) => {
     ".ripple": {
       backgroundColor: tokens[`MdSysColorOnPrimaryContainer${variant}`],
     },
-
+    WebkitTapHighlightColor: "transparent",
     transition: `box-shadow ${duration} ease-in-out, background-color ${duration} ease-in-out, 
   fill ${duration} ease-in-out`,
     fill: tokens[`MdSysColorOnPrimaryContainer${variant}`],

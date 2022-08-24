@@ -3,6 +3,7 @@ $grid-size: 12px;
 .blockComponentCanvas{
   flex:1;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   overflow: hidden;
   padding: 0 0 .75rem 0;

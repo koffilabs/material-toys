@@ -148,7 +148,7 @@ export default ({
             <NavigationHeadline>Layout</NavigationHeadline>
             <NavigationItem
               onClick={() => {
-                navigateTo("/");
+                navigateTo("/card");
               }}
             >
               <a>Card</a>
@@ -156,7 +156,7 @@ export default ({
             <NavigationItem
               divider={true}
               onClick={() => {
-                navigateTo("/");
+                navigateTo("/grid");
               }}
             >
               <a>Grid</a>

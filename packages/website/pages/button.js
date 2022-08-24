@@ -23,141 +23,44 @@ export default function button_page() {
         <div>
           <BlockComponentCanvas>
             <Button icon={<AddIcon size="18px"/>} className="elevated">
-              Elevated Button
+              Elevated
             </Button>
             <Button icon={<AddIcon size="18px"/>} className="filled">
-              Filled Button
+              Filled
             </Button>
             <Button icon={<AddIcon size="18px"/>} className="filled-tonal">
-              Filled Tonal Button
+              Filled Tonal
             </Button>
             <Button icon={<AddIcon size="18px"/>} className="outlined">
-              Outlined Button
+              Outlined
             </Button>
             <Button icon={<AddIcon size="18px"/>} className="text">
-              Text Button
+              Text
             </Button>
           </BlockComponentCanvas>
             <CodeBlock code={`
 <Button icon={<AddIcon size="18px"/>} className="elevated">
-  Elevated Button
+  Elevated
 </Button>
 
 <Button icon={<AddIcon size="18px"/>} className="filled">
-  Filled Button
+  Filled
 </Button>
 
 <Button icon={<AddIcon size="18px"/>} className="filled-tonal">
-  Filled Tonal Button
+  Filled Tonal
 </Button>
 
 <Button icon={<AddIcon size="18px"/>} className="outlined">
-  Outlined Button
+  Outlined
 </Button>
 
 <Button icon={<AddIcon size="18px"/>} className="text">
-  Text Button
+  Text
 </Button>
               `}></CodeBlock>
         </div>
-        <div>
-          <FAB icon={<EditIcon/>} className="surface"/>
-          <FAB icon={<EditIcon/>}/>
-          <FAB icon={<EditIcon/>} className="level1"/>
-
-          <FAB icon={<EditIcon size="36px"/>} className="large"/>
-          <FAB icon={<EditIcon size="36px"/>} className="level1 large"/>
-          <FAB icon={<EditIcon/>} className="level1 small"/>
-          <FAB icon={<EditIcon/>} className="level1 small" disabled/>
-        </div>
-        <div>
-          <h1>Extended FAB</h1>
-          <FAB extended={true}>Compose</FAB>
-          <FAB extended className="surface">
-            Compose again
-          </FAB>
-          <FAB extended className="secondary">
-            Compose
-          </FAB>
-          <FAB extended className="tertiary">
-            Compose
-          </FAB>
-        </div>
-        <div>
-          <h1>Extended FAB with icons</h1>
-          <FAB icon={<EditIcon/>} extended={true}>
-            Compose
-          </FAB>
-          <FAB icon={<EditIcon/>} extended className="surface">
-            Compose
-          </FAB>
-          <FAB icon={<EditIcon/>} extended className="secondary">
-            Compose
-          </FAB>
-          <FAB icon={<EditIcon/>} extended className="tertiary">
-            Compose
-          </FAB>
-        </div>
-        <div>
-          <Card className="elevated">
-            <div className="someContent">
-              <h3>Title - Elevated</h3>
-              <h5>Subhead</h5>
-              Use a card to display content and actions on a single topic.
-              Cards should be easy to scan for relevant information.
-            </div>
-          </Card>
-          <Card className="filled">
-            <div className="someContent">
-              <h3>Title - Elevated</h3>
-              <h5>Subhead</h5>
-              Use a card to display content and actions on a single topic.
-              Cards should be easy to scan for relevant information.
-            </div>
-          </Card>
-          <Card className="outlined">
-            <div className="someContent">
-              <h3>Title - Elevated</h3>
-              <h5>Subhead</h5>
-              Use a card to display content and actions on a single topic.
-              Cards should be easy to scan for relevant information.
-            </div>
-          </Card>
-        </div>
-        <Grid>
-          <Card className="elevated col-lg-3 col-12 col-sm-6">
-            <div className="someContent">
-              <h3>Title - Elevated</h3>
-              <h5>Subhead</h5>
-              Use a card to display content and actions on a single topic.
-              Cards should be easy to scan for relevant information.
-            </div>
-          </Card>
-          <Card className="filled col-lg-3 col-12 col-sm-6">
-            <div className="someContent">
-              <h3>Title - Filled</h3>
-              <h5>Subhead</h5>
-              Use a card to display content and actions on a single topic.
-              Cards should be easy to scan for relevant information.
-            </div>
-          </Card>
-          <Card className="outlined col-lg-3 col-12">
-            <div className="someContent">
-              <h3>Title - Outlined</h3>
-              <h5>Subhead</h5>
-              Use a card to display content and actions on a single topic.
-              Cards should be easy to scan for relevant information.
-            </div>
-          </Card>
-        </Grid>
       </main>
-      <FAB
-        style={{position: "fixed", right: "16px", bottom: "16px"}}
-        icon={<EditIcon/>}
-        extended={isExtended}
-      >
-        Compose
-      </FAB>
       <style jsx>{`
         .someContent {
           font-family: "Roboto", sans-serif;
