@@ -12,7 +12,8 @@ export default function fab_page() {
     <div className="container">
       <main>
         <h2>Grid</h2>
-          <Grid><Card className="elevated col-lg-3 col-4 col-sm-8">
+          <Grid>
+            <Card className="elevated col-lg-3 col-4 col-sm-8">
               <div className="someContent">
                 <h3>Title - Elevated</h3>
                 <h5>Subhead</h5>
@@ -20,7 +21,7 @@ export default function fab_page() {
                 Cards should be easy to scan for relevant information.
               </div>
             </Card>
-            <Card className="filled col-lg-3 col-sm-5 col-2 ">
+            <Card className="filled col-lg-3 col-sm-5 col-2">
               <div className="someContent">
                 <h3>Title - Filled</h3>
                 <h5>Subhead</h5>
@@ -38,33 +39,32 @@ export default function fab_page() {
             </Card>
           </Grid>
       <CodeBlock code={`          
-<Grid>
-  <Card className="elevated col-lg-3 col-12 col-sm-6">
-    <div className="someContent">
-      <h3>Title - Elevated</h3>
-      <h5>Subhead</h5>
-      Use a card to display content and actions on a single topic.
-      Cards should be easy to scan for relevant information.
-    </div>
-  </Card>
-  <Card className="filled col-lg-3 col-12 col-sm-6">
-    <div className="someContent">
-      <h3>Title - Filled</h3>
-      <h5>Subhead</h5>
-      Use a card to display content and actions on a single topic.
-      Cards should be easy to scan for relevant information.
-    </div>
-  </Card>
-  <Card className="outlined col-lg-3 col-12">
-    <div className="someContent">
-      <h3>Title - Outlined</h3>
-      <h5>Subhead</h5>
-      Use a card to display content and actions on a single topic.
-      Cards should be easy to scan for relevant information.
-    </div>
-  </Card>
-</Grid>
-
+          <Grid>
+            <Card className="elevated col-lg-3 col-4 col-sm-8">
+              <div className="someContent">
+                <h3>Title - Elevated</h3>
+                <h5>Subhead</h5>
+                Use a card to display content and actions on a single topic.
+                Cards should be easy to scan for relevant information.
+              </div>
+            </Card>
+            <Card className="filled col-lg-3 col-sm-5 col-2">
+              <div className="someContent">
+                <h3>Title - Filled</h3>
+                <h5>Subhead</h5>
+                Use a card to display content and actions on a single topic.
+                Cards should be easy to scan for relevant information.
+              </div>
+            </Card>
+            <Card className="outlined col-lg-3 col-sm-3 col-2">
+              <div className="someContent">
+                <h3>Title - Outlined</h3>
+                <h5>Subhead</h5>
+                Use a card to display content and actions on a single topic.
+                Cards should be easy to scan for relevant information.
+              </div>
+            </Card>
+          </Grid>
 `}>        </CodeBlock>
 
       </main>
