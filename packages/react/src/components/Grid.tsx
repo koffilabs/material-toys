@@ -32,10 +32,9 @@ export const Grid = ({ children }: GridProps) => {
       };
     }
   }
-  const yueGrid = css([gridStyle, ...columnsStyles]);
+  const mtGrid = css([gridStyle, ...columnsStyles]);
   return (
-    <div className={yueGrid}>
-      <div className="state" />
+    <div className={mtGrid}>
       {children}
     </div>
   );
