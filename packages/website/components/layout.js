@@ -4,12 +4,8 @@ import classes from "./Layout.module.scss";
 import {
   OutlinedDarkModeIcon,
   OutlinedLightModeIcon,
-  OutlinedHomeIcon,
   HomeIcon,
   MenuIcon,
-  OutlinedFastForwardIcon,
-  FastForwardIcon,
-  OutlinedInfoIcon,
   InfoIcon,
   BoltIcon
 } from "@material-toys/icons-react";
@@ -164,7 +160,7 @@ export default ({
             <NavigationHeadline>Navigation</NavigationHeadline>
             <NavigationItem
               onClick={() => {
-                navigateTo("/");
+                navigateTo("/navigation-drawer");
               }}
             >
               <a>Navigation Drawer</a>

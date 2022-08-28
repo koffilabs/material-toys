@@ -2,16 +2,21 @@ $line-color: #999;
 $grid-size: 12px;
 .blockComponentCanvas{
   flex:1;
+  border:1px solid #ddd;
+  border-radius: 10px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   overflow: hidden;
-  padding: 0 0 .75rem 0;
   background: transparent;
   align-items: center;
   gap:1rem;
-  //background-color: #ccc;
-  //background-image: linear-gradient(to left, white, white), linear-gradient(to left, $line-color, $line-color);
-  //background-image: linear-gradient(to right, $line-color 1px, transparent 1px ), linear-gradient(to bottom, $line-color 1px, transparent 1px);
-  //background-size: $grid-size $grid-size;
+  padding:1.618rem;
+  &[data-show-grid=true]{
+    background-color: #ccc;
+    //background-image: linear-gradient(to left, white, white), linear-gradient(to left, $line-color, $line-color);
+    background-image: linear-gradient(to right, $line-color 1px, transparent 1px ), linear-gradient(to bottom, $line-color 1px, transparent 1px);
+    background-size: $grid-size $grid-size;
+
+  }
 }
