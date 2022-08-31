@@ -46,21 +46,17 @@ export default function drawer_page() {
                               header={<div style={{padding: "1rem", textAlign: "center"}}>
                                 Header
                               </div>}
-                              activeItem={0}
-            >
+                              activeItem={0}>
               <NavigationItem
-                icon={<HomeIcon/>}
-              >
+                icon={<HomeIcon/>}>
                 <a>Material Toys</a>
               </NavigationItem>
               <NavigationItem
-                icon={<BoltIcon/>}
-              >
+                icon={<BoltIcon/>}>
                 <a>Quick Start</a>
               </NavigationItem>
               <NavigationItem
-                icon={<InfoIcon/>}
-              >
+                icon={<InfoIcon/>}>
                 <a>About</a>
               </NavigationItem>
             </NavigationDrawer>
@@ -74,21 +70,17 @@ import { HomeIcon, InfoIcon, BoltIcon } from "@material-toys/icons-react";
                     header={<div style={{padding: "1rem", textAlign: "center"}}>
                       Header
                     </div>}
-                    activeItem={0}
-  >
+                    activeItem={0}>
     <NavigationItem
-      icon={<HomeIcon/>}
-    >
+      icon={<HomeIcon/>}>
       <a>Material Toys</a>
     </NavigationItem>
     <NavigationItem
-      icon={<BoltIcon/>}
-    >
+      icon={<BoltIcon/>}>
       <a>Quick Start</a>
     </NavigationItem>
     <NavigationItem
-      icon={<InfoIcon/>}
-    >
+      icon={<InfoIcon/>}>
       <a>About</a>
     </NavigationItem>
   </NavigationDrawer>

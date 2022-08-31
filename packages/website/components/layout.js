@@ -26,10 +26,28 @@ export default ({
   // @ts-ignore
   const [activeItem, setActiveItem] = useState(0);
   const [transitionClass, setTransitionClass] = useState("");
+  const routes = [
+    {i: <HomeIcon />, l: "Material Toys", r: "/"},
+    {i: <BoltIcon />, l: "Getting Started", r: "/getting-started"},
+    {i: <InfoIcon />, l: "About", r: "/"},
+    {l: "Button", r: "/button"},
+    {l: "FAB", r: "/fab"},
+    {l: "Extended FAB", r: "/extended-fab"},
+    {l: "Card", r: "/card"},
+    {l: "Grid", r: "/grid"},
+    {l: "Navigation Drawer", r: "/navigation-drawer"},
+    {l: "Navigation Rail", r: "/navigation-rail"},
+    {l: "Navigation Bar", r: "/navigation-bar"},
+    {l: "Top App Bar", r: "/top-app-bar"},
+  ];
   const router = useRouter();
   useEffect(() => {
     setTransitionClass("");
   }, [UIMode]);
+  useEffect(() => {
+    console.log("current route", router.asPath)
+    setActiveItem(routes.findIndex(({r}) => r === router.asPath));
+  }, [])
   const navigateTo = (url, aI) => {
     router.push(url, null, {shallow: true});
     setActiveItem(aI);
@@ -92,100 +110,31 @@ export default ({
                           activeItem={activeItem}
                           mode={navMode}
         >
-          <NavigationItem
-            icon={<HomeIcon/>}
-            onClick={() => {
-              navigateTo("/", 0);
-            }}
-          >
-            <a>Material Toys</a>
-          </NavigationItem>
-          <NavigationItem
-            icon={<BoltIcon/>}
-            onClick={() => {
-              navigateTo("/quickstart", 1);
-            }}
-          >
-            <a>Quick Start</a>
-          </NavigationItem>
-          <NavigationItem
-            icon={<InfoIcon/>}
-            divider={true}
-            onClick={() => {
-              navigateTo("/");
-            }}
-          >
-            <a>About</a>
-          </NavigationItem>
+          {
+            routes.slice(0, 3).map((route, index) => <NavigationItem
+              icon={route.i}
+              divider={index === 2}
+
+              onClick={() => {
+                  navigateTo(`${route.r}`);
+                }}
+              >
+                <a>{route.l}</a>
+              </NavigationItem>
+            )
+          }
           <div className="primary">
-            <NavigationHeadline>Buttons</NavigationHeadline>
-            <NavigationItem
+            <NavigationHeadline>Components</NavigationHeadline>
+          {
+            routes.slice(3).map((route, index) => <NavigationItem
               onClick={() => {
-                navigateTo("/button", 2);
-              }}
-            >
-              <a>Button</a>
-            </NavigationItem>
-            <NavigationItem
-              onClick={() => {
-                navigateTo("/fab");
-              }}
-            >
-              <a>FAB</a>
-            </NavigationItem>
-            <NavigationItem
-              divider={true}
-              onClick={() => {
-                navigateTo("/extended-fab");
-              }}
-            >
-              <a>Extended FAB</a>
-            </NavigationItem>
-            <NavigationHeadline>Layout</NavigationHeadline>
-            <NavigationItem
-              onClick={() => {
-                navigateTo("/card");
-              }}
-            >
-              <a>Card</a>
-            </NavigationItem>
-            <NavigationItem
-              divider={true}
-              onClick={() => {
-                navigateTo("/grid");
-              }}
-            >
-              <a>Grid</a>
-            </NavigationItem>
-            <NavigationHeadline>Navigation</NavigationHeadline>
-            <NavigationItem
-              onClick={() => {
-                navigateTo("/navigation-drawer");
-              }}
-            >
-              <a>Navigation Drawer</a>
-            </NavigationItem>
-            <NavigationItem
-              onClick={() => {
-                navigateTo("/");
-              }}
-            >
-              <a>Navigation Rail</a>
-            </NavigationItem>
-            <NavigationItem
-              onClick={() => {
-                navigateTo("/");
-              }}
-            >
-              <a>Navigation Bar</a>
-            </NavigationItem>
-            <NavigationItem
-              onClick={() => {
-                navigateTo("/");
-              }}
-            >
-              <a>Top App Bar</a>
-            </NavigationItem>
+                  navigateTo(`${route.r}`);
+                }}
+              >
+                <a>{route.l}</a>
+              </NavigationItem>
+            )
+          }
           </div>
         </NavigationDrawer>
       </nav>
