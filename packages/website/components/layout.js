@@ -24,7 +24,7 @@ export default ({
                   railLabels = "selected", children,
                 }) => {
   // @ts-ignore
-  const [activeItem, setActiveItem] = useState(0);
+  // const [activeItem, setActiveItem] = useState(0);
   const [transitionClass, setTransitionClass] = useState("");
   const routes = [
     {i: <HomeIcon />, l: "Material Toys", r: "/"},
@@ -45,12 +45,13 @@ export default ({
     setTransitionClass("");
   }, [UIMode]);
   useEffect(() => {
-    console.log("current route", router.asPath)
-    setActiveItem(routes.findIndex(({r}) => r === router.asPath));
+    console.log("current route", router.asPath, routes.findIndex(({r}) => r === router.asPath))
+    // setActiveItem(routes.findIndex(({r}) => r === router.asPath));
   }, [])
+  const activeItem = routes.findIndex(({r}) => r === router.asPath);
   const navigateTo = (url, aI) => {
     router.push(url, null, {shallow: true});
-    setActiveItem(aI);
+    // setActiveItem(aI);
 
     if (mediaMatch === MOBILE || mediaMatch === TABLET) {
       setTimeout(() => {
@@ -113,6 +114,7 @@ export default ({
           {
             routes.slice(0, 3).map((route, index) => <NavigationItem
               icon={route.i}
+              key={route.l}
               divider={index === 2}
 
               onClick={() => {
@@ -127,6 +129,7 @@ export default ({
             <NavigationHeadline>Components</NavigationHeadline>
           {
             routes.slice(3).map((route, index) => <NavigationItem
+              key={route.l}
               onClick={() => {
                   navigateTo(`${route.r}`);
                 }}
