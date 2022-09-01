@@ -44,10 +44,6 @@ export default ({
   useEffect(() => {
     setTransitionClass("");
   }, [UIMode]);
-  useEffect(() => {
-    console.log("current route", router.asPath, routes.findIndex(({r}) => r === router.asPath))
-    // setActiveItem(routes.findIndex(({r}) => r === router.asPath));
-  }, [])
   const activeItem = routes.findIndex(({r}) => r === router.asPath);
   const navigateTo = (url, aI) => {
     router.push(url, null, {shallow: true});

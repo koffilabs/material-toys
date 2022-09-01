@@ -17,6 +17,7 @@ export const Button = ({
   disabled = false,
   children,
   className = "elevated",
+  ...props
 }: ButtonProps) => {
   const { ThemeContext, VariantContext, ThemeFunctionContext } = useTheme();
   const tokens = useContext(ThemeContext);
@@ -32,7 +33,7 @@ export const Button = ({
   );
   return (
     <Ripple>
-      <button className={`${btn} ${className}`} disabled={disabled}>
+      <button {...props} className={`${btn} ${className}`} disabled={disabled}>
         <div className="state" />
         {icon}
         <div>{children}</div>
