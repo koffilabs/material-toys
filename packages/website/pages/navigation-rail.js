@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {BlockComponentCanvas} from "../components/BlockComponentCanvas";
 import {CodeBlock} from "../components/CodeBlock";
 import {
@@ -16,7 +16,7 @@ const tokens = {...material_tokens_polyfill, ...material_tokens};
 
 import {
   Button,
-  MT, NavigationDrawer, NavigationItem
+  MT, NavigationDrawer, NavigationItem, useTheme
 } from "@material-toys/react";
 
 const myTheme = (variant) => {
@@ -38,6 +38,9 @@ const myTheme = (variant) => {
   }
 };
 export default function rail_page() {
+  const {VariantContext } = useTheme();
+  const variant = useContext(VariantContext);
+
   const [__mode, setMode] = useState("rail")
   const toggleMode = () => {
     setMode(m => m === "rail" ? "drawer" : "rail"
@@ -48,7 +51,7 @@ export default function rail_page() {
       <main>
         <h2>Navigation rail</h2>
         <BlockComponentCanvas showGrid={true}>
-          <MT theme={myTheme}>
+          <MT theme={myTheme} variant={variant}>
             <div>
               <Button onClick={toggleMode}>Morph!</Button>
             </div>

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useContext} from "react";
 import {BlockComponentCanvas} from "../components/BlockComponentCanvas";
 import {CodeBlock} from "../components/CodeBlock";
 import {
@@ -14,7 +14,7 @@ import {
 const tokens = {...material_tokens_polyfill, ...material_tokens};
 
 import {
-  MT, NavigationDrawer, NavigationItem
+  MT, NavigationDrawer, NavigationItem, useTheme
 } from "@material-toys/react";
 
 const myTheme = (variant) => {
@@ -36,12 +36,15 @@ const myTheme = (variant) => {
   }
 };
 export default function drawer_page() {
+  const {VariantContext } = useTheme();
+  const variant = useContext(VariantContext);
+
   return (
     <div className="container">
       <main>
         <h2>Navigation drawer</h2>
         <BlockComponentCanvas showGrid={true}>
-          <MT theme={myTheme}>
+          <MT theme={myTheme} variant={variant}>
             <NavigationDrawer className="primary"
                               header={<div style={{padding: "1rem", textAlign: "center"}}>
                                 Header

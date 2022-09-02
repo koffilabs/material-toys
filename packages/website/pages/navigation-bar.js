@@ -18,35 +18,13 @@ import {
   DeleteIcon,
 } from "@material-toys/icons-react";
 import classes from "./navigation-bar.module.scss";
-import {
-  material_tokens,
-  material_tokens_polyfill,
-} from "@material-toys/common/dist/common.esm";
-import React from "react";
-import {zoomIn, fadeIn, circleReveal, rectReveal} from "@material-toys/react";
+import React, {useContext} from "react";
+import {zoomIn, fadeIn, circleReveal, rectReveal, useTheme} from "@material-toys/react";
 
-const myTheme = (variant) => {
-  return {
-    components: {
-      NavigationItem: {
-        ".primary &": {
-          // backgroundColor: tokens[`MdSysColorSurface${variant}`],
-          backgroundColor: "transparent",
-        },
-      },
-      NavigationDrawer: {
-        "&.primary": {
-          backgroundColor: tokens[`MdSysColorSurface${variant}`],
-          // backgroundColor: "red",
-        },
-      }
-    }
-  }
-};
 
-const tokens = {...material_tokens_polyfill, ...material_tokens};
 export default function NavBar() {
-  const router = useRouter();
+  const {VariantContext } = useTheme();
+  const variant = useContext(VariantContext);
 
   const navigationBarItems = [
     {
@@ -82,7 +60,7 @@ export default function NavBar() {
     <div className="container">
       <main>
         <h2>Navigation bar</h2>
-        <MT>
+        <MT variant={variant}>
           <div style={{display: "flex", flex: 1, flexDirection: "column"}}>
             <BlockComponentCanvas showGrid={true}>
               <div className={classes["bar-container"]}>
