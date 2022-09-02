@@ -94,7 +94,6 @@ import {
 // ...    
 <MT>
   <div style={{ display: "flex", flex: 1, flexDirection: "column" }}>
-    <BlockComponentCanvas showGrid={true}>
       <div className={classes["bar-container"]}>
         <TopAppBar
           navigationIcon={<MenuIcon />}
@@ -138,7 +137,6 @@ import {
           ]}
         />
       </div>
-    </BlockComponentCanvas>
   </div>
 </MT>
 `}></CodeBlock>
