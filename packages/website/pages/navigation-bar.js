@@ -3,7 +3,6 @@ import {
   NavigationBarItem,
   NavigationBar,
 } from "@material-toys/react";
-import {useRouter} from "next/router";
 import {BlockComponentCanvas} from "../components/BlockComponentCanvas";
 import {CodeBlock} from "../components/CodeBlock";
 
@@ -22,7 +21,7 @@ import React, {useContext} from "react";
 import {zoomIn, fadeIn, circleReveal, rectReveal, useTheme} from "@material-toys/react";
 
 
-export default function NavBar() {
+export default function navigation_bar() {
   const {VariantContext } = useTheme();
   const variant = useContext(VariantContext);
 
