@@ -28,8 +28,8 @@ export default ({
   const [transitionClass, setTransitionClass] = useState("");
   const routes = [
     {i: <HomeIcon />, l: "Material Toys", r: "/"},
-    {i: <BoltIcon />, l: "Getting Started", r: "/getting-started"},
-    {i: <InfoIcon />, l: "About", r: "/"},
+    // {i: <BoltIcon />, l: "Getting Started", r: "/getting-started"},
+    // {i: <InfoIcon />, l: "About", r: "/"},
     {l: "Button", r: "/button"},
     {l: "FAB", r: "/fab"},
     {l: "Extended FAB", r: "/extended-fab"},
@@ -108,7 +108,7 @@ export default ({
                           mode={navMode}
         >
           {
-            routes.slice(0, 3).map((route, index) => <NavigationItem
+            routes.slice(0, 1).map((route, index) => <NavigationItem
               icon={route.i}
               key={route.l}
               divider={index === 2}
