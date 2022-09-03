@@ -124,7 +124,7 @@ export default ({
           <div className="primary">
             <NavigationHeadline>Components</NavigationHeadline>
           {
-            routes.slice(3).map((route, index) => <NavigationItem
+            routes.slice(1).map((route, index) => <NavigationItem
               key={route.l}
               onClick={() => {
                   navigateTo(`${route.r}`);
