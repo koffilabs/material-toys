@@ -6,8 +6,8 @@ import {
   OutlinedLightModeIcon,
   HomeIcon,
   MenuIcon,
-  InfoIcon,
-  BoltIcon
+  // InfoIcon,
+  // BoltIcon
 } from "@material-toys/icons-react";
 import {
   NavigationDrawer, TopAppBar, Surface, NavigationHeadline, NavigationItem,
