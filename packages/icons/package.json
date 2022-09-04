@@ -18,8 +18,7 @@
     "url": "git+https://github.com/koffilabs/material-toys.git"
   },
   "scripts": {
-    "generate": "scripts/generateIcons.js",
-    "build": "rollup -c ./rollup.config.js"
+    "generate": "scripts/generateIcons.js"
   },
   "bugs": {
     "url": "https://github.com/koffilabs/material-toys/issues"

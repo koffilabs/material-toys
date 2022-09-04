@@ -9,7 +9,7 @@ import { css } from "@emotion/css";
 import { applyReactiveStyle, m3 } from "@material-toys/common";
 import { useTheme } from "../hooks/useTheme";
 import { NavigationBarItem } from "./NavigationBarItem";
-import { merge } from "lodash";
+import merge from "lodash-es/merge";
 
 interface NavigationBarArgs {
   children?: ReactNode;

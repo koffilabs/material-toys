@@ -45,39 +45,3 @@ $accent-color: hsl(330, 90%, 30%);
     margin: 1rem auto 0;
   }
 }
-.topbar {
-  padding: 3rem;
-  //position: absolute;
-  background: $accent-color;
-  width: 100%;
-  //border-bottom: 1px solid #ccc;
-  a{
-    color: #fff;
-    text-decoration: none;
-
-  }
-  svg{
-    path {
-      fill: #fff;
-    }
-    rect {
-      stroke: #fff;
-      fill: none;
-    }
-  }
-  .container{
-    display: flex;
-    nav{
-      color:#fff;
-      margin-left: auto;
-      ul{
-        list-style: none;
-        font:1rem "Roboto", sans-serif;
-        li{
-          display:inline-block;
-          margin: 0 1rem;
-        }
-      }
-    }
-  }
-}

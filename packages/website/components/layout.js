@@ -6,15 +6,15 @@ import {
   OutlinedLightModeIcon,
   HomeIcon,
   MenuIcon,
-  InfoIcon,
-  BoltIcon
+  // InfoIcon,
+  // BoltIcon
 } from "@material-toys/icons-react";
 import {
   NavigationDrawer, TopAppBar, Surface, NavigationHeadline, NavigationItem,
 } from "@material-toys/react";
 import {useMatchMedia, MOBILE, TABLET} from "@material-toys/react";
 import {useRouter} from "next/router";
-import Logo from "../pages/components/Logo";
+import Logo from "../components/Logo";
 import {useSwipeable} from "react-swipeable";
 
 export default ({
@@ -28,8 +28,8 @@ export default ({
   const [transitionClass, setTransitionClass] = useState("");
   const routes = [
     {i: <HomeIcon />, l: "Material Toys", r: "/"},
-    {i: <BoltIcon />, l: "Getting Started", r: "/getting-started"},
-    {i: <InfoIcon />, l: "About", r: "/"},
+    // {i: <BoltIcon />, l: "Getting Started", r: "/getting-started"},
+    // {i: <InfoIcon />, l: "About", r: "/"},
     {l: "Button", r: "/button"},
     {l: "FAB", r: "/fab"},
     {l: "Extended FAB", r: "/extended-fab"},
@@ -108,7 +108,7 @@ export default ({
                           mode={navMode}
         >
           {
-            routes.slice(0, 3).map((route, index) => <NavigationItem
+            routes.slice(0, 1).map((route, index) => <NavigationItem
               icon={route.i}
               key={route.l}
               divider={index === 2}
@@ -124,7 +124,7 @@ export default ({
           <div className="primary">
             <NavigationHeadline>Components</NavigationHeadline>
           {
-            routes.slice(3).map((route, index) => <NavigationItem
+            routes.slice(1).map((route, index) => <NavigationItem
               key={route.l}
               onClick={() => {
                   navigateTo(`${route.r}`);

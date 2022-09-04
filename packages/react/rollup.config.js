@@ -9,6 +9,7 @@ import esbuild from "rollup-plugin-esbuild";
 
 import pkg from "./package.json";
 import typescript from "@rollup/plugin-typescript";
+import analyzer from "rollup-plugin-analyzer";
 
 export default [
   {
@@ -38,6 +39,7 @@ export default [
       }),
       // postcss(),
       terser(),
+      analyzer()
     ],
   }
 ];
