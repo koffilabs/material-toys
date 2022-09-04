@@ -73,58 +73,6 @@ export default function fab_page() {
             Compose
           </FAB>
               `}></CodeBlock>
-        <div>
-          <Card className="elevated">
-            <div className="someContent">
-              <h3>Title - Elevated</h3>
-              <h5>Subhead</h5>
-              Use a card to display content and actions on a single topic.
-              Cards should be easy to scan for relevant information.
-            </div>
-          </Card>
-          <Card className="filled">
-            <div className="someContent">
-              <h3>Title - Elevated</h3>
-              <h5>Subhead</h5>
-              Use a card to display content and actions on a single topic.
-              Cards should be easy to scan for relevant information.
-            </div>
-          </Card>
-          <Card className="outlined">
-            <div className="someContent">
-              <h3>Title - Elevated</h3>
-              <h5>Subhead</h5>
-              Use a card to display content and actions on a single topic.
-              Cards should be easy to scan for relevant information.
-            </div>
-          </Card>
-        </div>
-        <Grid>
-          <Card className="elevated col-lg-3 col-12 col-sm-6">
-            <div className="someContent">
-              <h3>Title - Elevated</h3>
-              <h5>Subhead</h5>
-              Use a card to display content and actions on a single topic.
-              Cards should be easy to scan for relevant information.
-            </div>
-          </Card>
-          <Card className="filled col-lg-3 col-12 col-sm-6">
-            <div className="someContent">
-              <h3>Title - Filled</h3>
-              <h5>Subhead</h5>
-              Use a card to display content and actions on a single topic.
-              Cards should be easy to scan for relevant information.
-            </div>
-          </Card>
-          <Card className="outlined col-lg-3 col-12">
-            <div className="someContent">
-              <h3>Title - Outlined</h3>
-              <h5>Subhead</h5>
-              Use a card to display content and actions on a single topic.
-              Cards should be easy to scan for relevant information.
-            </div>
-          </Card>
-        </Grid>
       </main>
       <FAB
         style={{position: "fixed", right: "16px", bottom: "16px"}}
@@ -133,25 +81,6 @@ export default function fab_page() {
       >
         Compose
       </FAB>
-      <style jsx>{`
-        .someContent {
-          font-family: "Roboto", sans-serif;
-          padding: 16px 0;
-          // width: "200px",
-          font-size: .75rem;
-
-          h3 {
-            margin: 0;
-          }
-
-          h5 {
-            margin: .2rem 0 1rem 0;
-          }
-        }
-
-        )
-
-      `}</style>
     </div>
   );
 }
