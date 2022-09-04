@@ -43,9 +43,12 @@
     "@emotion/css": "^11.5.0",
     "@emotion/react": "^11.6.0",
     "@material-toys/common": "^0.1.14",
+    "@types/lodash-es": "^4.17.6",
+    "lodash-es": "^4.17.21",
     "postcss": "^8.4.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "rollup-plugin-analyzer": "^4.0.0"
   },
   "gitHead": "353f91139212a60a63e419c6dc476148a545390d"
 }

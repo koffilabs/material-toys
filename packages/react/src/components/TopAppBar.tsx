@@ -4,7 +4,7 @@ import { DESKTOP, LAPTOP, useMatchMedia } from "../hooks/useMatchMedia";
 import { css } from "@emotion/css";
 import { applyReactiveStyle, m3 } from "@material-toys/common";
 import { useTheme } from "../hooks/useTheme";
-import { merge } from "lodash";
+import merge from "lodash-es/merge";
 
 interface TopAppBarProps {
   type?: "center-aligned" | "small" | "medium" | "large";

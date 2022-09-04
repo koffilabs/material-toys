@@ -3,7 +3,7 @@ import { css } from "@emotion/css";
 import { applyReactiveStyle, m3 } from "@material-toys/common";
 import { useTheme } from "../hooks/useTheme";
 import { Ripple } from "./Ripple";
-import { merge } from "lodash";
+import merge from "lodash-es/merge";
 
 interface ButtonProps {
   icon: any;

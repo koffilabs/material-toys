@@ -13,7 +13,7 @@ import { applyReactiveStyle, m3 } from "@material-toys/common";
 import { useTheme } from "../hooks/useTheme";
 import { NavigationItem } from "./NavigationItem";
 import { Ripple } from "./Ripple";
-import { merge } from "lodash";
+import merge from "lodash-es/merge";
 const scrim = css({
   position: "fixed",
   top: 0,
