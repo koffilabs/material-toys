@@ -14,7 +14,7 @@ import {
 } from "@material-toys/react";
 import {useMatchMedia, MOBILE, TABLET} from "@material-toys/react";
 import {useRouter} from "next/router";
-import Logo from "../pages/components/Logo";
+import Logo from "../components/Logo";
 import {useSwipeable} from "react-swipeable";
 
 export default ({
