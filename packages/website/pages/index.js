@@ -15,7 +15,7 @@ export default function Index() {
       <code className={classes.commands}>
         yarn add @material-toys/react
       </code>
-      <CodeBlock code={`import { MT, Button} from "@material-toys/react";!
+      <CodeBlock code={`import { MT, Button} from "@material-toys/react";
 function App() {
   return (
       <MT>

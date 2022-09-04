@@ -24,7 +24,7 @@ export default [
       },
       {
         file: pkg.module,
-        format: "esm",
+        format: "es",
         sourcemap: process.env.NODE_ENV !== "production",
       },
     ],
