@@ -4,18 +4,17 @@ import esbuild from "rollup-plugin-esbuild";
 process.stdin.removeAllListeners("end");
 
 export default [
-  // browser-friendly UMD build
   {
     input: "src/main.ts",
-    output: {
-      name: "bundle",
-      file: pkg.browser,
-      format: "umd",
-      sourcemap: process.env.NODE_ENV !== "production",
-    },
+    // output: {
+    //   name: "bundle",
+    //   file: pkg.browser,
+    //   format: "umd",
+    //   sourcemap: false,//process.env.NODE_ENV !== "production",
+    // },
     plugins: [
       // babel({ babelHelpers: "bundled" }),
-      esbuild(), // so Rollup can find `ms`
+      esbuild(),
     ],
   },
 
@@ -31,7 +30,7 @@ export default [
       // babel({ babelHelpers: "bundled" }),
       esbuild({
         minify: process.env.NODE_ENV === "production",
-      }), // so Rollup can find `ms`
+      }),
     ],
     output: [
       {
@@ -41,8 +40,11 @@ export default [
       },
       {
         file: pkg.module,
-        format: "es",
+        // dir: "dist",
+        format: "esm",
         sourcemap: process.env.NODE_ENV !== "production",
+        // preserveModules: true,
+
       },
     ],
   },

@@ -7,3 +7,4 @@ export { breakpoints } from "./m3/breakpoints";
 export { useRipple } from "./ripple";
 export * as material_tokens from "./m3/default/tokens";
 export * as material_tokens_polyfill from "./m3/default/polyfill";
+export const commonProbe = 13;

@@ -24,7 +24,7 @@ export default [
       },
       {
         file: pkg.module,
-        format: "es",
+        format: "esm",
         sourcemap: process.env.NODE_ENV !== "production",
       },
     ],
@@ -35,10 +35,10 @@ export default [
       typescript({ tsconfig: "./tsconfig.json" }),
       esbuild({
         include: [/\.tsx?$/, /\.vue\?.*?lang=ts/],
-        minify: process.env.NODE_ENV === "production",
+        minify: false,//process.env.NODE_ENV === "production",
       }),
       // postcss(),
-      terser(),
+      // terser(),
       analyzer()
     ],
   }

@@ -28,3 +28,4 @@ export { NavigationHeadline } from "./components/NavigationHeadline";
 export { useTheme } from "./hooks/useTheme";
 // export {useTheme};
 export { MT } from "./components/MT";
+export const probe = 42;

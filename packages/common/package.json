@@ -3,8 +3,8 @@
   "version": "0.1.16",
   "main": "dist/common.cjs.js",
   "module": "dist/common.esm.js",
-  "browser": "dist/common.umd.js",
   "types": "dist/dts/main.d.ts",
+  "sideEffects": false,
   "files": [
     "dist"
   ],
