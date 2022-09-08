@@ -13,7 +13,7 @@ export {
   LAPTOP,
   DESKTOP,
 } from "./hooks/useMatchMedia";
-
+//
 export {
   slideDown,
   zoomIn,
@@ -24,8 +24,6 @@ export {
 export { NavigationDrawer } from "./components/NavigationDrawer";
 export { NavigationBar } from "./components/NavigationBar";
 export { NavigationHeadline } from "./components/NavigationHeadline";
-// const {useTheme} = require("./hooks/useTheme");
 export { useTheme } from "./hooks/useTheme";
-// export {useTheme};
 export { MT } from "./components/MT";
 export const probe = 42;

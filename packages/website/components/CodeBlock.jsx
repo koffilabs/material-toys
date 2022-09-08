@@ -1,4 +1,4 @@
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { darcula as theme } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 // import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx';
 // SyntaxHighlighter.registerLanguage('jsx', jsx);

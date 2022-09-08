@@ -1,21 +1,12 @@
 import Head from "next/head";
-import {EditIcon, AddIcon} from "@material-toys/icons-react";
-import {MT, Button, Card, FAB, Grid} from "@material-toys/react";
+import {AddIcon} from "@material-toys/icons-react";
+import {Button,} from "@material-toys/react";
 
-import {useEffect, useState} from "react";
+// import {useEffect, useState} from "react";
 import {BlockComponentCanvas} from "../components/BlockComponentCanvas";
 import {CodeBlock} from "../components/CodeBlock";
 
 export default function button_page() {
-  const [isExtended, setExtended] = useState(true);
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setExtended((isExtended) => !isExtended);
-  //   }, 2000);
-  //   return () => {
-  //     clearInterval(interval);
-  //   };
-  // }, []);
   return (
     <div className="container">
       <main>

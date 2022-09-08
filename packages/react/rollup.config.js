@@ -20,7 +20,7 @@ export default [
         file: pkg.main,
         format: "cjs",
         sourcemap: process.env.NODE_ENV !== "production",
-        name: "material-toys",
+        // name: "material-toys",
       },
       {
         file: pkg.module,
@@ -29,17 +29,21 @@ export default [
       },
     ],
     plugins: [
-      external(),
-      resolve(),
-      commonjs(),
-      typescript({ tsconfig: "./tsconfig.json" }),
-      esbuild({
-        include: [/\.tsx?$/, /\.vue\?.*?lang=ts/],
-        minify: false,//process.env.NODE_ENV === "production",
+      // external(),
+      resolve({
+        // dedupe: ["@material-toys/common"]
       }),
+      // commonjs(),
+      // typescript({ tsconfig: "./tsconfig.json" }),
+      esbuild(
+        // {
+        // include: [/\.tsx?$/, /\.vue\?.*?lang=ts/],
+        // minify: process.env.NODE_ENV === "production",
+      // }
+      ),
       // postcss(),
       // terser(),
-      analyzer()
+      // analyzer()
     ],
   }
 ];

@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
     "baseUrl": "src",
+    "lib": [
+      "esnext",
+      "dom"
+    ],
     "paths": {
       "test-utils": ["./utils/test-utils"]
     },
