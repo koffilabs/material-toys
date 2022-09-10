@@ -26,4 +26,3 @@ export { NavigationBar } from "./components/NavigationBar";
 export { NavigationHeadline } from "./components/NavigationHeadline";
 export { useTheme } from "./hooks/useTheme";
 export { MT } from "./components/MT";
-export const probe = 42;
