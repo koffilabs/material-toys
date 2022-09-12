@@ -6,6 +6,7 @@ import {
   OutlinedLightModeIcon,
   HomeIcon,
   MenuIcon,
+  PaletteIcon
   // InfoIcon,
   // BoltIcon
 } from "@material-toys/icons-react";
@@ -28,6 +29,7 @@ export default ({
   const [transitionClass, setTransitionClass] = useState("");
   const routes = [
     {i: <HomeIcon />, l: "Material Toys", r: "/"},
+    {i: <PaletteIcon />, l: "Theming", r: "/theming"},
     // {i: <BoltIcon />, l: "Getting Started", r: "/getting-started"},
     // {i: <InfoIcon />, l: "About", r: "/"},
     {l: "Button", r: "/button"},
@@ -108,10 +110,10 @@ export default ({
                           mode={navMode}
         >
           {
-            routes.slice(0, 1).map((route, index) => <NavigationItem
+            routes.slice(0, 2).map((route, index) => <NavigationItem
               icon={route.i}
               key={route.l}
-              divider={index === 2}
+              divider={false}
 
               onClick={() => {
                   navigateTo(`${route.r}`);
@@ -124,7 +126,7 @@ export default ({
           <div className="primary">
             <NavigationHeadline>Components</NavigationHeadline>
           {
-            routes.slice(1).map((route, index) => <NavigationItem
+            routes.slice(2).map((route, index) => <NavigationItem
               key={route.l}
               onClick={() => {
                   navigateTo(`${route.r}`);

@@ -15,6 +15,10 @@ export default function Index() {
       <code className={classes.commands}>
         yarn add @material-toys/react
       </code>
+      <BlockComponentCanvas showGrid={true}>
+        <Button>Hello World!</Button>
+      </BlockComponentCanvas>
+
       <CodeBlock code={`import { MT, Button} from "@material-toys/react";
 function App() {
   return (
@@ -26,10 +30,6 @@ function App() {
 
 export default App;
 `}></CodeBlock>
-      <BlockComponentCanvas showGrid={true}>
-        <Button>Hello World!</Button>
-      </BlockComponentCanvas>
-
     </div>
   );
 }
