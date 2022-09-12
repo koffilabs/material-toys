@@ -17,6 +17,7 @@ import {useMatchMedia, MOBILE, TABLET} from "@material-toys/react";
 import {useRouter} from "next/router";
 import Logo from "../components/Logo";
 import {useSwipeable} from "react-swipeable";
+import Link from "next/link";
 
 export default ({
                   tokens,
@@ -132,7 +133,7 @@ export default ({
                   navigateTo(`${route.r}`);
                 }}
               >
-                <a>{route.l}</a>
+              <Link href={`${route.r}`}><a>{route.l}</a></Link>
               </NavigationItem>
             )
           }
