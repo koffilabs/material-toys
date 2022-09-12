@@ -59,7 +59,6 @@ export default function Theming() {
 import {material_tokens} from "@material-toys/common";
 const tokens = {...material_tokens, MdSysColorPrimary: "white", MdSysColorSurface: "red"};
 function App() {
-
   return (
       <MT tokens={tokens}>
         <Button>Hello World!</Button>
@@ -116,7 +115,7 @@ const myTheme = (variant) => {
     }
   };
 };
-
+function App() {
   return (
       <MT theme={myTheme}>
         <Button>Hello World!</Button>
