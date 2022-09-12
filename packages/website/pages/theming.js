@@ -4,7 +4,8 @@ import {CodeBlock} from "../components/CodeBlock";
 import {Button, MT, NavigationBar, NavigationBarItem} from "@material-toys/react";
 import {material_tokens} from "@material-toys/common";
 import React from "react";
-import { HomeIcon } from "@material-toys/icons-react";
+import {HomeIcon} from "@material-toys/icons-react";
+
 const tokens = {...material_tokens, MdSysColorPrimary: "white", MdSysColorSurface: "red"};
 const myTheme = (variant) => {
   // variant can be "Light" (default) or "Dark"
@@ -30,14 +31,28 @@ export default function Theming() {
       <BlockComponentCanvas showGrid={true}>
         <MT tokens={tokens}>
           <Button>Hello World!</Button>
-          <NavigationBar labels={"show"} activeItem={0}>
-            <NavigationBarItem
-              activeIcon={<HomeIcon size={24} />}
-              icon={<HomeIcon size={24} />}
-            >
-              <a>Hello</a>
-            </NavigationBarItem>
-          </NavigationBar>
+          <div style={{width: "500px"}}>
+            <NavigationBar labels={"show"} activeItem={0}>
+              <NavigationBarItem
+                activeIcon={<HomeIcon size={24}/>}
+                icon={<HomeIcon size={24}/>}
+              >
+                <a>Hello</a>
+              </NavigationBarItem>
+              <NavigationBarItem
+                activeIcon={<HomeIcon size={24}/>}
+                icon={<HomeIcon size={24}/>}
+              >
+                <a>Material</a>
+              </NavigationBarItem>
+              <NavigationBarItem
+                activeIcon={<HomeIcon size={24}/>}
+                icon={<HomeIcon size={24}/>}
+              >
+                <a>Toys</a>
+              </NavigationBarItem>
+            </NavigationBar>
+          </div>
         </MT>
       </BlockComponentCanvas>
       <CodeBlock code={`import { MT, Button, NavigationBar, NavigationBarItem} from "@material-toys/react";
@@ -56,18 +71,33 @@ function App() {
 export default App;
 `}></CodeBlock>
       <h2>2. Change the component theme, with or without tokens</h2>
-      <p>This approach allows a more fine-grained styling and will change only the components targeted by the style rules (the elevated button, in this case).</p>
+      <p>This approach allows a more fine-grained styling and will change only the components targeted by the style
+        rules (the elevated button, in this case).</p>
       <BlockComponentCanvas showGrid={true}>
         <MT theme={myTheme}>
           <Button>Hello World!</Button>
-          <NavigationBar labels={"show"} activeItem={0}>
-                  <NavigationBarItem
-                    activeIcon={<HomeIcon size={24} />}
-                    icon={<HomeIcon size={24} />}
-                  >
-                    <a>Hello</a>
-                  </NavigationBarItem>
-          </NavigationBar>
+          <div style={{width: "500px"}}>
+            <NavigationBar labels={"show"} activeItem={0}>
+              <NavigationBarItem
+                activeIcon={<HomeIcon size={24}/>}
+                icon={<HomeIcon size={24}/>}
+              >
+                <a>Hello</a>
+              </NavigationBarItem>
+              <NavigationBarItem
+                activeIcon={<HomeIcon size={24}/>}
+                icon={<HomeIcon size={24}/>}
+              >
+                <a>Material</a>
+              </NavigationBarItem>
+              <NavigationBarItem
+                activeIcon={<HomeIcon size={24}/>}
+                icon={<HomeIcon size={24}/>}
+              >
+                <a>Toys</a>
+              </NavigationBarItem>
+            </NavigationBar>
+          </div>
         </MT>
       </BlockComponentCanvas>
       <CodeBlock code={`import { MT, Button, NavigationBar, NavigationBarItem} from "@material-toys/react";
