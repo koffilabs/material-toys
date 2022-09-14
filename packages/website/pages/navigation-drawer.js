@@ -50,7 +50,7 @@ export default function drawer_page() {
                                 Header
                               </div>}
                               activeItem={0}>
-              <NavigationItem
+              <NavigationItem onClick={() => {console.log("clicked!")}}
                 icon={<HomeIcon/>}>
                 <a>Material Toys</a>
               </NavigationItem>

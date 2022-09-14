@@ -29,6 +29,7 @@
     "@types/react-dom": "^18.0.6",
     "esbuild": "^0.14.9",
     "jest": "^27.4.5",
+    "lodash": "^4.17.21",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rollup": "^2.59.0",
@@ -47,8 +48,8 @@
     "@types/lodash-es": "^4.17.6",
     "lodash-es": "^4.17.21",
     "postcss": "^8.4.4",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "rollup-plugin-analyzer": "^4.0.0"
   },
   "gitHead": "353f91139212a60a63e419c6dc476148a545390d"
