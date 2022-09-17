@@ -56,9 +56,6 @@ describe("button style isolated unit tests suite", () => {
       Button({ ...tokens, MdSysColorPrimary: value }, {})["&.elevated"].fill
     ).toBe(value);
     expect(
-      Button({ ...tokens, MdSysColorPrimary: value }, {})["&.filled"].background
-    ).toBe(value);
-    expect(
       Button({ ...tokens, MdSysColorPrimary: value }, {})["&.outlined"].color
     ).toBe(value);
     expect(
@@ -89,11 +86,6 @@ describe("button style isolated unit tests suite", () => {
         "&:disabled"
       ].fill
     ).toBe("rgba(255, 255, 255, 0.38)");
-    expect(
-      Button({ ...tokens, MdSysColorPrimary: value }, {})["&.filled"][
-        "&:disabled"
-      ].backgroundColor
-    ).toBe("rgba(255, 255, 255, 0.12)");
     expect(
       Button({ ...tokens, MdSysColorPrimary: value }, {})["&.elevated"][
         "&:disabled"

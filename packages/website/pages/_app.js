@@ -5,7 +5,6 @@ import {MT} from "@material-toys/react";
 
 import {
   material_tokens,
-  material_tokens_polyfill,
 } from "@material-toys/common";
 
 const Layout = dynamic(
@@ -18,7 +17,7 @@ const Layout = dynamic(
   }
 );
 
-const tokens = {...material_tokens_polyfill, ...material_tokens};
+const tokens = {...material_tokens};
 // tokens.MdSysColorPrimaryContainer = tokens.MdSysColorSurface;
 
 

@@ -7,12 +7,11 @@ import {
   BoltIcon
 } from "@material-toys/icons-react";
 import {
-  material_tokens,
-  material_tokens_polyfill,
+  material_tokens
 } from "@material-toys/common";
 import classes from "./navigation-rail.module.scss";
 
-const tokens = {...material_tokens_polyfill, ...material_tokens};
+const tokens = {...material_tokens};
 
 import {
   Button,

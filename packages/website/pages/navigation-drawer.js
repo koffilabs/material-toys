@@ -8,10 +8,9 @@ import {
 } from "@material-toys/icons-react";
 import {
   material_tokens,
-  material_tokens_polyfill,
 } from "@material-toys/common";
 
-const tokens = {...material_tokens_polyfill, ...material_tokens};
+const tokens = {...material_tokens};
 
 import {
   MT, NavigationDrawer, NavigationItem, useTheme

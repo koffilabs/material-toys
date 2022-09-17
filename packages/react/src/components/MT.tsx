@@ -3,10 +3,9 @@ import { useTheme } from "../hooks/useTheme";
 
 import {
   material_tokens,
-  material_tokens_polyfill,
 } from "@material-toys/common";
 
-const defaultTokens = { ...material_tokens_polyfill, ...material_tokens };
+const defaultTokens = { ...material_tokens };
 
 interface AppProps {
   children: ReactNode;

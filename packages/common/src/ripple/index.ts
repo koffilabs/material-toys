@@ -3,6 +3,7 @@ interface RippleArguments {
   color?: string;
   element: HTMLElement;
 }
+
 const options: KeyframeAnimationOptions = {
   duration: 400,
   easing: "ease-in-out",
@@ -33,24 +34,25 @@ export const useRipple = () => {
         //  setTimeout workaround, remove when fixed
         setTimeout(() => {
           const anim = rippleElement.animate(
-            [{ opacity: 0.12 }, { opacity: 0 }],
+            [{opacity: 0.12}, {opacity: 0}],
             options
           );
           anim.addEventListener(
             "finish",
             () => {
+              rippleElement.parentElement.style.clipPath = "";
               rippleElement.remove();
               rippleElement = null;
               outLock = false;
             },
-            { once: true }
+            {once: true}
           );
         }, 0);
       },
-      { once: true }
+      {once: true}
     );
   };
-  const ripple = ({ event, element }: RippleArguments) => {
+  const ripple = ({event, element}: RippleArguments) => {
     if (rippleElement) {
       return;
     }
@@ -61,7 +63,7 @@ export const useRipple = () => {
     const targetRect = (<HTMLElement>event.target).getBoundingClientRect();
     const x = event.offsetX + (targetRect.x - elementRect.x);
     const y = event.offsetY + (targetRect.y - elementRect.y);
-    const { target }: { target: EventTarget } = event;
+    const {target}: { target: EventTarget } = event;
     const oWidth: number = (<HTMLElement>element).offsetWidth;
     const oHeight: number = (<HTMLElement>element).offsetHeight;
 
@@ -82,6 +84,24 @@ export const useRipple = () => {
     rippleElement.style.width = `${side}px`;
     rippleElement.style.height = `${side}px`;
     rippleElement.style.borderRadius = `50%`;
+
+    // TODO: apply a clip path if the shape is cut
+    const borderImage = window.getComputedStyle(element).borderImage
+    if (borderImage) {
+      try {
+        const dataAttribute = "data-mt=\\\"";
+        const attrIndex = borderImage.indexOf(dataAttribute);
+        if (attrIndex !== -1) {
+          // const endIndex
+          const [topLeft, topRight, bottomRight, bottomLeft] = borderImage.substring(attrIndex + dataAttribute.length, borderImage
+            .indexOf("\\\"", attrIndex + dataAttribute.length + 1)).split(" ").map(n => +n);
+          element.style.clipPath = `path('M${topLeft},0h${oWidth - topRight - topLeft}l${topRight},${topRight}v${oHeight - topRight - bottomRight}l-${topRight},${bottomRight}h-${oWidth - bottomLeft - topRight}l-${bottomLeft},-${bottomRight}v-${oHeight - topLeft - bottomRight}z')`;
+          console.log("the element is", element)
+        }
+      } catch (e) {
+        console.error("Error generating the ripple clip data", e)
+      }
+    }
     // color && (rippleElement.style.background = `${color}`);
     // rippleElement.style.background = `red`;
     if (!rippleElement.parentElement) {
@@ -96,7 +116,7 @@ export const useRipple = () => {
           transform: "translate(-50%, -50%) scale(1)",
         },
       ],
-      { ...options, fill: "forwards" }
+      {...options, fill: "forwards"}
     );
     // rippleAnimation.addEventListener(
     //   "finish",
@@ -108,5 +128,5 @@ export const useRipple = () => {
     // );
     // element.style.background = color;
   };
-  return { ripple, rippleOut };
+  return {ripple, rippleOut};
 };

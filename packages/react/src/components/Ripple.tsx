@@ -23,7 +23,7 @@ export const Ripple = (
     }
     ripple({
       event: event.nativeEvent as PointerEvent,
-      element: event.currentTarget as HTMLElement,
+      element: (event.currentTarget.querySelector(".mt-shape") || event.currentTarget) as HTMLElement,
     });
   };
   const onPointerLeave = () => {

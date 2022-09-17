@@ -59,7 +59,7 @@ const exec = ({ dest, source: source, theme, width, height }) => {
             );
           }
         } else {
-          // console.log("standard property here", key, source[key]);
+          // standard property here
           dest[key] = source[key];
         }
         break;

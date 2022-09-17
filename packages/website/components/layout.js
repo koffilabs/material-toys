@@ -4,9 +4,10 @@ import classes from "./Layout.module.scss";
 import {
   OutlinedDarkModeIcon,
   OutlinedLightModeIcon,
-  HomeIcon,
+  OutlinedHomeIcon as HomeIcon,
   MenuIcon,
-  PaletteIcon
+  OutlinedPaletteIcon as PaletteIcon,
+  RoundedCornerIcon
   // InfoIcon,
   // BoltIcon
 } from "@material-toys/icons-react";
@@ -31,6 +32,7 @@ export default ({
   const routes = [
     {i: <HomeIcon />, l: "Material Toys", r: "/"},
     {i: <PaletteIcon />, l: "Theming", r: "/theming"},
+    {i: <RoundedCornerIcon />, l: "Shapes", r: "/shapes"},
     // {i: <BoltIcon />, l: "Getting Started", r: "/getting-started"},
     // {i: <InfoIcon />, l: "About", r: "/"},
     {l: "Button", r: "/button"},
@@ -111,7 +113,7 @@ export default ({
                           mode={navMode}
         >
           {
-            routes.slice(0, 2).map((route, index) => <NavigationItem
+            routes.slice(0, 3).map((route, index) => <NavigationItem
               icon={route.i}
               key={route.l}
               divider={false}
@@ -127,7 +129,7 @@ export default ({
           <div className="primary">
             <NavigationHeadline>Components</NavigationHeadline>
           {
-            routes.slice(2).map((route, index) => <NavigationItem
+            routes.slice(3).map((route, index) => <NavigationItem
               key={route.l}
               onClick={() => {
                   navigateTo(`${route.r}`);

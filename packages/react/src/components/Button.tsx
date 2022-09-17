@@ -46,9 +46,11 @@ export const Button = ({
   return (
     <Ripple>
       <button {...events} {...props} className={`${btn} ${className}`} disabled={disabled}>
-        <div className="state"/>
-        {icon}
-        <div>{children}</div>
+        <div className="mt-shape">
+          <div className="state"/>
+          {icon}
+          <div>{children}</div>
+        </div>
       </button>
     </Ripple>
   );
