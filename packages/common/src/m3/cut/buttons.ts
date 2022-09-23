@@ -1,4 +1,4 @@
-import {generateCutShape} from "../../util/shape";
+import {cutShape} from "../../util/shape";
 import {rgba} from "../../util/rgba";
 import {material_tokens} from "../../main";
 
@@ -18,7 +18,7 @@ export const cutElevatedButton = ({
     "& .mt-shape": {
       boxShadow: "none",
       backgroundColor: "transparent",
-      ...generateCutShape({
+      ...cutShape({
         shape,
         fill,
       }),
@@ -43,7 +43,7 @@ export const cutElevatedButton = ({
       // filter: `drop-shadow(0 2px 1px ${rgba(tokens.MdSysColorShadow, .4)})`,
     },
     "& .state": {
-      ...generateCutShape({
+      ...cutShape({
         shape,
         fill: stateFill
       })
@@ -58,7 +58,7 @@ export const cutFilledButton = ({
     transition: "filter .1s ease-in-out",
     filter: `drop-shadow(0 0px 0px ${rgba(material_tokens.MdSysColorShadow, .4)})`,
     "& .mt-shape": {
-      ...generateCutShape({shape, fill}),
+      ...cutShape({shape, fill}),
     },
 
     "&:hover:not(:disabled)": {
@@ -68,7 +68,7 @@ export const cutFilledButton = ({
       },
     },
     "& .state": {
-      ...generateCutShape({shape, fill: stateFill})
+      ...cutShape({shape, fill: stateFill})
     },
   },
 });
@@ -88,13 +88,13 @@ export const cutFilledTonalButton = ({
       },
     },
     ".mt-shape": {
-      ...generateCutShape({
+      ...cutShape({
         shape,
         fill
       }),
     },
     "& .state": {
-      ...generateCutShape({shape, fill })
+      ...cutShape({shape, fill })
     },
 
   },

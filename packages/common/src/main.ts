@@ -1,6 +1,6 @@
 export {spread, applyReactiveStyle} from "./util/style";
 export {rgba} from "./util/rgba";
-export {generateCutShape} from "./util/shape";
+export {cutShape, roundShape} from "./util/shape";
 export {theme} from "./themes/default";
 export {gridStyle} from "./m3/grid";
 export {applicationStyle} from "./m3/application";

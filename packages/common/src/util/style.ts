@@ -21,14 +21,12 @@ const exec = ({ dest, source: source, theme, width, height }) => {
   for (const key of Object.keys(source)) {
     switch (typeof source[key]) {
       case "function":
-        console.log("width is", width);
-        console.log("parsing a function", source[key]);
         if (typeof width !== "undefined") {
           dest[key] = source[key]({
             width: width,
             height: height,
           });
-          console.log("destination style", dest[key]);
+          // console.log("destination style", dest[key]);
         }
         // source[key] = source[key]({ theme });
         break;

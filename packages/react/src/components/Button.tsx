@@ -1,4 +1,4 @@
-import React, {MouseEventHandler, ReactNode, useContext} from "react";
+import React, {MouseEventHandler, ReactNode, useContext, useEffect, useRef, useState} from "react";
 import {css} from "@emotion/css";
 import {applyReactiveStyle, m3} from "@material-toys/common";
 import {useTheme} from "../hooks/useTheme";
@@ -34,18 +34,41 @@ export const Button = ({
   const variant: string = useContext(VariantContext);
   const theme = m3(tokens, {variant});
   const userTheme: any = useContext(ThemeFunctionContext);
+  const node = useRef(null);
+
+  let width: number, height: number;
+  const [btn, setBtnClass] = useState(
+    css(
+      applyReactiveStyle({
+        target: "components.Button",
+        theme: merge(theme, userTheme(variant))
+      })
+    )
+  );
   const events = {
     onClick, onMouseOver, onMouseDown, onMouseUp, onMouseOut,
-  }
-  const btn = css(
-    applyReactiveStyle({
-      target: "components.Button",
-      theme: merge(theme, userTheme(variant)),
-    })
-  );
+  };
+  useEffect(() => {
+    if (node?.current) {
+      ({width, height} = (
+        node.current as HTMLElement
+      ).getBoundingClientRect());
+      setBtnClass(
+        css(
+          applyReactiveStyle({
+            target: "components.Button",
+            theme: merge(theme, userTheme(variant)),
+            width,
+            height
+          })
+        ));
+    }
+
+
+  }, [node])
   return (
     <Ripple>
-      <button {...events} {...props} className={`${btn} ${className}`} disabled={disabled}>
+      <button ref={node} {...events} {...props} className={`${btn} ${className}`} disabled={disabled}>
         <div className="mt-shape">
           <div className="state"/>
           {icon}

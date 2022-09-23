@@ -1,9 +1,11 @@
-interface ShapeArgs {
+import {MdSysShapeCornerFull} from "../m3/default/polyfill";
+
+interface CutShapeArgs {
   shape: string;
   fill: string;
   stroke?: string;
 }
-export const generateCutShape = ({shape, fill, stroke = "transparent"}: ShapeArgs) => {
+export const cutShape = ({shape, fill, stroke = "transparent"}: CutShapeArgs) => {
   const [topLeft, topRight, bottomRight, bottomLeft] = shape.split(" ").map(n => +n);
   const side = 100;
   const max = Math.max(topRight, topLeft, bottomLeft, bottomRight);
@@ -17,4 +19,20 @@ export const generateCutShape = ({shape, fill, stroke = "transparent"}: ShapeArg
     borderStyle: "solid",
     borderImage
   };
+};
+interface RoundShapeArgs{
+  shape: string;
+}
+export const roundShape = ({shape}: RoundShapeArgs) => {
+  if(shape !== MdSysShapeCornerFull){
+    return `${shape.split(" ").join("px ")}px`
+  }else{
+    // should compute the border radius at runtime
+    return new Function(
+      "{ width, height }",
+      "return `${Math.min(width, height) / 2}px`"
+    );
+
+  }
+
 }
