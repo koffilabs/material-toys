@@ -1,4 +1,4 @@
-import { applyReactiveStyle, spread } from "./style";
+import { spread } from "./style";
 
 describe("util/style isolated unit tests suite", () => {
   test("should return color:red", () => {
