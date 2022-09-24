@@ -95,8 +95,7 @@ export const useRipple = () => {
           // const endIndex
           const [topLeft, topRight, bottomRight, bottomLeft] = borderImage.substring(attrIndex + dataAttribute.length, borderImage
             .indexOf("\\\"", attrIndex + dataAttribute.length + 1)).split(" ").map(n => +n);
-          element.style.clipPath = `path('M${topLeft},0h${oWidth - topRight - topLeft}l${topRight},${topRight}v${oHeight - topRight - bottomRight}l-${topRight},${bottomRight}h-${oWidth - bottomLeft - topRight}l-${bottomLeft},-${bottomRight}v-${oHeight - topLeft - bottomRight}z')`;
-          console.log("the element is", element)
+          element.style.clipPath = `path('M${topLeft},0h${oWidth - topRight - topLeft}l${topRight},${topRight}v${oHeight - topRight - bottomRight}l${-topRight},${bottomRight}h${-(oWidth - bottomLeft - topRight)}l${-bottomLeft},${-bottomRight}v${-(oHeight - topLeft - bottomRight)}z')`;
         }
       } catch (e) {
         console.error("Error generating the ripple clip data", e)

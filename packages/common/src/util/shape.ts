@@ -5,6 +5,7 @@ interface CutShapeArgs {
   fill: string;
   stroke?: string;
 }
+
 export const cutShape = ({shape, fill, stroke = "transparent"}: CutShapeArgs) => {
   const [topLeft, topRight, bottomRight, bottomLeft] = shape.split(" ").map(n => +n);
   const side = 100;
@@ -17,22 +18,23 @@ export const cutShape = ({shape, fill, stroke = "transparent"}: CutShapeArgs) =>
     borderRadius: 0,
     backgroundColor: "transparent",
     borderStyle: "solid",
-    borderImage
+    borderImage: shape !== MdSysShapeCornerFull ? borderImage : new Function(
+      "{ width, height }",
+      "const min = Math.min(width, height) / 2, side = Math.max(width, height); return `url('data:image/svg+xml;utf-8,<svg viewBox=\"0 0 ${side} ${side}\" xmlns=\"http://www.w3.org/2000/svg\" width=\"${side}\" ` +\n" +
+      "    `height=\"${side}\"><path data-mt=\"${min} ${min} ${min} ${min}\" stroke=\""+encodeURIComponent(stroke)+"\" fill=\""+encodeURIComponent(fill)+"\" d=\"M${min},0h${side - 2*min}l${min},${min}v${side - 2*min}l-${min},${min}h-${side - 2*min}l-${min},-${min}v-${side - 2*min}z\"/>` +\n" +
+      "    `</svg>') ${min} fill / ${min}px;`"
+    )
   };
 };
-interface RoundShapeArgs{
+
+interface RoundShapeArgs {
   shape: string;
 }
-export const roundShape = ({shape}: RoundShapeArgs) => {
-  if(shape !== MdSysShapeCornerFull){
-    return `${shape.split(" ").join("px ")}px`
-  }else{
-    // should compute the border radius at runtime
-    return new Function(
-      "{ width, height }",
-      "return `${Math.min(width, height) / 2}px`"
-    );
 
-  }
-
-}
+export const roundShape = ({shape}: RoundShapeArgs) => shape !== MdSysShapeCornerFull
+  ?
+  `${shape.split(" ").join("px ")}px`
+  : new Function(
+    "{ width, height }",
+    "return `${Math.min(width, height) / 2}px`"
+  )
