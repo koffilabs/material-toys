@@ -7,7 +7,7 @@ export default function Index() {
   return (
     <div className={classes.container}>
       <h1>Material Toys</h1>
-      <p>A material design 3 implementation for React</p>
+      <p>A Material Design 3 components library for React</p>
       <h2>Getting started</h2>
       <code className={classes.commands}>
         npm i @material-toys/react
@@ -30,6 +30,7 @@ function App() {
 
 export default App;
 `}></CodeBlock>
+    <footer>Made by Nicola Rizzo</footer>
     </div>
   );
 }

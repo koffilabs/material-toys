@@ -13,9 +13,14 @@ const myTheme = (variant) => {
     components: {
       Button: {
         "&.elevated": {
-          color: tokens[`MdSysColorPrimary${variant}`],
-          backgroundColor: "blue",
-        },
+          "& .mt-shape": {
+            color: tokens[`MdSysColorPrimary${variant}`],
+            backgroundColor: "blue",
+          },
+          ".ripple": {
+            backgroundColor: "white"
+          }
+        }
       }
     }
   };
