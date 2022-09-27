@@ -27,11 +27,11 @@ export const cutShape = ({shape, fill, stroke = "transparent"}: CutShapeArgs) =>
   };
 };
 
-interface RoundShapeArgs {
+interface RoundedShapeArgs {
   shape: string;
 }
 
-export const roundShape = ({shape}: RoundShapeArgs) => shape !== MdSysShapeCornerFull
+export const roundedShape = ({shape}: RoundedShapeArgs) => shape !== MdSysShapeCornerFull
   ?
   `${shape.split(" ").join("px ")}px`
   : new Function(

@@ -1,6 +1,6 @@
 import {rgba} from "../../util/rgba";
 import {M3Options} from "./index";
-import {roundShape} from "../../util/shape";
+import {roundedShape} from "../../util/shape";
 import {MdSysShapeCornerFull} from "./polyfill";
 
 const duration = ".1s";
@@ -30,7 +30,7 @@ export const Button = (tokens, options?: M3Options) => {
   color ${duration} ease-in-out`,
     "& .mt-shape": {
       position: "relative",
-      borderRadius: roundShape({shape: MdSysShapeCornerFull}),
+      borderRadius: roundedShape({shape: MdSysShapeCornerFull}),
       overflow: "hidden",
       paddingLeft: "24px",
       paddingRight: "24px",

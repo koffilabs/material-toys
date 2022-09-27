@@ -4,7 +4,7 @@ import {CodeBlock} from "../components/CodeBlock";
 import {Button, MT} from "@material-toys/react";
 import {material_tokens, cutElevatedButton, cutFilledButton, cutFilledTonalButton} from "@material-toys/common";
 import React from "react";
-import {roundShape, cutShape} from "@material-toys/common";
+import {roundedShape, cutShape} from "@material-toys/common";
 import {css} from "@emotion/css";
 
 const note = {
@@ -62,7 +62,7 @@ export default function Shapes() {
   }
   const roundNone = css({
     ...base,
-    borderRadius: roundShape({shape: material_tokens.MdSysShapeCornerNone})
+    borderRadius: roundedShape({shape: material_tokens.MdSysShapeCornerNone})
   });
   const cutNone = css({
     ...base,
@@ -70,7 +70,7 @@ export default function Shapes() {
   });
   const roundXSmall = css({
     ...base,
-    borderRadius: roundShape({shape: material_tokens.MdSysShapeCornerExtraSmall})
+    borderRadius: roundedShape({shape: material_tokens.MdSysShapeCornerExtraSmall})
   });
   const cutXSmall = css({
     ...base,
@@ -78,7 +78,7 @@ export default function Shapes() {
   });
   const roundSmall = css({
     ...base,
-    borderRadius: roundShape({shape: material_tokens.MdSysShapeCornerSmall})
+    borderRadius: roundedShape({shape: material_tokens.MdSysShapeCornerSmall})
   });
   const cutSmall = css({
     ...base,
@@ -86,7 +86,7 @@ export default function Shapes() {
   });
   const roundMedium = css({
     ...base,
-    borderRadius: roundShape({shape: material_tokens.MdSysShapeCornerMedium})
+    borderRadius: roundedShape({shape: material_tokens.MdSysShapeCornerMedium})
   });
   const cutMedium = css({
     ...base,
@@ -94,7 +94,7 @@ export default function Shapes() {
   });
   const roundLarge = css({
     ...base,
-    borderRadius: roundShape({shape: material_tokens.MdSysShapeCornerLarge})
+    borderRadius: roundedShape({shape: material_tokens.MdSysShapeCornerLarge})
   });
   const cutLarge = css({
     ...base,
@@ -102,7 +102,7 @@ export default function Shapes() {
   });
   const roundLargeEnd = css({
     ...base,
-    borderRadius: roundShape({shape: material_tokens.MdSysShapeCornerLargeEnd})
+    borderRadius: roundedShape({shape: material_tokens.MdSysShapeCornerLargeEnd})
   });
   const cutLargeEnd = css({
     ...base,
@@ -110,7 +110,7 @@ export default function Shapes() {
   });
   const roundLargeTop = css({
     ...base,
-    borderRadius: roundShape({shape: material_tokens.MdSysShapeCornerLargeTop})
+    borderRadius: roundedShape({shape: material_tokens.MdSysShapeCornerLargeTop})
   });
   const cutLargeTop = css({
     ...base,
@@ -118,7 +118,7 @@ export default function Shapes() {
   });
   const roundExtraLarge = css({
     ...base,
-    borderRadius: roundShape({shape: material_tokens.MdSysShapeCornerExtraLarge})
+    borderRadius: roundedShape({shape: material_tokens.MdSysShapeCornerExtraLarge})
   });
   const cutExtraLarge = css({
     ...base,
@@ -126,7 +126,7 @@ export default function Shapes() {
   });
   const roundFull = css({
     ...base,
-    borderRadius: roundShape({shape: "40 40 40 40"})
+    borderRadius: roundedShape({shape: "40 40 40 40"})
   });
   const cutFull = css({
     ...base,
@@ -134,7 +134,7 @@ export default function Shapes() {
   });
   const roundExtraLargeTop = css({
     ...base,
-    borderRadius: roundShape({shape: material_tokens.MdSysShapeCornerExtraLargeTop})
+    borderRadius: roundedShape({shape: material_tokens.MdSysShapeCornerExtraLargeTop})
   });
   const cutExtraLargeTop = css({
     ...base,
@@ -142,7 +142,7 @@ export default function Shapes() {
   });
   const roundXSmallTop = css({
     ...base,
-    borderRadius: roundShape({shape: material_tokens.MdSysShapeCornerExtraSmallTop})
+    borderRadius: roundedShape({shape: material_tokens.MdSysShapeCornerExtraSmallTop})
   });
   const cutXSmallTop = css({
     ...base,
@@ -153,11 +153,11 @@ export default function Shapes() {
       <h1>Shapes</h1>
       <p><a href="https://m3.material.io/styles/shape/shape-scale-tokens">Shape scale tokens</a> can be used to change
         a component shape.</p>
-      <p>The @material-toys/common package provides the helper functions roundShape and cutShape to apply these styles.</p>
+      <p>The @material-toys/common package provides the helper functions roundedShape and cutShape to apply these styles.</p>
       <BlockComponentCanvas showGrid={true}>
         <MT>
           <div className="block">
-            <div style={{...note, width: "150px"}}>Round</div>
+            <div style={{...note, width: "150px"}}>Rounded</div>
             <div style={{...note, width: "150px"}}>Cut</div>
           </div>
           <div style={block}>
