@@ -2,7 +2,7 @@
   "name": "@material-toys/react",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "types": "dist/main.d.ts",
   "sideEffects": false,
   "license": "MIT",
@@ -44,7 +44,7 @@
   "dependencies": {
     "@emotion/css": "^11.5.0",
     "@emotion/react": "^11.6.0",
-    "@material-toys/common": "^0.1.16",
+    "@material-toys/common": "^0.1.17",
     "@types/lodash-es": "^4.17.6",
     "lodash-es": "^4.17.21",
     "postcss": "^8.4.4",
