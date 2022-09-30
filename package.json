@@ -6,6 +6,7 @@
     "packages/*"
   ],
   "scripts": {
+    "publish": "lerna publish --no-private --force-publish",
     "dev": "lerna run --scope @material-toys/react dev",
     "serve": "lerna run --scope @material-toys/website serve"
   },
