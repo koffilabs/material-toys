@@ -36,6 +36,7 @@ export default ({
     // {i: <BoltIcon />, l: "Getting Started", r: "/getting-started"},
     // {i: <InfoIcon />, l: "About", r: "/"},
     {l: "Button", r: "/button"},
+    {l: "Text field", r: "/text-field"},
     {l: "FAB", r: "/fab"},
     {l: "Extended FAB", r: "/extended-fab"},
     {l: "Card", r: "/card"},

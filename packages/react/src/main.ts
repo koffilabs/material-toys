@@ -24,5 +24,6 @@ export {
 export { NavigationDrawer } from "./components/NavigationDrawer";
 export { NavigationBar } from "./components/NavigationBar";
 export { NavigationHeadline } from "./components/NavigationHeadline";
+export { FilledTextField } from "./components/FilledTextField";
 export { useTheme } from "./hooks/useTheme";
 export { MT } from "./components/MT";

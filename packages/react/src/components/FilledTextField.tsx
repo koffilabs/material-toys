@@ -16,7 +16,7 @@ interface FilledTextProps {
   onMouseOut?: MouseEventHandler;
 }
 
-export const Button = ({
+export const FilledTextField = ({
                          icon,
                          disabled = false,
                          children,
@@ -36,10 +36,10 @@ export const Button = ({
   const node = useRef(null);
 
   let width: number, height: number;
-  const [textInputClass, setTextInputClass] = useState(
+  const [textFieldClass, setTextFieldClass] = useState(
     css(
       applyReactiveStyle({
-        target: "components.Button",
+        target: "components.FilledTextField",
         theme: merge(theme, userTheme(variant))
       })
     )
@@ -52,10 +52,10 @@ export const Button = ({
       ({width, height} = (
         node.current as HTMLElement
     ).getBoundingClientRect());
-      setTextInputClass(
+      setTextFieldClass(
         css(
           applyReactiveStyle({
-            target: "components.FilledText",
+            target: "components.FilledTextField",
             theme: merge(theme, userTheme(variant)),
             width,
             height
@@ -66,11 +66,11 @@ export const Button = ({
 
   }, [node])
   return (
-      <div ref={node} {...events} {...props} className={`${textInputClass} ${className}`}>
+      <div ref={node} {...events} {...props} className={`${textFieldClass} ${className}`}>
         <div className="mt-shape">
           {icon}
           <input type="text" disabled={disabled}/>
-          <div>{children}</div>
+          <div className="activeIndicator"></div>
         </div>
       </div>
   );
