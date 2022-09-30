@@ -1,11 +1,10 @@
 import classes from "./index.module.scss";
 import {BlockComponentCanvas} from "../components/BlockComponentCanvas";
 import {CodeBlock} from "../components/CodeBlock";
-import {Button, MT} from "@material-toys/react";
+import {Button, MT, Surface} from "@material-toys/react";
 import {material_tokens, cutElevatedButton, cutFilledButton, cutFilledTonalButton} from "@material-toys/common";
 import React from "react";
 import {roundedShape, cutShape} from "@material-toys/common";
-import {css} from "@emotion/css";
 
 const note = {
   display: "inline-block",
@@ -22,6 +21,125 @@ const note = {
 const block = {
   flexBasis: "100%"
 }
+const shapesTheme = (variant) => {
+  // variant can be "Light" (default) or "Dark"
+  const fill = "#e8def7";
+
+  const baseClass = {
+    display: "inline-block",
+    marginRight: "2rem",
+    padding: "0",
+    width: "150px",
+    height: "80px",
+    lineHeight: "80px",
+    textAlign: "center",
+    backgroundColor: fill
+  }
+  return {
+    components: {
+      Surface: {
+        "&.roundFull": {
+          ...baseClass,
+          borderRadius: roundedShape({ shape: material_tokens.MdSysShapeCornerFull}),
+        },
+        "&.cutFull": {
+          ...baseClass,
+          ...cutShape({shape: material_tokens.MdSysShapeCornerFull, fill})
+        },
+        "&.roundExtraLargeTop": {
+          ...baseClass,
+          borderRadius: roundedShape({ shape: material_tokens.MdSysShapeCornerExtraLargeTop}),
+          fill: material_tokens[`MdSysColorSurface${variant}`],
+        },
+        "&.cutExtraLargeTop": {
+          ...baseClass,
+          ...cutShape({shape: material_tokens.MdSysShapeCornerExtraLargeTop, fill})
+        },
+        "&.roundLargeEnd": {
+          ...baseClass,
+          borderRadius: roundedShape({ shape: material_tokens.MdSysShapeCornerLargeEnd}),
+          fill: material_tokens[`MdSysColorSurface${variant}`],
+        },
+        "&.cutLargeEnd": {
+          ...baseClass,
+          ...cutShape({shape: material_tokens.MdSysShapeCornerLargeEnd, fill})
+        },
+        "&.roundLargeTop": {
+          ...baseClass,
+          borderRadius: roundedShape({ shape: material_tokens.MdSysShapeCornerLargeTop}),
+          fill: material_tokens[`MdSysColorSurface${variant}`],
+        },
+        "&.cutLargeTop": {
+          ...baseClass,
+          ...cutShape({shape: material_tokens.MdSysShapeCornerLargeTop, fill})
+        },
+        "&.roundLarge": {
+          ...baseClass,
+          borderRadius: roundedShape({ shape: material_tokens.MdSysShapeCornerLarge}),
+          fill: material_tokens[`MdSysColorSurface${variant}`],
+        },
+        "&.cutLarge": {
+          ...baseClass,
+          ...cutShape({shape: material_tokens.MdSysShapeCornerLarge, fill})
+        },
+        "&.roundSmall": {
+          ...baseClass,
+          borderRadius: roundedShape({ shape: material_tokens.MdSysShapeCornerSmall}),
+          fill: material_tokens[`MdSysColorSurface${variant}`],
+        },
+        "&.cutSmall": {
+          ...baseClass,
+          ...cutShape({shape: material_tokens.MdSysShapeCornerSmall, fill})
+        },
+        "&.roundXSmallTop": {
+          ...baseClass,
+          borderRadius: roundedShape({ shape: material_tokens.MdSysShapeCornerExtraSmallTop}),
+          fill: material_tokens[`MdSysColorSurface${variant}`],
+        },
+        "&.cutXSmallTop": {
+          ...baseClass,
+          borderRadius: roundedShape({ shape: material_tokens.MdSysShapeCornerExtraSmallTop}),
+        },
+        "&.roundXSmall": {
+          ...baseClass,
+          borderRadius: roundedShape({ shape: material_tokens.MdSysShapeCornerExtraSmall}),
+          fill: material_tokens[`MdSysColorSurface${variant}`],
+        },
+        "&.cutXSmall": {
+          ...baseClass,
+          borderRadius: roundedShape({ shape: material_tokens.MdSysShapeCornerExtraSmall}),
+        },
+        "&.roundNone": {
+          ...baseClass,
+          borderRadius: roundedShape({ shape: material_tokens.MdSysShapeCornerNone}),
+          fill: material_tokens[`MdSysColorSurface${variant}`],
+        },
+        "&.cutNone": {
+          ...baseClass,
+          borderRadius: roundedShape({ shape: material_tokens.MdSysShapeCornerNone}),
+        },
+        "&.roundMedium": {
+          ...baseClass,
+          borderRadius: roundedShape({ shape: material_tokens.MdSysShapeCornerMedium}),
+          fill: material_tokens[`MdSysColorSurface${variant}`],
+        },
+        "&.cutMedium": {
+          ...baseClass,
+          ...cutShape({shape: material_tokens.MdSysShapeCornerMedium, fill})
+        },
+        "&.roundExtraLarge": {
+          ...baseClass,
+          borderRadius: roundedShape({ shape: material_tokens.MdSysShapeCornerExtraLarge}),
+          fill: material_tokens[`MdSysColorSurface${variant}`],
+        },
+        "&.cutExtraLarge": {
+          ...baseClass,
+          ...cutShape({shape: material_tokens.MdSysShapeCornerExtraLarge, fill})
+        },
+      }
+    }
+  };
+};
 const myTheme = (variant) => {
   // variant can be "Light" (default) or "Dark"
   return {
@@ -49,9 +167,84 @@ const myTheme = (variant) => {
   };
 };
 export default function Shapes() {
+  return (
+    <div className={classes.container}>
+      <h1>Shapes</h1>
+      <p><a href="https://m3.material.io/styles/shape/shape-scale-tokens">Shape scale tokens</a> can be used to change
+        a component shape.</p>
+      <p>The @material-toys/common package provides the helper functions roundedShape and cutShape to apply these
+        styles.</p>
+      <BlockComponentCanvas showGrid={true}>
+        <MT theme={shapesTheme}>
+          <div className="block">
+            <div style={{...note, width: "150px"}}>Rounded</div>
+            <div style={{...note, width: "150px"}}>Cut</div>
+          </div>
+          <div style={block}>
+            <Surface className="roundNone">none</Surface>
+            <Surface className="cutNone">none</Surface>
+            <div style={note}>MdSysShapeCornerNone</div>
+          </div>
+          <div style={block}>
+            <Surface className="roundXSmall">x small</Surface>
+            <Surface className="cutXSmall">x small</Surface>
+            <div style={note}>MdSysShapeCornerExtraSmall</div>
+          </div>
+          <div style={block}>
+            <Surface className="roundXSmallTop">x small top</Surface>
+            <Surface className="cutXSmallTop">x small top</Surface>
+            <div style={note}>MdSysShapeCornerExtraSmallTop</div>
+          </div>
+          <div style={block}>
+            <Surface className="roundSmall">small</Surface>
+            <Surface className="cutSmall">small</Surface>
+            <div style={note}>MdSysShapeCornerSmall</div>
+          </div>
+          <div style={block}>
+            <Surface className="roundMedium">medium</Surface>
+            <Surface className="cutMedium">medium</Surface>
+            <div style={note}>MdSysShapeCornerMedium</div>
+          </div>
+          <div style={block}>
+            <Surface className="roundLarge">large</Surface>
+            <Surface className="cutLarge">large</Surface>
+            <div style={note}>MdSysShapeCornerLarge</div>
+          </div>
+          <div style={block}>
+            <Surface className="roundLargeEnd">large end</Surface>
+            <Surface className="cutLargeEnd">large end</Surface>
+            <div style={note}>MdSysShapeCornerLargeEnd</div>
+          </div>
+          <div style={block}>
+            <Surface className="roundLargeTop">large top</Surface>
+            <Surface className="cutLargeTop">large top</Surface>
+            <div style={note}>MdSysShapeCornerLargeTop</div>
+          </div>
+          <div style={block}>
+            <Surface className="roundExtraLarge">extra large</Surface>
+            <Surface className="cutExtraLarge">extra large</Surface>
+            <div style={note}>MdSysShapeCornerExtraLarge</div>
+          </div>
+          <div style={block}>
+            <Surface className="roundExtraLargeTop">extra large top</Surface>
+            <Surface className="cutExtraLargeTop">extra large top</Surface>
+            <div style={note}>MdSysShapeCornerExtraLargeTop</div>
+          </div>
+          <div style={block}>
+            <Surface className="roundFull">full</Surface>
+            <Surface className="cutFull">full</Surface>
+            <div style={note}>The MdSysShapeCornerFull token works only on MT components</div>
+          </div>
+        </MT>
+      </BlockComponentCanvas>
+      <CodeBlock code={`// this code sample only exploits the MdSysShapeCornerFull token 
+import { MT, Surface } from "@material-toys/react";
+import React from "react";
+import {material_tokens, roundedShape, cutShape} from "@material-toys/common";
+const shapesTheme = (variant) => {
   const fill = "#e8def7";
-  const base = {
-    background: fill,
+
+  const baseClass = {
     display: "inline-block",
     marginRight: "2rem",
     padding: "0",
@@ -59,166 +252,37 @@ export default function Shapes() {
     height: "80px",
     lineHeight: "80px",
     textAlign: "center",
-  }
-  const roundNone = css({
-    ...base,
-    borderRadius: roundedShape({shape: material_tokens.MdSysShapeCornerNone})
-  });
-  const cutNone = css({
-    ...base,
-    ...cutShape({shape: material_tokens.MdSysShapeCornerNone, fill})
-  });
-  const roundXSmall = css({
-    ...base,
-    borderRadius: roundedShape({shape: material_tokens.MdSysShapeCornerExtraSmall})
-  });
-  const cutXSmall = css({
-    ...base,
-    ...cutShape({shape: material_tokens.MdSysShapeCornerExtraSmall, fill})
-  });
-  const roundSmall = css({
-    ...base,
-    borderRadius: roundedShape({shape: material_tokens.MdSysShapeCornerSmall})
-  });
-  const cutSmall = css({
-    ...base,
-    ...cutShape({shape: material_tokens.MdSysShapeCornerSmall, fill})
-  });
-  const roundMedium = css({
-    ...base,
-    borderRadius: roundedShape({shape: material_tokens.MdSysShapeCornerMedium})
-  });
-  const cutMedium = css({
-    ...base,
-    ...cutShape({shape: material_tokens.MdSysShapeCornerMedium, fill})
-  });
-  const roundLarge = css({
-    ...base,
-    borderRadius: roundedShape({shape: material_tokens.MdSysShapeCornerLarge})
-  });
-  const cutLarge = css({
-    ...base,
-    ...cutShape({shape: material_tokens.MdSysShapeCornerLarge, fill})
-  });
-  const roundLargeEnd = css({
-    ...base,
-    borderRadius: roundedShape({shape: material_tokens.MdSysShapeCornerLargeEnd})
-  });
-  const cutLargeEnd = css({
-    ...base,
-    ...cutShape({shape: material_tokens.MdSysShapeCornerLargeEnd, fill})
-  });
-  const roundLargeTop = css({
-    ...base,
-    borderRadius: roundedShape({shape: material_tokens.MdSysShapeCornerLargeTop})
-  });
-  const cutLargeTop = css({
-    ...base,
-    ...cutShape({shape: material_tokens.MdSysShapeCornerLargeTop, fill})
-  });
-  const roundExtraLarge = css({
-    ...base,
-    borderRadius: roundedShape({shape: material_tokens.MdSysShapeCornerExtraLarge})
-  });
-  const cutExtraLarge = css({
-    ...base,
-    ...cutShape({shape: material_tokens.MdSysShapeCornerExtraLarge, fill})
-  });
-  const roundFull = css({
-    ...base,
-    borderRadius: roundedShape({shape: "40 40 40 40"})
-  });
-  const cutFull = css({
-    ...base,
-    ...cutShape({shape: "40 40 40 40", fill})
-  });
-  const roundExtraLargeTop = css({
-    ...base,
-    borderRadius: roundedShape({shape: material_tokens.MdSysShapeCornerExtraLargeTop})
-  });
-  const cutExtraLargeTop = css({
-    ...base,
-    ...cutShape({shape: material_tokens.MdSysShapeCornerExtraLargeTop, fill})
-  });
-  const roundXSmallTop = css({
-    ...base,
-    borderRadius: roundedShape({shape: material_tokens.MdSysShapeCornerExtraSmallTop})
-  });
-  const cutXSmallTop = css({
-    ...base,
-    ...cutShape({shape: material_tokens.MdSysShapeCornerExtraSmallTop, fill})
-  });
+    backgroundColor: fill
+  };
+  return {
+    components: {
+      Surface: {
+        "&.roundFull": {
+          ...baseClass,
+          borderRadius: roundedShape({ shape: material_tokens.MdSysShapeCornerFull}),
+        },
+        "&.cutFull": {
+          ...baseClass,
+          ...cutShape({shape: material_tokens.MdSysShapeCornerFull, fill})
+        },
+      }
+    }
+  };
+};
+function App() {
   return (
-    <div className={classes.container}>
-      <h1>Shapes</h1>
-      <p><a href="https://m3.material.io/styles/shape/shape-scale-tokens">Shape scale tokens</a> can be used to change
-        a component shape.</p>
-      <p>The @material-toys/common package provides the helper functions roundedShape and cutShape to apply these styles.</p>
-      <BlockComponentCanvas showGrid={true}>
-        <MT>
-          <div className="block">
-            <div style={{...note, width: "150px"}}>Rounded</div>
-            <div style={{...note, width: "150px"}}>Cut</div>
-          </div>
-          <div style={block}>
-            <div className={roundNone}>none</div>
-            <div className={cutNone}>none</div>
-            <div style={note}>MdSysShapeCornerNone</div>
-          </div>
-          <div style={block}>
-            <div className={roundXSmall}>x small</div>
-            <div className={cutXSmall}>x small</div>
-            <div style={note}>MdSysShapeCornerExtraSmall</div>
-          </div>
-          <div style={block}>
-            <div className={roundXSmallTop}>x small top</div>
-            <div className={cutXSmallTop}>x small top</div>
-            <div style={note}>MdSysShapeCornerExtraSmallTop</div>
-          </div>
-          <div style={block}>
-            <div className={roundSmall}>small</div>
-            <div className={cutSmall}>small</div>
-            <div style={note}>MdSysShapeCornerSmall</div>
-          </div>
-          <div style={block}>
-            <div className={roundMedium}>medium</div>
-            <div className={cutMedium}>medium</div>
-            <div style={note}>MdSysShapeCornerMedium</div>
-          </div>
-          <div style={block}>
-            <div className={roundLarge}>large</div>
-            <div className={cutLarge}>large</div>
-            <div style={note}>MdSysShapeCornerLarge</div>
-          </div>
-          <div style={block}>
-            <div className={roundLargeEnd}>large end</div>
-            <div className={cutLargeEnd}>large end</div>
-            <div style={note}>MdSysShapeCornerLargeEnd</div>
-          </div>
-          <div style={block}>
-            <div className={roundLargeTop}>large top</div>
-            <div className={cutLargeTop}>large top</div>
-            <div style={note}>MdSysShapeCornerLargeTop</div>
-          </div>
-          <div style={block}>
-            <div className={roundExtraLarge}>extra large</div>
-            <div className={cutExtraLarge}>extra large</div>
-            <div style={note}>MdSysShapeCornerExtraLarge</div>
-          </div>
-          <div style={block}>
-            <div className={roundExtraLargeTop}>extra large top</div>
-            <div className={cutExtraLargeTop}>extra large top</div>
-            <div style={note}>MdSysShapeCornerExtraLargeTop</div>
-          </div>
-          <div style={block}>
-            <div className={roundFull}>full</div>
-            <div className={cutFull}>full</div>
-            <div style={note}>The MdSysShapeCornerFull token works only on MT components</div>
-          </div>
-        </MT>
-      </BlockComponentCanvas>
+    <MT theme={shapesTheme}>
+      <div style={block}>
+        <Surface className="roundFull">full</Surface>
+        <Surface className="cutFull">full</Surface>
+      </div>
+    </MT>
+  );
+}
+
+`}></CodeBlock>
       <h2>Buttons shapes</h2>
-      <p>The common package provides helpers to obtain cut shaped buttons and retain the ripple effect.</p>
+      <p>The common package provides helpers to obtain cut shaped buttons and retain the ripple effect too.</p>
       <BlockComponentCanvas showGrid={true}>
         <MT theme={myTheme}>
           <Button>Elevated</Button>

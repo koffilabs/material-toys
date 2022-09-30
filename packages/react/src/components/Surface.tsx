@@ -1,27 +1,45 @@
-import React, { ReactNode, useContext } from "react";
+import React, {ReactNode, useContext, useEffect, useRef, useState} from "react";
 import { useTheme } from "../hooks/useTheme";
 import { applyReactiveStyle, m3 } from "@material-toys/common";
 import { css } from "@emotion/css";
+import merge from "lodash-es/merge";
 
 interface SurfaceProps {
   children: ReactNode;
+  className?: string;
   props: any;
 }
-export const Surface = ({ children, ...props }: SurfaceProps) => {
-  const { ThemeContext, VariantContext } = useTheme();
+export const Surface = ({ children, className, ...props }: SurfaceProps) => {
+  const {ThemeContext, VariantContext, ThemeFunctionContext} = useTheme();
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
   const theme = m3(tokens, { variant });
+  const userTheme: any = useContext(ThemeFunctionContext);
+  const node = useRef(null);
 
-  const surfaceTheme = css(
+  const [surfaceTheme, setSurfaceTheme] = useState(css(
     applyReactiveStyle({
       target: "components.Surface",
-      theme,
-    })
+      theme: merge(theme, userTheme(variant))
+    }))
   );
+  let width: number, height: number;
 
+  useEffect(() => {
+    if (node?.current) {
+      ({width, height} = (
+        node.current as HTMLElement
+      ).getBoundingClientRect());
+      setSurfaceTheme(css(
+        applyReactiveStyle({
+          target: "components.Surface",
+          theme: merge(theme, userTheme(variant)),
+          width, height
+        })))
+    }
+  }, [node])
   return (
-    <div {...props} className={surfaceTheme}>
+    <div ref={node} {...props} className={`${surfaceTheme}${className ? ` ${className}` : ""}`}>
       {children}
     </div>
   );
