@@ -12,7 +12,7 @@ export default function text_field_page() {
         <h2>Filled text field</h2>
         <div>
           <BlockComponentCanvas showGrid={true}>
-            <FilledTextField/>
+            <FilledTextField label={"Label text"}/>
           </BlockComponentCanvas>
             <CodeBlock code={`
               `}></CodeBlock>
