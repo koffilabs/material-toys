@@ -76,7 +76,7 @@ export const FilledTextField = ({
     <div ref={node} {...events} {...props} className={`${textFieldClass} ${className}`}>
       <div className="mt-shape">
         {icon}
-        <input onInput={onInput} spellcheck="false" type="text" disabled={disabled}/>
+        <input onInput={onInput} spellCheck="false" type="text" disabled={disabled}/>
         <div className={`container${value.length ? " filled" : ""}`}>
           <div className="label">{label}</div>
           <div className="activeIndicator"></div>
