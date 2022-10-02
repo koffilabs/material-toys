@@ -8,6 +8,8 @@ interface FilledTextProps {
   icon?: any;
   children?: ReactNode;
   label: string;
+  leadingIcon?: ReactNode;
+  trailingIcon?: ReactNode;
   className?: string;
   disabled?: boolean;
   onClick?: MouseEventHandler;
@@ -19,10 +21,12 @@ interface FilledTextProps {
 
 export const FilledTextField = ({
                                   icon,
+                                  leadingIcon,
+                                  trailingIcon,
                                   label,
                                   disabled = false,
                                   children,
-                                  className = "elevated",
+                                  className,
                                   onClick,
                                   onMouseOver,
                                   onMouseDown,
@@ -73,14 +77,22 @@ export const FilledTextField = ({
 
   }, [node])
   return (
-    <div ref={node} {...events} {...props} className={`${textFieldClass} ${className}`}>
+    <div ref={node} {...events} {...props}
+         className={`${textFieldClass} ${className}${leadingIcon ? " leadingIcon" : ""}${trailingIcon ? " trailingIcon" : ""}`}>
       <div className="mt-shape">
         {icon}
         <input onInput={onInput} spellCheck="false" type="text" disabled={disabled}/>
         <div className={`container${value.length ? " filled" : ""}`}>
+          {leadingIcon && <div className="leadingIcon-container">
+            {leadingIcon}
+          </div>}
           <div className="label">{label}</div>
           <div className="activeIndicator"></div>
         </div>
+        {trailingIcon && <div className="trailingIcon-container">
+          {trailingIcon}
+        </div>}
+
       </div>
     </div>
   );

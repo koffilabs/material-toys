@@ -1,7 +1,8 @@
 import {cutShape} from "../../util/shape";
 import {rgba} from "../../util/rgba";
-import {material_tokens} from "../../main";
-
+import * as tokens from "../default/tokens";
+import * as polyfill  from "../default/polyfill";
+const material_tokens = {...tokens, ...polyfill}
 interface CutButtonArgs {
   shape: string;
   fill: string;

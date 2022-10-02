@@ -9,6 +9,36 @@ const easing = "cubic-bezier(0.4, 0.0, 0.2, 1)";
 export const FilledTextField = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
+    "&.leadingIcon": {
+      ".mt-shape": {
+        "input": {
+          paddingLeft: "52px"
+        },
+        ".container": {
+          ".label": {
+            left: "52px"
+          },
+          ".leadingIcon-container": {
+            position: "absolute",
+            left: "12px",
+            top: `${(56 - 24) / 2}px`
+          }
+        }
+      }
+    },
+    "&.trailingIcon": {
+      ".mt-shape": {
+        "input": {
+          paddingRight: "52px"
+        },
+        ".trailingIcon-container": {
+          position: "absolute",
+          right: "12px",
+          top: `${(56 - 24) / 2}px`,
+          zIndex: 20
+        }
+      }
+    },
     ".mt-shape": {
       height: "56px",
       position: "relative",
@@ -32,12 +62,6 @@ export const FilledTextField = (tokens, options?: M3Options) => {
         paddingTop: `${(8 + tokens.MdSysTypescaleBodySmallLineHeight)}px`,
 
         border: "none",
-        // border: "1px dashed black",
-        // position: "absolute",
-        // top: "10px",
-        // left: "10px",
-        // right: "10px",
-        // bottom: "10px",
         "&:focus": {
           outline: "none"
         },
@@ -69,14 +93,14 @@ export const FilledTextField = (tokens, options?: M3Options) => {
           willChange: "font-size, top, line-height, color",
           position: "absolute",
           top: `${(56 - tokens.MdSysTypescaleBodyLargeLineHeight) / 2}px`,
-          left: "16px", // without icon
+          left: "16px", // without leading icon
           color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
           fontFamily: tokens.MdSysTypescaleBodyLargeFont,
           lineHeight: `${tokens.MdSysTypescaleBodyLargeLineHeight}px`,
           fontSize: tokens.MdSysTypescaleBodyLargeSize,
           fontWeight: tokens.MdSysTypescaleBodyLargeWeight,
           letterSpacing: tokens.MdSysTypescaleBodyLargeTracking,
-          "&::selection":{
+          "&::selection": {
             backgroundColor: "transparent"
           }
         },

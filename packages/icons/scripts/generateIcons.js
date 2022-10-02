@@ -47,11 +47,11 @@ module.exports.generateIcons = async ({ targetDir, targetLib }) => {
   }
 </script>`
             : `import React from "react";
-const Icon = ({size}) => {
+const Icon = ({size, style, ...rest}) => {
     const styleSize = typeof size !== "undefined" ? parseInt(size) + "px" :"24px";
     return (${svg
       .toString()
-      .replace(/<svg/, "<svg style={ {width: styleSize, height: styleSize} } ")
+      .replace(/<svg/, "<svg {...rest} style={ {width: styleSize, height: styleSize, ...style} } ")
       .replace(/enable-background/gim, "enableBackground")})
 }
 export default Icon;
