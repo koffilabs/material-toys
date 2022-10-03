@@ -1,4 +1,13 @@
-import React, {FormEvent, MouseEventHandler, ReactNode, useContext, useEffect, useRef, useState} from "react";
+import React, {
+  ChangeEvent,
+  FormEvent,
+  MouseEventHandler,
+  ReactNode,
+  useContext,
+  useEffect,
+  useRef,
+  useState
+} from "react";
 import {css} from "@emotion/css";
 import {applyReactiveStyle, m3} from "@material-toys/common";
 import {useTheme} from "../hooks/useTheme";
@@ -17,6 +26,8 @@ interface FilledTextProps {
   onMouseDown?: MouseEventHandler;
   onMouseUp?: MouseEventHandler;
   onMouseOut?: MouseEventHandler;
+  value?: any;
+  onInput?: (e: FormEvent<HTMLInputElement>) => {};
 }
 
 export const FilledTextField = ({
@@ -32,6 +43,8 @@ export const FilledTextField = ({
                                   onMouseDown,
                                   onMouseUp,
                                   onMouseOut,
+                                  onInput,
+                                  value: valueProp = "",
                                   ...props
                                 }: FilledTextProps) => {
   const {ThemeContext, VariantContext, ThemeFunctionContext} = useTheme();
@@ -43,6 +56,9 @@ export const FilledTextField = ({
 
   let width: number, height: number;
   const [value, setValue] = useState("");
+  useEffect(() => {
+    setValue(valueProp);
+  }, [valueProp]);
   const [textFieldClass, setTextFieldClass] = useState(
     css(
       applyReactiveStyle({
@@ -52,8 +68,9 @@ export const FilledTextField = ({
     )
   );
 
-  const onInput = (e: FormEvent<HTMLInputElement>) => {
+  const __onInput = (e: FormEvent<HTMLInputElement>) => {
     setValue((e.target as HTMLInputElement).value);
+    (typeof onInput === "function") && onInput(e);
   }
   const events = {
     onClick, onMouseOver, onMouseDown, onMouseUp, onMouseOut,
@@ -77,11 +94,11 @@ export const FilledTextField = ({
 
   }, [node])
   return (
-    <div ref={node} {...events} {...props}
+    <div ref={node} {...events}
          className={`${textFieldClass} ${className}${leadingIcon ? " leadingIcon" : ""}${trailingIcon ? " trailingIcon" : ""}`}>
       <div className="mt-shape">
         {icon}
-        <input onInput={onInput} spellCheck="false" type="text" disabled={disabled}/>
+        <input {...props} value={value} onInput={__onInput} spellCheck="false" type="text" disabled={disabled}/>
         <div className={`container${value.length ? " filled" : ""}`}>
           {leadingIcon && <div className="leadingIcon-container">
             {leadingIcon}

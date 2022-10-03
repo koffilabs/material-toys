@@ -8,8 +8,13 @@ SearchIcon,
 // import {useEffect, useState} from "react";
 import {BlockComponentCanvas} from "../components/BlockComponentCanvas";
 import {CodeBlock} from "../components/CodeBlock";
+import {useState} from "react";
 
 export default function text_field_page() {
+  const [thirdValue, setThirdValue] = useState("abc");
+  const thirdOnChange = (e) => {
+    setThirdValue(e.target.value)
+  }
   return (
     <div className="container">
       <main>
@@ -18,7 +23,7 @@ export default function text_field_page() {
           <BlockComponentCanvas showGrid={true}>
             <FilledTextField label={"Label text"}/>
             <FilledTextField leadingIcon={<SearchIcon />} label={"Label text"}/>
-            <FilledTextField leadingIcon={<SearchIcon />} trailingIcon={<OutlinedCancelIcon style={{cursor: "pointer"}}/>} label={"Label text"}/>
+            <FilledTextField onChange={thirdOnChange} value={thirdValue} leadingIcon={<SearchIcon />} trailingIcon={<OutlinedCancelIcon onClick={() => setThirdValue("")} style={{cursor: "pointer"}}/>} label={"Label text"}/>
           </BlockComponentCanvas>
             <CodeBlock code={`
               `}></CodeBlock>
