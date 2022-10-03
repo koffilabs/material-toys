@@ -20,9 +20,9 @@ export default function text_field_page() {
       <main>
         <h2>Filled text field</h2>
         <div>
-          <BlockComponentCanvas showGrid={true}>
-            <FilledTextField label={"Label text"}/>
-            <FilledTextField leadingIcon={<SearchIcon />} label={"Label text"}/>
+          <BlockComponentCanvas showGrid={false}>
+            <FilledTextField supportingText="Supporting text" label={"Label text"}/>
+            <FilledTextField size={10} characterCounter={true} supportingText="Supporting text" leadingIcon={<SearchIcon />} label={"Label text"}/>
             <FilledTextField onChange={thirdOnChange} value={thirdValue} leadingIcon={<SearchIcon />} trailingIcon={<OutlinedCancelIcon onClick={() => setThirdValue("")} style={{cursor: "pointer"}}/>} label={"Label text"}/>
           </BlockComponentCanvas>
             <CodeBlock code={`

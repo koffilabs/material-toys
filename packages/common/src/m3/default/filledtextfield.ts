@@ -9,8 +9,40 @@ const easing = "cubic-bezier(0.4, 0.0, 0.2, 1)";
 export const FilledTextField = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
+    flex: "none",
+    position: "relative",
+    overflow: "visible",
+    ".supportingTextContainer": {
+      position: "absolute",
+      bottom: 0,
+      left: 0,
+      right: 0,
+      transform: "translateY(100%)",
+      margin: 0,
+      padding: "4px 16px 0 16px",
+      display: "flex",
+      flexDirection: "row",
+      height: `${tokens.MdSysTypescaleBodySmallLineHeight + 4}px`,
+      ".supportingText, .characterCounter": {
+        height: `${tokens.MdSysTypescaleBodySmallLineHeight}px`,
+        flex: "none",
+        padding: 0,
+        // color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
+        fontFamily: tokens.MdSysTypescaleBodySmallFont,
+        lineHeight: `${tokens.MdSysTypescaleBodySmallLineHeight}px`,
+        fontSize: `${tokens.MdSysTypescaleBodySmallSize}px`,
+        fontWeight: tokens.MdSysTypescaleBodySmallWeight,
+        letterSpacing: `${tokens.MdSysTypescaleBodySmallTracking}px`,
+      },
+      ".characterCounter":{
+        marginLeft: "auto"
+      }
+    },
     "&.leadingIcon": {
-      ".mt-shape": {
+      ".supportingTextContainer": {
+        paddingLeft: "12px",
+      },
+        ".mt-shape": {
         "input": {
           paddingLeft: "52px"
         },
@@ -21,12 +53,16 @@ export const FilledTextField = (tokens, options?: M3Options) => {
           ".leadingIcon-container": {
             position: "absolute",
             left: "12px",
-            top: `${(56 - 24) / 2}px`
+            top: `${(56 - 24) / 2}px`,
+            fill: tokens[`MdSysColorOnSurfaceVariant${variant}`],
           }
         }
       }
     },
     "&.trailingIcon": {
+      ".supportingTextContainer": {
+        paddingRight: "12px",
+      },
       ".mt-shape": {
         "input": {
           paddingRight: "52px"
@@ -35,6 +71,7 @@ export const FilledTextField = (tokens, options?: M3Options) => {
           position: "absolute",
           right: "12px",
           top: `${(56 - 24) / 2}px`,
+          fill: tokens[`MdSysColorOnSurfaceVariant${variant}`],
           zIndex: 20
         }
       }
@@ -44,8 +81,6 @@ export const FilledTextField = (tokens, options?: M3Options) => {
       position: "relative",
       borderRadius: roundedShape({shape: tokens.MdSysShapeCornerExtraSmallTop}),
       backgroundColor: tokens[`MdSysColorSurfaceVariant${variant}`],
-      display: "grid",
-      placeItems: "center",
       padding: "0",
       "input": {
         position: "relative",
@@ -53,7 +88,7 @@ export const FilledTextField = (tokens, options?: M3Options) => {
         padding: "8px 16px", // 16px without icons
         height: "56px",
         caretColor: tokens[`MdSysColorPrimary${variant}`],
-        color: tokens[`MdSysColorOnSurface${variant}`],
+        color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
         backgroundColor: "transparent",
         fontFamily: tokens.MdSysTypescaleLabelLargeFont,
         lineHeight: `${tokens.MdSysTypescaleBodyLargeLineHeight}px`,
@@ -99,7 +134,7 @@ export const FilledTextField = (tokens, options?: M3Options) => {
           lineHeight: `${tokens.MdSysTypescaleBodyLargeLineHeight}px`,
           fontSize: tokens.MdSysTypescaleBodyLargeSize,
           fontWeight: tokens.MdSysTypescaleBodyLargeWeight,
-          letterSpacing: tokens.MdSysTypescaleBodyLargeTracking,
+          letterSpacing: `${tokens.MdSysTypescaleBodyLargeTracking}px`,
           "&::selection": {
             backgroundColor: "transparent"
           }

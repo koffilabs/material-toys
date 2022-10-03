@@ -27,7 +27,10 @@ interface FilledTextProps {
   onMouseUp?: MouseEventHandler;
   onMouseOut?: MouseEventHandler;
   value?: any;
+  supportingText?: string;
   onInput?: (e: FormEvent<HTMLInputElement>) => {};
+  size?: number;
+  characterCounter?: boolean;
 }
 
 export const FilledTextField = ({
@@ -37,16 +40,21 @@ export const FilledTextField = ({
                                   label,
                                   disabled = false,
                                   children,
-                                  className,
+                                  className = "",
                                   onClick,
                                   onMouseOver,
                                   onMouseDown,
                                   onMouseUp,
                                   onMouseOut,
                                   onInput,
+                                  supportingText,
                                   value: valueProp = "",
+                                  characterCounter = false,
+                                  size,
                                   ...props
                                 }: FilledTextProps) => {
+
+  console.log("props", props)
   const {ThemeContext, VariantContext, ThemeFunctionContext} = useTheme();
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
@@ -98,13 +106,17 @@ export const FilledTextField = ({
          className={`${textFieldClass} ${className}${leadingIcon ? " leadingIcon" : ""}${trailingIcon ? " trailingIcon" : ""}`}>
       <div className="mt-shape">
         {icon}
-        <input {...props} value={value} onInput={__onInput} spellCheck="false" type="text" disabled={disabled}/>
+        <input maxLength={size} {...props} value={value} onInput={__onInput} spellCheck="false" disabled={disabled}/>
         <div className={`container${value.length ? " filled" : ""}`}>
           {leadingIcon && <div className="leadingIcon-container">
             {leadingIcon}
           </div>}
           <div className="label">{label}</div>
           <div className="activeIndicator"></div>
+          <div className="supportingTextContainer">
+            {supportingText && <div className="supportingText">{supportingText}</div>}
+            {characterCounter && size && <div className="characterCounter">{value.length}/{size}</div>}
+          </div>
         </div>
         {trailingIcon && <div className="trailingIcon-container">
           {trailingIcon}
