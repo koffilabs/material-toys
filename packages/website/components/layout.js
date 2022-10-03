@@ -163,7 +163,7 @@ export default ({
         </div>
         <div className={classes.content}>
           <main
-            style={{background: tokens[`MdSysColorBackground${UIMode}`]}}
+            style={{color: tokens[`MdSysColorOnSurface${UIMode}`],background: tokens[`MdSysColorBackground${UIMode}`]}}
             className={mainClassName}>{children}</main>
         </div>
       </div>

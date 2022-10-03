@@ -57,6 +57,8 @@ export const RailContainer = (tokens, options?: M3Options) => {
       transition: `${duration} opacity ${easing}, ${duration} transform ${easing}`,
       "*": {
         fontSize: "12px",
+        color: tokens[`MdSysColorOnSurface${variant}`],
+
       },
     },
     "[data-mode=rail] &,[data-mode=drawer][data-collapsed=true] &": {
