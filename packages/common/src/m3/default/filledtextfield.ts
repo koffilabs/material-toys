@@ -13,11 +13,11 @@ export const FilledTextField = (tokens, options?: M3Options) => {
     position: "relative",
     overflow: "visible",
     ".supportingTextContainer": {
-      position: "absolute",
+      // position: "absolute",
       bottom: 0,
       left: 0,
       right: 0,
-      transform: "translateY(100%)",
+      // transform: "translateY(100%)",
       margin: 0,
       padding: "4px 16px 0 16px",
       display: "flex",

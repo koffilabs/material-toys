@@ -113,15 +113,15 @@ export const FilledTextField = ({
           </div>}
           <div className="label">{label}</div>
           <div className="activeIndicator"></div>
-          <div className="supportingTextContainer">
-            {supportingText && <div className="supportingText">{supportingText}</div>}
-            {characterCounter && size && <div className="characterCounter">{value.length}/{size}</div>}
-          </div>
         </div>
         {trailingIcon && <div className="trailingIcon-container">
           {trailingIcon}
         </div>}
 
+      </div>
+      <div className="supportingTextContainer">
+        {supportingText && <div className="supportingText">{supportingText}</div>}
+        {characterCounter && size && <div className="characterCounter">{value.length}/{size}</div>}
       </div>
     </div>
   );
