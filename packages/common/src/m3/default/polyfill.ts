@@ -13,3 +13,7 @@ export const MdSysShapeCornerLargeTop = "16 16 0 0";
 export const MdSysShapeCornerExtraLarge = "28 28 28 28";
 export const MdSysShapeCornerExtraLargeTop = "28 28 0 0";
 export const MdSysShapeCornerFull = "50% 50% 50% 50%"; // should be 50% of the short side
+export const MdSysStateHoverStateLayerOpacity = .08;
+export const MdSysStateFocusStateLayerOpacity = .12;
+export const MdSysStatePressedStateLayerOpacity = .12;
+export const MdSysStateDraggedStateLayerOpacity = .16;

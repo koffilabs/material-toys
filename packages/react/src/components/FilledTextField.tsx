@@ -114,6 +114,7 @@ export const FilledTextField = ({
           {leadingIcon && <div className="leadingIcon-container">
             {leadingIcon}
           </div>}
+          <div className="mt-state"></div>
           <div className="label">{label}</div>
           <div className="activeIndicator"></div>
         </div>

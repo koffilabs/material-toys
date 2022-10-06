@@ -1,6 +1,7 @@
 import {rgba} from "../../util/rgba";
 import {M3Options} from "./index";
 import {roundedShape} from "../../util/shape";
+import {MdSysStateHoverStateLayerOpacity} from "./polyfill";
 
 const duration = ".1s";
 // const easing = "cubic-bezier(.075, .75, .875, .36)";
@@ -27,7 +28,7 @@ export const FilledTextField = (tokens, options?: M3Options) => {
         height: `${tokens.MdSysTypescaleBodySmallLineHeight}px`,
         flex: "none",
         padding: 0,
-        // color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
+        color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
         fontFamily: tokens.MdSysTypescaleBodySmallFont,
         lineHeight: `${tokens.MdSysTypescaleBodySmallLineHeight}px`,
         fontSize: `${tokens.MdSysTypescaleBodySmallSize}px`,
@@ -97,6 +98,10 @@ export const FilledTextField = (tokens, options?: M3Options) => {
         paddingTop: `${(8 + tokens.MdSysTypescaleBodySmallLineHeight)}px`,
 
         border: "none",
+        "&:hover": {
+          color: tokens[`MdSysColorOnSurface${variant}`],
+        },
+
         "&:focus": {
           outline: "none"
         },
@@ -114,6 +119,18 @@ export const FilledTextField = (tokens, options?: M3Options) => {
             backgroundColor: tokens[`MdSysColorPrimary${variant}`],
             height: "2px"
           }
+        },
+        "&:hover + .container": {
+          ".activeIndicator": {
+            backgroundColor: tokens[`MdSysColorOnSurface${variant}`],
+          },
+          ".mt-state": {
+            opacity: MdSysStateHoverStateLayerOpacity
+          },
+
+          ".label": {
+            color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
+          },
         }
       },
       ".container": {
@@ -123,6 +140,16 @@ export const FilledTextField = (tokens, options?: M3Options) => {
         left: "0",
         right: "0",
         top: "0",
+        ".mt-state": {
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: tokens[`MdSysColorOnSurface${variant}`],
+          opacity: 0,
+          transition: `${duration} background-color ease-in-out, ${duration} opacity ease-in-out`,
+        },
         ".label": {
           pointerEvents: "none",
           transition: `${duration} line-height ease-in-out, 
@@ -152,8 +179,8 @@ export const FilledTextField = (tokens, options?: M3Options) => {
           left: "0",
           right: "0",
           height: "1px",
-          transition: `${duration} background-color ease-in-out, ${duration} border-width ease-in-out`,
           backgroundColor: tokens[`MdSysColorOnSurfaceVariant${variant}`],
+          transition: `${duration} background-color ease-in-out, ${duration} border-width ease-in-out`,
         },
       }
     }
