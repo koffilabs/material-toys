@@ -97,10 +97,11 @@ export const FilledTextField = (tokens, options?: M3Options) => {
         fontWeight: tokens.MdSysTypescaleBodyLargeWeight,
         paddingTop: `${(8 + tokens.MdSysTypescaleBodySmallLineHeight)}px`,
         "&:disabled":{
-          opacity: .38
+          opacity: .38,
+          pointerEvents: "none"
         },
         border: "none",
-        "&:hover:not(:disabled)": {
+        "&:hover": {
           color: tokens[`MdSysColorOnSurface${variant}`],
         },
         "&:focus": {
@@ -121,7 +122,7 @@ export const FilledTextField = (tokens, options?: M3Options) => {
             height: "2px"
           }
         },
-        "&:hover:not(:disabled) + .container": {
+        "&:hover + .container": {
           ".activeIndicator": {
             backgroundColor: tokens[`MdSysColorOnSurface${variant}`],
           },
