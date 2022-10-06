@@ -34,7 +34,7 @@ export const FilledTextField = (tokens, options?: M3Options) => {
         fontWeight: tokens.MdSysTypescaleBodySmallWeight,
         letterSpacing: `${tokens.MdSysTypescaleBodySmallTracking}px`,
       },
-      ".characterCounter":{
+      ".characterCounter": {
         marginLeft: "auto"
       }
     },
@@ -42,7 +42,7 @@ export const FilledTextField = (tokens, options?: M3Options) => {
       ".supportingTextContainer": {
         paddingLeft: "12px",
       },
-        ".mt-shape": {
+      ".mt-shape": {
         "input": {
           paddingLeft: "52px"
         },
@@ -108,10 +108,13 @@ export const FilledTextField = (tokens, options?: M3Options) => {
             lineHeight: `${tokens.MdSysTypescaleBodySmallLineHeight}px`,
             fontSize: tokens.MdSysTypescaleBodySmallSize,
           },
+        },
+        "&:focus + .container": {
           ".activeIndicator": {
+            backgroundColor: tokens[`MdSysColorPrimary${variant}`],
             height: "2px"
           }
-        },
+        }
       },
       ".container": {
         "z-index": "0",
@@ -149,6 +152,7 @@ export const FilledTextField = (tokens, options?: M3Options) => {
           left: "0",
           right: "0",
           height: "1px",
+          transition: `${duration} background-color ease-in-out, ${duration} border-width ease-in-out`,
           backgroundColor: tokens[`MdSysColorOnSurfaceVariant${variant}`],
         },
       }
