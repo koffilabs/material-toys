@@ -22,8 +22,11 @@ export default function text_field_page() {
         <div>
           <BlockComponentCanvas showGrid={false}>
             <FilledTextField supportingText="Supporting text" label={"Label text"}/>
+            <FilledTextField disabled supportingText="Supporting text" label={"Label text"}/>
             <FilledTextField maxLength={10} characterCounter={true} supportingText="Supporting text" leadingIcon={<SearchIcon />} label={"Label text"}/>
+            <FilledTextField disabled maxLength={10} characterCounter={true} supportingText="Supporting text" leadingIcon={<SearchIcon />} label={"Label text"}/>
             <FilledTextField onChange={thirdOnChange} value={thirdValue} leadingIcon={<SearchIcon />} trailingIcon={<OutlinedCancelIcon onClick={() => setThirdValue("")} style={{cursor: "pointer"}}/>} label={"Label text"}/>
+            <FilledTextField disabled value={"aaa"} leadingIcon={<SearchIcon />} trailingIcon={<OutlinedCancelIcon onClick={() => setThirdValue("")} style={{cursor: "pointer"}}/>} label={"Label text"}/>
           </BlockComponentCanvas>
             <CodeBlock code={`
               `}></CodeBlock>

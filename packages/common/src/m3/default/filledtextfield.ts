@@ -96,12 +96,13 @@ export const FilledTextField = (tokens, options?: M3Options) => {
         fontSize: tokens.MdSysTypescaleBodyLargeSize,
         fontWeight: tokens.MdSysTypescaleBodyLargeWeight,
         paddingTop: `${(8 + tokens.MdSysTypescaleBodySmallLineHeight)}px`,
-
+        "&:disabled":{
+          opacity: .38
+        },
         border: "none",
-        "&:hover": {
+        "&:hover:not(:disabled)": {
           color: tokens[`MdSysColorOnSurface${variant}`],
         },
-
         "&:focus": {
           outline: "none"
         },
@@ -120,7 +121,7 @@ export const FilledTextField = (tokens, options?: M3Options) => {
             height: "2px"
           }
         },
-        "&:hover + .container": {
+        "&:hover:not(:disabled) + .container": {
           ".activeIndicator": {
             backgroundColor: tokens[`MdSysColorOnSurface${variant}`],
           },
@@ -183,6 +184,21 @@ export const FilledTextField = (tokens, options?: M3Options) => {
           transition: `${duration} background-color ease-in-out, ${duration} border-width ease-in-out`,
         },
       }
-    }
+    },
+    "&.disabled": {
+      "pointerEvents": "none",
+      ".mt-shape": {
+        backgroundColor: rgba(tokens[`MdSysColorSurfaceVariant${variant}`], .4),
+        ".activeIndicator": {
+          opacity: .38
+        },
+        ".leadingIcon-container, .trailingIcon-container, .label, .supportingTextContainer": {
+          opacity: .38
+        }
+      },
+      ".supportingTextContainer": {
+        opacity: .38
+      }
+    },
   }
 };

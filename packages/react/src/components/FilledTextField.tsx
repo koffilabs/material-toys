@@ -105,7 +105,7 @@ export const FilledTextField = ({
   }, [node])
   return (
     <div ref={node} {...events}
-         className={`${textFieldClass} ${className}${leadingIcon ? " leadingIcon" : ""}${trailingIcon ? " trailingIcon" : ""}`}>
+         className={`${textFieldClass} ${className}${leadingIcon ? " leadingIcon" : ""}${trailingIcon ? " trailingIcon" : ""}${disabled ? " disabled" : ""}`}>
       <div className="mt-shape">
         {icon}
         <input maxLength={maxLength} {...props} value={value} onInput={__onInput} spellCheck="false"
