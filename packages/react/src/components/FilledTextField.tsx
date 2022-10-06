@@ -29,6 +29,7 @@ interface FilledTextProps {
   value?: any;
   supportingText?: string;
   onInput?: (e: FormEvent<HTMLInputElement>) => {};
+  maxLength?: number;
   size?: number;
   characterCounter?: boolean;
 }
@@ -51,10 +52,10 @@ export const FilledTextField = ({
                                   value: valueProp = "",
                                   characterCounter = false,
                                   size,
+                                  maxLength,
                                   ...props
                                 }: FilledTextProps) => {
 
-  console.log("props", props)
   const {ThemeContext, VariantContext, ThemeFunctionContext} = useTheme();
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
@@ -77,7 +78,8 @@ export const FilledTextField = ({
   );
 
   const __onInput = (e: FormEvent<HTMLInputElement>) => {
-    setValue((e.target as HTMLInputElement).value);
+    // substring: android does not honor maxLength before the blur
+    setValue((e.target as HTMLInputElement).value.substring(0, maxLength));
     (typeof onInput === "function") && onInput(e);
   }
   const events = {
@@ -106,7 +108,8 @@ export const FilledTextField = ({
          className={`${textFieldClass} ${className}${leadingIcon ? " leadingIcon" : ""}${trailingIcon ? " trailingIcon" : ""}`}>
       <div className="mt-shape">
         {icon}
-        <input maxLength={size} {...props} value={value} onInput={__onInput} spellCheck="false" disabled={disabled}/>
+        <input maxLength={maxLength} {...props} value={value} onInput={__onInput} spellCheck="false"
+               disabled={disabled}/>
         <div className={`container${value.length ? " filled" : ""}`}>
           {leadingIcon && <div className="leadingIcon-container">
             {leadingIcon}
@@ -121,7 +124,7 @@ export const FilledTextField = ({
       </div>
       <div className="supportingTextContainer">
         {supportingText && <div className="supportingText">{supportingText}</div>}
-        {characterCounter && size && <div className="characterCounter">{value.length}/{size}</div>}
+        {characterCounter && maxLength && <div className="characterCounter">{value.length}/{maxLength}</div>}
       </div>
     </div>
   );
