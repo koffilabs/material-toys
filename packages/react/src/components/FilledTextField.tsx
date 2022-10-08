@@ -69,9 +69,9 @@ export const FilledTextField = ({
 
   let width: number, height: number;
   const [value, setValue] = useState(`${prefix}${valueProp}`);
-  // useEffect(() => {
-  //   setValue(valueProp);
-  // }, [valueProp]);
+  useEffect(() => {
+    setValue(`${prefix}${valueProp}`);
+  }, [valueProp]);
   const [textFieldClass, setTextFieldClass] = useState(
     css(
       applyReactiveStyle({
