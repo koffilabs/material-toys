@@ -20,7 +20,6 @@ export default function text_field_page() {
           <BlockComponentCanvas showGrid={false}>
             <FilledTextField supportingText="Supporting text" label={"Label text"}/>
             <FilledTextField disabled supportingText="Supporting text" label={"Label text"}/>
-            <FilledTextField prefix="$" supportingText="With prefix" label={"Label text"}/>
             <FilledTextField maxLength={10} characterCounter={true} supportingText="Supporting text" leadingIcon={<SearchIcon />} label={"Label text"}/>
             <FilledTextField disabled maxLength={10} characterCounter={true} supportingText="Supporting text" leadingIcon={<SearchIcon />} label={"Label text"}/>
             <FilledTextField onChange={thirdOnChange} value={thirdValue} leadingIcon={<SearchIcon />} trailingIcon={<OutlinedCancelIcon onClick={() => setThirdValue("")} style={{cursor: "pointer"}}/>} label={"Label text"}/>
@@ -38,7 +37,6 @@ function App() {
   <MT>  
     <FilledTextField supportingText="Supporting text" label={"Label text"}/>
     <FilledTextField disabled supportingText="Supporting text" label={"Label text"}/>
-    <FilledTextField prefix="$" supportingText="With prefix" label={"Label text"}/>
     <FilledTextField maxLength={10} characterCounter={true} supportingText="Supporting text" leadingIcon={<SearchIcon />} label={"Label text"}/>
     <FilledTextField disabled maxLength={10} characterCounter={true} supportingText="Supporting text" leadingIcon={<SearchIcon />} label={"Label text"}/>
     <FilledTextField onChange={thirdOnChange} value={thirdValue} leadingIcon={<SearchIcon />} trailingIcon={<OutlinedCancelIcon onClick={() => setThirdValue("")} style={{cursor: "pointer"}}/>} label={"Label text"}/>

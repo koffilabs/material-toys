@@ -1,5 +1,4 @@
 import React, {
-  ChangeEvent,
   FormEvent,
   MouseEventHandler,
   ReactNode,
@@ -26,6 +25,7 @@ interface FilledTextProps {
   onMouseDown?: MouseEventHandler;
   onMouseUp?: MouseEventHandler;
   onMouseOut?: MouseEventHandler;
+  onKeyDown?: (e: KeyboardEvent) => {};
   value?: any;
   supportingText?: string;
   onInput?: (e: FormEvent<HTMLInputElement>) => {};
@@ -50,6 +50,7 @@ export const FilledTextField = ({
                                   onMouseUp,
                                   onMouseOut,
                                   onInput,
+                                  onKeyDown,
                                   supportingText,
                                   value: valueProp = "",
                                   characterCounter = false,
@@ -80,7 +81,6 @@ export const FilledTextField = ({
       })
     )
   );
-
   const __onInput = (e: FormEvent<HTMLInputElement>) => {
     const target = (e.target as HTMLInputElement);
     if (prefix) {
