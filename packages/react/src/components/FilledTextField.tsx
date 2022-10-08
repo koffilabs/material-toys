@@ -32,6 +32,7 @@ interface FilledTextProps {
   maxLength?: number;
   size?: number;
   error?: boolean;
+  prefix?: string;
   characterCounter?: boolean;
 }
 
@@ -55,6 +56,7 @@ export const FilledTextField = ({
                                   size,
                                   maxLength,
                                   error = false,
+                                  prefix = "",
                                   ...props
                                 }: FilledTextProps) => {
 
@@ -66,10 +68,10 @@ export const FilledTextField = ({
   const node = useRef(null);
 
   let width: number, height: number;
-  const [value, setValue] = useState("");
-  useEffect(() => {
-    setValue(valueProp);
-  }, [valueProp]);
+  const [value, setValue] = useState(`${prefix}${valueProp}`);
+  // useEffect(() => {
+  //   setValue(valueProp);
+  // }, [valueProp]);
   const [textFieldClass, setTextFieldClass] = useState(
     css(
       applyReactiveStyle({
@@ -80,8 +82,14 @@ export const FilledTextField = ({
   );
 
   const __onInput = (e: FormEvent<HTMLInputElement>) => {
+    const target = (e.target as HTMLInputElement);
+    if (prefix) {
+      if (!target.value.startsWith(prefix)) {
+        target.value = `${prefix}${target.value}`;
+      }
+    }
     // substring: android does not honor maxLength before the blur
-    setValue((e.target as HTMLInputElement).value.substring(0, maxLength));
+    setValue(target.value.substring(0, maxLength));
     (typeof onInput === "function") && onInput(e);
   }
   const events = {
@@ -107,7 +115,7 @@ export const FilledTextField = ({
   }, [node])
   return (
     <div ref={node} {...events}
-         className={`${textFieldClass} ${className}${leadingIcon ? " leadingIcon" : ""}${trailingIcon 
+         className={`${textFieldClass} ${className}${leadingIcon ? " leadingIcon" : ""}${trailingIcon
            ? " trailingIcon" : ""}${disabled ? " disabled" : ""}${error ? " error" : ""}`}>
       <div className="mt-shape">
         {icon}
