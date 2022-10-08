@@ -96,7 +96,7 @@ export const FilledTextField = (tokens, options?: M3Options) => {
         fontSize: tokens.MdSysTypescaleBodyLargeSize,
         fontWeight: tokens.MdSysTypescaleBodyLargeWeight,
         paddingTop: `${(8 + tokens.MdSysTypescaleBodySmallLineHeight)}px`,
-        "&:disabled":{
+        "&:disabled": {
           opacity: .38,
           pointerEvents: "none"
         },
@@ -201,5 +201,58 @@ export const FilledTextField = (tokens, options?: M3Options) => {
         opacity: .38
       }
     },
+    "&.error": {
+      "&:hover": {
+        ".mt-shape": {
+          ".trailingIcon-container": {
+            svg: {
+              fill: tokens[`MdSysColorOnErrorContainer${variant}`],
+            }
+          }
+        }
+
+      },
+      ".supportingTextContainer": {
+        ".supportingText, .characterCounter": {
+          color: tokens[`MdSysColorError${variant}`],
+        },
+      },
+      ".mt-shape": {
+        ".container": {
+          ".activeIndicator": {
+            color: tokens[`MdSysColorError${variant}`],
+          },
+        },
+        "input": {
+          caretColor: tokens[`MdSysColorError${variant}`]
+        },
+        "input + .container": {
+          ".label": {
+            color: tokens[`MdSysColorError${variant}`],
+          },
+        },
+
+        "input:focus + .container": {
+          ".activeIndicator": {
+            backgroundColor: tokens[`MdSysColorError${variant}`],
+          },
+        },
+        "input:hover + .container": {
+          ".label": {
+            color: tokens[`MdSysColorOnErrorContainer${variant}`],
+          },
+          ".activeIndicator": {
+            backgroundColor: tokens[`MdSysColorOnErrorContainer${variant}`],
+          },
+        },
+        ".trailingIcon-container": {
+          svg: {
+            fill: tokens[`MdSysColorError${variant}`],
+          }
+        }
+      }
+
+    },
+
   }
 };

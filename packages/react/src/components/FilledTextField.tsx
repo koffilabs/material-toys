@@ -31,6 +31,7 @@ interface FilledTextProps {
   onInput?: (e: FormEvent<HTMLInputElement>) => {};
   maxLength?: number;
   size?: number;
+  error?: boolean;
   characterCounter?: boolean;
 }
 
@@ -53,6 +54,7 @@ export const FilledTextField = ({
                                   characterCounter = false,
                                   size,
                                   maxLength,
+                                  error = false,
                                   ...props
                                 }: FilledTextProps) => {
 
@@ -105,7 +107,8 @@ export const FilledTextField = ({
   }, [node])
   return (
     <div ref={node} {...events}
-         className={`${textFieldClass} ${className}${leadingIcon ? " leadingIcon" : ""}${trailingIcon ? " trailingIcon" : ""}${disabled ? " disabled" : ""}`}>
+         className={`${textFieldClass} ${className}${leadingIcon ? " leadingIcon" : ""}${trailingIcon 
+           ? " trailingIcon" : ""}${disabled ? " disabled" : ""}${error ? " error" : ""}`}>
       <div className="mt-shape">
         {icon}
         <input maxLength={maxLength} {...props} value={value} onInput={__onInput} spellCheck="false"
