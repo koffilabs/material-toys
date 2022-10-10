@@ -10,6 +10,12 @@ export default function fab_page() {
   const [isExtended, setExtended] = useState(true);
   return (
     <div className="container">
+      <Head>
+        <title>Material Toys - Grid</title>
+        <meta property="og:title" content="Grid" key="title" />
+        <meta name="description" content="Grid page" key="desc"/>
+        <meta name="og:description" content="Grid page" />
+      </Head>
       <main>
         <h2>Grid</h2>
           <Grid>

@@ -15,6 +15,7 @@ const tokens = {...material_tokens};
 import {
   MT, NavigationDrawer, NavigationItem, useTheme
 } from "@material-toys/react";
+import Head from "next/head";
 
 const myTheme = (variant) => {
   return {
@@ -40,6 +41,12 @@ export default function drawer_page() {
 
   return (
     <div className="container">
+      <Head>
+        <title>Material Toys - Navigation Drawer</title>
+        <meta property="og:title" content="Navigation Drawer" key="title" />
+        <meta name="description" content="Navigation Drawer page" key="desc"/>
+        <meta name="og:description" content="Navigation Drawer page" />
+      </Head>
       <main>
         <h2>Navigation drawer</h2>
         <BlockComponentCanvas showGrid={true}>

@@ -5,6 +5,7 @@ import {Button, MT, NavigationBar, NavigationBarItem} from "@material-toys/react
 import {material_tokens} from "@material-toys/common";
 import React from "react";
 import {HomeIcon} from "@material-toys/icons-react";
+import Head from "next/head";
 
 const tokens = {...material_tokens, MdSysColorPrimary: "white", MdSysColorSurface: "red"};
 const myTheme = (variant) => {
@@ -28,6 +29,12 @@ const myTheme = (variant) => {
 export default function Theming() {
   return (
     <div className={classes.container}>
+      <Head>
+        <title>Material Toys - Theming</title>
+        <meta property="og:title" content="Theming" key="title" />
+        <meta name="description" content="Theming page" key="desc"/>
+        <meta name="og:description" content="Theming page" />
+      </Head>
       <h1>Theming</h1>
       <p>Material toys uses <a href="https://m3.material.io/foundations/design-tokens/overview">design tokens</a> to
         style its components; there are different ways to theme the library.</p>

@@ -19,6 +19,7 @@ import {
 import classes from "./navigation-bar.module.scss";
 import React, {useContext} from "react";
 import {zoomIn, fadeIn, circleReveal, rectReveal, useTheme} from "@material-toys/react";
+import Head from "next/head";
 
 
 export default function navigation_bar() {
@@ -57,6 +58,12 @@ export default function navigation_bar() {
   ];
   return (
     <div className="container">
+      <Head>
+        <title>Material Toys - Navigation Bar</title>
+        <meta property="og:title" content="Navigation Bar" key="title" />
+        <meta name="description" content="Navigation Bar page" key="desc"/>
+        <meta name="og:description" content="Navigation Bar page" />
+      </Head>
       <main>
         <h2>Navigation bar</h2>
         <MT variant={variant}>

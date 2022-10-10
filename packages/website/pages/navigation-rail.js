@@ -17,6 +17,7 @@ import {
   Button,
   MT, NavigationDrawer, NavigationItem, useTheme
 } from "@material-toys/react";
+import Head from "next/head";
 
 const myTheme = (variant) => {
   return {
@@ -47,6 +48,12 @@ export default function rail_page() {
   }
   return (
     <div className="container">
+      <Head>
+        <title>Material Toys - Navigation Rail</title>
+        <meta property="og:title" content="Navigation Rail" key="title" />
+        <meta name="description" content="Navigation Rail page" key="desc"/>
+        <meta name="og:description" content="Navigation Rail page" />
+      </Head>
       <main>
         <h2>Navigation rail</h2>
         <BlockComponentCanvas showGrid={true}>

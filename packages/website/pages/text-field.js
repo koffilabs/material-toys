@@ -4,7 +4,8 @@ import { SearchIcon, OutlinedCancelIcon, OutlinedErrorIcon } from "@material-toy
 // import {useEffect, useState} from "react";
 import {BlockComponentCanvas} from "../components/BlockComponentCanvas";
 import {CodeBlock} from "../components/CodeBlock";
-import {useState} from "react";
+import React, {useState} from "react";
+import Head from "next/head";
 
 export default function text_field_page() {
   const [thirdValue, setThirdValue] = useState("abc");
@@ -13,6 +14,13 @@ export default function text_field_page() {
   }
   return (
     <div className="container">
+      <Head>
+        <title>Material Toys - Filled Text Field</title>
+        <meta property="og:title" content="Filled Text Field" key="title" />
+        <meta name="description" content="Filled Text Field page" key="desc"/>
+        <meta name="og:description" content="Filled Text Field page" />
+      </Head>
+
       <main>
         <h2>Filled text field</h2>
         <div>

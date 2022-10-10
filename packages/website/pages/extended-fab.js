@@ -4,11 +4,18 @@ import {FAB} from "@material-toys/react";
 import {useState} from "react";
 import {BlockComponentCanvas} from "../components/BlockComponentCanvas";
 import {CodeBlock} from "../components/CodeBlock";
+import Head from "next/head";
 
 export default function fab_page() {
   const [isExtended, setExtended] = useState(true);
   return (
     <div className="container">
+      <Head>
+        <title>Material Toys - Extended Floating Action Button</title>
+        <meta property="og:title" content="Extended Floating Action Button" key="title" />
+        <meta name="description" content="Extended Floating Action Button page" key="desc"/>
+        <meta name="og:description" content="Extended Floating Action Button page" />
+      </Head>
       <main>
         <h2>Extended FAB</h2>
         <BlockComponentCanvas>

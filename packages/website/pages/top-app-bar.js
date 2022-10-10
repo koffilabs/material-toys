@@ -17,6 +17,7 @@ import {BlockComponentCanvas} from "../components/BlockComponentCanvas";
 import {CodeBlock} from "../components/CodeBlock";
 
 import dynamic from "next/dynamic";
+import Head from "next/head";
 const TopAppBar = dynamic(
   () =>
     import("@material-toys/react").then((mod) => {
@@ -32,6 +33,12 @@ export default function top_app_bar_page() {
 
   return (
     <MT variant={variant}>
+      <Head>
+        <title>Material Toys - Top App Bar</title>
+        <meta property="og:title" content="Top App Bar" key="title" />
+        <meta name="description" content="Top App Bar page" key="desc"/>
+        <meta name="og:description" content="Top App Bar page" />
+      </Head>
       <div style={{ display: "flex", flex: 1, flexDirection: "column" }}>
         <BlockComponentCanvas showGrid={true}>
           <div className={classes["bar-container"]}>

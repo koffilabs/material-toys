@@ -2,10 +2,17 @@ import classes from "./index.module.scss";
 import {BlockComponentCanvas} from "../components/BlockComponentCanvas";
 import {CodeBlock} from "../components/CodeBlock";
 import {Button} from "@material-toys/react";
+import Head from 'next/head'
 
 export default function Index() {
   return (
     <div className={classes.container}>
+    <Head>
+      <title>Material Toys</title>
+      <meta property="og:title" content="Material Toys" key="title" />
+      <meta name="description" content="Material Toys is a Material Design v3 components library for React" key="desc"/>
+      <meta name="og:description" content="Material Toys is a Material Design v3 components library for React" />
+    </Head>
       <h1>Material Toys</h1>
       <p>A Material Design 3 components library for React</p>
       <h2>Getting started</h2>

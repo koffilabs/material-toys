@@ -5,10 +5,17 @@ import {Button,} from "@material-toys/react";
 // import {useEffect, useState} from "react";
 import {BlockComponentCanvas} from "../components/BlockComponentCanvas";
 import {CodeBlock} from "../components/CodeBlock";
+import React from "react";
 
 export default function button_page() {
   return (
     <div className="container">
+      <Head>
+        <title>Material Toys - Button</title>
+        <meta property="og:title" content="Button" key="title" />
+        <meta name="description" content="Button page" key="desc"/>
+        <meta name="og:description" content="Button page" />
+      </Head>
       <main>
         <h2>Button</h2>
         <div>

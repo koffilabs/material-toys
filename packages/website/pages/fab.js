@@ -1,8 +1,8 @@
 import Head from "next/head";
-import {EditIcon, AddIcon} from "@material-toys/icons-react";
-import {MT, Button, Card, FAB, Grid} from "@material-toys/react";
+import {EditIcon} from "@material-toys/icons-react";
+import {FAB} from "@material-toys/react";
 
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {BlockComponentCanvas} from "../components/BlockComponentCanvas";
 import {CodeBlock} from "../components/CodeBlock";
 
@@ -10,6 +10,13 @@ export default function fab_page() {
   const [isExtended, setExtended] = useState(true);
   return (
     <div className="container">
+      <Head>
+        <title>Material Toys - Floating Action Button</title>
+        <meta property="og:title" content="Floating Action Button" key="title" />
+        <meta name="description" content="Floating Action Button page" key="desc"/>
+        <meta name="og:description" content="Floating Action Button page" />
+      </Head>
+
       <main>
         <h2>Floating Action Button</h2>
           <BlockComponentCanvas>

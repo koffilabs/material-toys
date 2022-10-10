@@ -2,10 +2,18 @@ import {Card} from "@material-toys/react";
 
 import {BlockComponentCanvas} from "../components/BlockComponentCanvas";
 import {CodeBlock} from "../components/CodeBlock";
+import Head from "next/head";
+import React from "react";
 
 export default function fab_page() {
   return (
     <div className="container">
+      <Head>
+        <title>Material Toys - Card</title>
+        <meta property="og:title" content="Card" key="title" />
+        <meta name="description" content="Card page" key="desc"/>
+        <meta name="og:description" content="Card page" />
+      </Head>
       <main>
         <h2>Card</h2>
         <BlockComponentCanvas>

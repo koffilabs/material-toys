@@ -5,6 +5,7 @@ import {Button, MT, Surface} from "@material-toys/react";
 import {material_tokens, cutElevatedButton, cutFilledButton, cutFilledTonalButton} from "@material-toys/common";
 import React from "react";
 import {roundedShape, cutShape} from "@material-toys/common";
+import Head from "next/head";
 
 const note = {
   display: "inline-block",
@@ -169,6 +170,12 @@ const myTheme = (variant) => {
 export default function Shapes() {
   return (
     <div className={classes.container}>
+      <Head>
+        <title>Material Toys - Shapes</title>
+        <meta property="og:title" content="Shapes" key="title" />
+        <meta name="description" content="Shapes page" key="desc"/>
+        <meta name="og:description" content="Shapes page" />
+      </Head>
       <h1>Shapes</h1>
       <p><a href="https://m3.material.io/styles/shape/shape-scale-tokens">Shape scale tokens</a> can be used to change
         a component shape.</p>
