@@ -13,6 +13,40 @@ export const FilledTextField = (tokens, options?: M3Options) => {
     flex: "none",
     position: "relative",
     overflow: "visible",
+
+    "&.mt-focus": {
+      ".mt-shape": {
+        ".container": {
+          ".label": {
+            position: "absolute",
+            top: `8px`,
+            color: tokens[`MdSysColorPrimary${variant}`],
+            lineHeight: `${tokens.MdSysTypescaleBodySmallLineHeight}px`,
+            fontSize: tokens.MdSysTypescaleBodySmallSize,
+          },
+          ".activeIndicator": {
+            backgroundColor: tokens[`MdSysColorPrimary${variant}`],
+            height: "2px"
+          }
+        },
+      },
+    },
+    "&:hover": {
+      ".mt-shape": {
+        ".container": {
+          ".activeIndicator": {
+            backgroundColor: tokens[`MdSysColorOnSurface${variant}`],
+          },
+          ".mt-state": {
+            opacity: MdSysStateHoverStateLayerOpacity
+          },
+
+          ".label": {
+            color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
+          },
+        }
+      }
+    },
     ".supportingTextContainer": {
       // position: "absolute",
       bottom: 0,
@@ -44,6 +78,15 @@ export const FilledTextField = (tokens, options?: M3Options) => {
         paddingLeft: "12px",
       },
       ".mt-shape": {
+        ".container.filled": {
+          ".label": {
+            position: "absolute",
+            top: `8px`,
+            color: tokens[`MdSysColorPrimary${variant}`],
+            lineHeight: `${tokens.MdSysTypescaleBodySmallLineHeight}px`,
+            fontSize: tokens.MdSysTypescaleBodySmallSize,
+          },
+        },
         "input": {
           paddingLeft: "52px"
         },
@@ -73,7 +116,7 @@ export const FilledTextField = (tokens, options?: M3Options) => {
           right: "12px",
           top: `${(56 - 24) / 2}px`,
           fill: tokens[`MdSysColorOnSurfaceVariant${variant}`],
-          zIndex: 20
+          // zIndex: 20
         }
       }
     },
@@ -85,7 +128,7 @@ export const FilledTextField = (tokens, options?: M3Options) => {
       padding: "0",
       "input": {
         position: "relative",
-        "z-index": "10",
+        // "z-index": "10",
         padding: "8px 16px", // 16px without icons
         height: "56px",
         caretColor: tokens[`MdSysColorPrimary${variant}`],
@@ -107,33 +150,6 @@ export const FilledTextField = (tokens, options?: M3Options) => {
         "&:focus": {
           outline: "none"
         },
-        "&:focus + .container, & + .container.filled": {
-          ".label": {
-            position: "absolute",
-            top: `8px`,
-            color: tokens[`MdSysColorPrimary${variant}`],
-            lineHeight: `${tokens.MdSysTypescaleBodySmallLineHeight}px`,
-            fontSize: tokens.MdSysTypescaleBodySmallSize,
-          },
-        },
-        "&:focus + .container": {
-          ".activeIndicator": {
-            backgroundColor: tokens[`MdSysColorPrimary${variant}`],
-            height: "2px"
-          }
-        },
-        "&:hover + .container": {
-          ".activeIndicator": {
-            backgroundColor: tokens[`MdSysColorOnSurface${variant}`],
-          },
-          ".mt-state": {
-            opacity: MdSysStateHoverStateLayerOpacity
-          },
-
-          ".label": {
-            color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
-          },
-        }
       },
       ".container": {
         "z-index": "0",
@@ -202,7 +218,26 @@ export const FilledTextField = (tokens, options?: M3Options) => {
       }
     },
     "&.error": {
+      "&.mt-focus .container": {
+        ".activeIndicator": {
+          backgroundColor: tokens[`MdSysColorError${variant}`],
+        },
+      },
+      ".container": {
+        ".label": {
+          color: tokens[`MdSysColorError${variant}`],
+        },
+      },
+
       "&:hover": {
+        ".container": {
+          ".label": {
+            color: tokens[`MdSysColorOnErrorContainer${variant}`],
+          },
+          ".activeIndicator": {
+            backgroundColor: tokens[`MdSysColorOnErrorContainer${variant}`],
+          },
+        },
         ".mt-shape": {
           ".trailingIcon-container": {
             svg: {
@@ -226,25 +261,7 @@ export const FilledTextField = (tokens, options?: M3Options) => {
         "input": {
           caretColor: tokens[`MdSysColorError${variant}`]
         },
-        "input + .container": {
-          ".label": {
-            color: tokens[`MdSysColorError${variant}`],
-          },
-        },
 
-        "input:focus + .container": {
-          ".activeIndicator": {
-            backgroundColor: tokens[`MdSysColorError${variant}`],
-          },
-        },
-        "input:hover + .container": {
-          ".label": {
-            color: tokens[`MdSysColorOnErrorContainer${variant}`],
-          },
-          ".activeIndicator": {
-            backgroundColor: tokens[`MdSysColorOnErrorContainer${variant}`],
-          },
-        },
         ".trailingIcon-container": {
           svg: {
             fill: tokens[`MdSysColorError${variant}`],

@@ -1,11 +1,13 @@
 import React, {
+  FocusEventHandler,
   FormEvent,
   MouseEventHandler,
   ReactNode,
   useContext,
   useEffect,
   useRef,
-  useState
+  useState,
+  FocusEvent
 } from "react";
 import {css} from "@emotion/css";
 import {applyReactiveStyle, m3} from "@material-toys/common";
@@ -25,6 +27,8 @@ interface FilledTextProps {
   onMouseDown?: MouseEventHandler;
   onMouseUp?: MouseEventHandler;
   onMouseOut?: MouseEventHandler;
+  onFocus?: FocusEventHandler;
+  onBlur?: FocusEventHandler;
   onKeyDown?: (e: KeyboardEvent) => {};
   value?: any;
   supportingText?: string;
@@ -51,6 +55,8 @@ export const FilledTextField = ({
                                   onMouseOut,
                                   onInput,
                                   onKeyDown,
+                                  onFocus,
+                                  onBlur,
                                   supportingText,
                                   value: valueProp = "",
                                   characterCounter = false,
@@ -70,6 +76,7 @@ export const FilledTextField = ({
 
   let width: number, height: number;
   const [value, setValue] = useState(`${prefix}${valueProp}`);
+  const [hasFocus, setHasFocus] = useState(false);
   useEffect(() => {
     setValue(`${prefix}${valueProp}`);
   }, [valueProp]);
@@ -81,6 +88,15 @@ export const FilledTextField = ({
       })
     )
   );
+  const __onFocus = (e: FocusEvent<HTMLElement>) => {
+    setHasFocus(true);
+    (typeof onFocus === "function") && onFocus(e);
+  };
+  const __onBlur = (e: FocusEvent<HTMLElement>) => {
+    setHasFocus(false);
+    (typeof onBlur === "function") && onBlur(e);
+  };
+
   const __onInput = (e: FormEvent<HTMLInputElement>) => {
     const target = (e.target as HTMLInputElement);
     if (prefix) {
@@ -116,11 +132,9 @@ export const FilledTextField = ({
   return (
     <div ref={node} {...events}
          className={`${textFieldClass} ${className}${leadingIcon ? " leadingIcon" : ""}${trailingIcon
-           ? " trailingIcon" : ""}${disabled ? " disabled" : ""}${error ? " error" : ""}`}>
+           ? " trailingIcon" : ""}${disabled ? " disabled" : ""}${error ? " error" : ""}${hasFocus ? " mt-focus" : ""}`}>
       <div className="mt-shape">
         {icon}
-        <input maxLength={maxLength} {...props} value={value} onInput={__onInput} spellCheck="false"
-               disabled={disabled}/>
         <div className={`container${value.length ? " filled" : ""}`}>
           {leadingIcon && <div className="leadingIcon-container">
             {leadingIcon}
@@ -129,6 +143,8 @@ export const FilledTextField = ({
           <div className="label">{label}</div>
           <div className="activeIndicator"></div>
         </div>
+        <input maxLength={maxLength} {...props} value={value} onInput={__onInput} onFocus={__onFocus} onBlur={__onBlur} spellCheck="false"
+               disabled={disabled}/>
         {trailingIcon && <div className="trailingIcon-container">
           {trailingIcon}
         </div>}
