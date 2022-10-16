@@ -123,7 +123,7 @@ export default ({
                   navigateTo(`${route.r}`);
                 }}
               >
-                <a>{route.l}</a>
+                <a href={route.r}>{route.l}</a>
               </NavigationItem>
             )
           }
