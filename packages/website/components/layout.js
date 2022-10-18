@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import classes from "./Layout.module.scss";
-
+import GithubIcon from "./GithubIcon";
+import TwitterIcon from "./TwitterIcon";
 import {
   OutlinedDarkModeIcon,
   OutlinedLightModeIcon,
@@ -149,7 +150,13 @@ export default ({
             navigationIcon={navMode === "modal" ? <MenuIcon/> : null}
             onNavButtonClick={onCollapse}
             headline={"Material Toys"}
-            trailingIcons={<div
+            trailingIcons={[
+              <div key="tw" style={{marginRight: 16}}>
+                <a href="https://twitter.com/MaterialToys"><TwitterIcon/></a></div>,
+              <div key="gh" style={{marginRight: 32}}>
+                <a href="https://github.com/koffilabs/material-toys"><GithubIcon/></a></div>,
+            <div
+              key="darkmode"
               className={classes.topAppBarTarget}
               onClick={() => {
                 setUIMode((mode) => {
@@ -158,9 +165,8 @@ export default ({
                 });
               }}
             >
-              {/*{ <OutlinedLightModeIcon/><OutlinedDarkModeIcon />}*/}
               {UIMode === "Light" ? (<OutlinedDarkModeIcon/>) : (<OutlinedLightModeIcon/>)}
-            </div>}/>
+            </div>]}/>
         </div>
         <div className={classes.content}>
           <main

@@ -47,13 +47,13 @@ export const TopAppBar = (tokens, options?: M3Options) => {
       ".mt-leading-navigation-icon": {
         marginTop: "20px",
         width: "48px",
-        paddingLeft: "16px",
+        marginLeft: "16px",
         paddingRight: "24px",
       },
       ".mt-trailing-icons": {
         display: "flex",
         marginTop: "20px",
-        width: "48px",
+        // width: "48px",
         paddingRight: "16px",
         marginLeft: "auto",
       },
