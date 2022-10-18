@@ -2,8 +2,22 @@ import {fireEvent, render, screen} from "@testing-library/react";
 import {MT} from "./MT";
 import React from "react";
 import {FilledTextField} from "./FilledTextField";
+import "@testing-library/jest-dom/extend-expect";
+
+// @ts-ignore
+import userEvent from "@testing-library/user-event";
 
 describe("@material/toys/react FilledTextField component isolated unit tests suite", () => {
+  it("should apply the maxLength attribute", async () => {
+    const user = userEvent.setup()
+
+    render(<MT><FilledTextField maxLength={3} label="text" /></MT>);
+    const textbox = screen.getByRole("textbox");
+    await user.type(textbox, "abcde", {
+      skipClick:false
+    })
+    expect(textbox).toHaveValue("abc")
+  });
   describe("event handlers", () => {
     for (const {eventName, action, event} of [
       {eventName: "onInput", action: "input"},
