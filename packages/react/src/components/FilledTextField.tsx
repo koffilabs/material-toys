@@ -7,14 +7,14 @@ import React, {
   useEffect,
   useRef,
   useState,
-  FocusEvent
+  FocusEvent, ComponentPropsWithoutRef, forwardRef
 } from "react";
 import {css} from "@emotion/css";
 import {applyReactiveStyle, m3} from "@material-toys/common";
 import {useTheme} from "../hooks/useTheme";
 import merge from "lodash-es/merge";
 
-interface FilledTextProps {
+interface FilledTextProps extends ComponentPropsWithoutRef<"input">{
   icon?: any;
   children?: ReactNode;
   label: string;
@@ -29,7 +29,6 @@ interface FilledTextProps {
   onMouseOut?: MouseEventHandler;
   onFocus?: FocusEventHandler;
   onBlur?: FocusEventHandler;
-  onKeyDown?: (e: KeyboardEvent) => {};
   value?: any;
   supportingText?: string;
   onInput?: (e: FormEvent<HTMLInputElement>) => {};
@@ -39,8 +38,9 @@ interface FilledTextProps {
   prefix?: string;
   characterCounter?: boolean;
 }
+export type Ref = HTMLInputElement;
 
-export const FilledTextField = ({
+export const FilledTextField = forwardRef<Ref, FilledTextProps>(({
                                   icon,
                                   leadingIcon,
                                   trailingIcon,
@@ -54,7 +54,6 @@ export const FilledTextField = ({
                                   onMouseUp,
                                   onMouseOut,
                                   onInput,
-                                  onKeyDown,
                                   onFocus,
                                   onBlur,
                                   supportingText,
@@ -65,7 +64,7 @@ export const FilledTextField = ({
                                   error = false,
                                   prefix = "",
                                   ...props
-                                }: FilledTextProps) => {
+                                }, ref) => {
 
   const {ThemeContext, VariantContext, ThemeFunctionContext} = useTheme();
   const tokens = useContext(ThemeContext);
@@ -143,8 +142,8 @@ export const FilledTextField = ({
           <div className="label">{label}</div>
           <div className="activeIndicator"></div>
         </div>
-        <input maxLength={maxLength} {...props} value={value} onInput={__onInput} onFocus={__onFocus} onBlur={__onBlur} spellCheck="false"
-               disabled={disabled}/>
+        <input ref={ref} maxLength={maxLength} {...props} value={value} onInput={__onInput} onFocus={__onFocus} onBlur={__onBlur} spellCheck="false"
+               disabled={disabled} />
         {trailingIcon && <div className="trailingIcon-container">
           {trailingIcon}
         </div>}
@@ -156,4 +155,4 @@ export const FilledTextField = ({
       </div>
     </div>
   );
-};
+});

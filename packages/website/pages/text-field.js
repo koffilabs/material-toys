@@ -4,11 +4,15 @@ import { SearchIcon, OutlinedCancelIcon, OutlinedErrorIcon } from "@material-toy
 // import {useEffect, useState} from "react";
 import {BlockComponentCanvas} from "../components/BlockComponentCanvas";
 import {CodeBlock} from "../components/CodeBlock";
-import React, {useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import Head from "next/head";
 
 export default function text_field_page() {
   const [thirdValue, setThirdValue] = useState("abc");
+  const ref = useRef(null);
+  // useEffect(() => {
+  //     ref.current.focus();
+  // }, [])
   const thirdOnChange = (e) => {
     setThirdValue(e.target.value)
   }
@@ -26,7 +30,7 @@ export default function text_field_page() {
         <div>
           <MT variant={"Light"}>
           <BlockComponentCanvas showGrid={false}>
-            <FilledTextField supportingText="Supporting text" label={"Label text"}/>
+            <FilledTextField ref={ref} supportingText="Supporting text" label={"Label text"}/>
             <FilledTextField disabled supportingText="Supporting text" label={"Label text"}/>
             <FilledTextField maxLength={10} characterCounter={true} supportingText="Supporting text" leadingIcon={<SearchIcon />} label={"Label text"}/>
             <FilledTextField disabled maxLength={10} characterCounter={true} supportingText="Supporting text" leadingIcon={<SearchIcon />} label={"Label text"}/>

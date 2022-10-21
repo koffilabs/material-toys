@@ -1,6 +1,6 @@
 import {fireEvent, render, screen} from "@testing-library/react";
 import {MT} from "./MT";
-import React from "react";
+import React, {useRef} from "react";
 import {FilledTextField} from "./FilledTextField";
 import "@testing-library/jest-dom/extend-expect";
 
@@ -17,6 +17,28 @@ describe("@material/toys/react FilledTextField component isolated unit tests sui
       skipClick:false
     })
     expect(textbox).toHaveValue("abc")
+  });
+  it("should not write in a disabled field", async () => {
+    const user = userEvent.setup()
+
+    render(<MT><FilledTextField disabled label="text" /></MT>);
+    const textbox = screen.getByRole("textbox");
+
+    await user.type(textbox, "abcde", {
+      skipClick:false
+    })
+    expect(textbox).toHaveValue("")
+  });
+  it("should not write in a readonly field", async () => {
+    const user = userEvent.setup()
+
+    render(<MT><FilledTextField readOnly={true} label="text" /></MT>);
+    const textbox = screen.getByRole("textbox");
+
+    await user.type(textbox, "abcde", {
+      skipClick:false
+    })
+    expect(textbox).toHaveValue("")
   });
   describe("event handlers", () => {
     for (const {eventName, action, event} of [
