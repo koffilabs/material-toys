@@ -7,7 +7,7 @@ import {CodeBlock} from "../components/CodeBlock";
 import React, {useEffect, useRef, useState} from "react";
 import Head from "next/head";
 
-export default function text_field_page() {
+export default function filled_text_field_page() {
   const [thirdValue, setThirdValue] = useState("abc");
   const ref = useRef(null);
   // useEffect(() => {

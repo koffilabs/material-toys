@@ -13,6 +13,7 @@ import { NavigationBarItem } from "./navigationbaritem";
 import { TopAppBar } from "./topappbar";
 import { Surface } from "./surface";
 import {FilledTextField} from "./filledtextfield";
+import {OutlinedTextField} from "./outlinedtextfield";
 export interface M3Options {
   variant?: string;
 }
@@ -60,6 +61,7 @@ export const m3 = (tokens, options: M3Options = defaultOptions) => {
       Surface: Surface(tokens, options),
       RailContainer: RailContainer(tokens, options),
       FilledTextField: FilledTextField(tokens, options),
+      OutlinedTextField: OutlinedTextField(tokens, options),
     },
   };
 };

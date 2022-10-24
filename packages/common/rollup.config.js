@@ -6,12 +6,13 @@ process.stdin.removeAllListeners("end");
 export default [
   {
     input: "src/main.ts",
-    // output: {
+    output: {
+      dir: "dist",
     //   name: "bundle",
     //   file: pkg.browser,
     //   format: "umd",
     //   sourcemap: false,//process.env.NODE_ENV !== "production",
-    // },
+    },
     plugins: [
       // babel({ babelHelpers: "bundled" }),
       esbuild(),
