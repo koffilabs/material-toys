@@ -24,7 +24,6 @@ const block = {
 }
 const shapesTheme = (variant) => {
   // variant can be "Light" (default) or "Dark"
-  const fill = "#e8def7";
 
   const baseClass = {
     display: "inline-block",
@@ -34,7 +33,7 @@ const shapesTheme = (variant) => {
     height: "80px",
     lineHeight: "80px",
     textAlign: "center",
-    backgroundColor: fill
+    backgroundColor: "#e8def7"
   }
   return {
     components: {
@@ -45,57 +44,51 @@ const shapesTheme = (variant) => {
         },
         "&.cutFull": {
           ...baseClass,
-          ...cutShape({shape: material_tokens.MdSysShapeCornerFull, fill})
+          ...cutShape({shape: material_tokens.MdSysShapeCornerFull})
         },
         "&.roundExtraLargeTop": {
           ...baseClass,
           borderRadius: roundedShape({ shape: material_tokens.MdSysShapeCornerExtraLargeTop}),
-          fill: material_tokens[`MdSysColorSurface${variant}`],
         },
         "&.cutExtraLargeTop": {
           ...baseClass,
-          ...cutShape({shape: material_tokens.MdSysShapeCornerExtraLargeTop, fill})
+          ...cutShape({shape: material_tokens.MdSysShapeCornerExtraLargeTop})
         },
         "&.roundLargeEnd": {
           ...baseClass,
           borderRadius: roundedShape({ shape: material_tokens.MdSysShapeCornerLargeEnd}),
-          fill: material_tokens[`MdSysColorSurface${variant}`],
         },
         "&.cutLargeEnd": {
           ...baseClass,
-          ...cutShape({shape: material_tokens.MdSysShapeCornerLargeEnd, fill})
+          ...cutShape({shape: material_tokens.MdSysShapeCornerLargeEnd})
         },
         "&.roundLargeTop": {
           ...baseClass,
           borderRadius: roundedShape({ shape: material_tokens.MdSysShapeCornerLargeTop}),
-          fill: material_tokens[`MdSysColorSurface${variant}`],
         },
         "&.cutLargeTop": {
           ...baseClass,
-          ...cutShape({shape: material_tokens.MdSysShapeCornerLargeTop, fill})
+          ...cutShape({shape: material_tokens.MdSysShapeCornerLargeTop})
         },
         "&.roundLarge": {
           ...baseClass,
           borderRadius: roundedShape({ shape: material_tokens.MdSysShapeCornerLarge}),
-          fill: material_tokens[`MdSysColorSurface${variant}`],
         },
         "&.cutLarge": {
           ...baseClass,
-          ...cutShape({shape: material_tokens.MdSysShapeCornerLarge, fill})
+          ...cutShape({shape: material_tokens.MdSysShapeCornerLarge})
         },
         "&.roundSmall": {
           ...baseClass,
           borderRadius: roundedShape({ shape: material_tokens.MdSysShapeCornerSmall}),
-          fill: material_tokens[`MdSysColorSurface${variant}`],
         },
         "&.cutSmall": {
           ...baseClass,
-          ...cutShape({shape: material_tokens.MdSysShapeCornerSmall, fill})
+          ...cutShape({shape: material_tokens.MdSysShapeCornerSmall})
         },
         "&.roundXSmallTop": {
           ...baseClass,
           borderRadius: roundedShape({ shape: material_tokens.MdSysShapeCornerExtraSmallTop}),
-          fill: material_tokens[`MdSysColorSurface${variant}`],
         },
         "&.cutXSmallTop": {
           ...baseClass,
@@ -104,7 +97,6 @@ const shapesTheme = (variant) => {
         "&.roundXSmall": {
           ...baseClass,
           borderRadius: roundedShape({ shape: material_tokens.MdSysShapeCornerExtraSmall}),
-          fill: material_tokens[`MdSysColorSurface${variant}`],
         },
         "&.cutXSmall": {
           ...baseClass,
@@ -113,7 +105,6 @@ const shapesTheme = (variant) => {
         "&.roundNone": {
           ...baseClass,
           borderRadius: roundedShape({ shape: material_tokens.MdSysShapeCornerNone}),
-          fill: material_tokens[`MdSysColorSurface${variant}`],
         },
         "&.cutNone": {
           ...baseClass,
@@ -122,20 +113,18 @@ const shapesTheme = (variant) => {
         "&.roundMedium": {
           ...baseClass,
           borderRadius: roundedShape({ shape: material_tokens.MdSysShapeCornerMedium}),
-          fill: material_tokens[`MdSysColorSurface${variant}`],
         },
         "&.cutMedium": {
           ...baseClass,
-          ...cutShape({shape: material_tokens.MdSysShapeCornerMedium, fill})
+          ...cutShape({shape: material_tokens.MdSysShapeCornerMedium})
         },
         "&.roundExtraLarge": {
           ...baseClass,
           borderRadius: roundedShape({ shape: material_tokens.MdSysShapeCornerExtraLarge}),
-          fill: material_tokens[`MdSysColorSurface${variant}`],
         },
         "&.cutExtraLarge": {
           ...baseClass,
-          ...cutShape({shape: material_tokens.MdSysShapeCornerExtraLarge, fill})
+          ...cutShape({shape: material_tokens.MdSysShapeCornerExtraLarge})
         },
       }
     }
@@ -148,20 +137,12 @@ const myTheme = (variant) => {
       Button: {
         ...cutElevatedButton({
           shape: material_tokens.MdSysShapeCornerExtraSmall,
-          fill: material_tokens[`MdSysColorSurface${variant}`],
-          stateFill: material_tokens[`MdSysColorPrimary${variant}`],
         }),
         ...cutFilledButton({
-          color: material_tokens[`MdSysColorPrimary${variant}`],
           shape: material_tokens.MdSysShapeCornerMedium,
-          fill: material_tokens[`MdSysColorPrimary${variant}`],
-          stateFill: material_tokens[`MdSysColorPrimary${variant}`],
         }),
         ...cutFilledTonalButton({
-          color: material_tokens[`MdSysColorPrimary${variant}`],
           shape: material_tokens.MdSysShapeCornerLargeEnd,
-          fill: material_tokens[`MdSysColorSecondaryContainer${variant}`],
-          stateFill: material_tokens[`MdSysColorPrimary${variant}`],
         }),
       }
     }
@@ -270,7 +251,7 @@ const shapesTheme = (variant) => {
         },
         "&.cutFull": {
           ...baseClass,
-          ...cutShape({shape: material_tokens.MdSysShapeCornerFull, fill})
+          ...cutShape({shape: material_tokens.MdSysShapeCornerFull})
         },
       }
     }
@@ -305,22 +286,14 @@ const myTheme = (variant) => {
     components: {
       Button: {
         ...cutElevatedButton({
-          shape: material_tokens.MdSysShapeCornerExtraSmall,
-          fill: material_tokens[\`MdSysColorSurface\${variant}\`],
-          stateFill: material_tokens[\`MdSysColorPrimary\${variant}\`],
+          shape: material_tokens.MdSysShapeCornerExtraSmall
         }),
         ...cutFilledButton({
-          color: material_tokens[\`MdSysColorPrimary\${variant}\`],
-          shape: material_tokens.MdSysShapeCornerMedium,
-          fill: material_tokens[\`MdSysColorPrimary\${variant}\`],
-          stateFill: material_tokens[\`MdSysColorPrimary\${variant}\`],
+          shape: material_tokens.MdSysShapeCornerMedium
         }),
         ...cutFilledTonalButton({
-          color: material_tokens[\`MdSysColorPrimary\${variant}\`],
-          shape: material_tokens.MdSysShapeCornerLargeEnd,
-          fill: material_tokens[\`MdSysColorSecondaryContainer\${variant}\`],
-          stateFill: material_tokens[\`MdSysColorPrimary\${variant}\`],
-        })
+          shape: material_tokens.MdSysShapeCornerLargeEnd
+        }),
       }
     }
   };

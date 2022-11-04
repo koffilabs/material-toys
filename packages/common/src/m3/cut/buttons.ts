@@ -5,23 +5,17 @@ import * as polyfill  from "../default/polyfill";
 const material_tokens = {...tokens, ...polyfill}
 interface CutButtonArgs {
   shape: string;
-  fill: string;
-  stateFill: string;
-  color?: string;
-  stroke?: string;
 }
 
 export const cutElevatedButton = ({
-                                    shape, fill, stroke, stateFill
+                                    shape
                                   }: CutButtonArgs) => ({
   "&.elevated": {
     filter: `drop-shadow(0 2px 1px ${rgba(material_tokens.MdSysColorShadow, .4)})`,
     "& .mt-shape": {
       boxShadow: "none",
-      backgroundColor: "transparent",
       ...cutShape({
         shape,
-        fill,
       }),
     },
     "&:active, &:focus": {
@@ -29,37 +23,28 @@ export const cutElevatedButton = ({
         boxShadow: "none",
       },
       "& .state": {
-        backgroundColor: "transparent",
       },
 
     },
     "&:hover:not(:disabled)": {
       "& .mt-shape": {
         boxShadow: "none",
-        backgroundColor: "transparent",
         "& .state": {
-          backgroundColor: "transparent",
         },
       },
-      // filter: `drop-shadow(0 2px 1px ${rgba(tokens.MdSysColorShadow, .4)})`,
     },
     "& .state": {
-      ...cutShape({
-        shape,
-        fill: stateFill
-      })
     },
   }
 });
 export const cutFilledButton = ({
-                                    shape, fill, stroke, stateFill, color = "#fff"
+                                    shape
                                   }: CutButtonArgs) => ({
   "&.filled": {
-    color,
     transition: "filter .1s ease-in-out",
     filter: `drop-shadow(0 0px 0px ${rgba(material_tokens.MdSysColorShadow, .4)})`,
     "& .mt-shape": {
-      ...cutShape({shape, fill}),
+      ...cutShape({shape}),
     },
 
     "&:hover:not(:disabled)": {
@@ -68,13 +53,10 @@ export const cutFilledButton = ({
         boxShadow: "none",
       },
     },
-    "& .state": {
-      ...cutShape({shape, fill: stateFill})
-    },
   },
 });
 export const cutFilledTonalButton = ({
-                                  shape, fill, stroke, stateFill, color = "#fff"
+                                  shape
                                 }: CutButtonArgs) => ({
   "&.filled-tonal": {
     border: "none",
@@ -91,13 +73,8 @@ export const cutFilledTonalButton = ({
     ".mt-shape": {
       ...cutShape({
         shape,
-        fill
       }),
     },
-    "& .state": {
-      ...cutShape({shape, fill })
-    },
-
   },
 
 });

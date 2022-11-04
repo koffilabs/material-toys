@@ -85,24 +85,6 @@ export const useRipple = () => {
     rippleElement.style.height = `${side}px`;
     rippleElement.style.borderRadius = `50%`;
 
-    // TODO: apply a clip path if the shape is cut
-    const borderImage = window.getComputedStyle(element).borderImage
-    if (borderImage) {
-      try {
-        const dataAttribute = "data-mt=\\\"";
-        const attrIndex = borderImage.indexOf(dataAttribute);
-        if (attrIndex !== -1) {
-          // const endIndex
-          const [topLeft, topRight, bottomRight, bottomLeft] = borderImage.substring(attrIndex + dataAttribute.length, borderImage
-            .indexOf("\\\"", attrIndex + dataAttribute.length + 1)).split(" ").map(n => +n);
-          element.style.clipPath = `path('M${topLeft},0h${oWidth - topRight - topLeft}l${topRight},${topRight}v${oHeight - topRight - bottomRight}l${-topRight},${bottomRight}h${-(oWidth - bottomLeft - topRight)}l${-bottomLeft},${-bottomRight}v${-(oHeight - topLeft - bottomRight)}z')`;
-        }
-      } catch (e) {
-        console.error("Error generating the ripple clip data", e)
-      }
-    }
-    // color && (rippleElement.style.background = `${color}`);
-    // rippleElement.style.background = `red`;
     if (!rippleElement.parentElement) {
       element.appendChild(rippleElement);
     }
