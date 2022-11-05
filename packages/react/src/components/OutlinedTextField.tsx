@@ -92,16 +92,7 @@ export const OutlinedTextField = forwardRef<HTMLInputElement, OutlinedTextProps>
       if (outlineNode?.current && inputNode?.current && (inputNode.current !== document.activeElement)) {
         const length = (labelNode.current as HTMLElement).getBoundingClientRect().width
         const start = CUT_START, end = start + length + 8;
-        outlineNode.current && (borderAnimation.current =
-          borderAnimation.current ?? createAnimation({start, end, length, node: outlineNode.current}));
-
-        // borderAnimation?.current && borderAnimation.current.addEventListener("finish", () => {
-          // outlineNode.current && ((outlineNode.current as HTMLElement).style.clipPath = "none");
-        // }, {once: true});
-        borderAnimation.current && (borderAnimation.current.playbackRate = -1);
-
-        borderAnimation?.current?.play();
-
+        (outlineNode.current as HTMLElement).style.clipPath = getClosedPolygon({start, length})
       }
     }
   }, [value])
@@ -114,16 +105,22 @@ export const OutlinedTextField = forwardRef<HTMLInputElement, OutlinedTextProps>
       labelNode.current.style.fontSize = "";
       labelNode.current.style.transition = "";
       const length = width, start = CUT_START, end = start + length + 8;
-      borderAnimation.current = createAnimation({start, end, length, node: outlineNode.current})
 
       // initial filled style
       if (value.length) {
         if (outlineNode?.current) {
           const length = smallLabelWidth.current
           const start = CUT_START, end = start + length + 8;
-          borderAnimation.current && (borderAnimation.current.playbackRate = 1);
-          borderAnimation?.current?.finish();
+          (outlineNode.current as HTMLElement).style.clipPath = getOpenPolygon({start, end})
+          console.log("should use the open polygon here")
+
         }
+      } else {
+        if (outlineNode.current) {
+          const length = smallLabelWidth.current, start = CUT_START, end = start + length + 8;
+          (outlineNode.current as HTMLElement).style.clipPath = getClosedPolygon({start, length})
+        }
+
       }
       setIsLoading(false);
 
@@ -137,7 +134,6 @@ export const OutlinedTextField = forwardRef<HTMLInputElement, OutlinedTextProps>
       })
     )
   );
-  const borderAnimation = useRef<Animation>();
 
   interface Measures {
     start: number
@@ -171,40 +167,20 @@ export const OutlinedTextField = forwardRef<HTMLInputElement, OutlinedTextProps>
   interface Node {
     node: HTMLInputElement
   }
-
-  const createAnimation = ({length, start, end, node}: Measures & Node) => {
-    const animation = node.animate([{
-      clipPath: getClosedPolygon({start, length})
-    }, {
-      clipPath: getOpenPolygon({start, end})
-    }], {
-      duration: 150,
-      easing: "cubic-bezier(0.4, 0.0, 0.2, 1)",
-      fill: "forwards"
-    })
-    animation.commitStyles();
-    animation.pause();
-    return animation;
-  }
   const __onFocus = (e: FocusEvent<HTMLElement>) => {
     setHasFocus(true);
     const length = smallLabelWidth.current, start = CUT_START, end = start + length + 8;
 
-    if(outlineNode.current && value.length === 0){
-      outlineNode.current && (borderAnimation.current =
-        borderAnimation.current ?? createAnimation({start, end, length, node: outlineNode.current}));
-      borderAnimation.current && (borderAnimation.current.playbackRate = 1);
-      borderAnimation?.current?.play();
+    if (outlineNode.current && value.length === 0) {
+      (outlineNode.current as HTMLElement).style.clipPath = getOpenPolygon({start, end})
     }
     (typeof onFocus === "function") && onFocus(e);
   };
   const __onBlur = (e: FocusEvent<HTMLElement>) => {
     const length = smallLabelWidth.current, start = CUT_START, end = start + length + 8;
-    if (value.length === 0) {
-      outlineNode.current && (borderAnimation.current =
-        borderAnimation.current ?? createAnimation({start, end, length, node: outlineNode.current}));
-      borderAnimation.current && (borderAnimation.current.playbackRate = -1);
-      borderAnimation?.current?.play();
+    if (value.length === 0 && outlineNode.current) {
+      (outlineNode.current as HTMLElement).style.clipPath = getClosedPolygon({start, length})
+
     }
     setHasFocus(false);
     (typeof onBlur === "function") && onBlur(e);

@@ -71,7 +71,6 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
     overflow: "hidden",
     position: "relative",
     borderTopRightRadius: "0",
-    borderBottomTopRightRadius: "0",
     padding: "0",
     marginRight: "0",
     marginLeft: "0",

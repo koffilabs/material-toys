@@ -139,6 +139,8 @@ export const OutlinedTextField = (tokens, options?: M3Options) => {
       height: "56px",
       position: "relative",
       ".mt-outline": {
+        willChange: "clip-path",
+        transition: `${duration} clip-path ${easing}`,
         outlineOffset: "-2px",
         position: "absolute",
         top: "0",
