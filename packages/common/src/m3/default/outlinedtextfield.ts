@@ -26,7 +26,8 @@ export const OutlinedTextField = (tokens, options?: M3Options) => {
         },
         ".container": {
           ".label": {
-            top: `-${(tokens.MdSysTypescaleBodySmallLineHeight / 2 - 1)}px`,
+            transform: `translate(16px, -${(tokens.MdSysTypescaleBodySmallLineHeight / 2 - 1)}px)`,
+            // top: `-${(tokens.MdSysTypescaleBodySmallLineHeight / 2 - 1)}px`,
             color: tokens[`MdSysColorPrimary${variant}`],
             lineHeight: `${tokens.MdSysTypescaleBodySmallLineHeight}px`,
             fontSize: tokens.MdSysTypescaleBodySmallSize,
@@ -37,7 +38,7 @@ export const OutlinedTextField = (tokens, options?: M3Options) => {
         ".mt-shape": {
           ".container": {
             ".label": {
-              left: `16px`,
+              left: `0`,
             }
           }
         }
@@ -93,11 +94,11 @@ export const OutlinedTextField = (tokens, options?: M3Options) => {
         },
         ".container": {
           ".label": {
-            left: "52px"
+            left: "36px"
           },
           "&.filled": {
             ".label": {
-              "left": "16px"
+              "left": "0"
             }
           },
           ".leadingIcon-container": {
@@ -130,7 +131,8 @@ export const OutlinedTextField = (tokens, options?: M3Options) => {
       ".container.filled": {
         ".label": {
           position: "absolute",
-          top: `-${(tokens.MdSysTypescaleBodySmallLineHeight / 2 - 1)}px`,
+          transform: `translate(16px, -${(tokens.MdSysTypescaleBodySmallLineHeight / 2 - 1)}px)`,
+          // top: `-${(tokens.MdSysTypescaleBodySmallLineHeight / 2 - 1)}px`,
           color: tokens[`MdSysColorPrimary${variant}`],
           lineHeight: `${tokens.MdSysTypescaleBodySmallLineHeight}px`,
           fontSize: tokens.MdSysTypescaleBodySmallSize,
@@ -203,9 +205,10 @@ export const OutlinedTextField = (tokens, options?: M3Options) => {
           ${duration} font-size ${easing}, ${duration} top ${easing}, ${duration} left ${easing},
           ${duration} color ${easing},
           ${duration} transform ${easing}`,
-          willChange: "font-size, top, line-height, color",
-          top: `${(56 - tokens.MdSysTypescaleBodyLargeLineHeight) / 2}px`,
-          left: "16px", // without leading icon
+          willChange: "font-size, transform, line-height, color",
+          transform: `translate(16px, ${(56 - tokens.MdSysTypescaleBodyLargeLineHeight) / 2}px)`,
+          // top: `${(56 - tokens.MdSysTypescaleBodyLargeLineHeight) / 2}px`,
+          // left: "16px", // without leading icon
           color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
           fontFamily: tokens.MdSysTypescaleBodyLargeFont,
           lineHeight: `${tokens.MdSysTypescaleBodyLargeLineHeight}px`,
