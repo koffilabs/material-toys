@@ -3,7 +3,7 @@ import {M3Options} from "./index";
 import {roundedShape} from "../../util/shape";
 import {MdSysStateHoverStateLayerOpacity} from "./polyfill";
 
-const duration = ".15s";
+const duration = ".3s";
 // const easing = "cubic-bezier(.075, .75, .875, .36)";
 const easing = "cubic-bezier(0.4, 0.0, 0.2, 1)";
 
@@ -26,11 +26,11 @@ export const OutlinedTextField = (tokens, options?: M3Options) => {
         },
         ".container": {
           ".label": {
-            transform: `translate(16px, -${(tokens.MdSysTypescaleBodySmallLineHeight / 2 - 1)}px)`,
+            transform: `translate(16px, -${(tokens.MdSysTypescaleBodySmallLineHeight / 2)}px) scale(0.75) `,
             // top: `-${(tokens.MdSysTypescaleBodySmallLineHeight / 2 - 1)}px`,
             color: tokens[`MdSysColorPrimary${variant}`],
             lineHeight: `${tokens.MdSysTypescaleBodySmallLineHeight}px`,
-            fontSize: tokens.MdSysTypescaleBodySmallSize,
+            // fontSize: tokens.MdSysTypescaleBodySmallSize,
           },
         },
       },
@@ -38,7 +38,7 @@ export const OutlinedTextField = (tokens, options?: M3Options) => {
         ".mt-shape": {
           ".container": {
             ".label": {
-              left: `0`,
+              transform: `translate(16px, -${(tokens.MdSysTypescaleBodySmallLineHeight / 2)}px) scale(0.75) `,
             }
           }
         }
@@ -94,7 +94,8 @@ export const OutlinedTextField = (tokens, options?: M3Options) => {
         },
         ".container": {
           ".label": {
-            left: "36px"
+            // left: "36px"
+            transform: `translate(52px, ${(56 - tokens.MdSysTypescaleBodyLargeLineHeight) / 2}px)`
           },
           "&.filled": {
             ".label": {
@@ -131,11 +132,11 @@ export const OutlinedTextField = (tokens, options?: M3Options) => {
       ".container.filled": {
         ".label": {
           position: "absolute",
-          transform: `translate(16px, -${(tokens.MdSysTypescaleBodySmallLineHeight / 2 - 1)}px)`,
+          transform: `translate(16px, -${(tokens.MdSysTypescaleBodySmallLineHeight / 2)}px) scale(0.75)`,
           // top: `-${(tokens.MdSysTypescaleBodySmallLineHeight / 2 - 1)}px`,
           color: tokens[`MdSysColorPrimary${variant}`],
           lineHeight: `${tokens.MdSysTypescaleBodySmallLineHeight}px`,
-          fontSize: tokens.MdSysTypescaleBodySmallSize,
+          // fontSize: tokens.MdSysTypescaleBodySmallSize,
         },
       },
       height: "56px",
@@ -202,11 +203,12 @@ export const OutlinedTextField = (tokens, options?: M3Options) => {
           position: "absolute",
           pointerEvents: "none",
           transition: `${duration} line-height ${easing}, 
-          ${duration} font-size ${easing}, ${duration} top ${easing}, ${duration} left ${easing},
+          ${duration} font-size ${easing},
           ${duration} color ${easing},
           ${duration} transform ${easing}`,
-          willChange: "font-size, transform, line-height, color",
-          transform: `translate(16px, ${(56 - tokens.MdSysTypescaleBodyLargeLineHeight) / 2}px)`,
+          transformOrigin: "0 50%",
+          willChange: "font-size, line-height, color",
+          transform: `translate(16px, ${(56 - tokens.MdSysTypescaleBodyLargeLineHeight) / 2}px) scale(1)`,
           // top: `${(56 - tokens.MdSysTypescaleBodyLargeLineHeight) / 2}px`,
           // left: "16px", // without leading icon
           color: tokens[`MdSysColorOnSurfaceVariant${variant}`],

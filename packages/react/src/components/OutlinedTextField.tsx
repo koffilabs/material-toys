@@ -98,12 +98,11 @@ export const OutlinedTextField = forwardRef<HTMLInputElement, OutlinedTextProps>
   }, [value])
   useEffect(() => {
     if (labelNode?.current && outlineNode.current) {
-      labelNode.current.style.transition = "none";
-      labelNode.current.style.fontSize = `${tokens.MdSysTypescaleBodySmallSize}px`;
-      const width = (labelNode.current as HTMLElement).getBoundingClientRect().width;
+      // labelNode.current.style.transition = "none";
+      const cs = window.getComputedStyle(labelNode.current);
+      // labelNode.current.style.transform = `scale(0.75)`;
+      const width = (labelNode.current as HTMLElement).getBoundingClientRect().width * (value.length ? 1 : .75);
       smallLabelWidth.current = width;
-      labelNode.current.style.fontSize = "";
-      labelNode.current.style.transition = "";
       const length = width, start = CUT_START, end = start + length + 8;
 
       // initial filled style
@@ -112,7 +111,6 @@ export const OutlinedTextField = forwardRef<HTMLInputElement, OutlinedTextProps>
           const length = smallLabelWidth.current
           const start = CUT_START, end = start + length + 8;
           (outlineNode.current as HTMLElement).style.clipPath = getOpenPolygon({start, end})
-          console.log("should use the open polygon here")
 
         }
       } else {
@@ -120,10 +118,8 @@ export const OutlinedTextField = forwardRef<HTMLInputElement, OutlinedTextProps>
           const length = smallLabelWidth.current, start = CUT_START, end = start + length + 8;
           (outlineNode.current as HTMLElement).style.clipPath = getClosedPolygon({start, length})
         }
-
       }
       setIsLoading(false);
-
     }
   }, []);
   const [textFieldClass, setTextFieldClass] = useState(
@@ -167,6 +163,7 @@ export const OutlinedTextField = forwardRef<HTMLInputElement, OutlinedTextProps>
   interface Node {
     node: HTMLInputElement
   }
+
   const __onFocus = (e: FocusEvent<HTMLElement>) => {
     setHasFocus(true);
     const length = smallLabelWidth.current, start = CUT_START, end = start + length + 8;
