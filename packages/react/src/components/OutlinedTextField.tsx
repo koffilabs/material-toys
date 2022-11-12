@@ -130,7 +130,6 @@ export const OutlinedTextField = forwardRef<HTMLInputElement, OutlinedTextProps>
       })
     )
   );
-
   interface Measures {
     start: number
     length?: number
@@ -212,9 +211,7 @@ export const OutlinedTextField = forwardRef<HTMLInputElement, OutlinedTextProps>
           })
         ));
     }
-
-
-  }, [node])
+  }, [node, variant])
   return (
     <div ref={node} {...events}
          className={`${textFieldClass} ${className}${leadingIcon ? " leadingIcon" : ""}${trailingIcon

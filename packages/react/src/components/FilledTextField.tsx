@@ -125,9 +125,7 @@ export const FilledTextField = forwardRef<Ref, FilledTextProps>(({
           })
         ));
     }
-
-
-  }, [node])
+  }, [node, variant])
   return (
     <div ref={node} {...events}
          className={`${textFieldClass} ${className}${leadingIcon ? " leadingIcon" : ""}${trailingIcon

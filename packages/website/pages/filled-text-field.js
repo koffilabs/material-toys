@@ -1,14 +1,16 @@
-import {FilledTextField, MT} from "@material-toys/react";
+import {FilledTextField, MT, useTheme} from "@material-toys/react";
 import { SearchIcon, OutlinedCancelIcon, OutlinedErrorIcon } from "@material-toys/icons-react";
 
 // import {useEffect, useState} from "react";
 import {BlockComponentCanvas} from "../components/BlockComponentCanvas";
 import {CodeBlock} from "../components/CodeBlock";
-import React, {useEffect, useRef, useState} from "react";
+import React, {useContext, useEffect, useRef, useState} from "react";
 import Head from "next/head";
 
 export default function filled_text_field_page() {
   const [thirdValue, setThirdValue] = useState("abc");
+  const {VariantContext } = useTheme();
+  const variant = useContext(VariantContext);
   const ref = useRef(null);
   // useEffect(() => {
   //     ref.current.focus();
@@ -28,7 +30,7 @@ export default function filled_text_field_page() {
       <main>
         <h2>Filled text field</h2>
         <div>
-          <MT variant={"Light"}>
+          <MT variant={variant}>
           <BlockComponentCanvas showGrid={false}>
             <FilledTextField ref={ref} supportingText="Supporting text" label={"Label text"}/>
             <FilledTextField disabled supportingText="Supporting text" label={"Label text"}/>

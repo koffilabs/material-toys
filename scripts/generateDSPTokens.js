@@ -5,7 +5,7 @@ const parseValue = (value) =>
   value.startsWith("{")
     ? toPascalCase(value.replace(/\{|\}/g, ""))
     : isNaN(value)
-    ? `"${value}"`
+    ? `"${value.startsWith("#") ? value.substring(0, value.length - 2) : value}"`
     : value;
 (async () => {
   let outTokens = "";

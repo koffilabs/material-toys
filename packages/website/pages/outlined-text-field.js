@@ -1,14 +1,17 @@
-import {OutlinedTextField, MT} from "@material-toys/react";
+import {OutlinedTextField, MT, useTheme} from "@material-toys/react";
 import { SearchIcon, OutlinedCancelIcon, OutlinedErrorIcon } from "@material-toys/icons-react";
 
 // import {useEffect, useState} from "react";
 import {BlockComponentCanvas} from "../components/BlockComponentCanvas";
 import {CodeBlock} from "../components/CodeBlock";
-import React, {useRef, useState} from "react";
+import React, {useContext, useRef, useState} from "react";
 import Head from "next/head";
 
 export default function outlined_text_field_page() {
   const [thirdValue, setThirdValue] = useState("abc");
+  const {VariantContext } = useTheme();
+  const variant = useContext(VariantContext);
+
   const ref = useRef(null);
   // useEffect(() => {
   //     ref.current.focus();
@@ -28,7 +31,7 @@ export default function outlined_text_field_page() {
       <main>
         <h2>Outlined text field</h2>
         <div>
-          <MT variant={"Light"}>
+          <MT variant={variant}>
           <BlockComponentCanvas showGrid={false}>
             <OutlinedTextField ref={ref} supportingText="Supporting text" label={"Label text"}/>
             <OutlinedTextField disabled supportingText="Supporting text" label={"Label text"}/>
