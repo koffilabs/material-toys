@@ -10,7 +10,7 @@ import { FAB } from "./FAB";
 import { css } from "@emotion/css";
 import { usePrevious } from "../hooks/usePrevious";
 import { applyReactiveStyle, m3 } from "@material-toys/common";
-import { useTheme } from "../hooks/useTheme";
+import { useThemeContexts } from "../hooks/useThemeContexts";
 import { NavigationItem } from "./NavigationItem";
 import { Ripple } from "./Ripple";
 import merge from "lodash-es/merge";
@@ -57,11 +57,11 @@ export const NavigationDrawer = ({
   className = "",
   ...props
 }: NavigationDrawerProps) => {
-  const { ThemeContext, VariantContext, ThemeFunctionContext } = useTheme();
+  const { ThemeContext, VariantContext, UserThemeContext } = useThemeContexts();
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
 
-  const userTheme: any = useContext(ThemeFunctionContext);
+  const userTheme: any = useContext(UserThemeContext);
   // TODO: refactor, should reuse NavigationItemMapperFactory in NavigationBar
   const [selectedIndex, setSelectedIndex] = useState(activeItem);
   const onClick = (activeIndex: number) => {

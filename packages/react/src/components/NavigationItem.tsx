@@ -1,6 +1,6 @@
 import React, { MouseEventHandler, ReactNode, useContext } from "react";
 import { css } from "@emotion/css";
-import { useTheme } from "../hooks/useTheme";
+import { useThemeContexts } from "../hooks/useThemeContexts";
 import { applyReactiveStyle, m3 } from "@material-toys/common";
 import { Ripple } from "./Ripple";
 import merge from "lodash-es/merge";
@@ -24,8 +24,8 @@ export const NavigationItem = ({
   railLabel = "selected",
   className = "",
 }: NavigationItemProps) => {
-  const { ThemeContext, VariantContext, ThemeFunctionContext } = useTheme();
-  const userTheme: any = useContext(ThemeFunctionContext);
+  const { ThemeContext, VariantContext, UserThemeContext } = useThemeContexts();
+  const userTheme: any = useContext(UserThemeContext);
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
   const theme = m3(tokens, { variant });

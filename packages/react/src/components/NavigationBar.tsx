@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import { css } from "@emotion/css";
 import { applyReactiveStyle, m3 } from "@material-toys/common";
-import { useTheme } from "../hooks/useTheme";
+import { useThemeContexts } from "../hooks/useThemeContexts";
 import { NavigationBarItem } from "./NavigationBarItem";
 import merge from "lodash-es/merge";
 
@@ -24,8 +24,8 @@ export const NavigationBar = ({
   labels = "show",
   className = "",
 }: NavigationBarArgs) => {
-  const { ThemeContext, VariantContext, ThemeFunctionContext } = useTheme();
-  const userTheme: any = useContext(ThemeFunctionContext);
+  const { ThemeContext, VariantContext, UserThemeContext } = useThemeContexts();
+  const userTheme: any = useContext(UserThemeContext);
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
   const theme = m3(tokens, { variant });

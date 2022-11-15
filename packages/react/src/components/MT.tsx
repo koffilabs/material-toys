@@ -1,5 +1,5 @@
 import React, { ReactNode, useState } from "react";
-import { useTheme } from "../hooks/useTheme";
+import { useThemeContexts } from "../hooks/useThemeContexts";
 
 import {
   material_tokens,
@@ -19,15 +19,15 @@ export const MT = ({
   theme = () => {},
   variant = "",
 }: AppProps) => {
-  const { ThemeContext, VariantContext, ThemeFunctionContext } = useTheme();
+  const { ThemeContext, VariantContext, UserThemeContext } = useThemeContexts();
   const [reactiveTokens, setReactiveTokens] = useState({ ...defaultTokens, ...tokens });
   return (
-    <ThemeFunctionContext.Provider value={theme}>
+    <UserThemeContext.Provider value={theme}>
       <ThemeContext.Provider value={reactiveTokens}>
         <VariantContext.Provider value={variant}>
           {children}
         </VariantContext.Provider>
       </ThemeContext.Provider>
-    </ThemeFunctionContext.Provider>
+    </UserThemeContext.Provider>
   );
 };

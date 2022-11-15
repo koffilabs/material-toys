@@ -1,7 +1,7 @@
 import React, {MouseEventHandler, ReactNode, useContext, useEffect, useRef, useState} from "react";
 import {css} from "@emotion/css";
 import {applyReactiveStyle, m3} from "@material-toys/common";
-import {useTheme} from "../hooks/useTheme";
+import {useThemeContexts} from "../hooks/useThemeContexts";
 import {Ripple} from "./Ripple";
 import merge from "lodash-es/merge";
 
@@ -29,11 +29,11 @@ export const Button = ({
                          onMouseOut,
                          ...props
                        }: ButtonProps) => {
-  const {ThemeContext, VariantContext, ThemeFunctionContext} = useTheme();
+  const {ThemeContext, VariantContext, UserThemeContext} = useThemeContexts();
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
   const theme = m3(tokens, {variant});
-  const userTheme: any = useContext(ThemeFunctionContext);
+  const userTheme: any = useContext(UserThemeContext);
   const node = useRef(null);
 
   let width: number, height: number;

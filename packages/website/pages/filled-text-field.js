@@ -4,12 +4,13 @@ import { SearchIcon, OutlinedCancelIcon, OutlinedErrorIcon } from "@material-toy
 // import {useEffect, useState} from "react";
 import {BlockComponentCanvas} from "../components/BlockComponentCanvas";
 import {CodeBlock} from "../components/CodeBlock";
-import React, {useContext, useEffect, useRef, useState} from "react";
+import React, {useContext, useRef, useState} from "react";
 import Head from "next/head";
+import {useThemeContexts} from "@material-toys/react";
 
 export default function filled_text_field_page() {
   const [thirdValue, setThirdValue] = useState("abc");
-  const {VariantContext } = useTheme();
+  const {VariantContext } = useThemeContexts();
   const variant = useContext(VariantContext);
   const ref = useRef(null);
   // useEffect(() => {

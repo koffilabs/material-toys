@@ -6,10 +6,11 @@ import {BlockComponentCanvas} from "../components/BlockComponentCanvas";
 import {CodeBlock} from "../components/CodeBlock";
 import React, {useContext, useRef, useState} from "react";
 import Head from "next/head";
+import {useThemeContexts} from "@material-toys/react";
 
 export default function outlined_text_field_page() {
   const [thirdValue, setThirdValue] = useState("abc");
-  const {VariantContext } = useTheme();
+  const {VariantContext } = useThemeContexts();
   const variant = useContext(VariantContext);
 
   const ref = useRef(null);

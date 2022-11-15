@@ -1,6 +1,6 @@
 import {render} from '@testing-library/react'
 import React from "react";
-import {useTheme} from "./hooks/useTheme";
+import {useThemeContexts} from "./hooks/useThemeContexts";
 // const { ThemeContext, VariantContext, ThemeFunctionContext } = useTheme();
 
 // const AllTheProviders = ({children}) => {

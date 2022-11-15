@@ -3,7 +3,7 @@ import { RippleIcon } from "./RippleIcon";
 import { DESKTOP, LAPTOP, useMatchMedia } from "../hooks/useMatchMedia";
 import { css } from "@emotion/css";
 import { applyReactiveStyle, m3 } from "@material-toys/common";
-import { useTheme } from "../hooks/useTheme";
+import { useThemeContexts } from "../hooks/useThemeContexts";
 import merge from "lodash-es/merge";
 
 interface TopAppBarProps {
@@ -22,8 +22,8 @@ export const TopAppBar = ({
   onNavButtonClick = () => {},
   className = "",
 }: TopAppBarProps) => {
-  const { ThemeContext, VariantContext, ThemeFunctionContext } = useTheme();
-  const userTheme: any = useContext(ThemeFunctionContext);
+  const { ThemeContext, VariantContext, UserThemeContext } = useThemeContexts();
+  const userTheme: any = useContext(UserThemeContext);
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
   const theme = m3(tokens, { variant });

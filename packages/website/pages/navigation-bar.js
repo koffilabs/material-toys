@@ -18,12 +18,12 @@ import {
 } from "@material-toys/icons-react";
 import classes from "./navigation-bar.module.scss";
 import React, {useContext} from "react";
-import {zoomIn, fadeIn, circleReveal, rectReveal, useTheme} from "@material-toys/react";
+import {zoomIn, fadeIn, circleReveal, rectReveal, useThemeContexts} from "@material-toys/react";
 import Head from "next/head";
 
 
 export default function navigation_bar() {
-  const {VariantContext } = useTheme();
+  const {VariantContext } = useThemeContexts();
   const variant = useContext(VariantContext);
 
   const navigationBarItems = [

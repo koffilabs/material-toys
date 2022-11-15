@@ -18,6 +18,7 @@ import {CodeBlock} from "../components/CodeBlock";
 
 import dynamic from "next/dynamic";
 import Head from "next/head";
+import {useThemeContexts} from "@material-toys/react";
 const TopAppBar = dynamic(
   () =>
     import("@material-toys/react").then((mod) => {
@@ -28,7 +29,7 @@ const TopAppBar = dynamic(
   }
 );
 export default function top_app_bar_page() {
-  const {VariantContext} = useTheme();
+  const {VariantContext} = useThemeContexts();
   const variant = useContext(VariantContext);
 
   return (

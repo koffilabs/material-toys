@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import { css } from "@emotion/css";
 import { applyReactiveStyle, m3 } from "@material-toys/common";
-import { useTheme } from "../hooks/useTheme";
+import { useThemeContexts } from "../hooks/useThemeContexts";
 import { Ripple } from "./Ripple";
 import { usePrevious } from "../hooks/usePrevious";
 interface FABProps {
@@ -29,7 +29,7 @@ export const FAB = ({
 }: FABProps) => {
   const textNode = useRef(null);
   const root = useRef(null);
-  const { ThemeContext, VariantContext } = useTheme();
+  const { ThemeContext, VariantContext } = useThemeContexts();
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
   const theme = m3(tokens, { variant });

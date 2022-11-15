@@ -11,7 +11,7 @@ import React, {
 } from "react";
 import {css} from "@emotion/css";
 import {applyReactiveStyle, m3} from "@material-toys/common";
-import {useTheme} from "../hooks/useTheme";
+import {useThemeContexts} from "../hooks/useThemeContexts";
 import merge from "lodash-es/merge";
 
 const CUT_START = 12;
@@ -68,11 +68,11 @@ export const OutlinedTextField = forwardRef<HTMLInputElement, OutlinedTextProps>
                                                                                     ...props
                                                                                   }, ref) => {
 
-  const {ThemeContext, VariantContext, ThemeFunctionContext} = useTheme();
+  const {ThemeContext, VariantContext, UserThemeContext} = useThemeContexts();
   const tokens: any = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
   const theme = m3(tokens, {variant});
-  const userTheme: any = useContext(ThemeFunctionContext);
+  const userTheme: any = useContext(UserThemeContext);
   const node = useRef(null);
   const outlineNode = useRef(null);
   const labelNode = useRef<HTMLDivElement>(null);

@@ -18,6 +18,7 @@ import {
   MT, NavigationDrawer, NavigationItem, useTheme
 } from "@material-toys/react";
 import Head from "next/head";
+import {useThemeContexts} from "@material-toys/react";
 
 const myTheme = (variant) => {
   return {
@@ -38,7 +39,7 @@ const myTheme = (variant) => {
   }
 };
 export default function rail_page() {
-  const {VariantContext } = useTheme();
+  const {VariantContext } = useThemeContexts();
   const variant = useContext(VariantContext);
 
   const [__mode, setMode] = useState("rail")

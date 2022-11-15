@@ -11,7 +11,7 @@ import React, {
 } from "react";
 import {css} from "@emotion/css";
 import {applyReactiveStyle, m3} from "@material-toys/common";
-import {useTheme} from "../hooks/useTheme";
+import {useThemeContexts} from "../hooks/useThemeContexts";
 import merge from "lodash-es/merge";
 
 interface FilledTextProps extends ComponentPropsWithoutRef<"input">{
@@ -66,11 +66,11 @@ export const FilledTextField = forwardRef<Ref, FilledTextProps>(({
                                   ...props
                                 }, ref) => {
 
-  const {ThemeContext, VariantContext, ThemeFunctionContext} = useTheme();
+  const {ThemeContext, VariantContext, UserThemeContext} = useThemeContexts();
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
   const theme = m3(tokens, {variant});
-  const userTheme: any = useContext(ThemeFunctionContext);
+  const userTheme: any = useContext(UserThemeContext);
   const node = useRef(null);
 
   let width: number, height: number;
@@ -125,7 +125,7 @@ export const FilledTextField = forwardRef<Ref, FilledTextProps>(({
           })
         ));
     }
-  }, [node, variant])
+  }, [variant])
   return (
     <div ref={node} {...events}
          className={`${textFieldClass} ${className}${leadingIcon ? " leadingIcon" : ""}${trailingIcon

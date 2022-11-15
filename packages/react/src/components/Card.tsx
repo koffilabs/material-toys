@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import {css} from "@emotion/css";
 import {applyReactiveStyle, m3} from "@material-toys/common";
-import {useTheme} from "../hooks/useTheme";
+import {useThemeContexts} from "../hooks/useThemeContexts";
 import {Ripple} from "./Ripple";
 import merge from "lodash-es/merge";
 
@@ -19,12 +19,12 @@ interface CardProps {
 }
 
 export const Card = ({children, className}: CardProps) => {
-  const {ThemeContext, VariantContext, ThemeFunctionContext} = useTheme();
+  const {ThemeContext, VariantContext, UserThemeContext} = useThemeContexts();
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
   const node = useRef(null);
   const theme = m3(tokens, {variant});
-  const userTheme: any = useContext(ThemeFunctionContext);
+  const userTheme: any = useContext(UserThemeContext);
 
   let width, height;
   const [cardClass, setCardClass] = useState(
