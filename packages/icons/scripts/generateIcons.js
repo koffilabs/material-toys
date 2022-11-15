@@ -2,7 +2,7 @@ const { readFile, writeFile, readdir, rm, mkdir } = require("fs").promises;
 const { toPascalCase, toValidName, toIconType } = require("./util");
 const START_DIRECTORY = `${__dirname}/../resources/icons`;
 module.exports.generateIcons = async ({ targetDir, targetLib }) => {
-  const extension = targetLib === "vue" ? "vue" : "jsx";
+  const extension = targetLib === "vue" ? "vue" : "tsx";
   const startDate = Date.now();
   let iconsCounter = 0;
   console.log("Icons generator - start");
@@ -47,12 +47,21 @@ module.exports.generateIcons = async ({ targetDir, targetLib }) => {
   }
 </script>`
             : `import React from "react";
-const Icon = ({size, style, ...rest}) => {
-    const styleSize = typeof size !== "undefined" ? parseInt(size) + "px" :"24px";
+interface IconProps{
+  size?: string
+  style?: any
+}
+const Icon = ({size = "24", style = {}, ...rest}: IconProps) => {
+    const styleSize = \`\${parseInt(size)}px\`;
     return (${svg
       .toString()
-      .replace(/<svg/, "<svg {...rest} style={ {width: styleSize, height: styleSize, ...style} } ")
-      .replace(/enable-background/gim, "enableBackground")})
+      .replace(
+        /<svg/,
+        "<svg {...rest} style={ {width: styleSize, height: styleSize, ...style} } "
+      )
+      .replace(/enable-background/gim, "enableBackground")
+      .replace(/class=/gim, "className=")
+      .replace(/style="(.)*?"/gim, "")})
 }
 export default Icon;
 `;
@@ -62,12 +71,12 @@ export default Icon;
         );
         indexContents += `export {default as ${toIconType(
           iconType
-        )}${componentName}} from "./${iconType}/${componentName}.${extension}";\r\n`;
+        )}${componentName}} from "./${iconType}/${componentName}";\r\n`;
         iconsCounter++;
       }
     }
   }
-  await writeFile(`${targetDir}/index.js`, indexContents);
+  await writeFile(`${targetDir}/index.ts`, indexContents);
   const endDate = Date.now();
   console.log(
     `${iconsCounter} icons generated in ${(endDate - startDate) / 1e3} seconds.`

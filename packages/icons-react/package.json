@@ -3,7 +3,7 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "version": "0.1.17",
-  "types": "dist/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "license": "MIT",
   "sideEffects": false,
   "files": [
@@ -12,12 +12,14 @@
   ],
   "scripts": {
     "generate": "node scripts/generateReactIcons.js",
-    "build": "rollup -c ./rollup.config.js"
+    "build": "rollup -c ./rollup.config.js",
+    "emitDeclarations": "tsc --emitDeclarationOnly --outDir dist"
   },
   "dependencies": {
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
     "esbuild": "^0.14.0",
+    "prettier": "2.8.0",
     "react": "^17.0.2",
     "rollup-plugin-esbuild": "^4.7.2"
   },

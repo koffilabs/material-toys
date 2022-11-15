@@ -37,6 +37,7 @@ export default ({
     // {i: <BoltIcon />, l: "Getting Started", r: "/getting-started"},
     // {i: <InfoIcon />, l: "About", r: "/"},
     {l: "Button", r: "/button"},
+    {l: "Checkbox", r: "/checkbox"},
     {l: "Filled Text Field", r: "/filled-text-field"},
     {l: "Outlined Text Field", r: "/outlined-text-field"},
     {l: "FAB", r: "/fab"},

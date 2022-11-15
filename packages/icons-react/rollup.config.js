@@ -8,7 +8,7 @@ import pkg from "./package.json";
 
 export default [
   {
-    input: "icons/index.js",
+    input: "icons/index.ts",
     external: ["react"],
     output: [
       {
@@ -29,7 +29,7 @@ export default [
       commonjs(),
       // typescript({ tsconfig: "./tsconfig.json" }),
       esbuild({
-        include: [/\.jsx?$/, /\.vue\?.*?lang=ts/],
+        include: [/\.tsx?$/, /\.jsx?$/, /\.vue\?.*?lang=ts/],
         minify: process.env.NODE_ENV === "production",
       }),
       // postcss(),

@@ -12,7 +12,7 @@
     "module": "esnext",
     "jsx": "react",
     "declaration": true,
-    "declarationDir": "types",
+    "declarationDir": "dist/types",
     "emitDeclarationOnly": false,
     "sourceMap": true,
     "outDir": "dist",

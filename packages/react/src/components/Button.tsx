@@ -65,7 +65,7 @@ export const Button = ({
     }
 
 
-  }, [node])
+  }, [node, variant])
   return (
     <Ripple>
       <button ref={node} {...events} {...props} className={`${btn} ${className}`} disabled={disabled}>

@@ -5,7 +5,7 @@ import {CodeBlock} from "../components/CodeBlock";
 import Head from "next/head";
 import React from "react";
 
-export default function fab_page() {
+export default function card_page() {
   return (
     <div className="container">
       <Head>

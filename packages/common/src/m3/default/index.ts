@@ -14,6 +14,7 @@ import { TopAppBar } from "./topappbar";
 import { Surface } from "./surface";
 import {FilledTextField} from "./filledtextfield";
 import {OutlinedTextField} from "./outlinedtextfield";
+import {Checkbox} from "./checkbox";
 export interface M3Options {
   variant?: string;
 }
@@ -62,6 +63,7 @@ export const m3 = (tokens, options: M3Options = defaultOptions) => {
       RailContainer: RailContainer(tokens, options),
       FilledTextField: FilledTextField(tokens, options),
       OutlinedTextField: OutlinedTextField(tokens, options),
+      Checkbox: Checkbox(tokens, options),
     },
   };
 };

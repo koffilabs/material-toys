@@ -34,7 +34,7 @@ export const useRipple = () => {
         //  setTimeout workaround, remove when fixed
         setTimeout(() => {
           const anim = rippleElement.animate(
-            [{opacity: 0.12}, {opacity: 0}],
+            [{ opacity: 0.12 }, { opacity: 0 }],
             options
           );
           anim.addEventListener(
@@ -45,14 +45,14 @@ export const useRipple = () => {
               rippleElement = null;
               outLock = false;
             },
-            {once: true}
+            { once: true }
           );
         }, 0);
       },
-      {once: true}
+      { once: true }
     );
   };
-  const ripple = ({event, element}: RippleArguments) => {
+  const ripple = ({ event, element }: RippleArguments) => {
     if (rippleElement) {
       return;
     }
@@ -63,7 +63,7 @@ export const useRipple = () => {
     const targetRect = (<HTMLElement>event.target).getBoundingClientRect();
     const x = event.offsetX + (targetRect.x - elementRect.x);
     const y = event.offsetY + (targetRect.y - elementRect.y);
-    const {target}: { target: EventTarget } = event;
+    const { target }: { target: EventTarget } = event;
     const oWidth: number = (<HTMLElement>element).offsetWidth;
     const oHeight: number = (<HTMLElement>element).offsetHeight;
 
@@ -73,7 +73,7 @@ export const useRipple = () => {
     rippleElement.className = "ripple";
     // rippleElement.style.backgroundColor = "";
     // color && (rippleElement.style.backgroundImage = `radial-gradient(circle at 50% 50%, ${color}, ${color} 40%, rgba(0, 0, 0, .3) 50%, ${color} 60%, ${color} 80%`);
-    rippleElement.style.zIndex = "100";
+    // rippleElement.style.zIndex = "100";
     rippleElement.style.filter = "blur(10px)";
     rippleElement.style.position = "absolute";
     rippleElement.style.top = `${y}px`;
@@ -97,17 +97,8 @@ export const useRipple = () => {
           transform: "translate(-50%, -50%) scale(1)",
         },
       ],
-      {...options, fill: "forwards"}
+      { ...options, fill: "forwards" }
     );
-    // rippleAnimation.addEventListener(
-    //   "finish",
-    //   () => {
-    //     // rippleElement.remove()
-    //     // rippleElement.style.transform = "translate(-50%, -50%) scale(0)";
-    //   },
-    //   { once: true }
-    // );
-    // element.style.background = color;
   };
-  return {ripple, rippleOut};
+  return { ripple, rippleOut };
 };

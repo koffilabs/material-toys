@@ -26,5 +26,6 @@ export { NavigationBar } from "./components/NavigationBar";
 export { NavigationHeadline } from "./components/NavigationHeadline";
 export { FilledTextField } from "./components/FilledTextField";
 export { OutlinedTextField } from "./components/OutlinedTextField";
+export { Checkbox } from "./components/Checkbox";
 export { useThemeContexts } from "./hooks/useThemeContexts";
 export { MT } from "./components/MT";

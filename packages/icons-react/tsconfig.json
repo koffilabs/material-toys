@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "declaration": true,
+    "declarationDir": "dist/types",
+    "moduleResolution": "node",
+    "target": "esnext",
+    "allowSyntheticDefaultImports": true,
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "jsx": "react-jsx"
+  },
+  "include": [
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.tsx",
+  ]
+}
