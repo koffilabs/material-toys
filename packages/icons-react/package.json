@@ -29,5 +29,5 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-terser": "^7.0.2"
   },
-  "gitHead": "353f91139212a60a63e419c6dc476148a545390d"
+  "gitHead": "227ced246a29d108438915fb89c4b836395ee0e7"
 }
