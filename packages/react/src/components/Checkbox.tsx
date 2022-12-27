@@ -9,10 +9,13 @@ import { Ripple } from "./Ripple";
 interface CheckboxProps {
   indeterminate?: boolean;
   error?: boolean;
+  disabled?: boolean;
+  [prop: string]: any;
 }
 
 export const Checkbox = ({
   indeterminate = false,
+  disabled = false,
   error = false,
   ...rest
 }: CheckboxProps) => {
@@ -46,7 +49,7 @@ export const Checkbox = ({
   return (
     <Ripple>
       <div ref={node} className={`${checkboxClass}${error ? " error" : ""}`}>
-        <input {...rest} type="checkbox" />
+        <input disabled={disabled} {...rest} type="checkbox" />
         <div className="mt-state mt-shape">
           <div className="mt-outline">
             <div className="mt-check">

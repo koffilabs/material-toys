@@ -1,4 +1,5 @@
-const { readFile, writeFile, readdir, rm, mkdir } = require("fs").promises;
+const { readFile, writeFile, access, readdir, rm, mkdir } =
+  require("fs").promises;
 const { toPascalCase, toValidName, toIconType } = require("./util");
 const START_DIRECTORY = `${__dirname}/../resources/icons`;
 module.exports.generateIcons = async ({ targetDir, targetLib }) => {
@@ -23,6 +24,7 @@ module.exports.generateIcons = async ({ targetDir, targetLib }) => {
           `${START_DIRECTORY}/${dir}/${iconName}/${iconType}/24px.svg`
         );
         const componentName = `${toPascalCase(toValidName(iconName))}Icon`;
+        const fileName = `${toValidName(iconName)}Icon`;
         const iconComponent =
           targetLib === "vue"
             ? `<template>${svg
@@ -66,12 +68,12 @@ const Icon = ({size = "24", style = {}, ...rest}: IconProps) => {
 export default Icon;
 `;
         await writeFile(
-          `${targetDir}/${iconType}/${componentName}.${extension}`,
+          `${targetDir}/${iconType}/${fileName}.${extension}`,
           iconComponent
         );
         indexContents += `export {default as ${toIconType(
           iconType
-        )}${componentName}} from "./${iconType}/${componentName}";\r\n`;
+        )}${componentName}} from "./${iconType}/${fileName}";\r\n`;
         iconsCounter++;
       }
     }
