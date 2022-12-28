@@ -24,4 +24,4 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npx lerna bootstrap --use-workspaces
-    - run: npm --prefix packages/common run test
+    - run: npx lerna run test
