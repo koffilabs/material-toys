@@ -24,4 +24,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npx lerna bootstrap --use-workspaces
+    - run: npx lerna run generate --scope @material-toys/icons-react
+    - run: npx lerna run build
+    - run: npx lerna run emitDeclarations
     - run: npx lerna run test
