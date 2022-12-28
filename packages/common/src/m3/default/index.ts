@@ -12,9 +12,10 @@ import {
 import { NavigationBarItem } from "./navigationbaritem";
 import { TopAppBar } from "./topappbar";
 import { Surface } from "./surface";
-import {FilledTextField} from "./filledtextfield";
-import {OutlinedTextField} from "./outlinedtextfield";
-import {Checkbox} from "./checkbox";
+import { FilledTextField } from "./filledtextfield";
+import { OutlinedTextField } from "./outlinedtextfield";
+import { Checkbox } from "./checkbox";
+import { RadioButton } from "./radiobutton";
 export interface M3Options {
   variant?: string;
 }
@@ -64,6 +65,7 @@ export const m3 = (tokens, options: M3Options = defaultOptions) => {
       FilledTextField: FilledTextField(tokens, options),
       OutlinedTextField: OutlinedTextField(tokens, options),
       Checkbox: Checkbox(tokens, options),
+      RadioButton: RadioButton(tokens, options),
     },
   };
 };

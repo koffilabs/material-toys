@@ -49,7 +49,7 @@ export const Checkbox = (tokens, options?: M3Options) => {
         width: "40px",
         height: "40px",
         borderRadius: "50%",
-        padding: "11px", // (40 / 18) / 2
+        padding: "11px", // (40 - 18) / 2
       },
       "& + .mt-state .mt-outline": {
         borderRadius: "2px",

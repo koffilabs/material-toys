@@ -6,6 +6,7 @@ $grid-size: 12px;
   background: transparent;
   max-width: calc(100vw - 6rem);
   overflow: auto;
+  margin: 1rem 0;
   &[data-show-grid=true]{
     background-color: #ccc;
     //background-image: linear-gradient(to left, white, white), linear-gradient(to left, $line-color, $line-color);
