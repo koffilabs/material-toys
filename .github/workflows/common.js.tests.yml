@@ -25,4 +25,3 @@ jobs:
         cache: 'npm'
     - run: npx lerna bootstrap --use-workspaces
     - run: npm --prefix packages/common run test
-    - run: npm --prefix packages/react run test
