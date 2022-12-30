@@ -1,6 +1,6 @@
 {
   "name": "@material-toys/common",
-  "version": "0.1.19",
+  "version": "0.1.20",
   "main": "dist/common.cjs.js",
   "module": "dist/common.esm.js",
   "types": "dist/dts/main.d.ts",
