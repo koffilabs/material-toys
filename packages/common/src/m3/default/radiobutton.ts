@@ -13,6 +13,7 @@ export const RadioButton = (tokens, options?: M3Options) => {
     width: "40px",
     display: "inline-grid",
     placeItems: "center",
+    WebkitTapHighlightColor: "transparent",
     margin: "0",
     ".ripple": {
       backgroundColor: tokens[`MdSysColorPrimary${variant}`],

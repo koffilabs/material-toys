@@ -44,6 +44,7 @@ export default ({
     { l: "Button", r: "/button" },
     { l: "Checkbox", r: "/checkbox" },
     { l: "Radio Button", r: "/radio-button" },
+    { l: "Switch", r: "/switch" },
     { l: "Filled Text Field", r: "/filled-text-field" },
     { l: "Outlined Text Field", r: "/outlined-text-field" },
     { l: "FAB", r: "/fab" },

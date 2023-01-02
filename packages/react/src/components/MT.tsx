@@ -1,9 +1,6 @@
 import React, { ReactNode, useState } from "react";
 import { useThemeContexts } from "../hooks/useThemeContexts";
-
-import {
-  material_tokens,
-} from "@material-toys/common";
+import { material_tokens } from "@material-toys/common";
 
 const defaultTokens = { ...material_tokens };
 
@@ -20,7 +17,10 @@ export const MT = ({
   variant = "",
 }: AppProps) => {
   const { ThemeContext, VariantContext, UserThemeContext } = useThemeContexts();
-  const [reactiveTokens, setReactiveTokens] = useState({ ...defaultTokens, ...tokens });
+  const [reactiveTokens, setReactiveTokens] = useState({
+    ...defaultTokens,
+    ...tokens,
+  });
   return (
     <UserThemeContext.Provider value={theme}>
       <ThemeContext.Provider value={reactiveTokens}>

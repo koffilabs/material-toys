@@ -14,6 +14,8 @@ export const Checkbox = (tokens, options?: M3Options) => {
     display: "inline-grid",
     placeItems: "center",
     margin: "0",
+    WebkitTapHighlightColor: "transparent",
+
     ".ripple": {
       backgroundColor: tokens[`MdSysColorPrimary${variant}`],
     },

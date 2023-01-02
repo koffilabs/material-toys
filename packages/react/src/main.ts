@@ -28,5 +28,6 @@ export { FilledTextField } from "./components/FilledTextField";
 export { OutlinedTextField } from "./components/OutlinedTextField";
 export { Checkbox } from "./components/Checkbox";
 export { RadioButton } from "./components/RadioButton";
+export { Switch } from "./components/Switch";
 export { useThemeContexts } from "./hooks/useThemeContexts";
 export { MT } from "./components/MT";
