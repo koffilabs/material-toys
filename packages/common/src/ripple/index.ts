@@ -86,6 +86,9 @@ export const useRipple = () => {
     rippleElement.style.borderRadius = `50%`;
 
     if (!rippleElement.parentElement) {
+      element.style.overflow = "hidden";
+      // otherwise Safari / iOS won't honor the overflow: hidden rule
+      element.style.transform = "translateZ(0)";
       element.appendChild(rippleElement);
     }
     rippleAnimation = rippleElement.animate(
