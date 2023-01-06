@@ -119,6 +119,9 @@ export const Switch = (tokens, options?: M3Options) => {
         svg: {
           opacity: 0,
         },
+        "&.with-icon": {
+          transform: "scale(1.5)",
+        },
       },
 
       "&:disabled:not(:checked)": {
@@ -139,7 +142,7 @@ export const Switch = (tokens, options?: M3Options) => {
         },
         "&:checked": {},
       },
-      "&:active(:not:disabled)": {
+      "&:active:not(:disabled)": {
         "& + .mt-track .mt-state .mt-outline .mt-switch-thumb": {
           transform: `scale(1.75)`,
         },
@@ -169,17 +172,10 @@ export const Switch = (tokens, options?: M3Options) => {
         "& + .mt-track .mt-state .mt-outline .mt-switch-thumb": {
           // selected thumb, enabled, no icon
           // left: "8px",
-          width: "16px",
-          height: "16px",
           transform: `scale(1.5)`,
           backgroundColor: tokens[`MdSysColorOnPrimary${variant}`],
           svg: {
             opacity: 0,
-          },
-        },
-        "&:active:not(:disabled)": {
-          "& + .mt-track .mt-state .mt-outline .mt-switch-thumb": {
-            transform: `scale(1.75)`,
           },
         },
 

@@ -74,7 +74,9 @@ export const Switch = ({
       <div className="mt-track">
         <div className="mt-state">
           <div className="mt-outline">
-            <div className="mt-switch-thumb"></div>
+            <div
+              className={`mt-switch-thumb${UnselectedIcon ? " with-icon" : ""}`}
+            ></div>
             {SelectedIcon && (
               <div className="mt-checked-icon">
                 <SelectedIcon size="16" />
