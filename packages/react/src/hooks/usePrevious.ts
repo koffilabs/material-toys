@@ -1,9 +1,9 @@
-import {useEffect, useRef} from "react";
+import { useEffect, useRef } from "react";
 
-export const usePrevious = (value: any) => {
-    const previous = useRef();
-    useEffect(() => {
-        previous.current = value;
-    })
-    return previous.current;
-}
+export const usePrevious = (value: any, initial: any) => {
+  const previous = useRef(initial);
+  useEffect(() => {
+    previous.current = value;
+  }, [value]);
+  return previous.current;
+};
