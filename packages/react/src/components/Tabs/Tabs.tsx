@@ -8,15 +8,13 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { getChildType } from "../../util/getChildType";
 import { useThemeContexts } from "../../hooks/useThemeContexts";
 import { useComponentClass } from "../../hooks/useComponentClass";
 import { usePrevious } from "../../hooks/usePrevious";
-import { useSwipeable } from "react-swipeable";
+import { SwipeEventData, useSwipeable } from "react-swipeable";
 import { Tab } from "./Tab";
 import { TabSection } from "./TabSection";
 const widthMultiplier = 1.25;
-const indicatorAnimationsPool = new Map<string, Animation>();
 interface TabsInterface {
   children: ReactNode;
   type?: "primary" | "secondary";
@@ -28,14 +26,14 @@ export const Tabs = ({
   fixed = false,
 }: TabsInterface) => {
   const isLoading = useRef(true);
-  const activeIndicatorRef = useRef<HTMLDivElement>();
+  const activeIndicatorRef = useRef<HTMLDivElement | null>(null);
   const [selectedTab, setSelectedTab] = useState(0);
   const previousSelectedTab = usePrevious(selectedTab, 0);
-  const indicatorAnimationRef = useRef<Animation | null>(null);
+  const indicatorAnimationRef = useRef<Animation | undefined | null>(null);
   const { ThemeContext } = useThemeContexts();
   const tokens = useContext<any>(ThemeContext);
   const refs = useRef<(HTMLElement | null)[]>([]);
-  const ref = useRef<HTMLDivElement>();
+  const ref = useRef<HTMLDivElement | null>(null);
   const childrenArray = Children.toArray(children);
   const tabs = childrenArray.filter((child: any) => {
     return child.type === Tab;
@@ -43,14 +41,15 @@ export const Tabs = ({
 
   const __swipeHandlers = useMemo(() => {
     return {
-      onSwiped: (eventData) => {
+      onSwiped: (eventData: SwipeEventData) => {
         if (
           (eventData.deltaX < 0 && selectedTab === tabs.length - 1) ||
           (eventData.deltaX > 0 && selectedTab === 0)
         ) {
           return;
         }
-        const w = slidingSectionRef.current.getBoundingClientRect().width;
+        const w =
+          slidingSectionRef?.current?.getBoundingClientRect().width ?? 0;
 
         // should animate
         slidingSectionRef &&
@@ -105,18 +104,19 @@ export const Tabs = ({
           }
         }
       },
-      onSwiping: (eventData) => {
+      onSwiping: (eventData: SwipeEventData) => {
         const nextTabIndex = selectedTab + (eventData.deltaX < 0 ? 1 : -1);
         if (nextTabIndex < 0 || nextTabIndex === tabs.length) {
           // out of bounds
           return;
         }
-        const w = slidingSectionRef.current.getBoundingClientRect().width;
+        const w =
+          slidingSectionRef?.current?.getBoundingClientRect().width ?? 0;
         const animation = getIndicatorAnimation(
           selectedTab,
           selectedTab + (eventData.deltaX < 0 ? 1 : -1)
         );
-        if (eventData.deltaX) {
+        if (eventData.deltaX && animation) {
           animation.currentTime =
             (animationOptions.duration as number) *
             (Math.abs(eventData.deltaX) / w);
@@ -134,7 +134,7 @@ export const Tabs = ({
       },
     };
   }, [selectedTab]);
-  const getIndicatorAnimation = (fromTab, toTab) => {
+  const getIndicatorAnimation = (fromTab: number, toTab: number) => {
     const previousSelectedRect = (
       type === "primary"
         ? refs?.current?.[fromTab]?.querySelector(".mt-tab-content")
@@ -146,84 +146,82 @@ export const Tabs = ({
         : refs?.current?.[toTab]
     )?.getBoundingClientRect();
     const containerRect = ref?.current?.getBoundingClientRect();
-    const indicatorAnimation: Animation | null =
-      activeIndicatorRef.current.animate(
-        fromTab < toTab
-          ? // left to right
-            [
-              {
-                width: `${previousSelectedRect.width}px`,
-                transform: `translateX(calc(${
-                  previousSelectedRect.x - containerRect.x
-                }px)`,
-              },
-              // expand
-              {
-                width: `${100 / (tabs.length * widthMultiplier)}%`,
-                transform: `translateX(${
-                  previousSelectedRect.x - containerRect.x
-                }px)`,
-                offset: 0.33,
-              },
-              // move
-              {
-                width: `${100 / (tabs.length * widthMultiplier)}%`,
-                transform: `translateX(calc(${
-                  selectedRect.x + selectedRect.width - containerRect.x
-                }px - 100%))`,
-              },
-              // shrink
-              {
-                width: `${selectedRect.width}px`,
-                transform: `translateX(calc(${
-                  selectedRect.x + selectedRect.width - containerRect.x
-                }px - 100%))`,
-              },
-            ]
-          : // right to left
-            [
-              {
-                width: `${previousSelectedRect.width}px`,
-                transform: `translateX(calc(${
-                  previousSelectedRect.x +
-                  previousSelectedRect.width -
-                  containerRect.x
-                }px - 100%))`,
-              },
-              // expand
-              {
-                width: `${100 / (tabs.length * widthMultiplier)}%`,
-                offset: 0.33,
-                transform: `translateX(calc(${
-                  previousSelectedRect.x +
-                  previousSelectedRect.width -
-                  containerRect.x
-                }px - 100%))`,
-              },
-              // move
-              {
-                width: `${100 / (tabs.length * widthMultiplier)}%`,
-                transform: `translateX(${selectedRect.x - containerRect.x}px)`,
-              },
-              // shrink
-              {
-                width: `${selectedRect.width}px`,
-                transform: `translateX(${selectedRect.x - containerRect.x}px)`,
-              },
-            ],
-        {
-          ...animationOptions,
-          duration: isLoading.current ? 0 : animationOptions.duration,
-        }
-      );
-    indicatorAnimationsPool.set(
-      `${fromTab}-${toTab}-${isLoading.current}`,
-      indicatorAnimation
-    );
+    if (!selectedRect || !previousSelectedRect || !containerRect) {
+      return;
+    }
+    const indicatorAnimation: Animation = activeIndicatorRef?.current?.animate(
+      fromTab < toTab
+        ? // left to right
+          [
+            {
+              width: `${previousSelectedRect?.width}px`,
+              transform: `translateX(calc(${
+                previousSelectedRect.x - containerRect.x
+              }px)`,
+            },
+            // expand
+            {
+              width: `${100 / (tabs.length * widthMultiplier)}%`,
+              transform: `translateX(${
+                previousSelectedRect.x - containerRect.x
+              }px)`,
+              offset: 0.33,
+            },
+            // move
+            {
+              width: `${100 / (tabs.length * widthMultiplier)}%`,
+              transform: `translateX(calc(${
+                selectedRect.x + selectedRect.width - containerRect.x
+              }px - 100%))`,
+            },
+            // shrink
+            {
+              width: `${selectedRect.width}px`,
+              transform: `translateX(calc(${
+                selectedRect.x + selectedRect.width - containerRect.x
+              }px - 100%))`,
+            },
+          ]
+        : // right to left
+          [
+            {
+              width: `${previousSelectedRect.width}px`,
+              transform: `translateX(calc(${
+                previousSelectedRect.x +
+                previousSelectedRect.width -
+                containerRect.x
+              }px - 100%))`,
+            },
+            // expand
+            {
+              width: `${100 / (tabs.length * widthMultiplier)}%`,
+              offset: 0.33,
+              transform: `translateX(calc(${
+                previousSelectedRect.x +
+                previousSelectedRect.width -
+                containerRect.x
+              }px - 100%))`,
+            },
+            // move
+            {
+              width: `${100 / (tabs.length * widthMultiplier)}%`,
+              transform: `translateX(${selectedRect.x - containerRect.x}px)`,
+            },
+            // shrink
+            {
+              width: `${selectedRect.width}px`,
+              transform: `translateX(${selectedRect.x - containerRect.x}px)`,
+            },
+          ],
+      {
+        ...animationOptions,
+        duration: isLoading.current ? 0 : animationOptions.duration,
+      }
+    ) as Animation;
 
     indicatorAnimation.pause();
-    indicatorAnimation.commitStyles();
-    indicatorAnimation.addEventListener("finish", () => {
+    indicatorAnimation?.commitStyles();
+    indicatorAnimation?.addEventListener("finish", () => {
       indicatorAnimationRef.current = null;
       isLoading.current = false;
     });

@@ -13,7 +13,13 @@ beforeAll(() => {
     keyframes: Keyframe[] | PropertyIndexedKeyframes | null,
     options?: number | KeyframeAnimationOptions | undefined
   ) => {
-    return {};
+    return {
+      pause() {},
+      commitStyles() {},
+      play() {},
+      cancel() {},
+      addEventListener() {},
+    };
   };
 });
 describe("@material/toys/react Tabs component isolated unit tests suite", () => {

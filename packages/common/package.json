@@ -25,7 +25,7 @@
     "tslib": "^2.4.0",
     "typescript": "^4.4.3"
   },
-  "gitHead": "a2530618ac412dba0e958e71dab2f0b680564b6a",
+  "gitHead": "3e631fcc30fba31532f0aba81d067ec6dc88c555",
   "dependencies": {
     "prettier": "2.8.0"
   }
