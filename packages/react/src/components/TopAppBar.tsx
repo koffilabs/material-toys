@@ -1,10 +1,6 @@
-import React, { Component, ReactNode, useContext } from "react";
+import React from "react";
 import { RippleIcon } from "./RippleIcon";
-import { DESKTOP, LAPTOP, useMatchMedia } from "../hooks/useMatchMedia";
-import { css } from "@emotion/css";
-import { applyReactiveStyle, m3 } from "@material-toys/common";
-import { useThemeContexts } from "../hooks/useThemeContexts";
-import merge from "lodash-es/merge";
+import { useComponentClass } from "../hooks/useComponentClass";
 
 interface TopAppBarProps {
   type?: "center-aligned" | "small" | "medium" | "large";
@@ -22,21 +18,12 @@ export const TopAppBar = ({
   onNavButtonClick = () => {},
   className = "",
 }: TopAppBarProps) => {
-  const { ThemeContext, VariantContext, UserThemeContext } = useThemeContexts();
-  const userTheme: any = useContext(UserThemeContext);
-  const tokens = useContext(ThemeContext);
-  const variant: string = useContext(VariantContext);
-  const theme = m3(tokens, { variant });
-
   const clickHandler = (e: React.MouseEvent<HTMLElement>) => {
     onNavButtonClick && onNavButtonClick();
   };
-  const barTheme = css(
-    applyReactiveStyle({
-      target: "components.TopAppBar",
-      theme: merge(theme, userTheme(variant)),
-    })
-  );
+  const { className: barTheme } = useComponentClass({
+    path: "components.TopAppBar",
+  });
   return (
     <div
       data-type={type}

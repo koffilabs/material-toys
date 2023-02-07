@@ -1,9 +1,8 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
-import { css } from "@emotion/css";
+import React, { useRef } from "react";
 import { CheckIcon, RemoveIcon } from "@material-toys/icons-react";
-import { applyReactiveStyle, m3 } from "@material-toys/common";
-import merge from "lodash-es/merge";
 import { useThemeContexts } from "../hooks/useThemeContexts";
+import { useComponentClass } from "../hooks/useComponentClass";
+
 import { Ripple } from "./Ripple";
 
 interface CheckboxProps {
@@ -20,31 +19,11 @@ export const Checkbox = ({
   ...rest
 }: CheckboxProps) => {
   const { ThemeContext, VariantContext, UserThemeContext } = useThemeContexts();
-  const tokens = useContext(ThemeContext);
-  const variant: string = useContext(VariantContext);
-  const theme = m3(tokens, { variant });
-  const userTheme: any = useContext(UserThemeContext);
-  const node = useRef(null);
-  let width: number, height: number;
 
-  const [checkboxClass, setCheckboxClass] = useState(
-    css(
-      applyReactiveStyle({
-        target: "components.Checkbox",
-        theme: merge(theme, userTheme(variant)),
-      })
-    )
-  );
-  useEffect(() => {
-    setCheckboxClass(
-      css(
-        applyReactiveStyle({
-          target: "components.Checkbox",
-          theme: merge(theme, userTheme(variant)),
-        })
-      )
-    );
-  }, [node, variant]);
+  const node = useRef<HTMLDivElement>(null);
+  const { className: checkboxClass } = useComponentClass({
+    path: "components.Checkbox",
+  });
 
   return (
     <Ripple>

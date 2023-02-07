@@ -1,6 +1,5 @@
 import React, {
   cloneElement,
-  useContext,
   useState,
   ReactNode,
   ReactElement,
@@ -9,11 +8,10 @@ import React, {
 import { FAB } from "./FAB";
 import { css } from "@emotion/css";
 import { usePrevious } from "../hooks/usePrevious";
-import { applyReactiveStyle, m3 } from "@material-toys/common";
 import { useThemeContexts } from "../hooks/useThemeContexts";
 import { NavigationItem } from "./NavigationItem";
 import { Ripple } from "./Ripple";
-import merge from "lodash-es/merge";
+import { useComponentClass } from "../hooks/useComponentClass";
 const scrim = css({
   position: "fixed",
   top: 0,
@@ -57,11 +55,6 @@ export const NavigationDrawer = ({
   className = "",
   ...props
 }: NavigationDrawerProps) => {
-  const { ThemeContext, VariantContext, UserThemeContext } = useThemeContexts();
-  const tokens = useContext(ThemeContext);
-  const variant: string = useContext(VariantContext);
-
-  const userTheme: any = useContext(UserThemeContext);
   // TODO: refactor, should reuse NavigationItemMapperFactory in NavigationBar
   const [selectedIndex, setSelectedIndex] = useState(activeItem);
   const onClick = (activeIndex: number) => {
@@ -81,7 +74,7 @@ export const NavigationDrawer = ({
               return child.props.onClick(e);
             }
           })(itemIndex - 1),
-        });
+        } as any);
       }
       if (child.props && child.props.children) {
         return cloneElement(child, {
@@ -99,17 +92,10 @@ export const NavigationDrawer = ({
   let styleObj: any = {
     width: `${mode === "rail" ? "80" : "360"}px`,
   };
-  const theme = m3(tokens, { variant });
+  const { className: drawerTheme } = useComponentClass({
+    path: "components.NavigationDrawer",
+  });
 
-  const drawerTheme = css(
-    applyReactiveStyle({
-      target: "components.NavigationDrawer",
-      // theme,
-      // themes: merge
-      theme: merge(theme, userTheme(variant)),
-      // theme: { ...theme },
-    })
-  );
   const previousMode = usePrevious(mode);
   if (mode === "modal") {
     styleObj = {

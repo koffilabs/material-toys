@@ -1,15 +1,5 @@
-import React, {
-  ChangeEvent,
-  Component,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
-import { css } from "@emotion/css";
-import { applyReactiveStyle, m3 } from "@material-toys/common";
-import merge from "lodash-es/merge";
-import { useThemeContexts } from "../hooks/useThemeContexts";
+import React, { useEffect, useRef, useState } from "react";
+import { useComponentClass } from "../hooks/useComponentClass";
 interface Icon {
   size: string;
 }
@@ -30,32 +20,12 @@ export const Switch = ({
   unselectedIcon: UnselectedIcon,
   ...rest
 }: SwitchProps) => {
-  const { ThemeContext, VariantContext, UserThemeContext } = useThemeContexts();
-  const tokens = useContext(ThemeContext);
-  const variant: string = useContext(VariantContext);
-  const theme = m3(tokens, { variant });
-  const userTheme: any = useContext(UserThemeContext);
   const node = useRef(null);
   const [loaded, setLoaded] = useState(false);
-  const [switchClass, setSwitchClass] = useState(
-    css(
-      applyReactiveStyle({
-        target: "components.Checkbox",
-        theme: merge(theme, userTheme(variant)),
-      })
-    )
-  );
+  const { className: switchClass } = useComponentClass({
+    path: "components.Switch",
+  });
 
-  useEffect(() => {
-    setSwitchClass(
-      css(
-        applyReactiveStyle({
-          target: "components.Switch",
-          theme: merge(theme, userTheme(variant)),
-        })
-      )
-    );
-  }, [node, variant]);
   // remove transitions on load, start
   useEffect(() => {
     if (rest.checked) {

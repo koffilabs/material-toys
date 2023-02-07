@@ -1,15 +1,7 @@
-import React, {
-  cloneElement,
-  ReactElement,
-  ReactNode,
-  useContext,
-  useState,
-} from "react";
-import { css } from "@emotion/css";
-import { applyReactiveStyle, m3 } from "@material-toys/common";
+import React, { cloneElement, ReactElement, ReactNode, useState } from "react";
 import { useThemeContexts } from "../hooks/useThemeContexts";
 import { NavigationBarItem } from "./NavigationBarItem";
-import merge from "lodash-es/merge";
+import { useComponentClass } from "../hooks/useComponentClass";
 
 interface NavigationBarArgs {
   children?: ReactNode;
@@ -25,10 +17,6 @@ export const NavigationBar = ({
   className = "",
 }: NavigationBarArgs) => {
   const { ThemeContext, VariantContext, UserThemeContext } = useThemeContexts();
-  const userTheme: any = useContext(UserThemeContext);
-  const tokens = useContext(ThemeContext);
-  const variant: string = useContext(VariantContext);
-  const theme = m3(tokens, { variant });
   const [selectedIndex, setSelectedIndex] = useState(activeItem);
   const onClick = (activeIndex: number) => {
     setSelectedIndex(activeIndex);
@@ -61,12 +49,10 @@ export const NavigationBar = ({
     };
     return NavigationItemMapper;
   };
-  const barTheme = css(
-    applyReactiveStyle({
-      target: "components.NavigationBar",
-      theme: merge(theme, userTheme(variant)),
-    })
-  );
+  const { className: barTheme } = useComponentClass({
+    path: "components.NavigationBar",
+  });
+
   const NavigationItemMapper = NavigationItemMapperFactory();
 
   return (

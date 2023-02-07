@@ -1,14 +1,10 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
-import { css } from "@emotion/css";
+import React, { useRef } from "react";
 import {
   RadioButtonUncheckedIcon,
   RadioButtonCheckedIcon,
-  RemoveIcon,
 } from "@material-toys/icons-react";
-import { applyReactiveStyle, m3 } from "@material-toys/common";
-import merge from "lodash-es/merge";
-import { useThemeContexts } from "../hooks/useThemeContexts";
 import { Ripple } from "./Ripple";
+import { useComponentClass } from "../hooks/useComponentClass";
 
 interface RadioButtonProps {
   disabled?: boolean;
@@ -19,31 +15,10 @@ export const RadioButton = ({
   disabled = false,
   ...rest
 }: RadioButtonProps) => {
-  const { ThemeContext, VariantContext, UserThemeContext } = useThemeContexts();
-  const tokens = useContext(ThemeContext);
-  const variant: string = useContext(VariantContext);
-  const theme = m3(tokens, { variant });
-  const userTheme: any = useContext(UserThemeContext);
   const node = useRef(null);
-
-  const [radioButtonClass, setRadioButtonClass] = useState(
-    css(
-      applyReactiveStyle({
-        target: "components.RadioButton",
-        theme: merge(theme, userTheme(variant)),
-      })
-    )
-  );
-  useEffect(() => {
-    setRadioButtonClass(
-      css(
-        applyReactiveStyle({
-          target: "components.RadioButton",
-          theme: merge(theme, userTheme(variant)),
-        })
-      )
-    );
-  }, [node, variant]);
+  const { className: radioButtonClass } = useComponentClass({
+    path: "components.RadioButton",
+  });
 
   return (
     <Ripple>

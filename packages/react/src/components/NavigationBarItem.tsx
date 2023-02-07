@@ -1,15 +1,6 @@
-import React, {
-  MouseEventHandler,
-  ReactNode,
-  useContext,
-  useEffect,
-  useRef,
-} from "react";
-import { css } from "@emotion/css";
-import { useThemeContexts } from "../hooks/useThemeContexts";
-import { applyReactiveStyle, m3 } from "@material-toys/common";
+import React, { MouseEventHandler, ReactNode, useEffect, useRef } from "react";
 import { usePrevious } from "../hooks/usePrevious";
-import merge from "lodash-es/merge";
+import { useComponentClass } from "../hooks/useComponentClass";
 
 const animationOptions: KeyframeAnimationOptions = {
   fill: "forwards",
@@ -46,19 +37,12 @@ export const NavigationBarItem = ({
   ...props
 }: NavigationBarItemProps & Partial<Rest>) => {
   const previousActive = usePrevious(active);
-  const { ThemeContext, VariantContext, UserThemeContext } = useThemeContexts();
-  const userTheme: any = useContext(UserThemeContext);
-  const tokens = useContext(ThemeContext);
-  const variant: string = useContext(VariantContext);
-  const theme = m3(tokens, { variant });
   const iconNode = useRef(null);
   const activeIconNode = useRef(null);
-  const itemTheme = css(
-    applyReactiveStyle({
-      target: "components.NavigationBarItem",
-      theme: merge(theme, userTheme(variant)),
-    })
-  );
+  const { className: itemTheme } = useComponentClass({
+    path: "components.NavigationBarItem",
+  });
+
   useEffect(() => {
     const immediate = typeof previousActive === "undefined";
     if (iconsAnimations?.icon && iconsAnimations?.activeIcon) {

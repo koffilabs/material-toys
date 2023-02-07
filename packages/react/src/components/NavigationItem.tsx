@@ -1,9 +1,7 @@
 import React, { MouseEventHandler, ReactNode, useContext } from "react";
-import { css } from "@emotion/css";
 import { useThemeContexts } from "../hooks/useThemeContexts";
-import { applyReactiveStyle, m3 } from "@material-toys/common";
 import { Ripple } from "./Ripple";
-import merge from "lodash-es/merge";
+import { useComponentClass } from "../hooks/useComponentClass";
 interface NavigationItemProps {
   icon?: ReactNode | null;
   badge?: string;
@@ -24,34 +22,16 @@ export const NavigationItem = ({
   railLabel = "selected",
   className = "",
 }: NavigationItemProps) => {
-  const { ThemeContext, VariantContext, UserThemeContext } = useThemeContexts();
-  const userTheme: any = useContext(UserThemeContext);
-  const tokens = useContext(ThemeContext);
-  const variant: string = useContext(VariantContext);
-  const theme = m3(tokens, { variant });
-  const finalTheme = merge(theme, userTheme(variant));
-  const itemTheme = css(
-    applyReactiveStyle({
-      target: "components.NavigationItem",
-      theme: finalTheme,
-    })
-  );
-  const railTheme = css(
-    applyReactiveStyle({
-      target: "components.RailContainer",
-      theme: finalTheme,
-    })
-  );
-  const rippleTarget = css(
-    applyReactiveStyle({
-      target: "components.NavigationItemRippleTarget",
-      theme: finalTheme,
-    })
-  );
-  // const rippleTarget = css({
-  //   overflow: "hidden",
-  //   borderRadius: "24px",
-  // });
+  const { className: itemTheme } = useComponentClass({
+    path: "components.NavigationItem",
+  });
+  const { className: railTheme } = useComponentClass({
+    path: "components.RailContainer",
+  });
+  const { className: rippleTarget } = useComponentClass({
+    path: "components.NavigationItemRippleTarget",
+  });
+
   return (
     <>
       <div
