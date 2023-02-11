@@ -50,6 +50,7 @@ export default ({
     { l: "Filled Text Field", r: "/filled-text-field" },
     { l: "Outlined Text Field", r: "/outlined-text-field" },
     { l: "Tabs", r: "/tabs" },
+    { l: "Progress indicators", r: "/progress-indicators" },
     { l: "Card", r: "/card" },
     { l: "Grid", r: "/grid" },
     { l: "Navigation Drawer", r: "/navigation-drawer" },

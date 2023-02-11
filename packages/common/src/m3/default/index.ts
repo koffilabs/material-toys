@@ -19,6 +19,8 @@ import { RadioButton } from "./radiobutton";
 import { Switch } from "./switch";
 import { Tabs } from "./tabs";
 import { Tab } from "./tab";
+import { LinearProgressIndicator } from "./linearprogress";
+import { CircularProgressIndicator } from "./circularprogress";
 export interface M3Options {
   variant?: string;
 }
@@ -72,6 +74,8 @@ export const m3 = (tokens, options: M3Options = defaultOptions) => {
       Switch: Switch(tokens, options),
       Tabs: Tabs(tokens, options),
       Tab: Tab(tokens, options),
+      LinearProgressIndicator: LinearProgressIndicator(tokens, options),
+      CircularProgressIndicator: CircularProgressIndicator(tokens, options),
     },
   };
 };

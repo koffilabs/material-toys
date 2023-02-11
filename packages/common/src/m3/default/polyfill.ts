@@ -1,4 +1,7 @@
 export const MdSysColorShadow = "#000";
+export const MdSysColorSurfaceContainerHighest = "#E6E0E9";
+export const MdSysColorSurfaceContainerHighestLight = "#E6E0E9";
+export const MdSysColorSurfaceContainerHighestDark = "#36343B";
 export const MdSysTypescaleButtonFont = "Roboto";
 export const MdSysTypescaleButtonSize = "16";
 export const mdSysColorOnSurfaceStateLayer = "16";
