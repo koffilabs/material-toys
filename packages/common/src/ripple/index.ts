@@ -12,45 +12,46 @@ const options: KeyframeAnimationOptions = {
 // TODO: find a better name, use is a bit confusing
 export const useRipple = () => {
   let rippleElement,
-    outLock = false,
+    // outLock = false,
+    pointerOut = false,
+    handlerFired = false,
     rippleAnimation;
-  const rippleOut = () => {
-    if (!rippleElement || outLock) {
+  const mainFinishHandler = () => {
+    if (!pointerOut) {
       return;
     }
-    outLock = true;
-    const rippleComputedTiming = rippleAnimation
-      ? rippleAnimation.effect.getComputedTiming()
-      : {};
-    const delay =
-      typeof rippleComputedTiming.progress === "number"
-        ? (1 - rippleComputedTiming.progress) * rippleComputedTiming.duration
-        : 0;
-    rippleAnimation.addEventListener(
-      "finish",
-      () => {
-        // console.log("animation end fired");
-        // TODO: the delay does not work on chromium based browsers now, the opacity is set to 0.12 immediately it seems
-        //  setTimeout workaround, remove when fixed
-        setTimeout(() => {
-          const anim = rippleElement.animate(
-            [{ opacity: 0.12 }, { opacity: 0 }],
-            options
-          );
-          anim.addEventListener(
-            "finish",
-            () => {
-              rippleElement.parentElement.style.clipPath = "";
-              rippleElement.remove();
-              rippleElement = null;
-              outLock = false;
-            },
-            { once: true }
-          );
-        }, 0);
-      },
-      { once: true }
-    );
+    handlerFired = true;
+    // TODO: the delay does not work on chromium based browsers now, the opacity is set to 0.12 immediately it seems
+    //  setTimeout workaround, remove when fixed
+    setTimeout(() => {
+      const anim = rippleElement.animate(
+        [{ opacity: 0.12 }, { opacity: 0 }],
+        options
+      );
+      anim.addEventListener(
+        "finish",
+        () => {
+          rippleElement.parentElement.style.clipPath = "";
+          rippleElement.remove();
+          rippleElement = null;
+          // outLock = false;
+        },
+        { once: true }
+      );
+    }, 0);
+  };
+  const setPointerIn = () => {
+    pointerOut = false;
+  };
+  const rippleOut = () => {
+    pointerOut = true;
+    // if (!rippleElement || outLock) {
+    //   return;
+    // }
+    // outLock = true;
+    if (rippleAnimation?.playState === "finished" && !handlerFired) {
+      mainFinishHandler();
+    }
   };
   const ripple = ({ event, element }: RippleArguments) => {
     if (rippleElement) {
@@ -91,6 +92,7 @@ export const useRipple = () => {
       element.style.transform = "translateZ(0)";
       element.appendChild(rippleElement);
     }
+    handlerFired = false;
     rippleAnimation = rippleElement.animate(
       [
         {
@@ -102,6 +104,9 @@ export const useRipple = () => {
       ],
       { ...options, fill: "forwards" }
     );
+    rippleAnimation.addEventListener("finish", mainFinishHandler, {
+      once: true,
+    });
   };
-  return { ripple, rippleOut };
+  return { ripple, rippleOut, setPointerIn };
 };

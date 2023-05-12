@@ -15,16 +15,20 @@ export const Ripple = (
   context: Context<any>
 ): JSX.Element => {
   const reactNode: ReactNode = children;
-  const { ripple, rippleOut } = useRipple();
+  const { ripple, rippleOut, setPointerIn } = useRipple();
   const onPointerDown = (event: SyntheticEvent) => {
     const target = event.nativeEvent.target as HTMLElement;
-    if(target?.closest("[disabled]")){
-      return
+    if (target?.closest("[disabled]")) {
+      return;
     }
     ripple({
       event: event.nativeEvent as PointerEvent,
-      element: (event.currentTarget.querySelector(".mt-shape") || event.currentTarget) as HTMLElement,
+      element: (event.currentTarget.querySelector(".mt-shape") ||
+        event.currentTarget) as HTMLElement,
     });
+  };
+  const onPointerEnter = () => {
+    setPointerIn();
   };
   const onPointerLeave = () => {
     rippleOut();
@@ -34,6 +38,7 @@ export const Ripple = (
       {cloneElement(reactNode as ReactElement<any>, {
         onPointerDown,
         onPointerLeave,
+        onPointerEnter,
         onPointerUp: onPointerLeave,
       })}
     </>
