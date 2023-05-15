@@ -8,6 +8,9 @@ const easing = "cubic-bezier(0.4, 0.0, 0.2, 1)";
 export const NavigationBar = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
+    WebkitTouchCallout: "none",
+    WebkitUserSelect: "none",
+
     height: "80px",
     display: "flex",
     justifyContent: "space-evenly",

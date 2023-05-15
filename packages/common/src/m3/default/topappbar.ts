@@ -3,6 +3,10 @@ import { M3Options } from "./index";
 export const TopAppBar = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
+    WebkitTouchCallout: "none",
+    WebkitUserSelect: "none",
+    WebkitTapHighlightColor: "transparent",
+
     width: "100%",
     display: "flex",
     alignContent: "stretch",

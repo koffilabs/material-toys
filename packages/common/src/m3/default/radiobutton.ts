@@ -6,6 +6,8 @@ const duration = ".3s";
 export const RadioButton = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
+    WebkitTouchCallout: "none",
+    WebkitUserSelect: "none",
     borderRadius: "50%",
     position: "relative",
     overflow: "hidden",

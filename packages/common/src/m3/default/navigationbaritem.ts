@@ -8,6 +8,9 @@ const easing = "cubic-bezier(0.4, 0.0, 0.2, 1)";
 export const NavigationBarItem = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
+    WebkitTouchCallout: "none",
+    WebkitUserSelect: "none",
+    WebkitTapHighlightColor: "transparent",
     position: "relative",
     paddingTop: "16px",
     paddingBottom: "16px",

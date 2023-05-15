@@ -5,15 +5,14 @@ const duration = ".1s";
 export const FAB = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
+    WebkitTouchCallout: "none",
+    WebkitUserSelect: "none",
     outline: "none",
     border: "none",
     display: "inline-grid",
     gridTemplateColumns: "auto 1fr",
     justifyItems: "start",
     alignItems: "center",
-
-    // justifyContent: "center",
-    // alignItems: "center",
     gap: "0",
     flexWrap: "nowrap",
     background: tokens[`MdSysColorPrimaryContainer${variant}`],
@@ -21,7 +20,6 @@ export const FAB = (tokens, options?: M3Options) => {
     position: "relative",
     margin: "8px",
     height: "56px",
-    // width: "56px",
     lineHeight: `${tokens.MdSysTypescaleLabelLargeLineHeight}px`,
     textAlign: "center",
     willChange: "transform, opacity, width",

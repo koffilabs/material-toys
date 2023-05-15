@@ -7,6 +7,8 @@ import {
 export const LinearProgressIndicator = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
+    WebkitTouchCallout: "none",
+    WebkitUserSelect: "none",
     height: "4px",
     svg: {
       display: "block",

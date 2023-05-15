@@ -1,11 +1,13 @@
-import {rgba} from "../../util/rgba";
-import {M3Options} from "./index";
-import {roundedShape} from "../../util/shape";
+import { rgba } from "../../util/rgba";
+import { M3Options } from "./index";
+import { roundedShape } from "../../util/shape";
 
 const duration = ".1s";
 export const Button = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
+    WebkitTouchCallout: "none",
+    WebkitUserSelect: "none",
     backgroundColor: "transparent",
     display: "inline-flex",
     justifyContent: "center",
@@ -29,7 +31,7 @@ export const Button = (tokens, options?: M3Options) => {
   color ${duration} ease-in-out`,
     "& .mt-shape": {
       position: "relative",
-      borderRadius: roundedShape({shape: tokens.MdSysShapeCornerFull}),
+      borderRadius: roundedShape({ shape: tokens.MdSysShapeCornerFull }),
       overflow: "hidden",
       paddingLeft: "24px",
       paddingRight: "24px",
@@ -89,7 +91,7 @@ export const Button = (tokens, options?: M3Options) => {
         )}, 0 1px 3px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
         background: tokens[`MdSysColorSurface${variant}`],
       },
-// boxShadow: `0 1px 2px 1px ${rgba(tokens.MdSysColorShadow, 0.3)}`,
+      // boxShadow: `0 1px 2px 1px ${rgba(tokens.MdSysColorShadow, 0.3)}`,
       // level1
       "&:hover": {
         "& .mt-shape": {
@@ -135,7 +137,7 @@ export const Button = (tokens, options?: M3Options) => {
       },
     },
     "&.filled": {
-      "div": {
+      div: {
         color: tokens[`MdSysColorOnPrimary${variant}`],
       },
       fill: tokens[`MdSysColorOnPrimary${variant}`],
@@ -149,7 +151,10 @@ export const Button = (tokens, options?: M3Options) => {
         color: `${rgba(tokens[`MdSysColorOnSurface${variant}`], 0.38)}`,
         fill: `${rgba(tokens[`MdSysColorOnSurface${variant}`], 0.38)}`,
         "& .mt-shape": {
-          backgroundColor: `${rgba(tokens[`MdSysColorPrimary${variant}`], 0.12)}`,
+          backgroundColor: `${rgba(
+            tokens[`MdSysColorPrimary${variant}`],
+            0.12
+          )}`,
         },
       },
       "&:hover:not(:disabled)": {

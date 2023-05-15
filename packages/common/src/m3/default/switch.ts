@@ -7,6 +7,8 @@ const duration = ".3s";
 export const Switch = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
+    WebkitTouchCallout: "none",
+    WebkitUserSelect: "none",
     borderRadius: "16px",
     width: "52px",
     height: "32px",

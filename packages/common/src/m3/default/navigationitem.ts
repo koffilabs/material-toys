@@ -58,7 +58,6 @@ export const RailContainer = (tokens, options?: M3Options) => {
       "*": {
         fontSize: "12px",
         color: tokens[`MdSysColorOnSurface${variant}`],
-
       },
     },
     "[data-mode=rail] &,[data-mode=drawer][data-collapsed=true] &": {
@@ -75,6 +74,8 @@ export const RailContainer = (tokens, options?: M3Options) => {
 export const NavigationItem = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
+    WebkitTouchCallout: "none",
+    WebkitUserSelect: "none",
     "[data-mode=rail] &,[data-mode=drawer] [data-collapsed=true] &": {
       "&[data-active=true]:not([data-rail-label=none])": {
         height: "32px",

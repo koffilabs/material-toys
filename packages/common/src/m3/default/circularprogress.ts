@@ -6,6 +6,8 @@ import {
 export const CircularProgressIndicator = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
+    WebkitTouchCallout: "none",
+    WebkitUserSelect: "none",
     height: "48px",
     width: "48px",
     fill: "transparent",

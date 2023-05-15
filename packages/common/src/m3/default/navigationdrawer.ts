@@ -8,6 +8,9 @@ const easing = "cubic-bezier(0.4, 0.0, 0.2, 1)";
 export const NavigationDrawer = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
+    WebkitTouchCallout: "none",
+    WebkitUserSelect: "none",
+
     ".listContainer": {
       height: "100%",
       width: "336px",
