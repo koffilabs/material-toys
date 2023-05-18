@@ -29,21 +29,20 @@ export default [
       },
     ],
     plugins: [
-      // external(),
+      external(),
       resolve({
         // dedupe: ["@material-toys/common"]
       }),
       // commonjs(),
       // typescript({ tsconfig: "./tsconfig.json" }),
-      esbuild(
-        // {
-        // include: [/\.tsx?$/, /\.vue\?.*?lang=ts/],
-        // minify: process.env.NODE_ENV === "production",
+      esbuild(),
+      // {
+      // include: [/\.tsx?$/, /\.vue\?.*?lang=ts/],
+      // minify: process.env.NODE_ENV === "production",
       // }
-      ),
       // postcss(),
-      // terser(),
+      terser(),
       // analyzer()
     ],
-  }
+  },
 ];

@@ -16,24 +16,24 @@
   },
   "peerDependencies": {
     "@material-toys/icons-react": "^0.1.17",
-    "@types/react": "^17.0.2"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
     "@rollup/plugin-typescript": "^8.3.0",
     "@testing-library/jest-dom": "^5.16.1",
-    "@testing-library/react": "^12.1.5",
+    "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
     "@types/jest": "^27.4.0",
     "@types/lodash": "^4.14.182",
     "@types/node": "^17.0.5",
-    "@types/react-dom": "^18.0.6",
+    "@types/react": "^18.2.6",
+    "@types/react-dom": "^18.2.4",
     "esbuild": "^0.14.9",
     "jest": "^27.4.5",
     "lodash": "^4.17.21",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
     "rollup": "^2.59.0",
     "rollup-plugin-esbuild": "^4.7.2",
     "rollup-plugin-peer-deps-external": "^2.2.4",
@@ -51,8 +51,6 @@
     "lodash-es": "^4.17.21",
     "postcss": "^8.4.4",
     "prettier": "2.8.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
     "react-swipeable": "^7.0.0",
     "rollup-plugin-analyzer": "^4.0.0"
   },

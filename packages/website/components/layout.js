@@ -168,9 +168,7 @@ export default ({
                     navigateTo(`${route.r}`);
                   }}
                 >
-                  <Link href={`${route.r}`}>
-                    <a>{route.l}</a>
-                  </Link>
+                  <Link href={`${route.r}`}>{route.l}</Link>
                 </NavigationItem>
               ))}
             </div>

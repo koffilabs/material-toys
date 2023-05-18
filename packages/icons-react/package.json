@@ -20,7 +20,6 @@
     "@rollup/plugin-node-resolve": "^13.0.6",
     "esbuild": "^0.14.0",
     "prettier": "2.8.0",
-    "react": "^17.0.2",
     "rollup-plugin-esbuild": "^4.7.2"
   },
   "devDependencies": {
@@ -29,5 +28,8 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-terser": "^7.0.2"
   },
-  "gitHead": "32992735cc6f5795e97f05747c71d5d757607d02"
+  "gitHead": "32992735cc6f5795e97f05747c71d5d757607d02",
+  "peerDependencies": {
+    "react": "18.2.0"
+  }
 }
