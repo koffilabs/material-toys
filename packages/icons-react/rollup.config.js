@@ -9,7 +9,6 @@ import pkg from "./package.json";
 export default [
   {
     input: "icons/index.ts",
-    external: ["react"],
     output: [
       {
         file: pkg.main,

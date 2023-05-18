@@ -15,7 +15,7 @@
     "dev": "rollup -c ./rollup.config.js -w"
   },
   "peerDependencies": {
-    "@material-toys/icons-react": "^0.1.17",
+    "@material-toys/icons-react": "^0.1.31",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -39,6 +39,7 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.1",
     "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-visualizer": "^5.9.0",
     "ts-jest": "^27.1.2",
     "tslib": "^2.4.0",
     "typescript": "^4.5.2"
