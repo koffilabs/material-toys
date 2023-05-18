@@ -123,15 +123,17 @@ export const NavigationDrawer = ({
         <header>{header}</header>
         <div className="scroller">
           <div className="buttonsContainer">
-            {menu && (
-              <Ripple>
-                <div className="menuContainer">
-                  {menu}
-                  <div className="state" />
-                </div>
-              </Ripple>
-            )}
-            {fab}
+            <>
+              {menu && (
+                <Ripple>
+                  <div className="menuContainer">
+                    {menu}
+                    <div className="state" />
+                  </div>
+                </Ripple>
+              )}
+              {fab}
+            </>
           </div>
           <div className="listContainer">
             {React.Children.map(children as ReactElement, NavigationItemMapper)}

@@ -27,7 +27,7 @@ export const Tabs = ({
 }: TabsInterface) => {
   const isLoading = useRef(true);
   const activeIndicatorRef = useRef<HTMLDivElement | null>(null);
-  const [selectedTab, setSelectedTab] = useState(0);
+  const [selectedTab, setSelectedTab] = useState<number>(0);
   const previousSelectedTab = usePrevious(selectedTab, 0);
   const indicatorAnimationRef = useRef<Animation | undefined | null>(null);
   const { ThemeContext } = useThemeContexts();
@@ -251,7 +251,7 @@ export const Tabs = ({
     fill: "forwards",
   };
   const moveActiveIndicator = useCallback(
-    (selectedTab, previousSelectedTab) => {
+    (selectedTab: number, previousSelectedTab: number) => {
       if (indicatorAnimationRef.current) {
         indicatorAnimationRef?.current?.play();
       }
