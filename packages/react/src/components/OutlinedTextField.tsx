@@ -28,21 +28,17 @@ interface OutlinedTextProps extends ComponentPropsWithoutRef<"input"> {
   trailingIcon?: ReactNode;
   className?: string;
   disabled?: boolean;
-  onClick?: MouseEventHandler;
-  onMouseOver?: MouseEventHandler;
-  onMouseDown?: MouseEventHandler;
-  onMouseUp?: MouseEventHandler;
-  onMouseOut?: MouseEventHandler;
   onFocus?: FocusEventHandler;
   onBlur?: FocusEventHandler;
+  onInput?: (e: FormEvent<HTMLInputElement>) => {};
   value?: any;
   supportingText?: string;
-  onInput?: (e: FormEvent<HTMLInputElement>) => {};
   maxLength?: number;
   size?: number;
   error?: boolean;
   prefix?: string;
   characterCounter?: boolean;
+  [prop: string]: any;
 }
 
 export const OutlinedTextField = forwardRef<
@@ -58,11 +54,6 @@ export const OutlinedTextField = forwardRef<
       disabled = false,
       children,
       className = "",
-      onClick,
-      onMouseOver,
-      onMouseDown,
-      onMouseUp,
-      onMouseOut,
       onInput,
       onFocus,
       onBlur,
@@ -229,13 +220,6 @@ export const OutlinedTextField = forwardRef<
       setValue(target.value.substring(0, maxLength));
       typeof onInput === "function" && onInput(e);
     };
-    const events = {
-      onClick,
-      onMouseOver,
-      onMouseDown,
-      onMouseUp,
-      onMouseOut,
-    };
     useEffect(() => {
       if (node?.current) {
         ({ width, height } = (
@@ -256,7 +240,7 @@ export const OutlinedTextField = forwardRef<
     return (
       <div
         ref={node}
-        {...events}
+        {...props}
         className={`${textFieldClass} ${className}${
           leadingIcon ? " leadingIcon" : ""
         }${trailingIcon ? " trailingIcon" : ""}${disabled ? " disabled" : ""}${

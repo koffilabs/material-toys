@@ -5,25 +5,25 @@ import React, {
   useEffect,
   useState,
 } from "react";
-import {css} from "@emotion/css";
-import {applyReactiveStyle, m3} from "@material-toys/common";
-import {useThemeContexts} from "../hooks/useThemeContexts";
-import {Ripple} from "./Ripple";
+import { css } from "@emotion/css";
+import { applyReactiveStyle, m3 } from "@material-toys/common";
+import { useThemeContexts } from "../hooks/useThemeContexts";
+import { Ripple } from "./Ripple";
 import merge from "lodash-es/merge";
 
 interface CardProps {
   disabled: boolean;
   className: string;
-  onClick?: Function;
   children?: ReactNode;
+  [prop: string]: any;
 }
 
-export const Card = ({children, className}: CardProps) => {
-  const {ThemeContext, VariantContext, UserThemeContext} = useThemeContexts();
+export const Card = ({ children, className, ...props }: CardProps) => {
+  const { ThemeContext, VariantContext, UserThemeContext } = useThemeContexts();
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
   const node = useRef(null);
-  const theme = m3(tokens, {variant});
+  const theme = m3(tokens, { variant });
   const userTheme: any = useContext(UserThemeContext);
 
   let width, height;
@@ -37,7 +37,7 @@ export const Card = ({children, className}: CardProps) => {
   );
   useEffect(() => {
     if (node?.current) {
-      ({width, height} = (
+      ({ width, height } = (
         node.current as HTMLElement
       ).getBoundingClientRect());
       setCardClass(
@@ -54,8 +54,8 @@ export const Card = ({children, className}: CardProps) => {
   }, [node, variant]);
   return (
     <Ripple>
-      <div ref={node} className={`${cardClass} ${className}`}>
-        <div className="state"/>
+      <div ref={node} className={`${cardClass} ${className}`} {...props}>
+        <div className="state" />
         {children}
       </div>
     </Ripple>

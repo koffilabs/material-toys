@@ -13,7 +13,7 @@ interface RadioButtonProps {
 
 export const RadioButton = ({
   disabled = false,
-  ...rest
+  ...props
 }: RadioButtonProps) => {
   const node = useRef(null);
   const { className: radioButtonClass } = useComponentClass({
@@ -23,7 +23,7 @@ export const RadioButton = ({
   return (
     <Ripple>
       <div ref={node} className={`${radioButtonClass}`}>
-        <input disabled={disabled} {...rest} type="radio" />
+        <input disabled={disabled} {...props} type="radio" />
         <div className="mt-state mt-shape">
           <div className="mt-outline">
             <div className="mt-radio">

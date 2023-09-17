@@ -8,9 +8,9 @@ interface NavigationItemProps {
   active?: boolean;
   divider?: boolean;
   children?: ReactNode;
-  onClick?: MouseEventHandler;
   railLabel?: "show" | "selected" | "none";
   className?: string;
+  [prop: string]: any;
 }
 export const NavigationItem = ({
   icon,
@@ -18,9 +18,9 @@ export const NavigationItem = ({
   badge,
   active = false,
   divider = false,
-  onClick = () => {},
   railLabel = "selected",
   className = "",
+  ...props
 }: NavigationItemProps) => {
   const { className: itemTheme } = useComponentClass({
     path: "components.NavigationItem",
@@ -41,7 +41,7 @@ export const NavigationItem = ({
         {railLabel !== "none" && <div className="railContent">{children}</div>}
       </div>
       <Ripple>
-        <div onClick={onClick} className={rippleTarget}>
+        <div {...props} className={rippleTarget}>
           <div
             data-rail-label={railLabel}
             data-active={active}

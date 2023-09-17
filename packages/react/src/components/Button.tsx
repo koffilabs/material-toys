@@ -1,8 +1,15 @@
-import React, {MouseEventHandler, ReactNode, useContext, useEffect, useRef, useState} from "react";
-import {css} from "@emotion/css";
-import {applyReactiveStyle, m3} from "@material-toys/common";
-import {useThemeContexts} from "../hooks/useThemeContexts";
-import {Ripple} from "./Ripple";
+import React, {
+  MouseEventHandler,
+  ReactNode,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import { css } from "@emotion/css";
+import { applyReactiveStyle, m3 } from "@material-toys/common";
+import { useThemeContexts } from "../hooks/useThemeContexts";
+import { Ripple } from "./Ripple";
 import merge from "lodash-es/merge";
 
 interface ButtonProps {
@@ -15,24 +22,20 @@ interface ButtonProps {
   onMouseDown?: MouseEventHandler;
   onMouseUp?: MouseEventHandler;
   onMouseOut?: MouseEventHandler;
+  [prop: string]: any;
 }
 
 export const Button = ({
-                         icon,
-                         disabled = false,
-                         children,
-                         className = "elevated",
-                         onClick,
-                         onMouseOver,
-                         onMouseDown,
-                         onMouseUp,
-                         onMouseOut,
-                         ...props
-                       }: ButtonProps) => {
-  const {ThemeContext, VariantContext, UserThemeContext} = useThemeContexts();
+  icon,
+  disabled = false,
+  children,
+  className = "elevated",
+  ...props
+}: ButtonProps) => {
+  const { ThemeContext, VariantContext, UserThemeContext } = useThemeContexts();
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
-  const theme = m3(tokens, {variant});
+  const theme = m3(tokens, { variant });
   const userTheme: any = useContext(UserThemeContext);
   const node = useRef(null);
 
@@ -41,16 +44,13 @@ export const Button = ({
     css(
       applyReactiveStyle({
         target: "components.Button",
-        theme: merge(theme, userTheme(variant))
+        theme: merge(theme, userTheme(variant)),
       })
     )
   );
-  const events = {
-    onClick, onMouseOver, onMouseDown, onMouseUp, onMouseOut,
-  };
   useEffect(() => {
     if (node?.current) {
-      ({width, height} = (
+      ({ width, height } = (
         node.current as HTMLElement
       ).getBoundingClientRect());
       setBtnClass(
@@ -59,18 +59,22 @@ export const Button = ({
             target: "components.Button",
             theme: merge(theme, userTheme(variant)),
             width,
-            height
+            height,
           })
-        ));
+        )
+      );
     }
-
-
-  }, [node, variant])
+  }, [node, variant]);
   return (
     <Ripple>
-      <button ref={node} {...events} {...props} className={`${btn} ${className}`} disabled={disabled}>
+      <button
+        ref={node}
+        {...props}
+        className={`${btn} ${className}`}
+        disabled={disabled}
+      >
         <div className="mt-shape">
-          <div className="state"/>
+          <div className="state" />
           {icon}
           <div>{children}</div>
         </div>

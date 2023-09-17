@@ -17,7 +17,7 @@ interface FABProps {
   className: string;
   icon?: ReactNode;
   children?: ReactNode;
-  onClick?: () => {};
+  [prop: string]: any;
 }
 export const FAB = ({
   children,
@@ -26,6 +26,7 @@ export const FAB = ({
   className,
   style,
   extended = false,
+  props,
 }: FABProps) => {
   const textNode = useRef(null);
   const root = useRef(null);
@@ -140,6 +141,7 @@ export const FAB = ({
         style={{ ...style }}
         data-extended={extended}
         disabled={disabled}
+        {...props}
         className={`${fab} ${className ? className : ""}`}
       >
         <div className="state" />

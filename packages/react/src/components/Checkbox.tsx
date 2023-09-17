@@ -16,7 +16,7 @@ export const Checkbox = ({
   indeterminate = false,
   disabled = false,
   error = false,
-  ...rest
+  ...props
 }: CheckboxProps) => {
   const { ThemeContext, VariantContext, UserThemeContext } = useThemeContexts();
 
@@ -28,7 +28,7 @@ export const Checkbox = ({
   return (
     <Ripple>
       <div ref={node} className={`${checkboxClass}${error ? " error" : ""}`}>
-        <input disabled={disabled} {...rest} type="checkbox" />
+        <input disabled={disabled} {...props} type="checkbox" />
         <div className="mt-state mt-shape">
           <div className="mt-outline">
             <div className="mt-check">

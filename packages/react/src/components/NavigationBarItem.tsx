@@ -20,6 +20,7 @@ interface NavigationBarItemProps {
   label?: "show" | "selected" | "none";
   className?: string;
   onClick: MouseEventHandler;
+  [prop: string]: any;
 }
 interface Rest {
   className?: string;
@@ -88,6 +89,7 @@ export const NavigationBarItem = ({
   };
   return (
     <div
+      {...props}
       onClick={_onClick}
       data-label={label}
       data-active={active}
