@@ -6,7 +6,6 @@ interface Icon {
 interface SwitchProps {
   indeterminate?: boolean;
   error?: boolean;
-  disabled?: boolean;
   selectedIcon?: ({ size }: { size: string }) => JSX.Element;
   unselectedIcon?: ({ size }: { size: string }) => JSX.Element;
   [prop: string]: any;
@@ -14,13 +13,11 @@ interface SwitchProps {
 
 export const Switch = ({
   indeterminate = false,
-  disabled = false,
   error = false,
   selectedIcon: SelectedIcon,
   unselectedIcon: UnselectedIcon,
   ...rest
 }: SwitchProps) => {
-  const node = useRef(null);
   const [loaded, setLoaded] = useState(false);
   const { className: switchClass } = useComponentClass({
     path: "components.Switch",
@@ -39,8 +36,8 @@ export const Switch = ({
   }, [rest.checked]);
   // remove transitions on load, end
   return (
-    <div ref={node} className={`${switchClass}${loaded ? "" : " mt-loading"}`}>
-      <input disabled={disabled} {...rest} type="checkbox" />
+    <div className={`${switchClass}${loaded ? "" : " mt-loading"}`}>
+      <input {...rest} type="checkbox" />
       <div className="mt-track">
         <div className="mt-state">
           <div className="mt-outline">

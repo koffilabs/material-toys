@@ -7,23 +7,18 @@ import { Ripple } from "./Ripple";
 import { useComponentClass } from "../hooks/useComponentClass";
 
 interface RadioButtonProps {
-  disabled?: boolean;
   [prop: string]: any;
 }
 
-export const RadioButton = ({
-  disabled = false,
-  ...props
-}: RadioButtonProps) => {
-  const node = useRef(null);
+export const RadioButton = ({ ...props }: RadioButtonProps) => {
   const { className: radioButtonClass } = useComponentClass({
     path: "components.RadioButton",
   });
 
   return (
     <Ripple>
-      <div ref={node} className={`${radioButtonClass}`}>
-        <input disabled={disabled} {...props} type="radio" />
+      <div className={`${radioButtonClass}`}>
+        <input {...props} type="radio" />
         <div className="mt-state mt-shape">
           <div className="mt-outline">
             <div className="mt-radio">

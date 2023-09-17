@@ -8,27 +8,24 @@ import { Ripple } from "./Ripple";
 interface CheckboxProps {
   indeterminate?: boolean;
   error?: boolean;
-  disabled?: boolean;
   [prop: string]: any;
 }
 
 export const Checkbox = ({
   indeterminate = false,
-  disabled = false,
   error = false,
   ...props
 }: CheckboxProps) => {
   const { ThemeContext, VariantContext, UserThemeContext } = useThemeContexts();
 
-  const node = useRef<HTMLDivElement>(null);
   const { className: checkboxClass } = useComponentClass({
     path: "components.Checkbox",
   });
 
   return (
     <Ripple>
-      <div ref={node} className={`${checkboxClass}${error ? " error" : ""}`}>
-        <input disabled={disabled} {...props} type="checkbox" />
+      <div className={`${checkboxClass}${error ? " error" : ""}`}>
+        <input {...props} type="checkbox" />
         <div className="mt-state mt-shape">
           <div className="mt-outline">
             <div className="mt-check">

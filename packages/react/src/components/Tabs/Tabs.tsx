@@ -26,14 +26,14 @@ export const Tabs = ({
   fixed = false,
 }: TabsInterface) => {
   const isLoading = useRef(true);
-  const activeIndicatorRef = useRef<HTMLDivElement | null>(null);
+  const activeIndicatorRef = useRef<HTMLDivElement>(null);
   const [selectedTab, setSelectedTab] = useState<number>(0);
   const previousSelectedTab = usePrevious(selectedTab, 0);
   const indicatorAnimationRef = useRef<Animation | undefined | null>(null);
   const { ThemeContext } = useThemeContexts();
   const tokens = useContext<any>(ThemeContext);
   const refs = useRef<(HTMLElement | null)[]>([]);
-  const ref = useRef<HTMLDivElement | null>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const childrenArray = Children.toArray(children);
   const tabs = childrenArray.filter((child: any) => {
     return child.type === Tab;

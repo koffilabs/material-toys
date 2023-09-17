@@ -38,8 +38,8 @@ export const NavigationBarItem = ({
   ...props
 }: NavigationBarItemProps & Partial<Rest>) => {
   const previousActive = usePrevious(active);
-  const iconNode = useRef(null);
-  const activeIconNode = useRef(null);
+  const iconNode = useRef<HTMLDivElement>();
+  const activeIconNode = useRef<HTMLDivElement>();
   const { className: itemTheme } = useComponentClass({
     path: "components.NavigationBarItem",
   });
@@ -48,38 +48,32 @@ export const NavigationBarItem = ({
     const immediate = typeof previousActive === "undefined";
     if (iconsAnimations?.icon && iconsAnimations?.activeIcon) {
       iconNode.current &&
-        (iconNode.current as HTMLElement).animate(iconsAnimations.icon, {
+        iconNode.current.animate(iconsAnimations.icon, {
           ...animationOptions,
           duration: immediate ? 0 : defaultDuration,
           direction: active ? "normal" : "reverse",
         });
       activeIconNode.current &&
-        (activeIconNode.current as HTMLElement).animate(
-          iconsAnimations.activeIcon,
-          {
-            ...animationOptions,
-            duration: immediate ? 0 : defaultDuration,
-            direction: active ? "normal" : "reverse",
-          }
-        );
+        activeIconNode.current.animate(iconsAnimations.activeIcon, {
+          ...animationOptions,
+          duration: immediate ? 0 : defaultDuration,
+          direction: active ? "normal" : "reverse",
+        });
       // animateIcons({ icon: iconNode, activeIcon: activeIconNode });
     } else {
       // default animations
       iconNode.current &&
-        (iconNode.current as HTMLElement).animate(defaultKeyframes.icon, {
+        iconNode.current.animate(defaultKeyframes.icon, {
           ...animationOptions,
           direction: active ? "normal" : "reverse",
           duration: 0,
         });
       activeIconNode.current &&
-        (activeIconNode.current as HTMLElement).animate(
-          defaultKeyframes.activeIcon,
-          {
-            ...animationOptions,
-            direction: active ? "normal" : "reverse",
-            duration: 0,
-          }
-        );
+        activeIconNode.current.animate(defaultKeyframes.activeIcon, {
+          ...animationOptions,
+          direction: active ? "normal" : "reverse",
+          duration: 0,
+        });
     }
   }, [active]);
   const _onClick: MouseEventHandler = (e) => {

@@ -1,7 +1,6 @@
 import React, {
   FocusEventHandler,
   FormEvent,
-  MouseEventHandler,
   ReactNode,
   useContext,
   useEffect,
@@ -68,7 +67,7 @@ export const FilledTextField = forwardRef<Ref, FilledTextProps>(
     const variant: string = useContext(VariantContext);
     const theme = m3(tokens, { variant });
     const userTheme: any = useContext(UserThemeContext);
-    const node = useRef(null);
+    const node = useRef<HTMLDivElement>(null);
 
     let width: number, height: number;
     const [value, setValue] = useState(`${prefix}${valueProp}`);
@@ -101,14 +100,16 @@ export const FilledTextField = forwardRef<Ref, FilledTextProps>(
         }
       }
       // substring: android does not honor maxLength before the blur
-      setValue(target.value.substring(0, maxLength));
+      setValue(
+        typeof maxLength === "undefined"
+          ? target.value
+          : target.value.substring(0, maxLength)
+      );
       typeof onInput === "function" && onInput(e);
     };
     useEffect(() => {
       if (node?.current) {
-        ({ width, height } = (
-          node.current as HTMLElement
-        ).getBoundingClientRect());
+        ({ width, height } = node.current?.getBoundingClientRect());
         setTextFieldClass(
           css(
             applyReactiveStyle({
@@ -143,7 +144,7 @@ export const FilledTextField = forwardRef<Ref, FilledTextProps>(
           </div>
           <input
             ref={ref}
-            maxLength={maxLength}
+            maxLength={maxLength ?? Infinity}
             {...props}
             value={value}
             onInput={__onInput}

@@ -22,7 +22,7 @@ export const Card = ({ children, className, ...props }: CardProps) => {
   const { ThemeContext, VariantContext, UserThemeContext } = useThemeContexts();
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
-  const node = useRef(null);
+  const node = useRef<HTMLDivElement>();
   const theme = m3(tokens, { variant });
   const userTheme: any = useContext(UserThemeContext);
 

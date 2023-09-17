@@ -16,7 +16,6 @@ interface ButtonProps {
   icon?: any;
   children?: ReactNode;
   className?: string;
-  disabled?: boolean;
   onClick?: MouseEventHandler;
   onMouseOver?: MouseEventHandler;
   onMouseDown?: MouseEventHandler;
@@ -27,7 +26,6 @@ interface ButtonProps {
 
 export const Button = ({
   icon,
-  disabled = false,
   children,
   className = "elevated",
   ...props
@@ -37,7 +35,7 @@ export const Button = ({
   const variant: string = useContext(VariantContext);
   const theme = m3(tokens, { variant });
   const userTheme: any = useContext(UserThemeContext);
-  const node = useRef(null);
+  const node = useRef<HTMLButtonElement>(null);
 
   let width: number, height: number;
   const [btn, setBtnClass] = useState(
@@ -50,9 +48,7 @@ export const Button = ({
   );
   useEffect(() => {
     if (node?.current) {
-      ({ width, height } = (
-        node.current as HTMLElement
-      ).getBoundingClientRect());
+      ({ width, height } = node.current?.getBoundingClientRect());
       setBtnClass(
         css(
           applyReactiveStyle({
@@ -64,15 +60,10 @@ export const Button = ({
         )
       );
     }
-  }, [node, variant]);
+  }, [variant]);
   return (
     <Ripple>
-      <button
-        ref={node}
-        {...props}
-        className={`${btn} ${className}`}
-        disabled={disabled}
-      >
+      <button ref={node} {...props} className={`${btn} ${className}`}>
         <div className="mt-shape">
           <div className="state" />
           {icon}

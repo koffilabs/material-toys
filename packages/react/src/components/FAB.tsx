@@ -22,14 +22,13 @@ interface FABProps {
 export const FAB = ({
   children,
   icon,
-  disabled,
   className,
   style,
   extended = false,
   props,
 }: FABProps) => {
-  const textNode = useRef(null);
-  const root = useRef(null);
+  const textNode = useRef<HTMLDivElement>();
+  const root = useRef<HTMLButtonElement>();
   const { ThemeContext, VariantContext } = useThemeContexts();
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
@@ -64,13 +63,13 @@ export const FAB = ({
   useEffect(() => {
     if (extended) {
       const { width } = textNode.current
-        ? (textNode.current as HTMLElement).getBoundingClientRect()
+        ? textNode.current.getBoundingClientRect()
         : { width: 0 };
       // setComputedWidth(`${(icon ? width : width) + parseFloat(BASE_WIDTH)}px`);
       const w = `${width + parseFloat(BASE_WIDTH)}px`;
       setComputedWidth(w);
       root.current &&
-        (root.current as HTMLElement).animate(
+        root.current.animate(
           [
             {
               width: BASE_WIDTH,
@@ -102,7 +101,7 @@ export const FAB = ({
         );
     } else {
       root.current &&
-        (root.current as HTMLElement).animate(
+        root.current.animate(
           [
             {
               width: computedWidth,
@@ -140,7 +139,6 @@ export const FAB = ({
         ref={root}
         style={{ ...style }}
         data-extended={extended}
-        disabled={disabled}
         {...props}
         className={`${fab} ${className ? className : ""}`}
       >

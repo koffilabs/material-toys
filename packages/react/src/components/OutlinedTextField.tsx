@@ -74,8 +74,8 @@ export const OutlinedTextField = forwardRef<
     const variant: string = useContext(VariantContext);
     const theme = m3(tokens, { variant });
     const userTheme: any = useContext(UserThemeContext);
-    const node = useRef(null);
-    const outlineNode = useRef(null);
+    const node = useRef<HTMLDivElement>(null);
+    const outlineNode = useRef<HTMLDivElement>(null);
     const labelNode = useRef<HTMLDivElement>(null);
     const inputNode = useRef<HTMLInputElement>(null);
     ref = inputNode;
@@ -95,13 +95,13 @@ export const OutlinedTextField = forwardRef<
           inputNode?.current &&
           inputNode.current !== document.activeElement
         ) {
-          const length = (
-            labelNode.current as HTMLElement
-          ).getBoundingClientRect().width;
+          const length = labelNode.current.getBoundingClientRect().width;
           const start = CUT_START,
             end = start + length + 8;
-          (outlineNode.current as HTMLElement).style.clipPath =
-            getClosedPolygon({ start, length });
+          outlineNode.current.style.clipPath = getClosedPolygon({
+            start,
+            length,
+          });
         }
       }
     }, [value]);
@@ -111,7 +111,7 @@ export const OutlinedTextField = forwardRef<
         const cs = window.getComputedStyle(labelNode.current);
         // labelNode.current.style.transform = `scale(0.75)`;
         const width =
-          (labelNode.current as HTMLElement).getBoundingClientRect().width *
+          labelNode.current.getBoundingClientRect().width *
           (value.length ? 1 : 0.75);
         smallLabelWidth.current = width;
         const length = width,
@@ -124,16 +124,17 @@ export const OutlinedTextField = forwardRef<
             const length = smallLabelWidth.current;
             const start = CUT_START,
               end = start + length + 8;
-            (outlineNode.current as HTMLElement).style.clipPath =
-              getOpenPolygon({ start, end });
+            outlineNode.current.style.clipPath = getOpenPolygon({ start, end });
           }
         } else {
           if (outlineNode.current) {
             const length = smallLabelWidth.current,
               start = CUT_START,
               end = start + length + 8;
-            (outlineNode.current as HTMLElement).style.clipPath =
-              getClosedPolygon({ start, length });
+            outlineNode.current.style.clipPath = getClosedPolygon({
+              start,
+              length,
+            });
           }
         }
         setIsLoading(false);
@@ -188,7 +189,7 @@ export const OutlinedTextField = forwardRef<
         end = start + length + 8;
 
       if (outlineNode.current && value.length === 0) {
-        (outlineNode.current as HTMLElement).style.clipPath = getOpenPolygon({
+        outlineNode.current.style.clipPath = getOpenPolygon({
           start,
           end,
         });
@@ -200,7 +201,7 @@ export const OutlinedTextField = forwardRef<
         start = CUT_START,
         end = start + length + 8;
       if (value.length === 0 && outlineNode.current) {
-        (outlineNode.current as HTMLElement).style.clipPath = getClosedPolygon({
+        outlineNode.current.style.clipPath = getClosedPolygon({
           start,
           length,
         });
@@ -217,14 +218,16 @@ export const OutlinedTextField = forwardRef<
         }
       }
       // substring: android does not honor maxLength before the blur
-      setValue(target.value.substring(0, maxLength));
+      setValue(
+        typeof maxLength === "undefined"
+          ? target.value
+          : target.value.substring(0, maxLength)
+      );
       typeof onInput === "function" && onInput(e);
     };
     useEffect(() => {
       if (node?.current) {
-        ({ width, height } = (
-          node.current as HTMLElement
-        ).getBoundingClientRect());
+        ({ width, height } = node.current?.getBoundingClientRect());
         setTextFieldClass(
           css(
             applyReactiveStyle({
@@ -262,7 +265,7 @@ export const OutlinedTextField = forwardRef<
           </div>
           <input
             ref={inputNode}
-            maxLength={maxLength}
+            maxLength={maxLength ?? Infinity}
             {...props}
             value={value}
             onInput={__onInput}
