@@ -23,7 +23,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npx lerna bootstrap --use-workspaces
+    - run: npm i
+    - run: npx lerna init --packages="packages/*"
     - run: npm --prefix packages/icons-react run generate
     - run: npx lerna run build
     - run: npx lerna run emitDeclarations
