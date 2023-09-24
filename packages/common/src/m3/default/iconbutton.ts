@@ -69,64 +69,6 @@ export const IconButton = (tokens, options?: M3Options) => {
         },
       },
     },
-    "&.elevated": {
-      color: tokens[`MdSysColorPrimary${variant}`],
-      fill: tokens[`MdSysColorPrimary${variant}`],
-      "& .mt-shape": {
-        boxShadow: `0 2px 1px -1px ${rgba(
-          tokens.MdSysColorShadow,
-          0.2
-        )}, 0 1px 1px 0 ${rgba(
-          tokens.MdSysColorShadow,
-          0.14
-        )}, 0 1px 3px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
-        background: tokens[`MdSysColorSurface${variant}`],
-      },
-      // boxShadow: `0 1px 2px 1px ${rgba(tokens.MdSysColorShadow, 0.3)}`,
-      // level1
-      "&:hover": {
-        "& .mt-shape": {
-          boxShadow: `0 3px 1px -2px ${rgba(
-            tokens.MdSysColorShadow,
-            0.2
-          )}, 0 2px 2px 0 ${rgba(
-            tokens.MdSysColorShadow,
-            0.14
-          )}, 0 1px 5px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
-        },
-      },
-      "&:active, &:focus": {
-        "& .mt-shape": {
-          boxShadow: `0 2px 1px -1px ${rgba(
-            tokens.MdSysColorShadow,
-            0.2
-          )}, 0 1px 1px 0 ${rgba(
-            tokens.MdSysColorShadow,
-            0.14
-          )}, 0 1px 3px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
-        },
-      },
-      ".ripple": {
-        backgroundColor: tokens[`MdSysColorPrimary${variant}`],
-      },
-      "&:active": {
-        "& .state": {
-          backgroundColor: tokens[`MdSysColorPrimary${variant}`],
-        },
-      },
-      "& .state": {
-        backgroundColor: tokens[`MdSysColorPrimary${variant}`],
-      },
-      "&:disabled": {
-        color: `${rgba(tokens[`MdSysColorPrimary${variant}`], 0.38)}`,
-        fill: `${rgba(tokens[`MdSysColorPrimary${variant}`], 0.38)}`,
-        background: `${rgba(tokens[`MdSysColorSurface${variant}`], 0.12)}`,
-        boxShadow: `0 0 0 0 ${rgba("#000", 0.3)},0 0 0 0 ${rgba(
-          "#000",
-          0.3
-        )},0 0 0 0 ${rgba("#000", 0.3)}`,
-      },
-    },
     "&.filled": {
       div: {
         color: tokens[`MdSysColorOnPrimary${variant}`],
@@ -253,7 +195,7 @@ export const IconButton = (tokens, options?: M3Options) => {
         },
       },
     },
-    "&.text": {
+    "&.default": {
       color: tokens[`MdSysColorPrimary${variant}`],
       fill: tokens[`MdSysColorPrimary${variant}`],
       background: "transparent",

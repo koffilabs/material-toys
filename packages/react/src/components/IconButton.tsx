@@ -15,6 +15,7 @@ import { useComponentClass } from "../hooks/useComponentClass";
 
 interface IconButtonProps {
   icon?: any;
+  selected?: boolean;
   children?: ReactNode;
   className?: string;
   onClick?: MouseEventHandler;
@@ -28,7 +29,8 @@ interface IconButtonProps {
 export const IconButton = ({
   icon,
   children,
-  className = "elevated",
+  className = "default",
+  selected = false,
   ...props
 }: IconButtonProps) => {
   const { ThemeContext, VariantContext, UserThemeContext } = useThemeContexts();
