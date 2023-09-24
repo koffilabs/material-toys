@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { AddIcon } from "@material-toys/icons-react";
+import { FavoriteIcon } from "@material-toys/icons-react";
 import { IconButton } from "@material-toys/react";
 
 // import {useEffect, useState} from "react";
@@ -21,16 +21,16 @@ export default function button_page() {
         <div>
           <BlockComponentCanvas>
             <IconButton>
-              <AddIcon size="18px" />
+              <FavoriteIcon />
             </IconButton>
             <IconButton className={"filled"}>
-              <AddIcon size="18px" />
+              <FavoriteIcon />
             </IconButton>
             <IconButton className={"filled-tonal"}>
-              <AddIcon size="18px" />
+              <FavoriteIcon />
             </IconButton>
             <IconButton className={"outlined"}>
-              <AddIcon size="18px" />
+              <FavoriteIcon />
             </IconButton>
           </BlockComponentCanvas>
           <CodeBlock
