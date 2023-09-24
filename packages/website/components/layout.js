@@ -42,6 +42,7 @@ export default ({
     // {i: <BoltIcon />, l: "Getting Started", r: "/getting-started"},
     // {i: <InfoIcon />, l: "About", r: "/"},
     { l: "Button", r: "/button" },
+    { l: "Icon button", r: "/icon-button" },
     { l: "FAB", r: "/fab" },
     { l: "Extended FAB", r: "/extended-fab" },
     { l: "Checkbox", r: "/checkbox" },

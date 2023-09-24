@@ -1,6 +1,6 @@
 {
   "name": "@material-toys/icons",
-  "version": "0.1.31",
+  "version": "0.1.32",
   "description": "> TODO: description",
   "author": "Nicola Rizzo",
   "homepage": "https://github.com/koffilabs/material-toys#readme",
@@ -37,5 +37,5 @@
     "prettier": "2.8.0",
     "vue": "next"
   },
-  "gitHead": "32992735cc6f5795e97f05747c71d5d757607d02"
+  "gitHead": "6b5a7f3d82ed1ff76ac2aae620c723fb0256ce22"
 }

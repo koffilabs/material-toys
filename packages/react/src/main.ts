@@ -1,4 +1,5 @@
 export { Button } from "./components/Button";
+export { IconButton } from "./components/IconButton";
 export { FAB } from "./components/FAB";
 export { Card } from "./components/Card";
 export { Grid } from "./components/Grid";

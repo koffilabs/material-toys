@@ -2,7 +2,7 @@
   "name": "@material-toys/react",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "version": "0.1.31",
+  "version": "0.1.32",
   "types": "dist/main.d.ts",
   "sideEffects": false,
   "license": "MIT",
@@ -47,7 +47,7 @@
   "dependencies": {
     "@emotion/css": "^11.5.0",
     "@emotion/react": "^11.6.0",
-    "@material-toys/common": "^0.1.31",
+    "@material-toys/common": "^0.1.32",
     "@types/lodash-es": "^4.17.6",
     "lodash-es": "^4.17.21",
     "postcss": "^8.4.4",
@@ -55,5 +55,5 @@
     "react-swipeable": "^7.0.0",
     "rollup-plugin-analyzer": "^4.0.0"
   },
-  "gitHead": "2ca5f768028a25de18ca8c13b19b9fcb0fbcabf4"
+  "gitHead": "6b5a7f3d82ed1ff76ac2aae620c723fb0256ce22"
 }
