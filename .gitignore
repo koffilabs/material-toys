@@ -66,3 +66,4 @@ typings/
 !.yarn/sdks
 !.yarn/versions
 /packages/icons/src/
+stats.html
