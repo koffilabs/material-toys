@@ -1,5 +1,6 @@
 // import { rgba } from "emotion-rgba";
 import { Button } from "./button";
+import { IconButton } from "./iconbutton";
 import { FAB } from "./fab";
 import { Card } from "./card";
 import { NavigationDrawer } from "./navigationdrawer";
@@ -56,6 +57,7 @@ export const m3 = (tokens, options: M3Options = defaultOptions) => {
       //   height: "20vh",
       //   willChange: "transform opacity",
       // },
+      IconButton: IconButton(tokens, options),
       Button: Button(tokens, options),
       FAB: FAB(tokens, options),
       Card: Card(tokens, options),
