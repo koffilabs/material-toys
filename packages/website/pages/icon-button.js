@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { FavoriteIcon } from "@material-toys/icons-react";
+import { FavoriteIcon, SettingsIcon } from "@material-toys/icons-react";
 import { IconButton } from "@material-toys/react";
 
 // import {useEffect, useState} from "react";
@@ -31,6 +31,58 @@ export default function button_page() {
             </IconButton>
             <IconButton className={"outlined"}>
               <FavoriteIcon />
+            </IconButton>
+          </BlockComponentCanvas>
+          <CodeBlock
+            code={`
+<IconButton>
+  <AddIcon size="18px" />
+</IconButton>
+`}
+          ></CodeBlock>
+        </div>
+        <h2>Icon Button - toggle, unselected</h2>
+        <div>
+          <BlockComponentCanvas>
+            <IconButton type={"toggle"}>
+              <SettingsIcon />
+            </IconButton>
+            <IconButton type={"toggle"} className={"filled"}>
+              <SettingsIcon />
+            </IconButton>
+            <IconButton type={"toggle"} className={"filled-tonal"}>
+              <SettingsIcon />
+            </IconButton>
+            <IconButton type={"toggle"} className={"outlined"}>
+              <SettingsIcon />
+            </IconButton>
+          </BlockComponentCanvas>
+          <CodeBlock
+            code={`
+<IconButton>
+  <AddIcon size="18px" />
+</IconButton>
+`}
+          ></CodeBlock>
+        </div>
+        <h2>Icon Button - toggle, selected</h2>
+        <div>
+          <BlockComponentCanvas>
+            <IconButton selected={true} type={"toggle"}>
+              <SettingsIcon />
+            </IconButton>
+            <IconButton selected={true} type={"toggle"} className={"filled"}>
+              <SettingsIcon />
+            </IconButton>
+            <IconButton
+              selected={true}
+              type={"toggle"}
+              className={"filled-tonal"}
+            >
+              <SettingsIcon />
+            </IconButton>
+            <IconButton selected={true} type={"toggle"} className={"outlined"}>
+              <SettingsIcon />
             </IconButton>
           </BlockComponentCanvas>
           <CodeBlock

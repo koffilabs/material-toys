@@ -80,6 +80,22 @@ export const IconButton = (tokens, options?: M3Options) => {
       ".ripple": {
         backgroundColor: tokens[`MdSysColorOnPrimary${variant}`],
       },
+      "&[data-variant=toggle]": {
+        // fill: tokens[`MdSysColorPrimary${variant}`],
+        fill: "transparent",
+        "path:last-of-type": {
+          stroke: tokens[`MdSysColorPrimary${variant}`],
+        },
+        "& .mt-shape": {
+          background: tokens[`MdSysColorSurfaceVariant${variant}`],
+        },
+        "&[data-selected=true]": {
+          fill: tokens[`MdSysColorOnPrimary${variant}`],
+          "& .mt-shape": {
+            background: tokens[`MdSysColorPrimary${variant}`],
+          },
+        },
+      },
       "&:disabled": {
         color: `${rgba(tokens[`MdSysColorOnSurface${variant}`], 0.38)}`,
         fill: `${rgba(tokens[`MdSysColorOnSurface${variant}`], 0.38)}`,
