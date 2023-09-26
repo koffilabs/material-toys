@@ -1,5 +1,10 @@
 import Head from "next/head";
-import { FavoriteIcon, SettingsIcon } from "@material-toys/icons-react";
+import {
+  FavoriteIcon,
+  OutlinedFavoriteBorderIcon,
+  SettingsIcon,
+  OutlinedSettingsIcon,
+} from "@material-toys/icons-react";
 import { IconButton } from "@material-toys/react";
 
 // import {useEffect, useState} from "react";
@@ -30,7 +35,7 @@ export default function button_page() {
               <FavoriteIcon />
             </IconButton>
             <IconButton className={"outlined"}>
-              <FavoriteIcon />
+              <OutlinedFavoriteBorderIcon />
             </IconButton>
           </BlockComponentCanvas>
           <CodeBlock
@@ -45,16 +50,16 @@ export default function button_page() {
         <div>
           <BlockComponentCanvas>
             <IconButton type={"toggle"}>
-              <SettingsIcon />
+              <OutlinedSettingsIcon />
             </IconButton>
             <IconButton type={"toggle"} className={"filled"}>
-              <SettingsIcon />
+              <OutlinedSettingsIcon />
             </IconButton>
             <IconButton type={"toggle"} className={"filled-tonal"}>
-              <SettingsIcon />
+              <OutlinedSettingsIcon />
             </IconButton>
             <IconButton type={"toggle"} className={"outlined"}>
-              <SettingsIcon />
+              <OutlinedSettingsIcon />
             </IconButton>
           </BlockComponentCanvas>
           <CodeBlock

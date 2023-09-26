@@ -81,11 +81,7 @@ export const IconButton = (tokens, options?: M3Options) => {
         backgroundColor: tokens[`MdSysColorOnPrimary${variant}`],
       },
       "&[data-variant=toggle]": {
-        // fill: tokens[`MdSysColorPrimary${variant}`],
-        fill: "transparent",
-        "path:last-of-type": {
-          stroke: tokens[`MdSysColorPrimary${variant}`],
-        },
+        fill: tokens[`MdSysColorPrimary${variant}`],
         "& .mt-shape": {
           background: tokens[`MdSysColorSurfaceVariant${variant}`],
         },
@@ -135,6 +131,19 @@ export const IconButton = (tokens, options?: M3Options) => {
       ".ripple": {
         backgroundColor: tokens[`MdSysColorOnSecondaryContainer${variant}`],
       },
+      "&[data-variant=toggle]": {
+        fill: tokens[`MdSysColorOnSurfaceVariant${variant}`],
+        "& .mt-shape": {
+          background: tokens[`MdSysColorSurfaceVariant${variant}`],
+        },
+        "&[data-selected=true]": {
+          fill: tokens[`MdSysColorOnSecondaryContainer${variant}`],
+          "& .mt-shape": {
+            background: tokens[`MdSysColorSecondaryContainer${variant}`],
+          },
+        },
+      },
+
       "&:hover:not(:disabled)": {
         "& .mt-shape": {
           boxShadow: `0 2px 1px -1px ${rgba(
@@ -164,8 +173,7 @@ export const IconButton = (tokens, options?: M3Options) => {
       },
     },
     "&.outlined": {
-      color: tokens[`MdSysColorPrimary${variant}`],
-      fill: tokens[`MdSysColorPrimary${variant}`],
+      fill: tokens[`MdSysColorOnSurfaceVariant${variant}`],
       "& .mt-shape": {
         background: "transparent", // tokens.MdSysColorSurface,
         border: `1px solid ${tokens[`MdSysColorOutline${variant}`]}`,
@@ -173,6 +181,16 @@ export const IconButton = (tokens, options?: M3Options) => {
       ".ripple": {
         backgroundColor: tokens[`MdSysColorPrimary${variant}`],
       },
+      "&[data-variant=toggle]": {
+        "& .mt-shape": {},
+        "&[data-selected=true]": {
+          fill: tokens[`MdSysColorInverseOnSurface${variant}`],
+          "& .mt-shape": {
+            background: tokens[`MdSysColorInverseSurface${variant}`],
+          },
+        },
+      },
+
       "&:hover:not(:disabled)": {
         "& .mt-shape": {
           borderColor: tokens[`MdSysColorOutline${variant}`],
