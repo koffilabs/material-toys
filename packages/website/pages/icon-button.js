@@ -44,10 +44,19 @@ export default function button_page() {
             ></IconButton>
           </BlockComponentCanvas>
           <CodeBlock
-            code={`
-<IconButton>
-  <AddIcon size="18px" />
-</IconButton>
+            code={`<IconButton renderIcon={() => <FavoriteIcon />}></IconButton>
+<IconButton
+  className={"filled"}
+  renderIcon={() => <FavoriteIcon />}
+></IconButton>
+<IconButton
+  className={"filled-tonal"}
+  renderIcon={() => <FavoriteIcon />}
+></IconButton>
+<IconButton
+  className={"outlined"}
+  renderIcon={() => <OutlinedFavoriteBorderIcon />}
+></IconButton>
 `}
           ></CodeBlock>
         </div>
@@ -99,10 +108,54 @@ export default function button_page() {
             ></IconButton>
           </BlockComponentCanvas>
           <CodeBlock
-            code={`
-<IconButton>
-  <AddIcon size="18px" />
-</IconButton>
+            code={`const [selected0, setSelected0] = useState(false);
+const [selected1, setSelected1] = useState(false);
+const [selected2, setSelected2] = useState(false);
+const [selected3, setSelected3] = useState(false);
+// ...
+<IconButton
+  type={"toggle"}
+  selected={selected0}
+  onClick={() => {
+    setSelected0((selected0) => !selected0);
+  }}
+  renderIcon={({ selected }) =>
+    selected ? <SettingsIcon /> : <OutlinedSettingsIcon />
+  }
+></IconButton>
+<IconButton
+  type={"toggle"}
+  className={"filled"}
+  selected={selected1}
+  onClick={() => {
+    setSelected1((selected1) => !selected1);
+  }}
+  renderIcon={({ selected }) =>
+    selected ? <SettingsIcon /> : <OutlinedSettingsIcon />
+  }
+></IconButton>
+<IconButton
+  type={"toggle"}
+  selected={selected2}
+  className={"filled-tonal"}
+  onClick={() => {
+    setSelected2((selected2) => !selected2);
+  }}
+  renderIcon={({ selected }) =>
+    selected ? <SettingsIcon /> : <OutlinedSettingsIcon />
+  }
+></IconButton>
+<IconButton
+  type={"toggle"}
+  className={"outlined"}
+  selected={selected3}
+  onClick={() => {
+    setSelected3((selected3) => !selected3);
+  }}
+  renderIcon={({ selected }) =>
+    selected ? <SettingsIcon /> : <OutlinedSettingsIcon />
+  }
+></IconButton>
 `}
           ></CodeBlock>
         </div>
