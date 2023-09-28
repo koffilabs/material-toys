@@ -35,19 +35,12 @@ export const IconButton = ({
   type = "",
   ...props
 }: IconButtonProps) => {
-  const { ThemeContext, VariantContext, UserThemeContext } = useThemeContexts();
-  const tokens = useContext(ThemeContext);
-  const variant: string = useContext(VariantContext);
-  const theme = m3(tokens, { variant });
-  const userTheme: any = useContext(UserThemeContext);
-  const node = useRef<HTMLButtonElement>(null);
   const { className: iconButtonClass } = useComponentClass({
     path: "components.IconButton",
   });
   return (
     <Ripple>
       <button
-        ref={node}
         {...props}
         data-variant={type}
         data-selected={selected}
@@ -56,7 +49,6 @@ export const IconButton = ({
         <div className="mt-shape">
           <div className="state" />
           {renderIcon({ selected })}
-          {/*{children}*/}
         </div>
       </button>
     </Ripple>
