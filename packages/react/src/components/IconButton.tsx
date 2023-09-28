@@ -14,7 +14,7 @@ import merge from "lodash-es/merge";
 import { useComponentClass } from "../hooks/useComponentClass";
 type Type = "toggle" | "";
 interface IconButtonProps {
-  icon?: any;
+  renderIcon: ({ selected }: { selected?: boolean }) => ReactNode;
   selected?: boolean;
   children?: ReactNode;
   className?: string;
@@ -28,14 +28,13 @@ interface IconButtonProps {
 }
 
 export const IconButton = ({
-  icon,
+  renderIcon,
   children,
   className = "default",
   selected = false,
   type = "",
   ...props
 }: IconButtonProps) => {
-  console.log("icon button type =", type);
   const { ThemeContext, VariantContext, UserThemeContext } = useThemeContexts();
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
@@ -56,7 +55,8 @@ export const IconButton = ({
       >
         <div className="mt-shape">
           <div className="state" />
-          {children}
+          {renderIcon({ selected })}
+          {/*{children}*/}
         </div>
       </button>
     </Ripple>

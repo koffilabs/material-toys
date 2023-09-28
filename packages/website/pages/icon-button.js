@@ -10,9 +10,13 @@ import { IconButton } from "@material-toys/react";
 // import {useEffect, useState} from "react";
 import { BlockComponentCanvas } from "../components/BlockComponentCanvas";
 import { CodeBlock } from "../components/CodeBlock";
-import React from "react";
+import React, { useState } from "react";
 
 export default function button_page() {
+  const [selected0, setSelected0] = useState(false);
+  const [selected1, setSelected1] = useState(false);
+  const [selected2, setSelected2] = useState(false);
+  const [selected3, setSelected3] = useState(false);
   return (
     <div className="container">
       <Head>
@@ -25,70 +29,74 @@ export default function button_page() {
         <h2>Icon Button</h2>
         <div>
           <BlockComponentCanvas>
-            <IconButton>
-              <FavoriteIcon />
-            </IconButton>
-            <IconButton className={"filled"}>
-              <FavoriteIcon />
-            </IconButton>
-            <IconButton className={"filled-tonal"}>
-              <FavoriteIcon />
-            </IconButton>
-            <IconButton className={"outlined"}>
-              <OutlinedFavoriteBorderIcon />
-            </IconButton>
-          </BlockComponentCanvas>
-          <CodeBlock
-            code={`
-<IconButton>
-  <AddIcon size="18px" />
-</IconButton>
-`}
-          ></CodeBlock>
-        </div>
-        <h2>Icon Button - toggle, unselected</h2>
-        <div>
-          <BlockComponentCanvas>
-            <IconButton type={"toggle"}>
-              <OutlinedSettingsIcon />
-            </IconButton>
-            <IconButton type={"toggle"} className={"filled"}>
-              <OutlinedSettingsIcon />
-            </IconButton>
-            <IconButton type={"toggle"} className={"filled-tonal"}>
-              <OutlinedSettingsIcon />
-            </IconButton>
-            <IconButton type={"toggle"} className={"outlined"}>
-              <OutlinedSettingsIcon />
-            </IconButton>
-          </BlockComponentCanvas>
-          <CodeBlock
-            code={`
-<IconButton>
-  <AddIcon size="18px" />
-</IconButton>
-`}
-          ></CodeBlock>
-        </div>
-        <h2>Icon Button - toggle, selected</h2>
-        <div>
-          <BlockComponentCanvas>
-            <IconButton selected={true} type={"toggle"}>
-              <SettingsIcon />
-            </IconButton>
-            <IconButton selected={true} type={"toggle"} className={"filled"}>
-              <SettingsIcon />
-            </IconButton>
+            <IconButton renderIcon={() => <FavoriteIcon />}></IconButton>
             <IconButton
-              selected={true}
-              type={"toggle"}
+              className={"filled"}
+              renderIcon={() => <FavoriteIcon />}
+            ></IconButton>
+            <IconButton
               className={"filled-tonal"}
-            >
-              <SettingsIcon />
-            </IconButton>
-            <IconButton selected={true} type={"toggle"} className={"outlined"}>
-              <SettingsIcon />
-            </IconButton>
+              renderIcon={() => <FavoriteIcon />}
+            ></IconButton>
+            <IconButton
+              className={"outlined"}
+              renderIcon={() => <OutlinedFavoriteBorderIcon />}
+            ></IconButton>
+          </BlockComponentCanvas>
+          <CodeBlock
+            code={`
+<IconButton>
+  <AddIcon size="18px" />
+</IconButton>
+`}
+          ></CodeBlock>
+        </div>
+        <h2>Toggle Icon Button</h2>
+        <div>
+          <BlockComponentCanvas>
+            <IconButton
+              type={"toggle"}
+              selected={selected0}
+              onClick={() => {
+                setSelected0((selected0) => !selected0);
+              }}
+              renderIcon={({ selected }) =>
+                selected ? <SettingsIcon /> : <OutlinedSettingsIcon />
+              }
+            ></IconButton>
+            <IconButton
+              type={"toggle"}
+              className={"filled"}
+              selected={selected1}
+              onClick={() => {
+                setSelected1((selected1) => !selected1);
+              }}
+              renderIcon={({ selected }) =>
+                selected ? <SettingsIcon /> : <OutlinedSettingsIcon />
+              }
+            ></IconButton>
+            <IconButton
+              type={"toggle"}
+              selected={selected2}
+              className={"filled-tonal"}
+              onClick={() => {
+                setSelected2((selected2) => !selected2);
+              }}
+              renderIcon={({ selected }) =>
+                selected ? <SettingsIcon /> : <OutlinedSettingsIcon />
+              }
+            ></IconButton>
+            <IconButton
+              type={"toggle"}
+              className={"outlined"}
+              selected={selected3}
+              onClick={() => {
+                setSelected3((selected3) => !selected3);
+              }}
+              renderIcon={({ selected }) =>
+                selected ? <SettingsIcon /> : <OutlinedSettingsIcon />
+              }
+            ></IconButton>
           </BlockComponentCanvas>
           <CodeBlock
             code={`
