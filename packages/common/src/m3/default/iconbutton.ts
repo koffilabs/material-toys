@@ -188,6 +188,11 @@ export const IconButton = (tokens, options?: M3Options) => {
           "& .mt-shape": {
             background: tokens[`MdSysColorInverseSurface${variant}`],
           },
+          "&:focus:not(disabled)": {
+            "& .mt-shape": {
+              fill: tokens[`MdSysColorInverseOnSurface${variant}`],
+            },
+          },
         },
       },
 
