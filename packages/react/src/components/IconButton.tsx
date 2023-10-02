@@ -1,16 +1,5 @@
-import React, {
-  MouseEventHandler,
-  ReactNode,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
-import { css } from "@emotion/css";
-import { applyReactiveStyle, m3 } from "@material-toys/common";
-import { useThemeContexts } from "../hooks/useThemeContexts";
+import React, { MouseEventHandler, ReactNode } from "react";
 import { Ripple } from "./Ripple";
-import merge from "lodash-es/merge";
 import { useComponentClass } from "../hooks/useComponentClass";
 type Type = "toggle" | "";
 interface IconButtonProps {

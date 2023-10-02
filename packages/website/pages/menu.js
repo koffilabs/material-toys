@@ -1,16 +1,8 @@
 import Head from "next/head";
-import {
-  FavoriteIcon,
-  OutlinedFavoriteBorderIcon,
-  SettingsIcon,
-  OutlinedSettingsIcon,
-} from "@material-toys/icons-react";
-import { IconButton } from "@material-toys/react";
-
-// import {useEffect, useState} from "react";
+import { Menu } from "@material-toys/react";
 import { BlockComponentCanvas } from "../components/BlockComponentCanvas";
 import { CodeBlock } from "../components/CodeBlock";
-import React, { useState } from "react";
+import React from "react";
 
 export default function menu_page() {
   return (
@@ -24,7 +16,9 @@ export default function menu_page() {
       <main>
         <h2>Menu</h2>
         <div>
-          <BlockComponentCanvas>Examples here</BlockComponentCanvas>
+          <BlockComponentCanvas>
+            <Menu></Menu>
+          </BlockComponentCanvas>
           <CodeBlock code={``}></CodeBlock>
         </div>
       </main>
