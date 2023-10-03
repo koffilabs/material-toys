@@ -2,6 +2,7 @@ import { M3Options } from "./index";
 import { fontWeights } from "./fontWeights";
 
 const duration = ".4s";
+const hoverDuration = ".2s";
 // const easing = "cubic-bezier(.075, .75, .875, .36)";
 const easing = "cubic-bezier(0.4, 0.0, 0.2, 1)";
 export const NavigationItemRippleTarget = (tokens, options?: M3Options) => {
@@ -179,7 +180,7 @@ export const NavigationItem = (tokens, options?: M3Options) => {
       opacity: "0",
       borderRadius: "32px",
       backgroundColor: tokens[`MdSysColorOnSurface${variant}`],
-      transition: `opacity ${duration} ease-in-out`,
+      transition: `opacity ${hoverDuration} ease-in-out`,
     },
     "&:hover": {
       cursor: "pointer",
@@ -223,7 +224,6 @@ export const NavigationItem = (tokens, options?: M3Options) => {
       marginLeft: "0",
       transition: `${duration} transform ${easing}`,
     },
-    // backgroundColor: "red",
     a: {
       fontFamily: tokens.MdSysTypescaleLabelLargeFont,
       textDecoration: "none",

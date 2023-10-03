@@ -1,5 +1,4 @@
-import React, { MouseEventHandler, ReactNode, useContext } from "react";
-import { useThemeContexts } from "../hooks/useThemeContexts";
+import React, { ReactNode } from "react";
 import { Ripple } from "./Ripple";
 import { useComponentClass } from "../hooks/useComponentClass";
 interface NavigationItemProps {

@@ -5,7 +5,7 @@ import React, {
   ReactNode,
   SyntheticEvent,
 } from "react";
-import { useRipple } from "@material-toys/common";
+import { ripple } from "@material-toys/common";
 
 interface RippleProps {
   children?: ReactNode;
@@ -15,7 +15,7 @@ export const Ripple = (
   context: Context<any>
 ): JSX.Element => {
   const reactNode: ReactNode = children;
-  const { ripple, rippleOut, setPointerIn } = useRipple();
+  // const { ripple, rippleOut, setPointerIn } = createRipple();
   const onPointerDown = (event: SyntheticEvent) => {
     const target = event.nativeEvent.target as HTMLElement;
     if (target?.closest("[disabled]")) {
@@ -27,19 +27,10 @@ export const Ripple = (
         event.currentTarget) as HTMLElement,
     });
   };
-  const onPointerEnter = () => {
-    setPointerIn();
-  };
-  const onPointerLeave = () => {
-    rippleOut();
-  };
   return (
     <>
       {cloneElement(reactNode as ReactElement<any>, {
         onPointerDown,
-        onPointerLeave,
-        onPointerEnter,
-        onPointerUp: onPointerLeave,
       })}
     </>
   );

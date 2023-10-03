@@ -37,11 +37,6 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
           backgroundColor: tokens[`MdSysColorOnPrimaryContainer${variant}`],
         },
         "&:hover": {
-          //   cursor: "pointer",
-          //   "&>.state": {
-          //     opacity: ".12",
-          //   },
-          // },
           ".state": {
             top: "0",
             left: "0",
