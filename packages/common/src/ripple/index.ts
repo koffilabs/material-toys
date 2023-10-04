@@ -9,13 +9,11 @@ const options: KeyframeAnimationOptions = {
   easing: "ease-in-out",
 };
 export const ripple = ({ event, element }: RippleArguments) => {
-  console.log("element", element);
   let rippleElement = document.createElement("div");
   const elementRect = element.getBoundingClientRect();
   const targetRect = (<HTMLElement>event.target).getBoundingClientRect();
   const x = event.offsetX + (targetRect.x - elementRect.x);
   const y = event.offsetY + (targetRect.y - elementRect.y);
-  console.log("x is", x, targetRect.x, elementRect.x, event.target);
   const { target }: { target: EventTarget } = event;
   const oWidth: number = (<HTMLElement>element).offsetWidth;
   const oHeight: number = (<HTMLElement>element).offsetHeight;
