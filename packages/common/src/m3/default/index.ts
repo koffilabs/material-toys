@@ -22,6 +22,7 @@ import { Tabs } from "./tabs";
 import { Tab } from "./tab";
 import { LinearProgressIndicator } from "./linearprogress";
 import { CircularProgressIndicator } from "./circularprogress";
+import { Menu } from "./menu";
 export interface M3Options {
   variant?: string;
 }
@@ -57,6 +58,7 @@ export const m3 = (tokens, options: M3Options = defaultOptions) => {
       //   height: "20vh",
       //   willChange: "transform opacity",
       // },
+      Menu: Menu(tokens, options),
       IconButton: IconButton(tokens, options),
       Button: Button(tokens, options),
       FAB: FAB(tokens, options),

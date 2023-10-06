@@ -8,10 +8,10 @@ interface MenuProps {
 
 export const Menu = ({ renderIcon, children, ...props }: MenuProps) => {
   const { className: menuClass } = useComponentClass({
-    path: "components.IconButton",
+    path: "components.Menu",
   });
   return (
-    <div {...props}>
+    <div {...props} className={menuClass}>
       <div className="mt-shape">
         <div className="state" />
         This is a menu
