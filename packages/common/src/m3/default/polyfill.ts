@@ -1,4 +1,6 @@
 export const MdSysColorShadow = "#000";
+export const MdSysColorSurfaceContainerLight = "#F3EDF7";
+export const MdSysColorSurfaceContainerDark = "#211F26";
 export const MdSysColorSurfaceContainerHighest = "#E6E0E9";
 export const MdSysColorSurfaceContainerHighestLight = "#E6E0E9";
 export const MdSysColorSurfaceContainerHighestDark = "#36343B";

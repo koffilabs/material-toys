@@ -4,10 +4,11 @@ import { useComponentClass } from "../hooks/useComponentClass";
 import { Divider } from "./Divider";
 type Type = "toggle" | "";
 interface MenuProps {
+  renderItem: () => ReactNode;
   [prop: string]: any;
 }
 
-export const Menu = ({ renderIcon, children, ...props }: MenuProps) => {
+export const Menu = ({ renderItem, ...props }: MenuProps) => {
   const { className: menuClass } = useComponentClass({
     path: "components.Menu",
   });

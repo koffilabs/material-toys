@@ -7,6 +7,7 @@ export { applicationStyle } from "./m3/application";
 export { m3 } from "./m3/default";
 export { breakpoints } from "./m3/breakpoints";
 export { ripple } from "./ripple";
+// export { elevation } from "./m3/elevation";
 
 export {
   cutElevatedButton,
