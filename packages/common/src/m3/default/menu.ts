@@ -6,6 +6,6 @@ const duration = ".1s";
 export const Menu = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
-    border: "1px dashed red",
+    minWidth: "126px",
   };
 };

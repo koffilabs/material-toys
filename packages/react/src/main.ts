@@ -36,6 +36,7 @@ export { Tab } from "./components/Tabs/Tab";
 export { TabSection } from "./components/Tabs/TabSection";
 export { LinearProgressIndicator } from "./components/ProgressIndicators/LinearProgressIndicator";
 export { CircularProgressIndicator } from "./components/ProgressIndicators/CircularProgressIndicator";
+export { Divider } from "./components/Divider";
 
 export { useThemeContexts } from "./hooks/useThemeContexts";
 export { MT } from "./components/MT";

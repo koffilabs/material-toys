@@ -23,6 +23,7 @@ import { Tab } from "./tab";
 import { LinearProgressIndicator } from "./linearprogress";
 import { CircularProgressIndicator } from "./circularprogress";
 import { Menu } from "./menu";
+import { Divider } from "./divider";
 export interface M3Options {
   variant?: string;
 }
@@ -50,14 +51,7 @@ export const m3 = (tokens, options: M3Options = defaultOptions) => {
           display: "none",
         },
       },
-      // Card: {
-      //   fontSize: "1rem",
-      //   color: "rgba(0, 0, 0, .74)",
-      //   padding: "1.618rem",
-      //   background: "white",
-      //   height: "20vh",
-      //   willChange: "transform opacity",
-      // },
+      Divider: Divider(tokens, options),
       Menu: Menu(tokens, options),
       IconButton: IconButton(tokens, options),
       Button: Button(tokens, options),
