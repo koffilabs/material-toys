@@ -10,5 +10,7 @@ export const Divider = ({ variant = "horizontal", ...props }: DividerProps) => {
   const { className: dividerClass } = useComponentClass({
     path: "components.Divider",
   });
-  return <div className={dividerClass} data-variant={variant}></div>;
+  return (
+    <div className={`${dividerClass} mt-divider`} data-variant={variant}></div>
+  );
 };

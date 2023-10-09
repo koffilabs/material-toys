@@ -6,7 +6,7 @@ export const Divider = (tokens, options?: M3Options) => {
     // should be MdRefPaletteNeutralVariant80 (docs)
     // it is MdRefPaletteNeutralVariant50 (tokens)
     // meh
-    backgroundColor: tokens[`MdSysColorOutline${variant}`],
+    backgroundColor: tokens[`MdSysColorOutlineVariant${variant}`],
     "&[data-variant=horizontal]": {
       height: "1px",
       width: "100%",

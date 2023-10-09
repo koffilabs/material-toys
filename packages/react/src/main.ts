@@ -8,6 +8,7 @@ export { NavigationBarItem } from "./components/NavigationBarItem";
 export { TopAppBar } from "./components/TopAppBar";
 export { Surface } from "./components/Surface";
 export { Menu } from "./components/Menu";
+export { MenuItem } from "./components/MenuItem";
 export {
   useMatchMedia,
   MOBILE,

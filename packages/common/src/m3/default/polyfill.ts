@@ -1,9 +1,19 @@
+import {
+  MdRefPaletteNeutralVariant30,
+  MdRefPaletteNeutralVariant50,
+  MdRefPaletteNeutralVariant80,
+} from "./tokens";
+
 export const MdSysColorShadow = "#000";
 export const MdSysColorSurfaceContainerLight = "#F3EDF7";
 export const MdSysColorSurfaceContainerDark = "#211F26";
 export const MdSysColorSurfaceContainerHighest = "#E6E0E9";
 export const MdSysColorSurfaceContainerHighestLight = "#E6E0E9";
 export const MdSysColorSurfaceContainerHighestDark = "#36343B";
+
+export const MdSysColorOutlineVariantLight = MdRefPaletteNeutralVariant80;
+export const MdSysColorOutlineVariantDark = MdRefPaletteNeutralVariant30;
+
 export const MdSysTypescaleButtonFont = "Roboto";
 export const MdSysTypescaleButtonSize = "16";
 export const mdSysColorOnSurfaceStateLayer = "16";

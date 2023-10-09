@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Menu } from "@material-toys/react";
+import { Menu, MenuItem, Divider } from "@material-toys/react";
 import { BlockComponentCanvas } from "../components/BlockComponentCanvas";
 import { CodeBlock } from "../components/CodeBlock";
 import React from "react";
@@ -17,7 +17,13 @@ export default function menu_page() {
         <h2>Menu</h2>
         <div>
           <BlockComponentCanvas>
-            <Menu></Menu>
+            <Menu>
+              <MenuItem>Item 1</MenuItem>
+              <MenuItem selected>Item 2</MenuItem>
+              <MenuItem>Item 3</MenuItem>
+              <Divider></Divider>
+              <MenuItem>Item 4</MenuItem>
+            </Menu>
           </BlockComponentCanvas>
           <CodeBlock code={``}></CodeBlock>
         </div>
