@@ -8,6 +8,7 @@ const duration = ".1s";
 export const Menu = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
+    userSelect: "none",
     minWidth: "126px",
     padding: "4px 0",
     backgroundColor: tokens[`MdSysColorSurfaceContainer${variant}`],
@@ -45,6 +46,10 @@ export const Menu = (tokens, options?: M3Options) => {
       },
       "&[data-selected]": {
         backgroundColor: tokens[`MdSysColorSecondaryContainer${variant}`],
+        color: tokens[`MdSysColorOnSecondaryContainer${variant}`],
+      },
+      "&:focus:not([data-disabled])": {
+        backgroundColor: rgba(tokens[`MdSysColorOnSurface${variant}`], 0.12),
         color: tokens[`MdSysColorOnSecondaryContainer${variant}`],
       },
       "&:hover:not([data-disabled])": {

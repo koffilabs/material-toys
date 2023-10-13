@@ -1,4 +1,9 @@
-import React, { ReactNode } from "react";
+import React, {
+  FocusEvent,
+  MouseEventHandler,
+  ReactNode,
+  useState,
+} from "react";
 
 interface MenuItemProps {
   children: ReactNode;
@@ -6,6 +11,7 @@ interface MenuItemProps {
   trailingIcon?: ReactNode;
   selected?: boolean;
   disabled?: boolean;
+  [prop: string]: any;
 }
 export const MenuItem = ({
   children,
@@ -13,10 +19,15 @@ export const MenuItem = ({
   trailingIcon,
   selected = false,
   disabled = false,
+  ...props
 }: MenuItemProps) => {
+  const [hasFocus, setHasFocus] = useState(false);
   return (
     <div
+      {...props}
+      tabIndex={0}
       className={"mt-menu-item"}
+      data-focused={hasFocus || null}
       data-selected={selected || null}
       data-disabled={disabled || null}
     >
