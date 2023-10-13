@@ -4,6 +4,7 @@ import React, {
   ReactNode,
   useState,
 } from "react";
+import { Ripple } from "./Ripple";
 
 interface MenuItemProps {
   children: ReactNode;
@@ -23,17 +24,21 @@ export const MenuItem = ({
 }: MenuItemProps) => {
   const [hasFocus, setHasFocus] = useState(false);
   return (
-    <div
-      {...props}
-      tabIndex={0}
-      className={"mt-menu-item"}
-      data-focused={hasFocus || null}
-      data-selected={selected || null}
-      data-disabled={disabled || null}
-    >
-      {leadingIcon && <div className="mt-leading-icon">{leadingIcon}</div>}
-      {children}
-      {trailingIcon && <div className="mt-leading-icon">{trailingIcon}</div>}
-    </div>
+    <Ripple>
+      <div
+        {...props}
+        tabIndex={0}
+        className={"mt-menu-item"}
+        data-focused={hasFocus || null}
+        data-selected={selected || null}
+        data-disabled={disabled || null}
+      >
+        {/*<div className="mt-shape"></div>*/}
+
+        {leadingIcon && <div className="mt-leading-icon">{leadingIcon}</div>}
+        {children}
+        {trailingIcon && <div className="mt-leading-icon">{trailingIcon}</div>}
+      </div>
+    </Ripple>
   );
 };

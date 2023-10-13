@@ -19,6 +19,7 @@ export const Menu = (tokens, options?: M3Options) => {
       margin: "8px 0",
     },
     ".mt-menu-item": {
+      position: "relative",
       display: "grid",
       gridTemplateColumns: "auto 1fr auto",
       gap: "0",
@@ -28,15 +29,27 @@ export const Menu = (tokens, options?: M3Options) => {
       letterSpacing: tokens.MdSysTypescaleLabelLargeTracking,
       fontWeight: fontWeights[tokens.MdSysTypescaleLabelLargeWeight],
       lineHeight: `${tokens.MdSysTypescaleLabelLargeLineHeight}px`,
-      padding: "0 8px",
+      padding: "0 12px",
 
       height: "48px",
       placeItems: "center start",
+      ".mt-shape": {
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+      },
       ".mt-leading-icon": {
         paddingRight: "12px",
         display: "grid",
         placeItems: "center",
         fill: tokens[`MdSysColorOnSurfaceVariant${variant}`],
+      },
+      ":not([data-disabled])": {
+        ".ripple": {
+          backgroundColor: tokens[`MdSysColorPrimary${variant}`],
+        },
       },
       ".mt-trailing-icon": {
         paddingLeft: "12px",
@@ -49,8 +62,8 @@ export const Menu = (tokens, options?: M3Options) => {
         color: tokens[`MdSysColorOnSecondaryContainer${variant}`],
       },
       "&:focus:not([data-disabled])": {
-        backgroundColor: rgba(tokens[`MdSysColorOnSurface${variant}`], 0.12),
-        color: tokens[`MdSysColorOnSecondaryContainer${variant}`],
+        // backgroundColor: rgba(tokens[`MdSysColorOnSurface${variant}`], 0.12),
+        // color: tokens[`MdSysColorOnSecondaryContainer${variant}`],
       },
       "&:hover:not([data-disabled])": {
         backgroundColor: rgba(tokens[`MdSysColorOnSurface${variant}`], 0.08),
