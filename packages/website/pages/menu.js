@@ -3,6 +3,11 @@ import { Menu, MenuItem, Divider } from "@material-toys/react";
 import { BlockComponentCanvas } from "../components/BlockComponentCanvas";
 import { CodeBlock } from "../components/CodeBlock";
 import React from "react";
+import {
+  ContentCutIcon,
+  ContentCopyIcon,
+  ContentPasteIcon,
+} from "@material-toys/icons-react";
 
 export default function menu_page() {
   return (
@@ -18,9 +23,23 @@ export default function menu_page() {
         <div>
           <BlockComponentCanvas>
             <Menu>
-              <MenuItem>Item 1</MenuItem>
-              <MenuItem selected>Item 2</MenuItem>
-              <MenuItem>Item 3</MenuItem>
+              <MenuItem
+                leadingIcon={<ContentCutIcon size={24}></ContentCutIcon>}
+              >
+                Item 1
+              </MenuItem>
+              <MenuItem
+                leadingIcon={<ContentCopyIcon size={24}></ContentCopyIcon>}
+                selected
+              >
+                selected
+              </MenuItem>
+              <MenuItem
+                leadingIcon={<ContentPasteIcon size={24}></ContentPasteIcon>}
+                disabled
+              >
+                disabled
+              </MenuItem>
               <Divider></Divider>
               <MenuItem>Item 4</MenuItem>
             </Menu>
