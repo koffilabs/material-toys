@@ -13,7 +13,9 @@ export const Menu = (tokens, options?: M3Options) => {
     padding: "4px 0",
     backgroundColor: tokens[`MdSysColorSurfaceContainer${variant}`],
     borderRadius: roundedShape({ shape: tokens.MdSysShapeCornerExtraSmallTop }),
-
+    "&:focus": {
+      outline: "none",
+    },
     ...elevation.level2,
     ".mt-divider": {
       margin: "8px 0",
