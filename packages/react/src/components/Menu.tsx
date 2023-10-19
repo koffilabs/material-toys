@@ -9,13 +9,15 @@ interface MenuProps {
   children: ReactNode;
   [prop: string]: any;
 }
-
+const registry = [];
 export const Menu = ({ renderItem, children, ...props }: MenuProps) => {
   const node = useRef<HTMLDivElement>();
+  const menuId = useRef(Math.random());
   const { className: menuClass } = useComponentClass({
     path: "components.Menu",
   });
   useOnMount(() => {
+    registry.push(menuId.current);
     const onKeyDown = () => {
       // TODO: change the selected node
       console.log("onKeyDown handler here, the node ref is", node);
@@ -23,6 +25,7 @@ export const Menu = ({ renderItem, children, ...props }: MenuProps) => {
     document.body.addEventListener("keydown", onKeyDown);
     return () => {
       document.body.removeEventListener("keydown", onKeyDown);
+      registry.pop();
     };
   });
   return (
