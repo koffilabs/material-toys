@@ -15,21 +15,18 @@ export const Menu = ({ renderItem, children, ...props }: MenuProps) => {
   const { className: menuClass } = useComponentClass({
     path: "components.Menu",
   });
-  const onKeyDown = () => {
-    // TODO: change the selected node
-    console.log("onKeyDown handler here, the node ref is", node);
-  };
   useOnMount(() => {
-    node.current.focus();
+    const onKeyDown = () => {
+      // TODO: change the selected node
+      console.log("onKeyDown handler here, the node ref is", node);
+    };
+    document.body.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.removeEventListener("keydown", onKeyDown);
+    };
   });
   return (
-    <div
-      ref={node}
-      tabIndex={0}
-      onKeyDown={onKeyDown}
-      {...props}
-      className={menuClass}
-    >
+    <div ref={node} tabIndex={0} {...props} className={menuClass}>
       <div className="mt-shape">
         <div className="state" />
         {children}

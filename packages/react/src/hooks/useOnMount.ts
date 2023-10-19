@@ -1,9 +1,6 @@
 import { useEffect } from "react";
-
-interface UseOnMountProps {}
-export const useOnMount = (onMount: () => void, onUnmount?: () => void) => {
+export const useOnMount = (onMount: () => () => void) => {
   useEffect(() => {
-    onMount();
-    return onUnmount;
+    return onMount();
   }, []);
 };
