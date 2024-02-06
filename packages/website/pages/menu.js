@@ -2,7 +2,7 @@ import Head from "next/head";
 import { Menu, MenuItem, Divider } from "@material-toys/react";
 import { BlockComponentCanvas } from "../components/BlockComponentCanvas";
 import { CodeBlock } from "../components/CodeBlock";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   ContentCutIcon,
   ContentCopyIcon,
@@ -10,6 +10,13 @@ import {
 } from "@material-toys/icons-react";
 
 export default function menu_page() {
+  const [menu, setMenu] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setMenu(false);
+      console.log("whooosh!");
+    }, 2000);
+  }, []);
   return (
     <div className="container">
       <Head>
@@ -22,27 +29,29 @@ export default function menu_page() {
         <h2>Menu</h2>
         <div>
           <BlockComponentCanvas>
-            <Menu>
-              <MenuItem
-                leadingIcon={<ContentCutIcon size={24}></ContentCutIcon>}
-              >
-                Item 1
-              </MenuItem>
-              <MenuItem
-                leadingIcon={<ContentCopyIcon size={24}></ContentCopyIcon>}
-                selected
-              >
-                selected
-              </MenuItem>
-              <MenuItem
-                leadingIcon={<ContentPasteIcon size={24}></ContentPasteIcon>}
-                disabled
-              >
-                disabled
-              </MenuItem>
-              <Divider></Divider>
-              <MenuItem>Item 4</MenuItem>
-            </Menu>
+            {menu && (
+              <Menu>
+                <MenuItem
+                  leadingIcon={<ContentCutIcon size={24}></ContentCutIcon>}
+                >
+                  Item 1
+                </MenuItem>
+                <MenuItem
+                  leadingIcon={<ContentCopyIcon size={24}></ContentCopyIcon>}
+                  selected
+                >
+                  selected
+                </MenuItem>
+                <MenuItem
+                  leadingIcon={<ContentPasteIcon size={24}></ContentPasteIcon>}
+                  disabled
+                >
+                  disabled
+                </MenuItem>
+                <Divider></Divider>
+                <MenuItem>Item 4</MenuItem>
+              </Menu>
+            )}
           </BlockComponentCanvas>
           <CodeBlock code={``}></CodeBlock>
         </div>

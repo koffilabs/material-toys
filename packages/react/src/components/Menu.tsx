@@ -20,12 +20,23 @@ export const Menu = ({ renderItem, children, ...props }: MenuProps) => {
     registry.push(menuId.current);
     const onKeyDown = () => {
       // TODO: change the selected node
-      console.log("onKeyDown handler here, the node ref is", node);
+      if (registry.at(-1) === menuId.current) {
+        console.log("onKeyDown handler here, the node ref is", node);
+      }
     };
     document.body.addEventListener("keydown", onKeyDown);
     return () => {
       document.body.removeEventListener("keydown", onKeyDown);
       registry.pop();
+      // node.current.animate(
+      //   [
+      //     {
+      //       scale: 1,
+      //     },
+      //     { scale: 0 },
+      //   ],
+      //   { duration: 1000, fill: "forwards" }
+      // );
     };
   });
   return (
