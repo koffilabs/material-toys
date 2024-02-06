@@ -1,7 +1,7 @@
-import {createContext} from "react";
-const ThemeContext = createContext({});
-const VariantContext = createContext({});
-const UserThemeContext = createContext(() => {});
+import { ThemeContext } from "../providers/ThemeProvider";
+import { VariantContext } from "../providers/VariantProvider";
+import { UserThemeContext } from "../providers/UserThemeProvider";
+
 export const useThemeContexts: Function = () => {
-    return {ThemeContext, VariantContext, UserThemeContext}
-}
+  return { ThemeContext, VariantContext, UserThemeContext };
+};
