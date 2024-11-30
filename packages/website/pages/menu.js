@@ -13,7 +13,7 @@ export default function menu_page() {
   const [menu, setMenu] = useState(true);
   useEffect(() => {
     setTimeout(() => {
-      setMenu(false);
+      // setMenu(false);
       console.log("whooosh!");
     }, 2000);
   }, []);
@@ -32,18 +32,20 @@ export default function menu_page() {
             {menu && (
               <Menu>
                 <MenuItem
-                  leadingIcon={<ContentCutIcon size={24}></ContentCutIcon>}
+                  leadingIcon={<ContentCutIcon size={"24"}></ContentCutIcon>}
                 >
                   Item 1
                 </MenuItem>
                 <MenuItem
-                  leadingIcon={<ContentCopyIcon size={24}></ContentCopyIcon>}
+                  leadingIcon={<ContentCopyIcon size={"24"}></ContentCopyIcon>}
                   selected
                 >
                   selected
                 </MenuItem>
                 <MenuItem
-                  leadingIcon={<ContentPasteIcon size={24}></ContentPasteIcon>}
+                  leadingIcon={
+                    <ContentPasteIcon size={"24"}></ContentPasteIcon>
+                  }
                   disabled
                 >
                   disabled
