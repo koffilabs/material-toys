@@ -23,10 +23,10 @@
     "rollup-plugin-esbuild": "^4.6.0",
     "ts-jest": "^27.0.5",
     "tslib": "^2.4.0",
-    "typescript": "^4.4.3"
+    "typescript": "^4.4.3",
+    "prettier": "catalog:prettier3"
   },
   "gitHead": "8921c88e8e94e271fca375ac07c5e78f96688b93",
   "dependencies": {
-    "prettier": "2.8.0"
   }
 }

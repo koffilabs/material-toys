@@ -28,10 +28,11 @@
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
     "esbuild": "^0.13.12",
-    "rollup-plugin-esbuild": "^4.6.0"
+    "rollup-plugin-esbuild": "^4.6.0",
+    "prettier": "catalog:prettier3"
+
   },
   "dependencies": {
-    "prettier": "2.8.0"
   },
   "gitHead": "8921c88e8e94e271fca375ac07c5e78f96688b93"
 }

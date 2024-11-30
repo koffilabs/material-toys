@@ -8,12 +8,11 @@
   },
   "dependencies": {
     "@emotion/css": "^11.10.0",
-    "@material-toys/common": "*",
-    "@material-toys/icons-react": "*",
-    "@material-toys/react": "*",
+    "@material-toys/common": "workspace:*",
+    "@material-toys/icons-react": "workspace:*",
+    "@material-toys/react": "workspace:*",
     "@next/bundle-analyzer": "^12.2.5",
     "next": "latest",
-    "prettier": "2.8.0",
     "react": "catalog:react18",
     "react-dom": "catalog:react18",
     "react-swipeable": "^6.2.1",
@@ -22,6 +21,7 @@
     "styled-jsx": "^4.0.1"
   },
   "devDependencies": {
-    "eslint-config-next": "12.1.0"
+    "eslint-config-next": "12.1.0",
+    "prettier": "catalog:prettier3"
   }
 }
