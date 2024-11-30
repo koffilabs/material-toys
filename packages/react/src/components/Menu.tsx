@@ -9,7 +9,7 @@ interface MenuProps {
   children: ReactNode;
   [prop: string]: any;
 }
-const registry = [];
+const registry: any[] = [];
 export const Menu = ({ renderItem, children, ...props }: MenuProps) => {
   const node = useRef<HTMLDivElement>();
   const menuId = useRef(Math.random());
