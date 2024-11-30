@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "serve": "next dev",
-    "build-site": "next build && next export",
+    "build-site": "next build",
     "start": "next start"
   },
   "dependencies": {

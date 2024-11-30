@@ -1,4 +1,4 @@
-import pkg from "./package.json";
+import pkg from "./package.json" with { type: "json" };
 import esbuild from "rollup-plugin-esbuild";
 
 process.stdin.removeAllListeners("end");
@@ -8,10 +8,10 @@ export default [
     input: "src/main.ts",
     output: {
       dir: "dist",
-    //   name: "bundle",
-    //   file: pkg.browser,
-    //   format: "umd",
-    //   sourcemap: false,//process.env.NODE_ENV !== "production",
+      //   name: "bundle",
+      //   file: pkg.browser,
+      //   format: "umd",
+      //   sourcemap: false,//process.env.NODE_ENV !== "production",
     },
     plugins: [
       // babel({ babelHelpers: "bundled" }),
@@ -45,7 +45,6 @@ export default [
         format: "esm",
         sourcemap: process.env.NODE_ENV !== "production",
         // preserveModules: true,
-
       },
     ],
   },

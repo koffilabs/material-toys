@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.4",
-    "rollup": "^2.60.1",
+    "rollup": "catalog:rollup4",
     "prettier": "catalog:prettier3",
     "rollup-plugin-peer-deps-external": "^2.2.4"
   },

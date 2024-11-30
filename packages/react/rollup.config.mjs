@@ -6,8 +6,8 @@ import external from "rollup-plugin-peer-deps-external";
 
 // import postcss from 'rollup-plugin-postcss';
 
-import visualizer from "rollup-plugin-visualizer";
-import pkg from "./package.json";
+import { visualizer } from "rollup-plugin-visualizer";
+import pkg from "./package.json" with { type: "json" };
 
 export default [
   {
