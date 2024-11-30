@@ -14,15 +14,14 @@
     "@next/bundle-analyzer": "^12.2.5",
     "next": "latest",
     "prettier": "2.8.0",
-    "react": "18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "catalog:react18",
+    "react-dom": "catalog:react18",
     "react-swipeable": "^6.2.1",
     "react-syntax-highlighter": "^15.5.0",
     "sass": "^1.49.0",
     "styled-jsx": "^4.0.1"
   },
   "devDependencies": {
-    "eslint": "7.28.0",
     "eslint-config-next": "12.1.0"
   }
 }

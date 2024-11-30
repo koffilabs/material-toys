@@ -23,14 +23,14 @@
     "rollup-plugin-esbuild": "^4.7.2"
   },
   "devDependencies": {
-    "@material-toys/icons": "^0.1.38",
+    "@material-toys/icons": "workspace:*",
+    "@rollup/plugin-terser": "^0.4.4",
     "rollup": "^2.60.1",
-    "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-terser": "^7.0.2"
+    "rollup-plugin-peer-deps-external": "^2.2.4"
   },
   "gitHead": "8921c88e8e94e271fca375ac07c5e78f96688b93",
   "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "catalog:react18",
+    "react-dom": "catalog:react18"
   }
 }
