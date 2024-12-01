@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@types/jest": "^27.0.3",
-    "esbuild": "^0.13.12",
+    "esbuild": "catalog:esbuild",
     "jest": "^27.2.2",
     "prettier": "catalog:prettier3",
     "ts-jest": "^27.0.5",
