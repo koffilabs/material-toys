@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "generate": "node scripts/generateReactIcons.js",
-    "build": "rollup -c ./rollup.config.js",
+    "build": "rollup -c ./rollup.config.mjs",
     "emitDeclarations": "tsc --emitDeclarationOnly --outDir dist"
   },
   "dependencies": {
