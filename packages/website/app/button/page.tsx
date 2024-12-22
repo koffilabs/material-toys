@@ -1,10 +1,11 @@
+"use client";
 import Head from "next/head";
-import {AddIcon} from "@material-toys/icons-react";
-import {Button,} from "@material-toys/react";
+import { AddIcon } from "@material-toys/icons-react";
+import { Button } from "@material-toys/react";
 
 // import {useEffect, useState} from "react";
-import {BlockComponentCanvas} from "../components/BlockComponentCanvas";
-import {CodeBlock} from "../components/CodeBlock";
+import { BlockComponentCanvas } from "../../components/BlockComponentCanvas";
+import { CodeBlock } from "../../components/CodeBlock";
 import React from "react";
 
 export default function button_page() {
@@ -13,30 +14,31 @@ export default function button_page() {
       <Head>
         <title>Material Toys - Button</title>
         <meta property="og:title" content="Button" key="title" />
-        <meta name="description" content="Button page" key="desc"/>
+        <meta name="description" content="Button page" key="desc" />
         <meta name="og:description" content="Button page" />
       </Head>
       <main>
         <h2>Button</h2>
         <div>
           <BlockComponentCanvas>
-            <Button icon={<AddIcon size="18px"/>} className="elevated">
+            <Button icon={<AddIcon size="18px" />} className="elevated">
               Elevated
             </Button>
-            <Button icon={<AddIcon size="18px"/>} className="filled">
+            <Button icon={<AddIcon size="18px" />} className="filled">
               Filled
             </Button>
-            <Button icon={<AddIcon size="18px"/>} className="filled-tonal">
+            <Button icon={<AddIcon size="18px" />} className="filled-tonal">
               Filled Tonal
             </Button>
-            <Button icon={<AddIcon size="18px"/>} className="outlined">
+            <Button icon={<AddIcon size="18px" />} className="outlined">
               Outlined
             </Button>
-            <Button icon={<AddIcon size="18px"/>} className="text">
+            <Button icon={<AddIcon size="18px" />} className="text">
               Text
             </Button>
           </BlockComponentCanvas>
-            <CodeBlock code={`
+          <CodeBlock
+            code={`
 <Button icon={<AddIcon size="18px"/>} className="elevated">
   Elevated
 </Button>
@@ -56,7 +58,8 @@ export default function button_page() {
 <Button icon={<AddIcon size="18px"/>} className="text">
   Text
 </Button>
-              `}></CodeBlock>
+              `}
+          ></CodeBlock>
         </div>
       </main>
       <style jsx>{`

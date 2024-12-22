@@ -1,3 +1,4 @@
+"use client";
 import Head from "next/head";
 import {
   FavoriteIcon,
@@ -8,8 +9,8 @@ import {
 import { IconButton } from "@material-toys/react";
 
 // import {useEffect, useState} from "react";
-import { BlockComponentCanvas } from "../components/BlockComponentCanvas";
-import { CodeBlock } from "../components/CodeBlock";
+import { BlockComponentCanvas } from "../../components/BlockComponentCanvas";
+import { CodeBlock } from "../../components/CodeBlock";
 import React, { useState } from "react";
 
 export default function button_page() {
