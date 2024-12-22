@@ -102,8 +102,6 @@ export default function app({ children }) {
             tokens={tokens}
             setUIMode={setUIMode}
             UIMode={UIMode}
-            activeItem={activeItem}
-            hasCollapseButton={true}
             railLabels={"selected"}
             mobileNavigation="drawer"
           >

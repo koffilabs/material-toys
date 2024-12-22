@@ -1,30 +1,30 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import classes from "./Layout.module.scss";
-import GithubIcon from "./GithubIcon";
-import TwitterIcon from "./TwitterIcon";
 import {
-  OutlinedDarkModeIcon,
-  OutlinedLightModeIcon,
   OutlinedHomeIcon as HomeIcon,
   MenuIcon,
+  OutlinedDarkModeIcon,
+  OutlinedLightModeIcon,
   OutlinedPaletteIcon as PaletteIcon,
   RoundedCornerIcon,
-  // InfoIcon,
-  // BoltIcon
 } from "@material-toys/icons-react";
 import {
+  MOBILE,
   NavigationDrawer,
-  TopAppBar,
-  Surface,
   NavigationHeadline,
   NavigationItem,
+  Surface,
+  TABLET,
+  TopAppBar,
+  useMatchMedia,
 } from "@material-toys/react";
-import { useMatchMedia, MOBILE, TABLET } from "@material-toys/react";
-import { useRouter } from "next/navigation";
-import Logo from "./Logo";
-import { useSwipeable } from "react-swipeable";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useSwipeable } from "react-swipeable";
+import GithubIcon from "./GithubIcon";
+import classes from "./Layout.module.scss";
+import Logo from "./Logo";
+import TwitterIcon from "./TwitterIcon";
 
 export default ({
   tokens,
@@ -64,7 +64,9 @@ export default ({
   useEffect(() => {
     setTransitionClass("");
   }, [UIMode]);
-  const activeItem = routes.findIndex(({ r }) => r === router.asPath);
+  const pathname = usePathname();
+
+  const activeItem = routes.findIndex(({ r }) => r === pathname);
   const navigateTo = (url, aI?) => {
     router.push(url);
     // setActiveItem(aI);
