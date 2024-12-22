@@ -15,8 +15,8 @@ export const CircularProgressIndicator = ({
   const { className: circularProgressClass } = useComponentClass({
     path: "components.CircularProgressIndicator",
   });
-  const progress = `${Math.min(value, max ?? 100)}`;
-  const indicatorRef = useRef<SVGCircleElement | undefined>();
+  const progress = Math.min(value, max ?? 100);
+  const indicatorRef = useRef<SVGCircleElement>(null);
   const animation = useRef<Animation>();
   useEffect(() => {
     if (indeterminate) {
@@ -38,7 +38,7 @@ export const CircularProgressIndicator = ({
           duration: 1200,
           iterations: Infinity,
           fill: "none",
-        }
+        },
       );
     } else {
       animation?.current?.cancel();
