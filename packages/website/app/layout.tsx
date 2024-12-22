@@ -50,8 +50,8 @@ export default function app({ children }) {
   let activeItem = 0;
   const [UIMode, setUIMode] = useState("Light");
   useEffect(() => {
-    // tokens.MdSysColorSecondaryContainerLight = "#eae3f9";
-    // tokens.MdSysColorSurfaceLight = "#f7f4fc";
+    tokens.MdSysColorSecondaryContainerLight = "#eae3f9";
+    tokens.MdSysColorSurfaceLight = "#f7f4fc";
   }, []);
   const myTheme = (variant) => {
     return {

@@ -12,8 +12,8 @@ const defaultKeyframes = {
   activeIcon: [{ opacity: "0" }, { opacity: "1" }],
 };
 interface NavigationBarItemProps {
-  icon?: React.Component;
-  activeIcon?: React.Component;
+  icon?: ReactNode;
+  activeIcon?: ReactNode;
   iconsAnimations?: { icon: []; activeIcon: [] };
   badge?: string;
   active?: boolean;
@@ -39,8 +39,8 @@ export const NavigationBarItem = ({
   ...props
 }: NavigationBarItemProps & Partial<Rest>) => {
   const previousActive = usePrevious(active);
-  const iconNode = useRef<HTMLDivElement>();
-  const activeIconNode = useRef<HTMLDivElement>();
+  const iconNode = useRef<HTMLDivElement>(null);
+  const activeIconNode = useRef<HTMLDivElement>(null);
   const { className: itemTheme } = useComponentClass({
     path: "components.NavigationBarItem",
   });
@@ -96,8 +96,8 @@ export const NavigationBarItem = ({
           label === "none"
             ? "mt-no-icon"
             : label === "selected"
-            ? "mt-selected"
-            : ""
+              ? "mt-selected"
+              : ""
         }`}
       >
         <div className="mt-activeIndicator" />
