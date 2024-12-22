@@ -1,0 +1,132 @@
+$duration: .2s;
+.no-transition {
+  transition: none !important;
+  * {
+    transition: none !important;
+  }
+}
+
+.layout {
+  display: flex;
+  // change via js
+  //background: transparent;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: "appbar"
+  "outer-content";
+  grid-column-gap: 8px;
+  gap: 8px;
+  .topAppBarTarget {
+    cursor: pointer;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    padding: .5rem 1.618rem;
+    font-family: "Roboto", sans-serif;
+
+    svg {
+      transform: scale(.8);
+
+      rect {
+        fill: none;
+      }
+    }
+  }
+
+  padding: 0;
+
+  .appBar {
+    grid-area: appbar;
+  }
+
+  .content {
+    display: flex;
+    grid-area: outer-content;
+    max-height: calc(100% - 80px);
+    overflow: auto;
+  }
+
+  .navigation {
+    background: transparent;
+  }
+
+  .code {
+    border-radius:5px;
+    background: #333;
+    font-family:monospace;
+    font-size:1rem;
+    white-space: pre;
+  }
+
+  .contentWrapper {
+    flex: 1;
+    margin-left: 0;
+    transition: margin-left $duration ease-in-out;
+    //display:grid;
+    //grid-template-rows: auto ;
+    //flex-direction: column;
+    &.collapsed {
+      margin-left: -360px;
+    }
+  }
+}
+
+.body {
+  width: 100%;
+  max-width: 1280px;
+  margin: auto;
+  //grid-area: body;
+  background: transparent;
+  border-radius: 12px;
+  padding: 1.618rem;
+  font-family: Roboto, sans-serif;
+
+  //[breakpoints.EXTRA_SMALL.query]: {
+  //  gridTemplateRows: auto 1fr auto,
+  //  gridTemplateAreas: `appbar
+  //  content`,
+  //},
+  //[breakpoints.SMALL.query]: {
+  //  gridTemplateRows: auto 1fr,
+  //  gridTemplateAreas: `appbar appbar
+  //  content`,
+  //},
+  @media(min-width: 1240px) {
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "appbar"
+  "content";
+    .body {
+      margin-left: 0;
+    }
+
+  }
+  //[breakpoints.MEDIUM.query]: {
+  //  gridTemplateRows: auto 1fr,
+  //  gridTemplateAreas: `appbar
+  //  content`,
+  //.body: {
+  //  marginLeft: 360px,
+  //},
+  //},
+  //[breakpoints.LARGE.query]: {
+  //  gridTemplateRows: auto 1fr,
+  //  gridTemplateAreas: `appbar
+  //  content`,
+  //},
+  //&.drawer {
+  //[breakpoints.EXTRA_SMALL.query]: {
+  //  gridTemplateRows: auto 1fr,
+  //  gridTemplateAreas: `appbar
+  //  content`,
+  //},
+  //},
+}

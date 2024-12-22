@@ -1,3 +1,4 @@
+"use client";
 import React, { ReactNode, useContext, useState } from "react";
 import { css } from "@emotion/css";
 import { applyReactiveStyle, m3 } from "@material-toys/common";

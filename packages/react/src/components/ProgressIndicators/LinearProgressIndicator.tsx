@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useRef } from "react";
 import { useComponentClass } from "../../hooks/useComponentClass";
 interface LinearProgressIndicatorProps {

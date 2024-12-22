@@ -1,14 +1,17 @@
 {
   "name": "@material-toys/react",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "version": "0.1.38",
-  "types": "dist/main.d.ts",
   "sideEffects": false,
+  "version": "0.1.38",
   "license": "MIT",
-  "files": [
-    "dist"
-  ],
+  "main": "src/main.ts",
+  "publishConfig": {
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.js",
+    "types": "dist/main.d.ts",
+    "files": [
+      "dist"
+    ]
+  },
   "scripts": {
     "build": "rollup -c ./rollup.config.mjs",
     "test": "jest",

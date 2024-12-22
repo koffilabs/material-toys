@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import classes from "./Layout.module.scss";
 import GithubIcon from "./GithubIcon";
@@ -20,8 +21,8 @@ import {
   NavigationItem,
 } from "@material-toys/react";
 import { useMatchMedia, MOBILE, TABLET } from "@material-toys/react";
-import { useRouter } from "next/router";
-import Logo from "../components/Logo";
+import { useRouter } from "next/navigation";
+import Logo from "./Logo";
 import { useSwipeable } from "react-swipeable";
 import Link from "next/link";
 
@@ -64,8 +65,8 @@ export default ({
     setTransitionClass("");
   }, [UIMode]);
   const activeItem = routes.findIndex(({ r }) => r === router.asPath);
-  const navigateTo = (url, aI) => {
-    router.push(url, null, { shallow: true });
+  const navigateTo = (url, aI?) => {
+    router.push(url);
     // setActiveItem(aI);
 
     if (mediaMatch === MOBILE || mediaMatch === TABLET) {
@@ -106,7 +107,7 @@ export default ({
     },
     {
       preventDefaultTouchmoveEvent: true,
-    }
+    },
   );
   const layoutClass = `${classes.layout} ${transitionClass}`;
 

@@ -13,7 +13,7 @@ export {
   TABLET,
   LAPTOP,
   DESKTOP,
-} from "./hooks/useMatchMedia";
+} from "../../website/app/hooks/useMatchMedia";
 //
 export {
   slideDown,

@@ -1,14 +1,17 @@
 {
   "name": "@material-toys/common",
   "version": "0.1.38",
-  "main": "dist/common.cjs.js",
-  "module": "dist/common.esm.js",
-  "types": "dist/dts/main.d.ts",
   "sideEffects": false,
-  "files": [
-    "dist"
-  ],
   "license": "MIT",
+  "main": "src/main.ts",
+  "publishConfig": {
+    "main": "dist/common.cjs.js",
+    "module": "dist/common.esm.js",
+    "types": "dist/dts/main.d.ts",
+    "files": [
+      "dist"
+    ]
+  },
   "scripts": {
     "test": "jest",
     "build": "rollup -c ./rollup.config.mjs",

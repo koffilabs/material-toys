@@ -1,3 +1,4 @@
+"use client";
 import React, { MouseEventHandler, ReactNode, useEffect, useRef } from "react";
 import { usePrevious } from "../hooks/usePrevious";
 import { useComponentClass } from "../hooks/useComponentClass";
