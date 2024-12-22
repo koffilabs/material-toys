@@ -8,7 +8,7 @@ const defaultTokens = { ...material_tokens };
 interface AppProps {
   children: ReactNode;
   tokens?: any;
-  theme?: () => void;
+  theme?: (variant: string) => any;
   variant?: string;
 }
 export const MT = ({

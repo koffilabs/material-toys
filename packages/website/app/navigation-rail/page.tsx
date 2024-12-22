@@ -1,9 +1,9 @@
 "use client";
-import React, { useContext, useState } from "react";
+import { material_tokens } from "@material-toys/common";
+import { BoltIcon, HomeIcon, InfoIcon } from "@material-toys/icons-react";
+import { useContext, useState } from "react";
 import { BlockComponentCanvas } from "../../components/BlockComponentCanvas";
 import { CodeBlock } from "../../components/CodeBlock";
-import { HomeIcon, InfoIcon, BoltIcon } from "@material-toys/icons-react";
-import { material_tokens } from "@material-toys/common";
 import classes from "./navigation-rail.module.scss";
 
 const tokens = { ...material_tokens };
@@ -13,10 +13,9 @@ import {
   MT,
   NavigationDrawer,
   NavigationItem,
-  useTheme,
+  useThemeContexts,
 } from "@material-toys/react";
 import Head from "next/head";
-import { useThemeContexts } from "@material-toys/react";
 
 const myTheme = (variant) => {
   return {

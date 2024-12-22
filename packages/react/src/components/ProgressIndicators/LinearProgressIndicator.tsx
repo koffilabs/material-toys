@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 import { useComponentClass } from "../../hooks/useComponentClass";
 interface LinearProgressIndicatorProps {
   width?: string;
-  value: number;
+  value?: number;
   max?: number;
   indeterminate?: boolean;
 }

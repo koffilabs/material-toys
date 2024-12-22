@@ -14,13 +14,13 @@ const defaultKeyframes = {
 interface NavigationBarItemProps {
   icon?: ReactNode;
   activeIcon?: ReactNode;
-  iconsAnimations?: { icon: []; activeIcon: [] };
+  iconsAnimations?: { icon: any[]; activeIcon: any[] };
   badge?: string;
   active?: boolean;
   children?: ReactNode;
   label?: "show" | "selected" | "none";
   className?: string;
-  onClick: MouseEventHandler;
+  onClick?: MouseEventHandler;
   [prop: string]: any;
 }
 interface Rest {

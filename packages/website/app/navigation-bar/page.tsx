@@ -30,29 +30,29 @@ export default function navigation_bar() {
 
   const navigationBarItems = [
     {
-      icon: <OutlinedSportsEsportsIcon size={24} />,
-      activeIcon: <SportsEsportsIcon size={24} />,
+      icon: <OutlinedSportsEsportsIcon size={"24"} />,
+      activeIcon: <SportsEsportsIcon size={"24"} />,
       link: "/layout",
       label: "Inbox",
       iconsAnimations: zoomIn,
     },
     {
-      icon: <OutlinedTheatersIcon size={24} />,
-      activeIcon: <TheatersIcon size={24} />,
+      icon: <OutlinedTheatersIcon size={"24"} />,
+      activeIcon: <TheatersIcon size={"24"} />,
       link: "/",
       iconsAnimations: rectReveal,
       label: "Movies",
     },
     {
-      icon: <OutlinedFavoriteBorderIcon size={24} />,
-      activeIcon: <FavoriteIcon size={24} />,
+      icon: <OutlinedFavoriteBorderIcon size={"24"} />,
+      activeIcon: <FavoriteIcon size={"24"} />,
       link: "/layout",
       label: "Favorites",
       iconsAnimations: circleReveal,
     },
     {
-      icon: <OutlinedDeleteIcon size={24} />,
-      activeIcon: <DeleteIcon size={24} />,
+      icon: <OutlinedDeleteIcon size={"24"} />,
+      activeIcon: <DeleteIcon size={"24"} />,
       link: "/layout",
       label: "Trash",
       iconsAnimations: fadeIn,
