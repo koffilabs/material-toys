@@ -1,3 +1,4 @@
+"use client";
 import classes from "./index.module.scss";
 import { BlockComponentCanvas } from "../components/BlockComponentCanvas";
 import { CodeBlock } from "../components/CodeBlock";
@@ -30,7 +31,7 @@ export default function Index() {
         <Button>Hello World!</Button>
       </BlockComponentCanvas>
 
-      {/* <CodeBlock
+      <CodeBlock
         code={`import { MT, Button} from "@material-toys/react";
 function App() {
   return (
@@ -42,7 +43,7 @@ function App() {
 
 export default App;
 `}
-      ></CodeBlock> */}
+      ></CodeBlock>
       <footer>Made by Nicola Rizzo</footer>
     </div>
   );
