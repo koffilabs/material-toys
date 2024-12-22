@@ -1,22 +1,19 @@
-import React, {useContext} from "react";
-import {BlockComponentCanvas} from "../components/BlockComponentCanvas";
-import {CodeBlock} from "../components/CodeBlock";
-import {
-  HomeIcon,
-  InfoIcon,
-  BoltIcon
-} from "@material-toys/icons-react";
-import {
-  material_tokens,
-} from "@material-toys/common";
+"use client";
+import { material_tokens } from "@material-toys/common";
+import { BoltIcon, HomeIcon, InfoIcon } from "@material-toys/icons-react";
+import { useContext } from "react";
+import { BlockComponentCanvas } from "../../components/BlockComponentCanvas";
+import { CodeBlock } from "../../components/CodeBlock";
 
-const tokens = {...material_tokens};
+const tokens = { ...material_tokens };
 
 import {
-  MT, NavigationDrawer, NavigationItem, useTheme
+  MT,
+  NavigationDrawer,
+  NavigationItem,
+  useThemeContexts,
 } from "@material-toys/react";
 import Head from "next/head";
-import {useThemeContexts} from "@material-toys/react";
 
 const myTheme = (variant) => {
   return {
@@ -32,12 +29,12 @@ const myTheme = (variant) => {
           backgroundColor: tokens[`MdSysColorSurface${variant}`],
           // backgroundColor: "red",
         },
-      }
-    }
-  }
+      },
+    },
+  };
 };
 export default function drawer_page() {
-  const {VariantContext } = useThemeContexts();
+  const { VariantContext } = useThemeContexts();
   const variant = useContext(VariantContext);
 
   return (
@@ -45,34 +42,41 @@ export default function drawer_page() {
       <Head>
         <title>Material Toys - Navigation Drawer</title>
         <meta property="og:title" content="Navigation Drawer" key="title" />
-        <meta name="description" content="Navigation Drawer page" key="desc"/>
+        <meta name="description" content="Navigation Drawer page" key="desc" />
         <meta name="og:description" content="Navigation Drawer page" />
       </Head>
       <main>
         <h2>Navigation drawer</h2>
         <BlockComponentCanvas showGrid={true}>
           <MT theme={myTheme} variant={variant}>
-            <NavigationDrawer className="primary"
-                              header={<div style={{padding: "1rem", textAlign: "center"}}>
-                                Header
-                              </div>}
-                              activeItem={0}>
-              <NavigationItem onClick={() => {console.log("clicked!")}}
-                icon={<HomeIcon/>}>
+            <NavigationDrawer
+              className="primary"
+              header={
+                <div style={{ padding: "1rem", textAlign: "center" }}>
+                  Header
+                </div>
+              }
+              activeItem={0}
+            >
+              <NavigationItem
+                onClick={() => {
+                  console.log("clicked!");
+                }}
+                icon={<HomeIcon />}
+              >
                 <a>Material Toys</a>
               </NavigationItem>
-              <NavigationItem
-                icon={<BoltIcon/>}>
+              <NavigationItem icon={<BoltIcon />}>
                 <a>Quick Start</a>
               </NavigationItem>
-              <NavigationItem
-                icon={<InfoIcon/>}>
+              <NavigationItem icon={<InfoIcon />}>
                 <a>About</a>
               </NavigationItem>
             </NavigationDrawer>
           </MT>
         </BlockComponentCanvas>
-        <CodeBlock code={`import { MT, NavigationDrawer, NavigationItem } from "@material-toys/react";
+        <CodeBlock
+          code={`import { MT, NavigationDrawer, NavigationItem } from "@material-toys/react";
 import { HomeIcon, InfoIcon, BoltIcon } from "@material-toys/icons-react";
 // ...
 <MT>
@@ -95,8 +99,10 @@ import { HomeIcon, InfoIcon, BoltIcon } from "@material-toys/icons-react";
     </NavigationItem>
   </NavigationDrawer>
 </MT>
-`}> </CodeBlock>
-
+`}
+        >
+          {" "}
+        </CodeBlock>
       </main>
       <style jsx>{`
         h3 {
