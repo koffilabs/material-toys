@@ -1,13 +1,13 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { RippleIcon } from "./RippleIcon";
 import { useComponentClass } from "../hooks/useComponentClass";
 
 interface TopAppBarProps {
   type?: "center-aligned" | "small" | "medium" | "large";
-  onNavButtonClick: () => void;
+  onNavButtonClick?: () => void;
   headline: string;
   navigationIcon: JSX.Element;
-  trailingIcons?: JSX.Element;
+  trailingIcons?: ReactNode[];
   className?: string;
 }
 export const TopAppBar = ({
