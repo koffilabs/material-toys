@@ -1,3 +1,4 @@
+"use client";
 import Head from "next/head";
 import { Tabs, Tab, TabSection } from "@material-toys/react";
 import {
@@ -5,8 +6,8 @@ import {
   OutlinedExploreIcon,
   OutlinedWorkIcon,
 } from "@material-toys/icons-react";
-import { BlockComponentCanvas } from "../components/BlockComponentCanvas";
-import { CodeBlock } from "../components/CodeBlock";
+import { BlockComponentCanvas } from "../../components/BlockComponentCanvas";
+import { CodeBlock } from "../../components/CodeBlock";
 import React from "react";
 import classes from "./tabs.module.scss";
 export default function tabs_page() {

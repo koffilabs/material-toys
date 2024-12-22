@@ -1,7 +1,8 @@
-import {Card} from "@material-toys/react";
+"use client";
+import { Card } from "@material-toys/react";
 
-import {BlockComponentCanvas} from "../components/BlockComponentCanvas";
-import {CodeBlock} from "../components/CodeBlock";
+import { BlockComponentCanvas } from "../../components/BlockComponentCanvas";
+import { CodeBlock } from "../../components/CodeBlock";
 import Head from "next/head";
 import React from "react";
 
@@ -11,7 +12,7 @@ export default function card_page() {
       <Head>
         <title>Material Toys - Card</title>
         <meta property="og:title" content="Card" key="title" />
-        <meta name="description" content="Card page" key="desc"/>
+        <meta name="description" content="Card page" key="desc" />
         <meta name="og:description" content="Card page" />
       </Head>
       <main>
@@ -21,28 +22,29 @@ export default function card_page() {
             <div className="someContent">
               <h3>Title - Elevated</h3>
               <h5>Subhead</h5>
-              Use a card to display content and actions on a single topic.
-              Cards should be easy to scan for relevant information.
+              Use a card to display content and actions on a single topic. Cards
+              should be easy to scan for relevant information.
             </div>
           </Card>
           <Card className="filled">
             <div className="someContent">
               <h3>Title - Elevated</h3>
               <h5>Subhead</h5>
-              Use a card to display content and actions on a single topic.
-              Cards should be easy to scan for relevant information.
+              Use a card to display content and actions on a single topic. Cards
+              should be easy to scan for relevant information.
             </div>
           </Card>
           <Card className="outlined">
             <div className="someContent">
               <h3>Title - Elevated</h3>
               <h5>Subhead</h5>
-              Use a card to display content and actions on a single topic.
-              Cards should be easy to scan for relevant information.
+              Use a card to display content and actions on a single topic. Cards
+              should be easy to scan for relevant information.
             </div>
           </Card>
-          </BlockComponentCanvas>
-      <CodeBlock code={`          
+        </BlockComponentCanvas>
+        <CodeBlock
+          code={`          
 <Card className="elevated">
   <div className="someContent">
     <h3>Title - Elevated</h3>
@@ -68,7 +70,10 @@ export default function card_page() {
   </div>
 </Card>
 
-`}>        </CodeBlock>
+`}
+        >
+          {" "}
+        </CodeBlock>
       </main>
       <style jsx>{`
           h3 {

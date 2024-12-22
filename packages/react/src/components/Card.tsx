@@ -13,7 +13,7 @@ import { Ripple } from "./Ripple";
 import merge from "lodash-es/merge";
 
 interface CardProps {
-  disabled: boolean;
+  disabled?: boolean;
   className: string;
   children?: ReactNode;
   [prop: string]: any;
@@ -23,7 +23,7 @@ export const Card = ({ children, className, ...props }: CardProps) => {
   const { ThemeContext, VariantContext, UserThemeContext } = useThemeContexts();
   const tokens = useContext(ThemeContext);
   const variant: string = useContext(VariantContext);
-  const node = useRef<HTMLDivElement>();
+  const node = useRef<HTMLDivElement>(null);
   const theme = m3(tokens, { variant });
   const userTheme: any = useContext(UserThemeContext);
 
@@ -33,8 +33,8 @@ export const Card = ({ children, className, ...props }: CardProps) => {
       applyReactiveStyle({
         target: "components.Card",
         theme: merge(theme, userTheme(variant)),
-      })
-    )
+      }),
+    ),
   );
   useEffect(() => {
     if (node?.current) {
@@ -48,8 +48,8 @@ export const Card = ({ children, className, ...props }: CardProps) => {
             theme: merge(theme, userTheme(variant)),
             width,
             height,
-          })
-        )
+          }),
+        ),
       );
     }
   }, [node, variant]);

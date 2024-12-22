@@ -1,12 +1,13 @@
-import Head from "next/head";
+"use client";
 import {
-  LinearProgressIndicator,
   CircularProgressIndicator,
+  LinearProgressIndicator,
 } from "@material-toys/react";
+import Head from "next/head";
 
-import { BlockComponentCanvas } from "../components/BlockComponentCanvas";
-import { CodeBlock } from "../components/CodeBlock";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { BlockComponentCanvas } from "../../components/BlockComponentCanvas";
+import { CodeBlock } from "../../components/CodeBlock";
 
 export default function progress_indicators_page() {
   const [value, setValue] = useState(42);
