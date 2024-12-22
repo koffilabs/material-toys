@@ -1,8 +1,9 @@
+"use client";
 import Head from "next/head";
 import { RadioButton } from "@material-toys/react";
 
-import { BlockComponentCanvas } from "../components/BlockComponentCanvas";
-import { CodeBlock } from "../components/CodeBlock";
+import { BlockComponentCanvas } from "../../components/BlockComponentCanvas";
+import { CodeBlock } from "../../components/CodeBlock";
 import { useState } from "react";
 
 export default function radio_button_page() {

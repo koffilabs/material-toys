@@ -1,8 +1,9 @@
+"use client";
 import Head from "next/head";
 import { Switch } from "@material-toys/react";
 
-import { BlockComponentCanvas } from "../components/BlockComponentCanvas";
-import { CodeBlock } from "../components/CodeBlock";
+import { BlockComponentCanvas } from "../../components/BlockComponentCanvas";
+import { CodeBlock } from "../../components/CodeBlock";
 import { CheckIcon, RemoveIcon } from "@material-toys/icons-react";
 
 export default function checkbox_page() {
