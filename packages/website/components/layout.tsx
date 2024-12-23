@@ -30,7 +30,7 @@ export default ({
   tokens,
   setUIMode,
   UIMode,
-  railLabels = "selected",
+  railLabels = "selected" as const,
   children,
 }) => {
   // @ts-ignore
@@ -101,16 +101,12 @@ export default ({
   const wrapperClassName = `${classes.contentWrapper} ${
     isModalAtStart ? classes.collapsed : ""
   }`;
-  const swipeHandlers = useSwipeable(
-    {
-      onSwipedLeft: (eventData) => {
-        setNavigationCollapsed(true);
-      },
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: (eventData) => {
+      setNavigationCollapsed(true);
     },
-    {
-      preventDefaultTouchmoveEvent: true,
-    },
-  );
+    preventScrollOnSwipe: true,
+  });
   const layoutClass = `${classes.layout} ${transitionClass}`;
 
   return (

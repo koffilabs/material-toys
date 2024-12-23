@@ -50,12 +50,12 @@ module.exports.generateIcons = async ({ targetDir, targetLib }) => {
 </script>`
             : `import React from "react";
 type IconProps = {
-  size?: string;
+  size?: string | number;
   style?: any;
   [prop: string]: any;
 }
-const Icon = ({size = "24", style = {}, ...rest}: IconProps) => {
-    const styleSize = \`\${parseInt(size)}px\`;
+const Icon = ({size = 24, style = {}, ...rest}: IconProps) => {
+    const styleSize = \`\${+size}px\`;
     return (${svg
       .toString()
       .replace(

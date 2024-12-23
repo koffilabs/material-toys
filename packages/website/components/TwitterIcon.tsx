@@ -13,7 +13,7 @@ const Icon = ({ size, style, ...rest }: IconProps) => {
       style={{
         width: styleSize,
         height: styleSize,
-        enableBackground: "0 0 248 204",
+        // "enable-background": "0 0 248 204",
         ...style,
       }}
       version="1.1"
