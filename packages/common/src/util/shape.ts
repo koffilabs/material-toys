@@ -1,5 +1,5 @@
-import {MdSysShapeCornerFull} from "../m3/default/polyfill";
-
+import {tokens_polyfill} from "../m3/default/polyfill";
+const { MdSysShapeCornerFull } = tokens_polyfill;
 interface CutShapeArgs {
   shape: string;
 }

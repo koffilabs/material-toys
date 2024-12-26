@@ -14,6 +14,6 @@ export {
   cutFilledTonalButton,
 } from "./m3/cut/buttons";
 
-import * as tokens from "./m3/default/tokens";
-import * as tokens_polyfill from "./m3/default/polyfill";
+import { tokens } from "./m3/default/tokens";
+import { tokens_polyfill } from "./m3/default/polyfill";
 export const material_tokens = { ...tokens, ...tokens_polyfill };

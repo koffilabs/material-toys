@@ -1,7 +1,10 @@
 import {rgba} from "../../util/rgba";
 import {M3Options} from "./index";
 import {roundedShape} from "../../util/shape";
-import {MdSysStateHoverStateLayerOpacity} from "./polyfill";
+import {
+  tokens_polyfill
+} from "./polyfill";
+const { MdSysStateHoverStateLayerOpacity } = tokens_polyfill;
 
 const duration = ".1s";
 // const easing = "cubic-bezier(.075, .75, .875, .36)";

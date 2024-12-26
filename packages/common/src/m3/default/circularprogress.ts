@@ -1,8 +1,11 @@
 import { M3Options } from "./index";
 import {
-  MdSysMotionDurationShort4,
-  MdSysMotionEasingStandard,
+  tokens_polyfill
 } from "./polyfill";
+const {
+    MdSysMotionDurationShort4,
+    MdSysMotionEasingStandard,
+} = tokens_polyfill;
 export const CircularProgressIndicator = (tokens, options?: M3Options) => {
   const variant = options.variant ?? "";
   return {
