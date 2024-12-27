@@ -33,7 +33,7 @@ export const applicationStyle = {
     background: "transparent",
     color: "#333",
     padding: "1.618rem",
-    fontFamily: "Roboto, sans-serif",
+    // fontFamily: "Roboto, sans-serif",
     transition: `margin-left ${duration} ease-in-out`,
     "&.collapsed": {
       marginLeft: "0",
