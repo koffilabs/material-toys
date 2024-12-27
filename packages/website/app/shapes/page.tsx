@@ -15,15 +15,15 @@ import Head from "next/head";
 
 const note = {
   display: "inline-block",
-  "line-height": "40px",
-  "border-radius": "20px",
+  lineHeight: "40px",
+  borderRadius: "20px",
   padding: "0 1rem",
-  "margin-top": "1rem",
+  marginTop: "1rem",
   height: "40px",
   background: "rgba(0, 0, 0, .7)",
   color: "#ddd",
-  "text-align": "center",
-  "margin-right": "2rem",
+  textAlign: "center",
+  marginRight: "2rem",
 };
 const block = {
   flexBasis: "100%",
