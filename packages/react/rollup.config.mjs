@@ -15,13 +15,13 @@ export default [
     external: ["react"],
     output: [
       {
-        file: pkg.main,
+        file: pkg.publishConfig.main,
         format: "cjs",
         sourcemap: process.env.NODE_ENV !== "production",
         // name: "material-toys",
       },
       {
-        file: pkg.module,
+        file: pkg.publishConfig.module,
         format: "esm",
         sourcemap: process.env.NODE_ENV !== "production",
       },

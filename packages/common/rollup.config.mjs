@@ -35,12 +35,12 @@ export default [
     ],
     output: [
       {
-        file: pkg.main,
+        file: pkg.publishConfig.main,
         format: "cjs",
         sourcemap: process.env.NODE_ENV !== "production",
       },
       {
-        file: pkg.module,
+        file: pkg.publishConfig.module,
         // dir: "dist",
         format: "esm",
         sourcemap: process.env.NODE_ENV !== "production",

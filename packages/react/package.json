@@ -23,6 +23,7 @@
     "react-dom": "catalog:react18"
   },
   "devDependencies": {
+    "rollup": "catalog:rollup4",
     "@rollup/plugin-alias": "^5.1.1",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^14.0.0",
