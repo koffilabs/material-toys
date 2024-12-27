@@ -22,7 +22,7 @@ const note = {
   height: "40px",
   background: "rgba(0, 0, 0, .7)",
   color: "#ddd",
-  textAlign: "center",
+  textAlign: "center" as const,
   marginRight: "2rem",
 };
 const block = {
