@@ -33,6 +33,7 @@ import {
   // BoltIcon
 } from "@material-toys/icons-react";
 import Link from "next/link";
+import { mainFont } from "./mainFont";
 const Layout = dynamic(
   () =>
     import("../components/layout").then((mod) => {
@@ -94,7 +95,7 @@ export default function app({ children }) {
 
   return (
     <html>
-      <body>
+      <body className={mainFont.className}>
         <MT tokens={tokens} theme={myTheme} variant={UIMode}>
           <Layout
             tokens={tokens}
