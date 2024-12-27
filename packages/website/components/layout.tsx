@@ -196,9 +196,9 @@ export default ({
                   className={classes.topAppBarTarget}
                   onClick={() => {
                     setUIMode((mode) => {
-                      setTransitionClass(classes["no-transition"]);
                       return mode === "Light" ? "Dark" : "Light";
                     });
+                    setTransitionClass(classes["no-transition"]);
                   }}
                 >
                   {UIMode === "Light" ? (
