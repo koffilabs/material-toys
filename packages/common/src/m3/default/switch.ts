@@ -1,11 +1,12 @@
 import { M3Options } from "./index";
 import { rgba } from "../../util/rgba";
+import { Tokens } from "./tokens";
 
 const easing = "cubic-bezier(0.4, 0.0, 0.2, 1)";
 const bounceEasing = "cubic-bezier(.47,1.64,.41,1)";
 const duration = ".3s";
-export const Switch = (tokens, options?: M3Options) => {
-  const variant = options.variant ?? "";
+export const Switch = (tokens: Tokens, options?: M3Options) => {
+  const variant = options?.variant ?? "";
   return {
     WebkitTouchCallout: "none",
     WebkitUserSelect: "none",
@@ -59,14 +60,14 @@ export const Switch = (tokens, options?: M3Options) => {
         {
           backgroundColor: rgba(
             tokens[`MdSysColorOnSurface${variant}`],
-            tokens.MdSysStateHoverStateLayerOpacity
+            tokens.MdSysStateHoverStateLayerOpacity,
           ),
         },
       "&:checked:hover:not(:disabled) + .mt-track .mt-state, &:checked:focus:not(:disabled) + .mt-track .mt-state":
         {
           backgroundColor: rgba(
             tokens[`MdSysColorPrimary${variant}`],
-            tokens.MdSysStateHoverStateLayerOpacity
+            tokens.MdSysStateHoverStateLayerOpacity,
           ),
         },
       "&:checked:not(:disabled) + .mt-track": {
@@ -134,7 +135,7 @@ export const Switch = (tokens, options?: M3Options) => {
           ".mt-state .mt-outline .mt-switch-thumb": {
             backgroundColor: rgba(
               tokens[`MdSysColorOnSurface${variant}`],
-              0.38
+              0.38,
             ),
           },
           ".mt-unchecked-icon": {

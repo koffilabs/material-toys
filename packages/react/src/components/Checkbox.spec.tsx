@@ -2,7 +2,6 @@ import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { Checkbox } from "./Checkbox";
 import { MT } from "./MT";
-import "@testing-library/jest-dom/extend-expect";
 import userEvent from "@testing-library/user-event";
 
 describe("@material/toys/react Checkbox component isolated unit tests suite", () => {
@@ -10,7 +9,7 @@ describe("@material/toys/react Checkbox component isolated unit tests suite", ()
     render(
       <MT>
         <Checkbox data-testid="checkbox" />
-      </MT>
+      </MT>,
     );
     expect(screen.getByRole("checkbox") as HTMLInputElement).not.toBeChecked();
     fireEvent.click(screen.getByTestId("checkbox"));
@@ -20,7 +19,7 @@ describe("@material/toys/react Checkbox component isolated unit tests suite", ()
     render(
       <MT>
         <Checkbox disabled={true} data-testid="checkbox" />
-      </MT>
+      </MT>,
     );
     expect(screen.getByRole("checkbox") as HTMLInputElement).not.toBeChecked();
     // see https://github.com/testing-library/dom-testing-library/issues/92
@@ -40,7 +39,7 @@ describe("@material/toys/react Checkbox component isolated unit tests suite", ()
         render(
           <MT>
             <Checkbox data-testid="checkbox" {...{ [eventName]: handler }} />
-          </MT>
+          </MT>,
         );
         (fireEvent as any)[action](screen.getByTestId("checkbox"), {});
         expect(handler).toHaveBeenCalled();

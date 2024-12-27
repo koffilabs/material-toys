@@ -17,7 +17,19 @@ interface ApplyReactiveStyleArgs {
   height?: number;
   width?: number;
 }
-const exec = ({ dest, source: source, theme, width, height }) => {
+const exec = ({
+  dest,
+  source: source,
+  theme,
+  width,
+  height,
+}: {
+  dest: any;
+  source: any;
+  width?: number;
+  height?: number;
+  theme: any;
+}) => {
   for (const key of Object.keys(source)) {
     switch (typeof source[key]) {
       case "function":
@@ -43,17 +55,17 @@ const exec = ({ dest, source: source, theme, width, height }) => {
       default:
         if (`${source[key]}`.startsWith(mtThemePrefix)) {
           try {
-            const path = extractor.exec(source[key])[1].split(".");
+            const path = extractor?.exec?.(source[key])?.[1]?.split(".");
             let value = theme,
               i = 0;
-            while (value[path[i]]) {
-              value = value[path[i]];
+            while (value[path?.[i] || ""]) {
+              value = value[path?.[i] || ""];
               i++;
             }
             dest[key] = value;
           } catch (e) {
             console.error(
-              `Error reading the ${mtThemePrefix} from ${source[key]}`
+              `Error reading the ${mtThemePrefix} from ${source[key]}`,
             );
           }
         } else {
@@ -76,7 +88,7 @@ export const applyReactiveStyle = ({
   // const clone = target;
   let dest = {};
   const targetPath = target.split(".");
-  let source = theme;
+  let source: any = theme;
   for (const key of targetPath) {
     source = source[key];
   }

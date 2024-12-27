@@ -3,7 +3,8 @@ module.exports = {
   verbose: true,
   preset: "ts-jest",
   moduleNameMapper: {
-    "^lodash-es/merge$": "lodash/merge"
+    "^lodash-es/merge$": "lodash/merge",
   },
+  setupFilesAfterEnv: ["<rootDir>/jest-setup.ts"],
   testEnvironment: "jest-environment-jsdom",
 };

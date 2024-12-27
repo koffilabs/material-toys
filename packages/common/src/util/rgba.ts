@@ -1,11 +1,11 @@
 /** @format */
 
-import { colors } from './colors';
+import { colors } from "./colors";
 
 interface RGB {
-    red: number;
-    green: number;
-    blue: number;
+  red: number;
+  green: number;
+  blue: number;
 }
 
 // compile this once
@@ -18,31 +18,32 @@ const nonHexChars = /[^#a-f\d]/gi;
  * @return {RGB} the RGB values for the color
  * @throws {Error} will throw an error if hex is not valid
  */
-function hexRgb (hex: string): RGB {
-    // sanitise our inputs
-    if (!hex ||
-        !(hex.length === 4 || hex.length === 7) || // Cheap check for length
-        hex[0] !== '#' || // Cheap check for correct first char
-        nonHexChars.test(hex) // More expensive check for any non hex chars
-    ) {
-        throw new Error('Expected a valid hex string');
-    }
+function hexRgb(hex: string): RGB {
+  // sanitise our inputs
+  if (
+    !hex ||
+    !(hex.length === 4 || hex.length === 7) || // Cheap check for length
+    hex[0] !== "#" || // Cheap check for correct first char
+    nonHexChars.test(hex) // More expensive check for any non hex chars
+  ) {
+    throw new Error("Expected a valid hex string");
+  }
 
-    // remove the # from the start of the string
-    hex = hex.substring(1);
+  // remove the # from the start of the string
+  hex = hex.substring(1);
 
-    // if we have a shorthand hex then expand it
-    if (hex.length === 3) {
-        hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
-    }
+  // if we have a shorthand hex then expand it
+  if (hex.length === 3) {
+    hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+  }
 
-    // convert into our rbg values
-    const num = parseInt(hex, 16);
-    const red = num >> 16;
-    const green = (num >> 8) & 255;
-    const blue = num & 255;
+  // convert into our rbg values
+  const num = parseInt(hex, 16);
+  const red = num >> 16;
+  const green = (num >> 8) & 255;
+  const blue = num & 255;
 
-    return {red, green, blue};
+  return { red, green, blue };
 }
 
 /**
@@ -55,30 +56,30 @@ function hexRgb (hex: string): RGB {
  * @throws {Error} will throw an error if color is not a valid hex or named color
  */
 export function rgba(color: string, alpha: number): string {
-    // 1. match the color to either and known color string or a hex value
-    // look at first character to see if it is a #. If not then we need to look up the hex value
-    const hexColor = color[0] === '#' ? color : colors[color.toLowerCase()];
-    if (!hexColor) {
-        throw new Error(
-            `Invalid color '${color}'. Color should be a valid hexadecimal value '#FFFFFF' or a valid color string, for example 'white'`
-        );
-    }
+  // 1. match the color to either and known color string or a hex value
+  // look at first character to see if it is a #. If not then we need to look up the hex value
+  const key = color.toLowerCase();
+  const hexColor = color[0] === "#" ? color : colors[key];
+  if (!hexColor) {
+    throw new Error(
+      `Invalid color '${color}'. Color should be a valid hexadecimal value '#FFFFFF' or a valid color string, for example 'white'`,
+    );
+  }
 
-    // 2. make sure our opacity is in a sensible range 0 to 1
-    if (alpha < 0 || alpha > 1) {
-        throw new Error(
-            `Invalid opacity '${alpha}'. Opacity should be in the range 0 to 1`
-        );
-    }
+  // 2. make sure our opacity is in a sensible range 0 to 1
+  if (alpha < 0 || alpha > 1) {
+    throw new Error(
+      `Invalid opacity '${alpha}'. Opacity should be in the range 0 to 1`,
+    );
+  }
 
-    // 3. convert our hex value to rgb
-    try {
-        const rgb: RGB = hexRgb(hexColor);
-        return `rgba(${rgb.red}, ${rgb.green}, ${rgb.blue}, ${alpha})`;
-    }
-    catch (e) {
-        throw new Error(
-            `Invalid color '${hexColor}'. Color should be a valid hexadecimal value, for example '#FFFFFF'`
-        );
-    }
+  // 3. convert our hex value to rgb
+  try {
+    const rgb: RGB = hexRgb(hexColor);
+    return `rgba(${rgb.red}, ${rgb.green}, ${rgb.blue}, ${alpha})`;
+  } catch (e) {
+    throw new Error(
+      `Invalid color '${hexColor}'. Color should be a valid hexadecimal value, for example '#FFFFFF'`,
+    );
+  }
 }

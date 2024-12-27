@@ -1,10 +1,11 @@
 import { rgba } from "../../util/rgba";
 import { M3Options } from "./index";
 import { registerPath } from "../../util/path";
+import { Tokens } from "./tokens";
 const duration = ".1s";
 
-export const Card = (tokens, options?: M3Options) => {
-  const variant = options.variant ?? "";
+export const Card = (tokens: Tokens, options?: M3Options) => {
+  const variant = options?.variant ?? "";
   return {
     display: "inline-block",
     overflow: "hidden",
@@ -61,16 +62,16 @@ export const Card = (tokens, options?: M3Options) => {
       // level 1
       boxShadow: `0 2px 1px -1px ${rgba(
         tokens.MdSysColorShadow,
-        0.2
+        0.2,
       )}, 0 1px 1px 0 ${rgba(
         tokens.MdSysColorShadow,
-        0.14
+        0.14,
       )}, 0 1px 3px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
       "&:hover": {
         // level 2
         boxShadow: `0 3px 1px -2px ${rgba(
           tokens.MdSysColorShadow,
-          0.2
+          0.2,
         )}, 0 2px 2px 0 ${rgba(tokens.MdSysColorShadow, 0.14)}, 
         0 1px 5px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
         "&>.state": {
@@ -81,20 +82,20 @@ export const Card = (tokens, options?: M3Options) => {
         // level 1
         boxShadow: `0 2px 1px -1px ${rgba(
           tokens.MdSysColorShadow,
-          0.2
+          0.2,
         )}, 0 1px 1px 0 ${rgba(
           tokens.MdSysColorShadow,
-          0.14
+          0.14,
         )}, 0 1px 3px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
       },
       "&:active": {
         // level 1
         boxShadow: `0 2px 1px -1px ${rgba(
           tokens.MdSysColorShadow,
-          0.2
+          0.2,
         )}, 0 1px 1px 0 ${rgba(
           tokens.MdSysColorShadow,
-          0.14
+          0.14,
         )}, 0 1px 3px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
       },
     },
@@ -103,16 +104,16 @@ export const Card = (tokens, options?: M3Options) => {
       // level 0
       boxShadow: `0 0 0 0 ${rgba(tokens.MdSysColorShadow, 0.2)}, 0 0 0 0 ${rgba(
         tokens.MdSysColorShadow,
-        0.14
+        0.14,
       )}, 0 0 0 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
       "&:hover": {
         // level 1
         boxShadow: `0 2px 1px -1px ${rgba(
           tokens.MdSysColorShadow,
-          0.2
+          0.2,
         )}, 0 1px 1px 0 ${rgba(
           tokens.MdSysColorShadow,
-          0.14
+          0.14,
         )}, 0 1px 3px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
         "&>.state": {
           background: tokens[`MdSysColorOnSurface${variant}`],
@@ -122,20 +123,20 @@ export const Card = (tokens, options?: M3Options) => {
         // level 1
         boxShadow: `0 2px 1px -1px ${rgba(
           tokens.MdSysColorShadow,
-          0.2
+          0.2,
         )}, 0 1px 1px 0 ${rgba(
           tokens.MdSysColorShadow,
-          0.14
+          0.14,
         )}, 0 1px 3px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
       },
       "&:active": {
         // level 0
         boxShadow: `0 0 0 0 ${rgba(
           tokens.MdSysColorShadow,
-          0.2
+          0.2,
         )}, 0 0 0 0 ${rgba(tokens.MdSysColorShadow, 0.14)}, 0 0 0 0 ${rgba(
           tokens.MdSysColorShadow,
-          0.12
+          0.12,
         )}`,
       },
     },
@@ -145,7 +146,7 @@ export const Card = (tokens, options?: M3Options) => {
       // level 0
       boxShadow: `0 0 0 0 ${rgba(tokens.MdSysColorShadow, 0.2)}, 0 0 0 0 ${rgba(
         tokens.MdSysColorShadow,
-        0.14
+        0.14,
       )}, 0 0 0 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
       "&:hover": {
         "&>.state": {

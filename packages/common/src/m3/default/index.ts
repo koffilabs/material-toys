@@ -22,13 +22,14 @@ import { Tabs } from "./tabs";
 import { Tab } from "./tab";
 import { LinearProgressIndicator } from "./linearprogress";
 import { CircularProgressIndicator } from "./circularprogress";
+import { Tokens } from "./tokens";
 export interface M3Options {
   variant?: string;
 }
 const defaultOptions = {
   variant: "",
 };
-export const m3 = (tokens, options: M3Options = defaultOptions) => {
+export const m3 = (tokens: Tokens, options: M3Options = defaultOptions) => {
   // TODO: default options
   return {
     colors: {

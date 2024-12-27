@@ -18,6 +18,7 @@ import { css } from "@emotion/css";
 import { applyReactiveStyle, m3 } from "@material-toys/common";
 import { useThemeContexts } from "../hooks/useThemeContexts";
 import merge from "lodash-es/merge";
+import { Tokens } from "@material-toys/common/src/m3/default/tokens";
 
 const CUT_START = 12;
 
@@ -67,11 +68,11 @@ export const OutlinedTextField = forwardRef<
       prefix = "",
       ...props
     },
-    ref
+    ref,
   ) => {
     const { ThemeContext, VariantContext, UserThemeContext } =
       useThemeContexts();
-    const tokens: any = useContext(ThemeContext);
+    const tokens: Tokens = useContext(ThemeContext);
     const variant: string = useContext(VariantContext);
     const theme = m3(tokens, { variant });
     const userTheme: any = useContext(UserThemeContext);
@@ -146,8 +147,8 @@ export const OutlinedTextField = forwardRef<
         applyReactiveStyle({
           target: "components.OutlinedTextField",
           theme: merge(theme, userTheme(variant)),
-        })
-      )
+        }),
+      ),
     );
 
     interface Measures {
@@ -222,7 +223,7 @@ export const OutlinedTextField = forwardRef<
       setValue(
         typeof maxLength === "undefined"
           ? target.value
-          : target.value.substring(0, maxLength)
+          : target.value.substring(0, maxLength),
       );
       typeof onInput === "function" && onInput(e);
     };
@@ -236,8 +237,8 @@ export const OutlinedTextField = forwardRef<
               theme: merge(theme, userTheme(variant)),
               width,
               height,
-            })
-          )
+            }),
+          ),
         );
       }
     }, [node, variant]);
@@ -291,5 +292,5 @@ export const OutlinedTextField = forwardRef<
         </div>
       </div>
     );
-  }
+  },
 );

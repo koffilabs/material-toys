@@ -1,6 +1,7 @@
 import { M3Options } from "./index";
-export const Tab = (tokens, options?: M3Options) => {
-  const variant = options.variant ?? "";
+import { Tokens } from "./tokens";
+export const Tab = (tokens: Tokens, options?: M3Options) => {
+  const variant = options?.variant ?? "";
   return {
     WebkitTouchCallout: "none",
     WebkitUserSelect: "none",

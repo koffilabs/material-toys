@@ -1,7 +1,8 @@
 import { rgba } from "../../util/rgba";
 import { M3Options } from "./index";
-export const TopAppBar = (tokens, options?: M3Options) => {
-  const variant = options.variant ?? "";
+import { Tokens } from "./tokens";
+export const TopAppBar = (tokens: Tokens, options?: M3Options) => {
+  const variant = options?.variant ?? "";
   return {
     WebkitTouchCallout: "none",
     WebkitUserSelect: "none",
@@ -33,7 +34,7 @@ export const TopAppBar = (tokens, options?: M3Options) => {
       // level 2
       boxShadow: `0 3px 1px -2px ${rgba(
         tokens.MdSysColorShadow,
-        0.2
+        0.2,
       )}, 0 2px 2px 0 ${rgba(tokens.MdSysColorShadow, 0.14)}, 
         0 1px 5px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
     },

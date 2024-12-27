@@ -2,13 +2,14 @@ import { rgba } from "../../util/rgba";
 import { M3Options } from "./index";
 import { roundedShape } from "../../util/shape";
 import { tokens_polyfill } from "./polyfill";
+import { Tokens } from "./tokens";
 const { MdSysStateHoverStateLayerOpacity } = tokens_polyfill;
 const duration = ".3s";
 // const easing = "cubic-bezier(.075, .75, .875, .36)";
 const easing = "cubic-bezier(0.4, 0.0, 0.2, 1)";
 
-export const OutlinedTextField = (tokens, options?: M3Options) => {
-  const variant = options.variant ?? "";
+export const OutlinedTextField = (tokens: Tokens, options?: M3Options) => {
+  const variant = options?.variant ?? "";
   return {
     flex: "none",
     position: "relative",

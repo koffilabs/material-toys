@@ -23,9 +23,8 @@
     "react-dom": "catalog:react18"
   },
   "devDependencies": {
-    "rollup": "catalog:rollup4",
     "@rollup/plugin-alias": "^5.1.1",
-    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
     "@types/jest": "^27.4.0",
@@ -37,6 +36,7 @@
     "jest": "^27.4.5",
     "lodash": "^4.17.21",
     "prettier": "catalog:prettier3",
+    "rollup": "catalog:rollup4",
     "rollup-plugin-esbuild": "^6.1.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.1",

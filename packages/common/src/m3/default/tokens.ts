@@ -82,7 +82,8 @@ const MdSysTypescaleLabelSmallFont = "Roboto";
 const MdSysTypescaleLabelSmallLineHeight = 16;
 const MdSysTypescaleLabelSmallWeight = "Medium";
 const MdSysTypescaleLabelSmallTracking = 0.5;
-const MdSysTypescaleLabelSmallSize = 11;const MdRefPaletteError0 = "#000000";
+const MdSysTypescaleLabelSmallSize = 11;
+const MdRefPaletteError0 = "#000000";
 const MdRefPaletteError10 = "#410e0b";
 const MdRefPaletteError20 = "#601410";
 const MdRefPaletteError30 = "#8c1d18";
@@ -251,8 +252,12 @@ const MdSysColorInversePrimary = MdSysColorInversePrimaryLight;
 const MdSysColorOnPrimaryContainer = MdSysColorOnPrimaryContainerLight;
 const MdSysColorOnPrimary = MdSysColorOnPrimaryLight;
 const MdSysColorPrimaryContainer = MdSysColorPrimaryContainerLight;
-export const tokens = {
-  MdSysTypescaleDisplay1Font: "Roboto",
+
+export type Tokens = {
+  [token: string]: string | number;
+};
+export const tokens: Tokens = {
+  MdSysTypescaleDisplay1Font: "Roboto",
   MdSysTypescaleDisplay1LineHeight: 76,
   MdSysTypescaleDisplay1Weight: "Regular",
   MdSysTypescaleDisplay1Tracking: -0.5,
@@ -336,7 +341,8 @@ const MdSysColorPrimaryContainer = MdSysColorPrimaryContainerLight;
   MdSysTypescaleLabelSmallLineHeight: 16,
   MdSysTypescaleLabelSmallWeight: "Medium",
   MdSysTypescaleLabelSmallTracking: 0.5,
-  MdSysTypescaleLabelSmallSize: 11,  MdRefPaletteError0: "#000000",
+  MdSysTypescaleLabelSmallSize: 11,
+  MdRefPaletteError0: "#000000",
   MdRefPaletteError10: "#410e0b",
   MdRefPaletteError20: "#601410",
   MdRefPaletteError30: "#8c1d18",
@@ -505,4 +511,4 @@ const MdSysColorPrimaryContainer = MdSysColorPrimaryContainerLight;
   MdSysColorOnPrimaryContainer: MdSysColorOnPrimaryContainerLight,
   MdSysColorOnPrimary: MdSysColorOnPrimaryLight,
   MdSysColorPrimaryContainer: MdSysColorPrimaryContainerLight,
-};
+};
