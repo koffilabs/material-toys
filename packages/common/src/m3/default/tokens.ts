@@ -253,9 +253,7 @@ const MdSysColorOnPrimaryContainer = MdSysColorOnPrimaryContainerLight;
 const MdSysColorOnPrimary = MdSysColorOnPrimaryLight;
 const MdSysColorPrimaryContainer = MdSysColorPrimaryContainerLight;
 
-export type Tokens = {
-  [token: string]: string | number;
-};
+export type Tokens = any;
 export const tokens: Tokens = {
   MdSysTypescaleDisplay1Font: "Roboto",
   MdSysTypescaleDisplay1LineHeight: 76,

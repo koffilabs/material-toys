@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "noImplicitAny": false,
     "baseUrl": "src",
     "types": ["jest", "node", "react"],
     "paths": {
