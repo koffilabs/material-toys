@@ -22,7 +22,7 @@ export const Surface = ({ children, className, ...props }: SurfaceProps) => {
   const variant: string = useContext(VariantContext);
   const theme = m3(tokens, { variant });
   const userTheme: any = useContext(UserThemeContext);
-  const node = useRef<HTMLDivElement>();
+  const node = useRef<HTMLDivElement>(null);
 
   const [surfaceTheme, setSurfaceTheme] = useState(
     css(

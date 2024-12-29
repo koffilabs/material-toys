@@ -97,7 +97,8 @@ export const OutlinedTextField = forwardRef<
           inputNode?.current &&
           inputNode.current !== document.activeElement
         ) {
-          const length = labelNode.current.getBoundingClientRect().width;
+          const length =
+            labelNode?.current?.getBoundingClientRect()?.width ?? 0;
           const start = CUT_START,
             end = start + length + 8;
           outlineNode.current.style.clipPath = getClosedPolygon({

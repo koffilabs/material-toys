@@ -23,7 +23,7 @@ export const normalizePath = (path, count) => {
     repetitions[i % repetitions.length]++;
   }
   const finalParts = repetitions.flatMap((repetition, index) => {
-    const repeatedPaths = [];
+    const repeatedPaths: string[] = [];
     for (let i = 0; i < repetition; i++) {
       repeatedPaths.push(bezierFill);
     }
@@ -34,14 +34,14 @@ export const normalizePath = (path, count) => {
 export const registerPath = (path: string) => {
   const interpolate = new Function(
     "{ width, height }",
-    "return `" + path + "`"
+    "return `" + path + "`",
   );
   const countPath = interpolate({ width: 0, height: 0 });
   const bezierCount = countPath.match(/c/gim).length;
   maxBezierCount = Math.max(bezierCount, maxBezierCount);
   const interpolateAndNormalizePath = new Function(
     "{ width, height }",
-    "return `" + normalizePath(path, maxBezierCount) + "`"
+    "return `" + normalizePath(path, maxBezierCount) + "`",
   );
   console.log("maxBezierCount is", maxBezierCount);
 

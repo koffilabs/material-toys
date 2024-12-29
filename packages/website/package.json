@@ -15,7 +15,7 @@
     "next": "15.0.3",
     "react": "catalog:react18",
     "react-dom": "catalog:react18",
-    "react-swipeable": "^6.2.1",
+    "react-swipeable": "^7.0.0",
     "react-syntax-highlighter": "^15.5.0",
     "sass": "^1.81.0",
     "styled-jsx": "^5.1.6"

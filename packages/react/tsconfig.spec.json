@@ -9,7 +9,7 @@
     "target": "esnext",
     "module": "esnext",
     "jsx": "react",
-    "sourceMap": true,
+    "sourceMap": false,
     "outDir": "dist",
     "strict": true,
     "moduleResolution": "node",

@@ -29,7 +29,7 @@ export const FAB = ({
   extended = false,
   props,
 }: FABProps) => {
-  const textNode = useRef<HTMLDivElement>();
+  const textNode = useRef<HTMLDivElement>(null);
   const root = useRef<HTMLButtonElement>();
   const { ThemeContext, VariantContext } = useThemeContexts();
   const tokens = useContext(ThemeContext);

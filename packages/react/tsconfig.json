@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "noImplicitAny": false,
     "baseUrl": "src",
     "lib": [
       "esnext",
@@ -12,15 +13,13 @@
     "module": "esnext",
     "jsx": "react",
     "declaration": true,
-    "declarationDir": "dist/types",
     "emitDeclarationOnly": false,
-    "sourceMap": true,
-    "outDir": "dist",
+    "sourceMap": false,
     "strict": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
+    "forceConsistentCasingInFileNames": true
   }
 }

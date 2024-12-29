@@ -7,8 +7,16 @@
     "dev": "lerna run --scope @material-toys/react dev",
     "serve": "lerna run --scope @material-toys/website serve"
   },
-  "dependencies": {},
   "devDependencies": {
     "lerna": "^7.3.0"
+  },
+  "nx": {
+    "targets": {
+      "build": {
+        "outputs": [
+          "{projectRoot}/dist"
+        ]
+      }
+    }
   }
 }

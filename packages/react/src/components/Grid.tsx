@@ -8,7 +8,7 @@ interface MediaStyle {
   [key: string]: any;
 }
 export const Grid = ({ children }: GridProps) => {
-  const columnsStyles = [];
+  const columnsStyles: MediaStyle[] = [];
   for (let breakpoint of [
     "EXTRA_SMALL",
     "SMALL",
@@ -33,9 +33,5 @@ export const Grid = ({ children }: GridProps) => {
     }
   }
   const mtGrid = css([gridStyle, ...columnsStyles]);
-  return (
-    <div className={mtGrid}>
-      {children}
-    </div>
-  );
+  return <div className={mtGrid}>{children}</div>;
 };

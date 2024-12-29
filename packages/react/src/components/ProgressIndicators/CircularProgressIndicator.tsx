@@ -8,7 +8,7 @@ interface CircularProgressIndicatorProps {
   indeterminate?: boolean;
 }
 export const CircularProgressIndicator = ({
-  value,
+  value = 0,
   max = 100,
   indeterminate = false,
 }: CircularProgressIndicatorProps) => {
