@@ -82,6 +82,6 @@ export default Icon;
   await writeFile(`${targetDir}/index.ts`, indexContents);
   const endDate = Date.now();
   console.log(
-    `${iconsCounter} icons generated in ${(endDate - startDate) / 1e3} seconds.`,
+    `${iconsCounter} icons generated in ${(endDate - startDate) / 1e3} seconds. Location ${targetDir}`,
   );
 };
