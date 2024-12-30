@@ -1,3 +1,4 @@
+"use client";
 import React, { ReactNode, useState } from "react";
 import { useThemeContexts } from "../hooks/useThemeContexts";
 import { material_tokens } from "@material-toys/common";
@@ -7,7 +8,7 @@ const defaultTokens = { ...material_tokens };
 interface AppProps {
   children: ReactNode;
   tokens?: any;
-  theme?: () => void;
+  theme?: (variant: string) => any;
   variant?: string;
 }
 export const MT = ({

@@ -14,7 +14,7 @@ export const ripple = ({ event, element }: RippleArguments) => {
   const targetRect = (<HTMLElement>event.target).getBoundingClientRect();
   const x = event.offsetX + (targetRect.x - elementRect.x);
   const y = event.offsetY + (targetRect.y - elementRect.y);
-  const { target }: { target: EventTarget } = event;
+  // const { target }: { target: EventTarget } = event;
   const oWidth: number = (<HTMLElement>element).offsetWidth;
   const oHeight: number = (<HTMLElement>element).offsetHeight;
 
@@ -47,17 +47,17 @@ export const ripple = ({ event, element }: RippleArguments) => {
     setTimeout(() => {
       const anim = rippleElement.animate(
         [{ opacity: 0.12 }, { opacity: 0 }],
-        options
+        options,
       );
       anim.addEventListener(
         "finish",
         () => {
-          rippleElement.parentElement.style.clipPath = "";
+          rippleElement!.parentElement!.style!.clipPath = "";
           rippleElement.remove();
           // rippleElement = null;
           // outLock = false;
         },
-        { once: true }
+        { once: true },
       );
     }, 0);
   };
@@ -72,7 +72,7 @@ export const ripple = ({ event, element }: RippleArguments) => {
         transform: "translate(-50%, -50%) scale(1)",
       },
     ],
-    { ...options, fill: "forwards" }
+    { ...options, fill: "forwards" },
   );
   rippleAnimation.addEventListener("finish", mainFinishHandler, {
     once: true,

@@ -1,10 +1,11 @@
 import { rgba } from "../../util/rgba";
 import { M3Options } from "./index";
 import { roundedShape } from "../../util/shape";
+import { Tokens } from "./tokens";
 
 const duration = ".1s";
-export const IconButton = (tokens, options?: M3Options) => {
-  const variant = options.variant ?? "";
+export const IconButton = (tokens: Tokens, options?: M3Options) => {
+  const variant = options?.variant ?? "";
   return {
     WebkitTouchCallout: "none",
     WebkitUserSelect: "none",
@@ -98,7 +99,7 @@ export const IconButton = (tokens, options?: M3Options) => {
         "& .mt-shape": {
           backgroundColor: `${rgba(
             tokens[`MdSysColorPrimary${variant}`],
-            0.12
+            0.12,
           )}`,
         },
       },
@@ -106,10 +107,10 @@ export const IconButton = (tokens, options?: M3Options) => {
         "& .mt-shape": {
           boxShadow: `0 2px 1px -1px ${rgba(
             tokens.MdSysColorShadow,
-            0.2
+            0.2,
           )}, 0 1px 1px 0 ${rgba(
             tokens.MdSysColorShadow,
-            0.14
+            0.14,
           )}, 0 1px 3px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
         },
       },
@@ -117,7 +118,7 @@ export const IconButton = (tokens, options?: M3Options) => {
         "& .mt-shape": {
           boxShadow: `0 0 0 0 ${rgba("#000", 0.3)},0 0 0 0 ${rgba(
             "#000",
-            0.3
+            0.3,
           )},0 0 0 0 ${rgba("#000", 0.3)}`,
         },
       },
@@ -148,10 +149,10 @@ export const IconButton = (tokens, options?: M3Options) => {
         "& .mt-shape": {
           boxShadow: `0 2px 1px -1px ${rgba(
             tokens.MdSysColorShadow,
-            0.2
+            0.2,
           )}, 0 1px 1px 0 ${rgba(
             tokens.MdSysColorShadow,
-            0.14
+            0.14,
           )}, 0 1px 3px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
         },
       },
@@ -159,7 +160,7 @@ export const IconButton = (tokens, options?: M3Options) => {
         "& .mt-shape": {
           boxShadow: `0 0 0 0 ${rgba("#000", 0.3)},0 0 0 0 ${rgba(
             "#000",
-            0.3
+            0.3,
           )},0 0 0 0 ${rgba("#000", 0.3)}`,
         },
       },

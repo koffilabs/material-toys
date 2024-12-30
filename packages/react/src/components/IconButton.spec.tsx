@@ -2,7 +2,6 @@ import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { IconButton } from "./IconButton";
 import { MT } from "./MT";
-import "@testing-library/jest-dom/extend-expect";
 import {
   FavoriteIcon,
   OutlinedFavoriteBorderIcon,
@@ -13,7 +12,7 @@ describe("@material/toys/react Icon Button component isolated unit tests suite",
     render(
       <MT>
         <IconButton renderIcon={() => <>The answer is 42</>}></IconButton>
-      </MT>
+      </MT>,
     );
     expect(screen.getByRole("button")).toHaveTextContent("The answer is 42");
   });
@@ -34,7 +33,7 @@ describe("@material/toys/react Icon Button component isolated unit tests suite",
               data-testid="target"
               renderIcon={() => <>Hello</>}
             ></IconButton>
-          </MT>
+          </MT>,
         );
         (fireEvent as any)[action](screen.getByTestId("target"), {});
         expect(handler).toHaveBeenCalled();

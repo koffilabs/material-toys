@@ -21,7 +21,7 @@ module.exports.generateIcons = async ({ targetDir, targetLib }) => {
         await mkdir(`${targetDir}/${iconType}`, { recursive: true });
         // dirCount++;
         const svg = await readFile(
-          `${START_DIRECTORY}/${dir}/${iconName}/${iconType}/24px.svg`
+          `${START_DIRECTORY}/${dir}/${iconName}/${iconType}/24px.svg`,
         );
         const componentName = `${toPascalCase(toValidName(iconName))}Icon`;
         const fileName = `${toValidName(iconName)}Icon`;
@@ -31,7 +31,7 @@ module.exports.generateIcons = async ({ targetDir, targetLib }) => {
                 .toString()
                 .replace(
                   /<svg/,
-                  '<svg :style="{ width: styleSize, height: styleSize }" '
+                  '<svg :style="{ width: styleSize, height: styleSize }" ',
                 )
                 .replace(/enable-background/)}</template>
 <script lang="ts">
@@ -49,17 +49,18 @@ module.exports.generateIcons = async ({ targetDir, targetLib }) => {
   }
 </script>`
             : `import React from "react";
-interface IconProps{
-  size?: string
-  style?: any
+type IconProps = {
+  size?: string | number;
+  style?: any;
+  [prop: string]: any;
 }
-const Icon = ({size = "24", style = {}, ...rest}: IconProps) => {
-    const styleSize = \`\${parseInt(size)}px\`;
+const Icon = ({size = 24, style = {}, ...rest}: IconProps) => {
+    const styleSize = \`\${+size}px\`;
     return (${svg
       .toString()
       .replace(
         /<svg/,
-        "<svg {...rest} style={ {width: styleSize, height: styleSize, ...style} } "
+        "<svg {...rest} style={ {width: styleSize, height: styleSize, ...style} } ",
       )
       .replace(/enable-background/gim, "enableBackground")
       .replace(/class=/gim, "className=")
@@ -69,10 +70,10 @@ export default Icon;
 `;
         await writeFile(
           `${targetDir}/${iconType}/${fileName}.${extension}`,
-          iconComponent
+          iconComponent,
         );
         indexContents += `export {default as ${toIconType(
-          iconType
+          iconType,
         )}${componentName}} from "./${iconType}/${fileName}";\r\n`;
         iconsCounter++;
       }
@@ -81,6 +82,6 @@ export default Icon;
   await writeFile(`${targetDir}/index.ts`, indexContents);
   const endDate = Date.now();
   console.log(
-    `${iconsCounter} icons generated in ${(endDate - startDate) / 1e3} seconds.`
+    `${iconsCounter} icons generated in ${(endDate - startDate) / 1e3} seconds. Location ${targetDir}`,
   );
 };

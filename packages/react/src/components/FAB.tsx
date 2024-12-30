@@ -1,3 +1,4 @@
+"use client";
 import React, {
   ReactNode,
   useContext,
@@ -12,9 +13,9 @@ import { Ripple } from "./Ripple";
 import { usePrevious } from "../hooks/usePrevious";
 interface FABProps {
   style?: any;
-  disabled: boolean;
+  disabled?: boolean;
   extended?: boolean;
-  className: string;
+  className?: string;
   icon?: ReactNode;
   children?: ReactNode;
   [prop: string]: any;
@@ -23,11 +24,12 @@ export const FAB = ({
   children,
   icon,
   className,
+  disabled = false,
   style,
   extended = false,
   props,
 }: FABProps) => {
-  const textNode = useRef<HTMLDivElement>();
+  const textNode = useRef<HTMLDivElement>(null);
   const root = useRef<HTMLButtonElement>();
   const { ThemeContext, VariantContext } = useThemeContexts();
   const tokens = useContext(ThemeContext);
@@ -55,7 +57,7 @@ export const FAB = ({
     applyReactiveStyle({
       target: "components.FAB",
       theme,
-    })
+    }),
   );
   const [computedWidth, setComputedWidth] = useState("0px");
   const previousExtended = usePrevious(extended);
@@ -82,7 +84,7 @@ export const FAB = ({
             duration: typeof previousExtended !== "undefined" ? 150 : 0,
             fill: "forwards",
             easing: "ease-in-out",
-          }
+          },
         );
       textNode.current &&
         (textNode.current as HTMLElement).animate(
@@ -97,7 +99,7 @@ export const FAB = ({
             fill: "forwards",
             delay: 50,
             easing: "ease-in-out",
-          }
+          },
         );
     } else {
       root.current &&
@@ -114,7 +116,7 @@ export const FAB = ({
             duration: typeof previousExtended !== "undefined" ? 150 : 0,
             fill: "forwards",
             easing: "ease-in-out",
-          }
+          },
         );
       textNode.current &&
         (textNode.current as HTMLElement).animate(
@@ -128,7 +130,7 @@ export const FAB = ({
             duration: typeof previousExtended !== "undefined" ? 100 : 0,
             fill: "forwards",
             easing: "ease-in-out",
-          }
+          },
         );
       setComputedWidth(BASE_WIDTH);
     }
@@ -136,6 +138,7 @@ export const FAB = ({
   return (
     <Ripple>
       <button
+        disabled={disabled}
         ref={root}
         style={{ ...style }}
         data-extended={extended}

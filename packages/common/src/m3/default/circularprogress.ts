@@ -1,10 +1,13 @@
 import { M3Options } from "./index";
-import {
-  MdSysMotionDurationShort4,
-  MdSysMotionEasingStandard,
-} from "./polyfill";
-export const CircularProgressIndicator = (tokens, options?: M3Options) => {
-  const variant = options.variant ?? "";
+import { tokens_polyfill } from "./polyfill";
+import { Tokens } from "./tokens";
+const { MdSysMotionDurationShort4, MdSysMotionEasingStandard } =
+  tokens_polyfill;
+export const CircularProgressIndicator = (
+  tokens: Tokens,
+  options?: M3Options,
+) => {
+  const variant = options?.variant ?? "";
   return {
     WebkitTouchCallout: "none",
     WebkitUserSelect: "none",

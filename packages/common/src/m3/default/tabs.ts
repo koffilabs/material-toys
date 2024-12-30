@@ -1,10 +1,11 @@
 import { M3Options } from "./index";
 import { roundedShape } from "../../util/shape";
 import { rgba } from "../../util/rgba";
+import { Tokens } from "./tokens";
 const easing = "cubic-bezier(0.4, 0.0, 0.2, 1)";
 const duration = ".2s";
-export const Tabs = (tokens, options?: M3Options) => {
-  const variant = options.variant ?? "";
+export const Tabs = (tokens: Tokens, options?: M3Options) => {
+  const variant = options?.variant ?? "";
   return {
     color: tokens[`MdSysColorOnSurface${variant}`],
     ".mt-tabs-header": {
@@ -52,7 +53,7 @@ export const Tabs = (tokens, options?: M3Options) => {
         "&:hover": {
           backgroundColor: rgba(
             tokens[`MdSysColorOnSurface${variant}`],
-            tokens.MdSysStateHoverStateLayerOpacity
+            tokens.MdSysStateHoverStateLayerOpacity,
           ),
         },
         "&.mt-active-tab": {
@@ -63,7 +64,7 @@ export const Tabs = (tokens, options?: M3Options) => {
           "&:hover": {
             backgroundColor: rgba(
               tokens[`MdSysColorPrimary${variant}`],
-              tokens.MdSysStateHoverStateLayerOpacity
+              tokens.MdSysStateHoverStateLayerOpacity,
             ),
           },
         },

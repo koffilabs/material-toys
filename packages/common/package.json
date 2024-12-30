@@ -1,32 +1,36 @@
 {
   "name": "@material-toys/common",
   "version": "0.1.38",
-  "main": "dist/common.cjs.js",
-  "module": "dist/common.esm.js",
-  "types": "dist/dts/main.d.ts",
   "sideEffects": false,
-  "files": [
-    "dist"
-  ],
   "license": "MIT",
+  "main": "src/main.ts",
+  "publishConfig": {
+    "main": "dist/common.cjs.js",
+    "module": "dist/common.esm.js",
+    "types": "dist/dts/main.d.ts",
+    "files": [
+      "dist"
+    ]
+  },
   "scripts": {
     "test": "jest",
-    "build": "rollup -c ./rollup.config.js",
-    "dev": "rollup -c ./rollup.config.js -w",
+    "build": "rollup -c ./rollup.config.mjs",
+    "dev": "rollup -c ./rollup.config.mjs -w",
     "emitDeclarations": "tsc --emitDeclarationOnly --outDir dist"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.2",
     "@types/jest": "^27.0.3",
-    "esbuild": "^0.13.12",
+    "esbuild": "catalog:esbuild",
     "jest": "^27.2.2",
-    "rollup": "^2.60.0",
-    "rollup-plugin-esbuild": "^4.6.0",
+    "prettier": "catalog:prettier3",
     "ts-jest": "^27.0.5",
     "tslib": "^2.4.0",
     "typescript": "^4.4.3"
   },
-  "gitHead": "8921c88e8e94e271fca375ac07c5e78f96688b93",
   "dependencies": {
-    "prettier": "2.8.0"
-  }
+    "rollup": "catalog:rollup4",
+    "rollup-plugin-esbuild": "^6.1.1"
+  },
+  "gitHead": "8921c88e8e94e271fca375ac07c5e78f96688b93"
 }

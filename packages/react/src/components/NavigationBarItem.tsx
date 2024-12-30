@@ -1,3 +1,4 @@
+"use client";
 import React, { MouseEventHandler, ReactNode, useEffect, useRef } from "react";
 import { usePrevious } from "../hooks/usePrevious";
 import { useComponentClass } from "../hooks/useComponentClass";
@@ -11,15 +12,15 @@ const defaultKeyframes = {
   activeIcon: [{ opacity: "0" }, { opacity: "1" }],
 };
 interface NavigationBarItemProps {
-  icon?: React.Component;
-  activeIcon?: React.Component;
-  iconsAnimations?: { icon: []; activeIcon: [] };
+  icon?: ReactNode;
+  activeIcon?: ReactNode;
+  iconsAnimations?: { icon: any[]; activeIcon: any[] };
   badge?: string;
   active?: boolean;
   children?: ReactNode;
   label?: "show" | "selected" | "none";
   className?: string;
-  onClick: MouseEventHandler;
+  onClick?: MouseEventHandler;
   [prop: string]: any;
 }
 interface Rest {
@@ -38,8 +39,8 @@ export const NavigationBarItem = ({
   ...props
 }: NavigationBarItemProps & Partial<Rest>) => {
   const previousActive = usePrevious(active);
-  const iconNode = useRef<HTMLDivElement>();
-  const activeIconNode = useRef<HTMLDivElement>();
+  const iconNode = useRef<HTMLDivElement>(null);
+  const activeIconNode = useRef<HTMLDivElement>(null);
   const { className: itemTheme } = useComponentClass({
     path: "components.NavigationBarItem",
   });
@@ -95,8 +96,8 @@ export const NavigationBarItem = ({
           label === "none"
             ? "mt-no-icon"
             : label === "selected"
-            ? "mt-selected"
-            : ""
+              ? "mt-selected"
+              : ""
         }`}
       >
         <div className="mt-activeIndicator" />

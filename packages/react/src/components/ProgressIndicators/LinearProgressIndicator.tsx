@@ -1,8 +1,9 @@
+"use client";
 import React, { useEffect, useRef } from "react";
 import { useComponentClass } from "../../hooks/useComponentClass";
 interface LinearProgressIndicatorProps {
   width?: string;
-  value: number;
+  value?: number;
   max?: number;
   indeterminate?: boolean;
 }
@@ -16,8 +17,8 @@ export const LinearProgressIndicator = ({
     path: "components.LinearProgressIndicator",
   });
   // const progress = `${(100 * Math.min(value, max ?? 100)) / max}%`;
-  const progress = `${Math.min(value, max ?? 100)}`;
-  const indicatorRef = useRef<SVGLineElement | undefined>();
+  const progress = Math.min(value, max ?? 100);
+  const indicatorRef = useRef<SVGLineElement>(null);
   const animation = useRef<Animation>();
   useEffect(() => {
     if (indeterminate) {
@@ -42,7 +43,7 @@ export const LinearProgressIndicator = ({
           easing: "ease-in-out",
           iterations: Infinity,
           fill: "none",
-        }
+        },
       );
     } else {
       animation?.current?.cancel();

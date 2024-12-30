@@ -1,10 +1,11 @@
 import { M3Options } from "./index";
 import { rgba } from "../../util/rgba";
+import { Tokens } from "./tokens";
 
 const easing = "cubic-bezier(0.4, 0.0, 0.2, 1)";
 const duration = ".3s";
-export const Checkbox = (tokens, options?: M3Options) => {
-  const variant = options.variant ?? "";
+export const Checkbox = (tokens: Tokens, options?: M3Options) => {
+  const variant = options?.variant ?? "";
   return {
     WebkitTouchCallout: "none",
     WebkitUserSelect: "none",
@@ -39,14 +40,14 @@ export const Checkbox = (tokens, options?: M3Options) => {
         {
           backgroundColor: rgba(
             tokens[`MdSysColorOnSurface${variant}`],
-            tokens.MdSysStateHoverStateLayerOpacity
+            tokens.MdSysStateHoverStateLayerOpacity,
           ),
         },
       "&:checked:hover:not(:disabled) + .mt-state, &:checked:focus:not(:disabled) + .mt-state":
         {
           backgroundColor: rgba(
             tokens[`MdSysColorPrimary${variant}`],
-            tokens.MdSysStateHoverStateLayerOpacity
+            tokens.MdSysStateHoverStateLayerOpacity,
           ),
         },
       "& + .mt-state": {
@@ -108,14 +109,14 @@ export const Checkbox = (tokens, options?: M3Options) => {
           {
             backgroundColor: rgba(
               tokens[`MdSysColorError${variant}`],
-              tokens.MdSysStateHoverStateLayerOpacity
+              tokens.MdSysStateHoverStateLayerOpacity,
             ),
           },
         "&:checked:hover:not(:disabled) + .mt-state, &:checked:focus:not(:disabled) + .mt-state":
           {
             backgroundColor: rgba(
               tokens[`MdSysColorError${variant}`],
-              tokens.MdSysStateHoverStateLayerOpacity
+              tokens.MdSysStateHoverStateLayerOpacity,
             ),
           },
         "& + .mt-state .mt-outline": {

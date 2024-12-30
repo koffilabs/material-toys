@@ -2,17 +2,21 @@
   "private": true,
   "name": "material_toys_monorepo",
   "version": "0.1.0",
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
     "publish": "lerna publish --no-private --force-publish",
     "dev": "lerna run --scope @material-toys/react dev",
     "serve": "lerna run --scope @material-toys/website serve"
   },
-  "packageManager": "npm@8.0.0",
-  "dependencies": {},
   "devDependencies": {
     "lerna": "^7.3.0"
+  },
+  "nx": {
+    "targets": {
+      "build": {
+        "outputs": [
+          "{projectRoot}/dist"
+        ]
+      }
+    }
   }
 }

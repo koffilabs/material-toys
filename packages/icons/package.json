@@ -24,18 +24,12 @@
     "url": "https://github.com/koffilabs/material-toys/issues"
   },
   "devDependencies": {
-    "@rollup/plugin-alias": "^3.1.8",
-    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-alias": "^5.1.1",
+    "@rollup/plugin-commonjs": "^28.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
-    "@vue/compiler-sfc": "^3.2.21",
-    "esbuild": "^0.13.12",
-    "rollup": "^2.59.0",
-    "rollup-plugin-esbuild": "^4.6.0",
-    "rollup-plugin-vue": "^6.0.0"
-  },
-  "dependencies": {
-    "prettier": "2.8.0",
-    "vue": "next"
+    "esbuild": "catalog:esbuild",
+    "prettier": "catalog:prettier3",
+    "rollup-plugin-esbuild": "^4.6.0"
   },
   "gitHead": "8921c88e8e94e271fca375ac07c5e78f96688b93"
 }

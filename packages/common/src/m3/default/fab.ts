@@ -1,9 +1,10 @@
 import { rgba } from "../../util/rgba";
 import { M3Options } from "./index";
+import { Tokens } from "./tokens";
 
 const duration = ".1s";
-export const FAB = (tokens, options?: M3Options) => {
-  const variant = options.variant ?? "";
+export const FAB = (tokens: Tokens, options?: M3Options) => {
+  const variant = options?.variant ?? "";
   return {
     WebkitTouchCallout: "none",
     WebkitUserSelect: "none",
@@ -37,10 +38,10 @@ export const FAB = (tokens, options?: M3Options) => {
     // level 3
     boxShadow: `0 3px 3px -2px ${rgba(
       tokens.MdSysColorShadow,
-      0.2
+      0.2,
     )}, 0 3px 4px 0 ${rgba(tokens.MdSysColorShadow, 0.14)}, 0 1px 8px 0 ${rgba(
       tokens.MdSysColorShadow,
-      0.12
+      0.12,
     )}`,
 
     "&>.state": {
@@ -83,10 +84,10 @@ export const FAB = (tokens, options?: M3Options) => {
       // level1
       boxShadow: `0 2px 1px -1px ${rgba(
         tokens.MdSysColorShadow,
-        0.2
+        0.2,
       )}, 0 1px 1px 0 ${rgba(
         tokens.MdSysColorShadow,
-        0.14
+        0.14,
       )}, 0 1px 3px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
       ".ripple": {
         backgroundColor: tokens[`MdSysColorOnPrimaryContainer${variant}`],

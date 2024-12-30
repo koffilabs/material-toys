@@ -1,3 +1,4 @@
+"use client";
 import React, {
   ReactNode,
   useContext,
@@ -13,7 +14,7 @@ import merge from "lodash-es/merge";
 interface SurfaceProps {
   children: ReactNode;
   className?: string;
-  props: any;
+  [prop: string]: any;
 }
 export const Surface = ({ children, className, ...props }: SurfaceProps) => {
   const { ThemeContext, VariantContext, UserThemeContext } = useThemeContexts();
@@ -21,15 +22,15 @@ export const Surface = ({ children, className, ...props }: SurfaceProps) => {
   const variant: string = useContext(VariantContext);
   const theme = m3(tokens, { variant });
   const userTheme: any = useContext(UserThemeContext);
-  const node = useRef<HTMLDivElement>();
+  const node = useRef<HTMLDivElement>(null);
 
   const [surfaceTheme, setSurfaceTheme] = useState(
     css(
       applyReactiveStyle({
         target: "components.Surface",
         theme: merge(theme, userTheme(variant)),
-      })
-    )
+      }),
+    ),
   );
   let width: number, height: number;
 
@@ -43,8 +44,8 @@ export const Surface = ({ children, className, ...props }: SurfaceProps) => {
             theme: merge(theme, userTheme(variant)),
             width,
             height,
-          })
-        )
+          }),
+        ),
       );
     }
   }, [node]);

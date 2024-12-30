@@ -1,12 +1,16 @@
 import { M3Options } from "./index";
 import { fontWeights } from "./fontWeights";
+import { Tokens } from "./tokens";
 
 const duration = ".4s";
 const hoverDuration = ".2s";
 // const easing = "cubic-bezier(.075, .75, .875, .36)";
 const easing = "cubic-bezier(0.4, 0.0, 0.2, 1)";
-export const NavigationItemRippleTarget = (tokens, options?: M3Options) => {
-  const variant = options.variant ?? "";
+export const NavigationItemRippleTarget = (
+  tokens: Tokens,
+  options?: M3Options,
+) => {
+  const variant = options?.variant ?? "";
   return {
     "[data-mode=rail] &,[data-mode=drawer][data-collapsed=true] &": {
       borderRadius: 0,
@@ -37,8 +41,8 @@ export const NavigationItemRippleTarget = (tokens, options?: M3Options) => {
     },
   };
 };
-export const RailContainer = (tokens, options?: M3Options) => {
-  const variant = options.variant ?? "";
+export const RailContainer = (tokens: Tokens, options?: M3Options) => {
+  const variant = options?.variant ?? "";
   return {
     position: "absolute",
     width: "56px",
@@ -72,8 +76,8 @@ export const RailContainer = (tokens, options?: M3Options) => {
     },
   };
 };
-export const NavigationItem = (tokens, options?: M3Options) => {
-  const variant = options.variant ?? "";
+export const NavigationItem = (tokens: Tokens, options?: M3Options) => {
+  const variant = options?.variant ?? "";
   return {
     WebkitTouchCallout: "none",
     WebkitUserSelect: "none",

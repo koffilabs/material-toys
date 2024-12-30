@@ -1,12 +1,13 @@
 import { rgba } from "../../util/rgba";
 import { M3Options } from "./index";
+import { Tokens } from "./tokens";
 
 const duration = ".2s";
 // const easing = "cubic-bezier(.075, .75, .875, .36)";
 const easing = "cubic-bezier(0.4, 0.0, 0.2, 1)";
 
-export const NavigationDrawer = (tokens, options?: M3Options) => {
-  const variant = options.variant ?? "";
+export const NavigationDrawer = (tokens: Tokens, options?: M3Options) => {
+  const variant = options?.variant ?? "";
   return {
     WebkitTouchCallout: "none",
     WebkitUserSelect: "none",
@@ -182,10 +183,10 @@ export const NavigationDrawer = (tokens, options?: M3Options) => {
       borderBottomTopRightRadius: "12px",
       boxShadow: `0 2px 1px -1px ${rgba(
         tokens.MdSysColorShadow,
-        0.2
+        0.2,
       )}, 0 1px 1px 0 ${rgba(
         tokens.MdSysColorShadow,
-        0.14
+        0.14,
       )}, 0 1px 3px 0 ${rgba(tokens.MdSysColorShadow, 0.12)}`,
       "&[data-collapsed=true]": {
         transform: "translateX(-100%)",

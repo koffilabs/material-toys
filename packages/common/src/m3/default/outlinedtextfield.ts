@@ -1,20 +1,21 @@
-import {rgba} from "../../util/rgba";
-import {M3Options} from "./index";
-import {roundedShape} from "../../util/shape";
-import {MdSysStateHoverStateLayerOpacity} from "./polyfill";
-
+import { rgba } from "../../util/rgba";
+import { M3Options } from "./index";
+import { roundedShape } from "../../util/shape";
+import { tokens_polyfill } from "./polyfill";
+import { Tokens } from "./tokens";
+const { MdSysStateHoverStateLayerOpacity } = tokens_polyfill;
 const duration = ".3s";
 // const easing = "cubic-bezier(.075, .75, .875, .36)";
 const easing = "cubic-bezier(0.4, 0.0, 0.2, 1)";
 
-export const OutlinedTextField = (tokens, options?: M3Options) => {
-  const variant = options.variant ?? "";
+export const OutlinedTextField = (tokens: Tokens, options?: M3Options) => {
+  const variant = options?.variant ?? "";
   return {
     flex: "none",
     position: "relative",
     overflow: "visible",
     "&.mt-loading *": {
-      transition: "none !important"
+      transition: "none !important",
     },
 
     "&.mt-focus": {
@@ -26,7 +27,7 @@ export const OutlinedTextField = (tokens, options?: M3Options) => {
         },
         ".container": {
           ".label": {
-            transform: `translate(16px, -${(tokens.MdSysTypescaleBodySmallLineHeight / 2)}px) scale(0.75) `,
+            transform: `translate(16px, -${tokens.MdSysTypescaleBodySmallLineHeight / 2}px) scale(0.75) `,
             // top: `-${(tokens.MdSysTypescaleBodySmallLineHeight / 2 - 1)}px`,
             color: tokens[`MdSysColorPrimary${variant}`],
             lineHeight: `${tokens.MdSysTypescaleBodySmallLineHeight}px`,
@@ -38,12 +39,11 @@ export const OutlinedTextField = (tokens, options?: M3Options) => {
         ".mt-shape": {
           ".container": {
             ".label": {
-              transform: `translate(16px, -${(tokens.MdSysTypescaleBodySmallLineHeight / 2)}px) scale(0.75) `,
-            }
-          }
-        }
-      }
-
+              transform: `translate(16px, -${tokens.MdSysTypescaleBodySmallLineHeight / 2}px) scale(0.75) `,
+            },
+          },
+        },
+      },
     },
     "&:hover": {
       ".mt-shape": {
@@ -55,8 +55,8 @@ export const OutlinedTextField = (tokens, options?: M3Options) => {
           ".label": {
             color: tokens[`MdSysColorOnSurfaceVariant${variant}`],
           },
-        }
-      }
+        },
+      },
     },
     ".supportingTextContainer": {
       // position: "absolute",
@@ -81,34 +81,34 @@ export const OutlinedTextField = (tokens, options?: M3Options) => {
         letterSpacing: `${tokens.MdSysTypescaleBodySmallTracking}px`,
       },
       ".characterCounter": {
-        marginLeft: "auto"
-      }
+        marginLeft: "auto",
+      },
     },
     "&.leadingIcon": {
       ".supportingTextContainer": {
         paddingLeft: "12px",
       },
       ".mt-shape": {
-        "input": {
-          paddingLeft: "52px"
+        input: {
+          paddingLeft: "52px",
         },
         ".container": {
           ".label": {
             // left: "36px"
-            transform: `translate(52px, ${(56 - tokens.MdSysTypescaleBodyLargeLineHeight) / 2}px)`
+            transform: `translate(52px, ${(56 - tokens.MdSysTypescaleBodyLargeLineHeight) / 2}px)`,
           },
           "&.filled": {
             ".label": {
-              "left": "0"
-            }
+              left: "0",
+            },
           },
           ".leadingIcon-container": {
             position: "absolute",
             left: "12px",
             top: `${(56 - 24) / 2}px`,
             fill: tokens[`MdSysColorOnSurfaceVariant${variant}`],
-          }
-        }
+          },
+        },
       },
     },
     "&.trailingIcon": {
@@ -116,8 +116,8 @@ export const OutlinedTextField = (tokens, options?: M3Options) => {
         paddingRight: "12px",
       },
       ".mt-shape": {
-        "input": {
-          paddingRight: "52px"
+        input: {
+          paddingRight: "52px",
         },
         ".trailingIcon-container": {
           position: "absolute",
@@ -125,14 +125,14 @@ export const OutlinedTextField = (tokens, options?: M3Options) => {
           top: `${(56 - 24) / 2}px`,
           fill: tokens[`MdSysColorOnSurfaceVariant${variant}`],
           // zIndex: 20
-        }
-      }
+        },
+      },
     },
     ".mt-shape": {
       ".container.filled": {
         ".label": {
           position: "absolute",
-          transform: `translate(16px, -${(tokens.MdSysTypescaleBodySmallLineHeight / 2)}px) scale(0.75)`,
+          transform: `translate(16px, -${tokens.MdSysTypescaleBodySmallLineHeight / 2}px) scale(0.75)`,
           // top: `-${(tokens.MdSysTypescaleBodySmallLineHeight / 2 - 1)}px`,
           color: tokens[`MdSysColorPrimary${variant}`],
           lineHeight: `${tokens.MdSysTypescaleBodySmallLineHeight}px`,
@@ -150,13 +150,15 @@ export const OutlinedTextField = (tokens, options?: M3Options) => {
         right: "0",
         bottom: "0",
         left: "0",
-        borderRadius: roundedShape({shape: tokens.MdSysShapeCornerExtraSmall}),
+        borderRadius: roundedShape({
+          shape: tokens.MdSysShapeCornerExtraSmall,
+        }),
         outlineColor: tokens[`MdSysColorOutline${variant}`],
         outlineWidth: "1px",
         outlineStyle: "solid",
       },
       padding: "0",
-      "input": {
+      input: {
         position: "relative",
         // "z-index": "10",
         padding: "8px 16px", // 16px without icons
@@ -169,15 +171,15 @@ export const OutlinedTextField = (tokens, options?: M3Options) => {
         fontSize: tokens.MdSysTypescaleBodyLargeSize,
         fontWeight: tokens.MdSysTypescaleBodyLargeWeight,
         "&:disabled": {
-          opacity: .38,
-          pointerEvents: "none"
+          opacity: 0.38,
+          pointerEvents: "none",
         },
         border: "none",
         "&:hover": {
           color: tokens[`MdSysColorOnSurface${variant}`],
         },
         "&:focus": {
-          outline: "none"
+          outline: "none",
         },
       },
       ".container": {
@@ -218,25 +220,29 @@ export const OutlinedTextField = (tokens, options?: M3Options) => {
           fontWeight: tokens.MdSysTypescaleBodyLargeWeight,
           letterSpacing: `${tokens.MdSysTypescaleBodyLargeTracking}px`,
           "&::selection": {
-            backgroundColor: "transparent"
-          }
+            backgroundColor: "transparent",
+          },
         },
         "&.empty": {
           ".label": {},
         },
-      }
+      },
     },
     "&.disabled": {
-      "pointerEvents": "none",
+      pointerEvents: "none",
       ".mt-shape": {
-        backgroundColor: rgba(tokens[`MdSysColorSurfaceVariant${variant}`], .4),
-        ".leadingIcon-container, .trailingIcon-container, .label, .supportingTextContainer": {
-          opacity: .38
-        }
+        backgroundColor: rgba(
+          tokens[`MdSysColorSurfaceVariant${variant}`],
+          0.4,
+        ),
+        ".leadingIcon-container, .trailingIcon-container, .label, .supportingTextContainer":
+          {
+            opacity: 0.38,
+          },
       },
       ".supportingTextContainer": {
-        opacity: .38
-      }
+        opacity: 0.38,
+      },
     },
     "&.error": {
       "&.mt-focus .container": {},
@@ -256,10 +262,9 @@ export const OutlinedTextField = (tokens, options?: M3Options) => {
           ".trailingIcon-container": {
             svg: {
               fill: tokens[`MdSysColorOnErrorContainer${variant}`],
-            }
-          }
-        }
-
+            },
+          },
+        },
       },
       ".supportingTextContainer": {
         ".supportingText, .characterCounter": {
@@ -268,18 +273,16 @@ export const OutlinedTextField = (tokens, options?: M3Options) => {
       },
       ".mt-shape": {
         ".container": {},
-        "input": {
-          caretColor: tokens[`MdSysColorError${variant}`]
+        input: {
+          caretColor: tokens[`MdSysColorError${variant}`],
         },
 
         ".trailingIcon-container": {
           svg: {
             fill: tokens[`MdSysColorError${variant}`],
-          }
-        }
-      }
-
+          },
+        },
+      },
     },
-
-  }
+  };
 };

@@ -1,9 +1,11 @@
+"use client";
 import React, {
   cloneElement,
   useState,
   ReactNode,
   ReactElement,
   ComponentType,
+  Component,
 } from "react";
 import { FAB } from "./FAB";
 import { css } from "@emotion/css";
@@ -31,7 +33,7 @@ interface NavigationDrawerProps {
   onDismiss?: () => void;
   collapsed?: boolean;
   activeItem?: number;
-  fab?: ComponentType<typeof FAB>;
+  fab?: ReactNode;
   menu?: ReactNode;
   header?: ReactNode;
   children?: ReactNode;
@@ -80,7 +82,7 @@ export const NavigationDrawer = ({
         return cloneElement(child, {
           children: React.Children.map(
             child.props.children,
-            NavigationItemMapper
+            NavigationItemMapper,
           ),
         });
       }
@@ -123,17 +125,15 @@ export const NavigationDrawer = ({
         <header>{header}</header>
         <div className="scroller">
           <div className="buttonsContainer">
-            <>
-              {menu && (
-                <Ripple>
-                  <div className="menuContainer">
-                    {menu}
-                    <div className="state" />
-                  </div>
-                </Ripple>
-              )}
-              {fab}
-            </>
+            {menu && (
+              <Ripple>
+                <div className="menuContainer">
+                  {menu}
+                  <div className="state" />
+                </div>
+              </Ripple>
+            )}
+            {fab}
           </div>
           <div className="listContainer">
             {React.Children.map(children as ReactElement, NavigationItemMapper)}

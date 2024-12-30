@@ -2,30 +2,31 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "dev" ]
+    branches: ["dev"]
   pull_request:
-    branches: [ "dev" ]
+    branches: ["dev"]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [16.x, 18.x]
+        node-version: [20.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm i
-    - run: npx lerna init --packages="packages/*"
-    - run: npm --prefix packages/icons-react run generate
-    - run: npx lerna run build
-    - run: npx lerna run emitDeclarations
-    - run: npx lerna run test
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - run: pnpm i
+      # - run: pnpx lerna init --packages="packages/*"
+      - run: pnpm --prefix packages/icons-react run generate
+      - run: pnpx lerna run build
+      - run: pnpx lerna run emitDeclarations
+      - run: pnpx lerna run test

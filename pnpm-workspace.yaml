@@ -1,0 +1,12 @@
+packages:
+  - "packages/*"
+catalogs:
+  react18:
+    react: 18.3.1
+    react-dom: 18.3.1
+  prettier3:
+    prettier: 3.4.1
+  rollup4:
+    rollup: 4.28.0
+  esbuild:
+    esbuild: 0.24.0

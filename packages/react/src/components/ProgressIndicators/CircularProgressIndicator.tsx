@@ -1,21 +1,22 @@
+"use client";
 import React, { useEffect, useRef } from "react";
 import { useComponentClass } from "../../hooks/useComponentClass";
 
 interface CircularProgressIndicatorProps {
-  value: number;
+  value?: number;
   max?: number;
   indeterminate?: boolean;
 }
 export const CircularProgressIndicator = ({
-  value,
+  value = 0,
   max = 100,
   indeterminate = false,
 }: CircularProgressIndicatorProps) => {
   const { className: circularProgressClass } = useComponentClass({
     path: "components.CircularProgressIndicator",
   });
-  const progress = `${Math.min(value, max ?? 100)}`;
-  const indicatorRef = useRef<SVGCircleElement | undefined>();
+  const progress = Math.min(value, max ?? 100);
+  const indicatorRef = useRef<SVGCircleElement>(null);
   const animation = useRef<Animation>();
   useEffect(() => {
     if (indeterminate) {
@@ -37,7 +38,7 @@ export const CircularProgressIndicator = ({
           duration: 1200,
           iterations: Infinity,
           fill: "none",
-        }
+        },
       );
     } else {
       animation?.current?.cancel();

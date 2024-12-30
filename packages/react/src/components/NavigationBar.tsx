@@ -1,3 +1,4 @@
+"use client";
 import React, { cloneElement, ReactElement, ReactNode, useState } from "react";
 import { useThemeContexts } from "../hooks/useThemeContexts";
 import { NavigationBarItem } from "./NavigationBarItem";
