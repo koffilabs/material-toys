@@ -261,9 +261,7 @@ export default function Shapes() {
           <div style={block}>
             <Surface className="roundFull">full</Surface>
             <Surface className="cutFull">full</Surface>
-            <div style={note}>
-              The MdSysShapeCornerFull token works only on MT components
-            </div>
+            <div style={note}>MdSysShapeCornerFull</div>
           </div>
         </MT>
       </BlockComponentCanvas>
