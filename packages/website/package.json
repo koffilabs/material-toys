@@ -12,7 +12,7 @@
     "@material-toys/icons-react": "workspace:*",
     "@material-toys/react": "workspace:*",
     "@next/bundle-analyzer": "^12.2.5",
-    "next": "15.0.3",
+    "next": "15.1.2",
     "react": "catalog:react18",
     "react-dom": "catalog:react18",
     "react-swipeable": "^7.0.0",

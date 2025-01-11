@@ -65,32 +65,40 @@ export default ({
     setTransitionClass("");
   }, [UIMode]);
   const pathname = usePathname();
-
+  const mobileQuery = "(max-width: 599px)";
+  const tabletQuery = "(min-width: 600px) and (max-width: 1239px)";
+  const laptopQuery = "(min-width: 1240px) and (max-width: 1439px)";
+  const desktopQuery = "(min-width: 1440px)";
   const activeItem = routes.findIndex(({ r }) => r === pathname);
   const navigateTo = (url, aI?) => {
     router.push(url);
     // setActiveItem(aI);
 
-    if (mediaMatch === MOBILE || mediaMatch === TABLET) {
+    if (isMobile || isTablet) {
       setTimeout(() => {
         setNavigationCollapsed(true);
       }, 400);
     }
   };
   // const mtApplication = css(applicationStyle);
-  const [mediaMatch] = useMatchMedia();
-  const isModalAtStart = mediaMatch === MOBILE || mediaMatch === TABLET;
+  const isMobile = useMatchMedia(mobileQuery);
+  const isTablet = useMatchMedia(tabletQuery);
+
+  const isModalAtStart = isMobile || isTablet;
   const [isNavigationCollapsed, setNavigationCollapsed] =
     useState(isModalAtStart);
+
   const [navMode, setNavMode] = useState(isModalAtStart ? "modal" : "drawer");
   const onCollapse = () => {
-    setNavigationCollapsed(!isNavigationCollapsed);
+    console.log("is nav collapsed", isNavigationCollapsed);
+    setNavigationCollapsed((old) => !old);
   };
+
   useEffect(() => {
-    const isModal = mediaMatch === MOBILE || mediaMatch === TABLET;
+    const isModal = isMobile || isTablet;
     setNavigationCollapsed(isModal);
     setNavMode(isModal ? "modal" : "drawer");
-  }, [mediaMatch]);
+  }, [isMobile, isTablet]);
   useEffect(() => {
     setTransitionClass("");
   }, [UIMode]);
