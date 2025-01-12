@@ -70,8 +70,8 @@ importers:
   packages/icons-react:
     dependencies:
       '@material-toys/icons':
-        specifier: 0.1.40
-        version: 0.1.40
+        specifier: workspace:*
+        version: link:../icons
       '@rollup/plugin-commonjs':
         specifier: ^21.0.1
         version: 21.1.0(rollup@4.28.0)
@@ -871,9 +871,6 @@ packages:
   '@lerna/create@7.4.2':
     resolution: {integrity: sha512-1wplFbQ52K8E/unnqB0Tq39Z4e+NEoNrpovEnl6GpsTUrC6WDp8+w0Le2uCBV0hXyemxChduCkLz4/y1H1wTeg==}
     engines: {node: '>=16.0.0'}
-
-  '@material-toys/icons@0.1.40':
-    resolution: {integrity: sha512-T+FvJpCx3UjPWXXYzoRbxp17e3egKIDVIeUN0GqsYYHJa1hjlBNIXD6VFMmb0RlYlJqKVEnFBqgm4P9oQTHcfA==}
 
   '@next/bundle-analyzer@12.3.4':
     resolution: {integrity: sha512-eKjgRICzbLTmod0UnJcArFVs5uEAiuZwB6NCf84m+btW7jdylUVoOYf1wi5tA14xk5L9Lho7Prm6/XJ8gxYzfQ==}
@@ -6265,8 +6262,6 @@ snapshots:
       - encoding
       - supports-color
       - typescript
-
-  '@material-toys/icons@0.1.40': {}
 
   '@next/bundle-analyzer@12.3.4':
     dependencies:
