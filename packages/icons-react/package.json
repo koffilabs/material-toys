@@ -16,7 +16,7 @@
     "emitDeclarations": "tsc --emitDeclarationOnly --outDir dist"
   },
   "dependencies": {
-    "@material-toys/icons": "0.1.40",
+    "@material-toys/icons": "workspace:*",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
     "esbuild": "0.24.0",
