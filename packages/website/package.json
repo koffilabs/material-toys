@@ -13,8 +13,8 @@
     "@material-toys/react": "workspace:*",
     "@next/bundle-analyzer": "^12.2.5",
     "next": "15.1.2",
-    "react": "catalog:react18",
-    "react-dom": "catalog:react18",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "react-swipeable": "^7.0.0",
     "react-syntax-highlighter": "^15.5.0",
     "sass": "^1.81.0",
@@ -22,6 +22,6 @@
   },
   "devDependencies": {
     "eslint-config-next": "12.1.0",
-    "prettier": "catalog:prettier3"
+    "prettier": "3.4.1"
   }
 }

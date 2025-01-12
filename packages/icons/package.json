@@ -27,9 +27,9 @@
     "@rollup/plugin-alias": "^5.1.1",
     "@rollup/plugin-commonjs": "^28.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
-    "esbuild": "catalog:esbuild",
-    "prettier": "catalog:prettier3",
+    "esbuild": "0.24.0",
+    "prettier": "3.4.1",
     "rollup-plugin-esbuild": "^4.6.0"
   },
-  "gitHead": "8921c88e8e94e271fca375ac07c5e78f96688b93"
+  "gitHead": "cc647d13490cd692ad4f1e425cf1392914268da0"
 }

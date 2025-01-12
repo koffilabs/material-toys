@@ -21,16 +21,16 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^28.0.2",
     "@types/jest": "^27.0.3",
-    "esbuild": "catalog:esbuild",
+    "esbuild": "0.24.0",
     "jest": "^27.2.2",
-    "prettier": "catalog:prettier3",
+    "prettier": "3.4.1",
     "ts-jest": "^27.0.5",
     "tslib": "^2.4.0",
     "typescript": "^4.4.3"
   },
   "dependencies": {
-    "rollup": "catalog:rollup4",
+    "rollup": "4.28.0",
     "rollup-plugin-esbuild": "^6.1.1"
   },
-  "gitHead": "8921c88e8e94e271fca375ac07c5e78f96688b93"
+  "gitHead": "cc647d13490cd692ad4f1e425cf1392914268da0"
 }

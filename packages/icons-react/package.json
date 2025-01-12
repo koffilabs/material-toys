@@ -16,22 +16,22 @@
     "emitDeclarations": "tsc --emitDeclarationOnly --outDir dist"
   },
   "dependencies": {
-    "@material-toys/icons": "workspace:*",
+    "@material-toys/icons": "0.1.40",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
-    "esbuild": "catalog:esbuild",
+    "esbuild": "0.24.0",
     "rollup-plugin-esbuild": "^4.7.2"
   },
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.4",
-    "prettier": "catalog:prettier3",
-    "rollup": "catalog:rollup4",
+    "prettier": "3.4.1",
+    "rollup": "4.28.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "typescript": "^5.7.2"
   },
-  "gitHead": "8921c88e8e94e271fca375ac07c5e78f96688b93",
+  "gitHead": "cc647d13490cd692ad4f1e425cf1392914268da0",
   "peerDependencies": {
-    "react": "catalog:react18",
-    "react-dom": "catalog:react18"
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
   }
 }
