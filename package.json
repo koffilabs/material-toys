@@ -3,6 +3,7 @@
   "name": "material_toys_monorepo",
   "version": "0.1.0",
   "scripts": {
+    "build": "turbo build",
     "publish": "lerna publish --no-private --force-publish",
     "dev": "lerna run --scope @material-toys/react dev",
     "serve": "lerna run --scope @material-toys/website serve"
@@ -20,6 +21,8 @@
     }
   },
   "dependencies": {
-    "@changesets/cli": "^2.27.11"
-  }
+    "@changesets/cli": "^2.27.11",
+    "turbo": "^2.3.3"
+  },
+  "packageManager": "pnpm@9.12.0"
 }
