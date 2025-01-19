@@ -60,6 +60,5 @@
     "postcss": "^8.4.4",
     "react-swipeable": "^7.0.0",
     "rollup-plugin-analyzer": "^4.0.0"
-  },
-  "gitHead": "a5b976fe0ea2182b8faa033266a2fe5832a02448"
+  }
 }
