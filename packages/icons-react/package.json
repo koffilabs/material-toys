@@ -16,7 +16,7 @@
     "emitDeclarations": "tsc --emitDeclarationOnly --outDir dist"
   },
   "dependencies": {
-    "@material-toys/icons": "0.1.42",
+    "@material-toys/icons": "workspace:*",
     "esbuild": "0.24.0"
   },
   "devDependencies": {

@@ -4,6 +4,15 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+catalogs:
+  react18:
+    react:
+      specifier: 18.3.1
+      version: 18.3.1
+    react-dom:
+      specifier: 18.3.1
+      version: 18.3.1
+
 importers:
 
   .:
@@ -119,8 +128,8 @@ importers:
   packages/icons-react:
     dependencies:
       '@material-toys/icons':
-        specifier: 0.1.42
-        version: 0.1.42
+        specifier: workspace:*
+        version: link:../icons
       esbuild:
         specifier: 0.24.0
         version: 0.24.0
@@ -938,9 +947,6 @@ packages:
 
   '@material-toys/common@0.1.42':
     resolution: {integrity: sha512-tupCOU4R3V6XyXIfPirkzkk+t+mDdblExVZAJb43boHJ6svonxA+VvnUOhS6FZYAykaTmAKQppAEXaqlhepXsQ==}
-
-  '@material-toys/icons@0.1.42':
-    resolution: {integrity: sha512-kj0276bxNvm8Hrf4+BkBVqW2V46AJ/TdNKvcznM56Ty0STmLbsi8p7tvWFfO7N/LrnJDemy/6+vuCyc0pZe/7g==}
 
   '@next/bundle-analyzer@12.3.4':
     resolution: {integrity: sha512-eKjgRICzbLTmod0UnJcArFVs5uEAiuZwB6NCf84m+btW7jdylUVoOYf1wi5tA14xk5L9Lho7Prm6/XJ8gxYzfQ==}
@@ -5059,8 +5065,6 @@ snapshots:
     transitivePeerDependencies:
       - esbuild
       - supports-color
-
-  '@material-toys/icons@0.1.42': {}
 
   '@next/bundle-analyzer@12.3.4':
     dependencies:
