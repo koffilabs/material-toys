@@ -27,6 +27,6 @@ jobs:
       - run: pnpm i
       # - run: pnpx lerna init --packages="packages/*"
       - run: pnpm --prefix packages/icons-react run generate
-      - run: pnpx lerna run build
-      - run: pnpx lerna run emitDeclarations
-      - run: pnpx lerna run test
+      - run: pnpx build
+      - run: pnpm emitDeclarations
+      - run: pnpm test

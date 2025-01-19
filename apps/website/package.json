@@ -3,8 +3,9 @@
   "private": true,
   "scripts": {
     "serve": "next dev",
-    "build-site": "next build",
-    "start": "next start"
+    "build:web": "next build",
+    "start": "next start",
+    "check-types": "tsc --noEmit"
   },
   "dependencies": {
     "@emotion/css": "^11.10.0",
