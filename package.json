@@ -3,13 +3,12 @@
   "name": "material_toys_monorepo",
   "version": "0.1.0",
   "scripts": {
+    "emitDeclarations": "turbo emitDeclarations",
+    "test": "turbo test",
     "build": "turbo build",
     "build:web": "turbo --filter @material-toys/website build:web",
     "publish-project": "pnpm publish -r",
     "serve": "turbo --filter @material-toys/website serve"
-  },
-  "devDependencies": {
-    "lerna": "^7.3.0"
   },
   "nx": {
     "targets": {
