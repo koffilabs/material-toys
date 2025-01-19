@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "serve": "next dev",
-    "build": "next build",
+    "build:web": "next build",
     "start": "next start",
     "check-types": "tsc --noEmit"
   },
