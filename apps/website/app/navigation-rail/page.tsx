@@ -67,7 +67,6 @@ export default function rail_page() {
                     Header
                   </div>
                 }
-                activeItem={0}
               >
                 <NavigationItem icon={<HomeIcon />}>
                   <a>Material Toys</a>
@@ -96,7 +95,7 @@ import { HomeIcon, InfoIcon, BoltIcon } from "@material-toys/icons-react";
                                 header={<div style={{padding: "1rem", textAlign: "center"}}>
                                   Header
                                 </div>}
-                                activeItem={0}>
+                                >
                 <NavigationItem
                   icon={<HomeIcon/>}>
                   <a>Material Toys</a>
@@ -128,7 +127,6 @@ import { HomeIcon, InfoIcon, BoltIcon } from "@material-toys/icons-react";
                     Header
                   </div>
                 }
-                activeItem={0}
               >
                 <NavigationItem icon={<HomeIcon />}>
                   <a>Material Toys</a>
@@ -151,7 +149,6 @@ import { HomeIcon, InfoIcon, BoltIcon } from "@material-toys/icons-react";
                     Header
                   </div>
                 }
-                activeItem={0}
               >
                 <NavigationItem icon={<HomeIcon />}>
                   <a>Material Toys</a>
@@ -174,7 +171,6 @@ import { HomeIcon, InfoIcon, BoltIcon } from "@material-toys/icons-react";
                     Header
                   </div>
                 }
-                activeItem={0}
               >
                 <NavigationItem icon={<HomeIcon />}>
                   <a>Material Toys</a>
@@ -201,8 +197,7 @@ import { HomeIcon, InfoIcon, BoltIcon } from "@material-toys/icons-react";
                     justify="start" <!-- or "center" or "end" -->
                     header={<div style={{padding: "1rem", textAlign: "center"}}>
                       Header
-                    </div>}
-                    activeItem={0}>
+                    </div>}>
     <NavigationItem
       icon={<HomeIcon/>}>
       <a>Material Toys</a>

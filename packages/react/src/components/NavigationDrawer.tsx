@@ -32,12 +32,10 @@ const Scrim = ({ ...props }) => {
 interface NavigationDrawerProps {
   onDismiss?: () => void;
   collapsed?: boolean;
-  activeItem?: number;
   fab?: ReactNode;
   menu?: ReactNode;
   header?: ReactNode;
   children?: ReactNode;
-  railLabels?: "show" | "selected" | "none";
   mode?: "drawer" | "modal" | "rail";
   justify?: "start" | "center" | "end";
   className?: string;
@@ -45,24 +43,16 @@ interface NavigationDrawerProps {
 
 export const NavigationDrawer = ({
   collapsed,
-  activeItem,
   children,
   fab,
   menu,
   header,
   onDismiss = () => {},
-  railLabels = "selected",
   mode = "drawer",
   justify = "start",
   className = "",
   ...props
 }: NavigationDrawerProps) => {
-  // TODO: refactor, should reuse NavigationItemMapperFactory in NavigationBar
-  const [selectedIndex, setSelectedIndex] = useState(activeItem);
-  const onClick = (activeIndex: number) => {
-    setSelectedIndex(activeIndex);
-  };
-
   let styleObj: any = {
     width: `${mode === "rail" ? "80" : "360"}px`,
   };

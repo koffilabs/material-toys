@@ -56,7 +56,6 @@ export default function drawer_page() {
                   Header
                 </div>
               }
-              activeItem={0}
             >
               <NavigationItem
                 onClick={() => {
@@ -84,7 +83,7 @@ import { HomeIcon, InfoIcon, BoltIcon } from "@material-toys/icons-react";
                     header={<div style={{padding: "1rem", textAlign: "center"}}>
                       Header
                     </div>}
-                    activeItem={0}>
+                    >
     <NavigationItem
       icon={<HomeIcon/>}>
       <a>Material Toys</a>
