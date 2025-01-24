@@ -62,34 +62,6 @@ export const NavigationDrawer = ({
   const onClick = (activeIndex: number) => {
     setSelectedIndex(activeIndex);
   };
-  const NavigationItemMapperFactory = () => {
-    let itemIndex = 0;
-    const NavigationItemMapper = (child: ReactElement): ReactNode => {
-      if (child.type === NavigationItem) {
-        itemIndex++;
-        return cloneElement(child, {
-          active: itemIndex - 1 === selectedIndex,
-          railLabel: railLabels,
-          onClick: ((idx) => (e: MouseEvent) => {
-            onClick(idx);
-            if (typeof child.props.onClick === "function") {
-              return child.props.onClick(e);
-            }
-          })(itemIndex - 1),
-        } as any);
-      }
-      if (child.props && child.props.children) {
-        return cloneElement(child, {
-          children: React.Children.map(
-            child.props.children,
-            NavigationItemMapper,
-          ),
-        });
-      }
-      return child;
-    };
-    return NavigationItemMapper;
-  };
 
   let styleObj: any = {
     width: `${mode === "rail" ? "80" : "360"}px`,
@@ -111,7 +83,6 @@ export const NavigationDrawer = ({
   }
   // const drawer = css(styleObj);
 
-  const NavigationItemMapper = NavigationItemMapperFactory();
   return (
     <>
       {mode === "modal" && !collapsed && <Scrim onClick={onDismiss} />}
@@ -135,9 +106,7 @@ export const NavigationDrawer = ({
             )}
             {fab}
           </div>
-          <div className="listContainer">
-            {React.Children.map(children as ReactElement, NavigationItemMapper)}
-          </div>
+          <div className="listContainer">{children}</div>
         </div>
       </div>
     </>
