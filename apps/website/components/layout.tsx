@@ -151,7 +151,6 @@ export default ({ tokens, setUIMode, UIMode, children }) => {
               setNavigationCollapsed(true);
             }}
             collapsed={isNavigationCollapsed}
-            activeItem={activeItem}
             mode={navMode}
           >
             {routes.slice(0, 3).map((route, index) => (
