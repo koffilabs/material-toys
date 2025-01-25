@@ -38,7 +38,7 @@ const myTheme = (variant) => {
 export default function rail_page() {
   const { VariantContext } = useThemeContexts();
   const variant = useContext(VariantContext);
-
+  const [activeItem, setActiveItem] = useState(0);
   const [__mode, setMode] = useState("rail");
   const toggleMode = () => {
     setMode((m) => (m === "rail" ? "drawer" : "rail"));
@@ -68,13 +68,25 @@ export default function rail_page() {
                   </div>
                 }
               >
-                <NavigationItem icon={<HomeIcon />}>
+                <NavigationItem
+                  onClick={() => setActiveItem(0)}
+                  active={activeItem === 0}
+                  icon={<HomeIcon />}
+                >
                   <a>Material Toys</a>
                 </NavigationItem>
-                <NavigationItem icon={<BoltIcon />}>
+                <NavigationItem
+                  onClick={() => setActiveItem(1)}
+                  active={activeItem === 1}
+                  icon={<BoltIcon />}
+                >
                   <a>Quick Start</a>
                 </NavigationItem>
-                <NavigationItem icon={<InfoIcon />}>
+                <NavigationItem
+                  onClick={() => setActiveItem(2)}
+                  active={activeItem === 2}
+                  icon={<InfoIcon />}
+                >
                   <a>About</a>
                 </NavigationItem>
               </NavigationDrawer>
@@ -112,9 +124,7 @@ import { HomeIcon, InfoIcon, BoltIcon } from "@material-toys/icons-react";
             </div>
           </MT>
 `}
-        >
-          {" "}
-        </CodeBlock>
+        ></CodeBlock>
 
         <BlockComponentCanvas showGrid={true}>
           <MT theme={myTheme}>
