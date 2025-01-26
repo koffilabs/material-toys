@@ -26,7 +26,13 @@ import classes from "./Layout.module.scss";
 import Logo from "./Logo";
 import TwitterIcon from "./TwitterIcon";
 
-export default ({ tokens, setUIMode, UIMode, children }) => {
+export default ({
+  tokens,
+  setUIMode,
+  UIMode,
+  railLabels = "selected" as const,
+  children,
+}) => {
   // @ts-ignore
   // const [activeItem, setActiveItem] = useState(0);
   const [transitionClass, setTransitionClass] = useState("");
@@ -63,13 +69,7 @@ export default ({ tokens, setUIMode, UIMode, children }) => {
   const tabletQuery = "(min-width: 600px) and (max-width: 1239px)";
   const laptopQuery = "(min-width: 1240px) and (max-width: 1439px)";
   const desktopQuery = "(min-width: 1440px)";
-  // const activeItem = routes.findIndex(({ r }) => r === pathname);
-  const [activeItem, setActiveItem] = useState(
-    routes.findIndex(({ r }) => r === pathname),
-  );
-  useEffect(() => {
-    setActiveItem(routes.findIndex(({ r }) => r === pathname));
-  }, [pathname]);
+  const activeItem = routes.findIndex(({ r }) => r === pathname);
   const navigateTo = (url, aI?) => {
     router.push(url);
     // setActiveItem(aI);
@@ -150,17 +150,17 @@ export default ({ tokens, setUIMode, UIMode, children }) => {
             onDismiss={() => {
               setNavigationCollapsed(true);
             }}
+            railLabels={railLabels}
             collapsed={isNavigationCollapsed}
+            activeItem={activeItem}
             mode={navMode}
           >
             {routes.slice(0, 3).map((route, index) => (
               <NavigationItem
                 icon={route.i}
                 key={route.l}
-                active={index === activeItem}
                 divider={false}
                 onClick={() => {
-                  setActiveItem(index);
                   navigateTo(`${route.r}`);
                 }}
               >
@@ -172,10 +172,7 @@ export default ({ tokens, setUIMode, UIMode, children }) => {
               {routes.slice(3).map((route, index) => (
                 <NavigationItem
                   key={route.l}
-                  active={index + 3 === activeItem}
                   onClick={() => {
-                    setActiveItem(index + 3);
-
                     navigateTo(`${route.r}`);
                   }}
                 >

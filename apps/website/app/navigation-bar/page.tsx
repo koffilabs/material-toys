@@ -72,7 +72,7 @@ export default function navigation_bar() {
           <div style={{ display: "flex", flex: 1, flexDirection: "column" }}>
             <BlockComponentCanvas showGrid={true}>
               <div className={classes["bar-container"]}>
-                <NavigationBar labels={"show"}>
+                <NavigationBar labels={"show"} activeItem={0}>
                   {navigationBarItems.map(
                     ({ label, iconsAnimations, icon, activeIcon, link }, i) => {
                       return (
@@ -124,7 +124,7 @@ const navigationBarItems = [
   },
 ];
 // ...
-<NavigationBar labels={"show"}>
+<NavigationBar labels={"show"} activeItem={0}>
   {navigationBarItems.map(
     ({label, iconsAnimations, icon, activeIcon, link}, i) => {
       return (

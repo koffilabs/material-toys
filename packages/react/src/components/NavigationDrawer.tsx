@@ -32,10 +32,12 @@ const Scrim = ({ ...props }) => {
 interface NavigationDrawerProps {
   onDismiss?: () => void;
   collapsed?: boolean;
+  activeItem?: number;
   fab?: ReactNode;
   menu?: ReactNode;
   header?: ReactNode;
   children?: ReactNode;
+  railLabels?: "show" | "selected" | "none";
   mode?: "drawer" | "modal" | "rail";
   justify?: "start" | "center" | "end";
   className?: string;
@@ -43,16 +45,52 @@ interface NavigationDrawerProps {
 
 export const NavigationDrawer = ({
   collapsed,
+  activeItem,
   children,
   fab,
   menu,
   header,
   onDismiss = () => {},
+  railLabels = "selected",
   mode = "drawer",
   justify = "start",
   className = "",
   ...props
 }: NavigationDrawerProps) => {
+  // TODO: refactor, should reuse NavigationItemMapperFactory in NavigationBar
+  const [selectedIndex, setSelectedIndex] = useState(activeItem);
+  const onClick = (activeIndex: number) => {
+    setSelectedIndex(activeIndex);
+  };
+  const NavigationItemMapperFactory = () => {
+    let itemIndex = 0;
+    const NavigationItemMapper = (child: ReactElement): ReactNode => {
+      if (child.type === NavigationItem) {
+        itemIndex++;
+        return cloneElement(child, {
+          active: itemIndex - 1 === selectedIndex,
+          railLabel: railLabels,
+          onClick: ((idx) => (e: MouseEvent) => {
+            onClick(idx);
+            if (typeof child.props.onClick === "function") {
+              return child.props.onClick(e);
+            }
+          })(itemIndex - 1),
+        } as any);
+      }
+      if (child.props && child.props.children) {
+        return cloneElement(child, {
+          children: React.Children.map(
+            child.props.children,
+            NavigationItemMapper,
+          ),
+        });
+      }
+      return child;
+    };
+    return NavigationItemMapper;
+  };
+
   let styleObj: any = {
     width: `${mode === "rail" ? "80" : "360"}px`,
   };
@@ -73,6 +111,7 @@ export const NavigationDrawer = ({
   }
   // const drawer = css(styleObj);
 
+  const NavigationItemMapper = NavigationItemMapperFactory();
   return (
     <>
       {mode === "modal" && !collapsed && <Scrim onClick={onDismiss} />}
@@ -96,7 +135,9 @@ export const NavigationDrawer = ({
             )}
             {fab}
           </div>
-          <div className="listContainer">{children}</div>
+          <div className="listContainer">
+            {React.Children.map(children as ReactElement, NavigationItemMapper)}
+          </div>
         </div>
       </div>
     </>
