@@ -48,7 +48,6 @@ const tokens = { ...material_tokens };
 // tokens.MdSysColorPrimaryContainer = tokens.MdSysColorSurface;
 
 export default function app({ children }) {
-  let activeItem = 0;
   const [UIMode, setUIMode] = useState("Light");
   tokens.MdSysColorSecondaryContainerLight = "#eae3f9";
   tokens.MdSysColorSurfaceLight = "#f7f4fc";

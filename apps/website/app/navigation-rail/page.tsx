@@ -38,7 +38,7 @@ const myTheme = (variant) => {
 export default function rail_page() {
   const { VariantContext } = useThemeContexts();
   const variant = useContext(VariantContext);
-
+  const [activeItem, setActiveItem] = useState(0);
   const [__mode, setMode] = useState("rail");
   const toggleMode = () => {
     setMode((m) => (m === "rail" ? "drawer" : "rail"));
@@ -67,15 +67,26 @@ export default function rail_page() {
                     Header
                   </div>
                 }
-                activeItem={0}
               >
-                <NavigationItem icon={<HomeIcon />}>
+                <NavigationItem
+                  onClick={() => setActiveItem(0)}
+                  active={activeItem === 0}
+                  icon={<HomeIcon />}
+                >
                   <a>Material Toys</a>
                 </NavigationItem>
-                <NavigationItem icon={<BoltIcon />}>
+                <NavigationItem
+                  onClick={() => setActiveItem(1)}
+                  active={activeItem === 1}
+                  icon={<BoltIcon />}
+                >
                   <a>Quick Start</a>
                 </NavigationItem>
-                <NavigationItem icon={<InfoIcon />}>
+                <NavigationItem
+                  onClick={() => setActiveItem(2)}
+                  active={activeItem === 2}
+                  icon={<InfoIcon />}
+                >
                   <a>About</a>
                 </NavigationItem>
               </NavigationDrawer>
@@ -96,7 +107,7 @@ import { HomeIcon, InfoIcon, BoltIcon } from "@material-toys/icons-react";
                                 header={<div style={{padding: "1rem", textAlign: "center"}}>
                                   Header
                                 </div>}
-                                activeItem={0}>
+                                >
                 <NavigationItem
                   icon={<HomeIcon/>}>
                   <a>Material Toys</a>
@@ -113,9 +124,7 @@ import { HomeIcon, InfoIcon, BoltIcon } from "@material-toys/icons-react";
             </div>
           </MT>
 `}
-        >
-          {" "}
-        </CodeBlock>
+        ></CodeBlock>
 
         <BlockComponentCanvas showGrid={true}>
           <MT theme={myTheme}>
@@ -128,7 +137,6 @@ import { HomeIcon, InfoIcon, BoltIcon } from "@material-toys/icons-react";
                     Header
                   </div>
                 }
-                activeItem={0}
               >
                 <NavigationItem icon={<HomeIcon />}>
                   <a>Material Toys</a>
@@ -151,7 +159,6 @@ import { HomeIcon, InfoIcon, BoltIcon } from "@material-toys/icons-react";
                     Header
                   </div>
                 }
-                activeItem={0}
               >
                 <NavigationItem icon={<HomeIcon />}>
                   <a>Material Toys</a>
@@ -174,7 +181,6 @@ import { HomeIcon, InfoIcon, BoltIcon } from "@material-toys/icons-react";
                     Header
                   </div>
                 }
-                activeItem={0}
               >
                 <NavigationItem icon={<HomeIcon />}>
                   <a>Material Toys</a>
@@ -201,8 +207,7 @@ import { HomeIcon, InfoIcon, BoltIcon } from "@material-toys/icons-react";
                     justify="start" <!-- or "center" or "end" -->
                     header={<div style={{padding: "1rem", textAlign: "center"}}>
                       Header
-                    </div>}
-                    activeItem={0}>
+                    </div>}>
     <NavigationItem
       icon={<HomeIcon/>}>
       <a>Material Toys</a>

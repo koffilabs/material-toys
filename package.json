@@ -8,7 +8,7 @@
     "build": "turbo build",
     "build:web": "turbo --filter @material-toys/website build:web",
     "publish-project": "pnpm publish -r",
-    "serve": "turbo --filter @material-toys/website serve"
+    "dev": "turbo --filter @material-toys/website serve"
   },
   "nx": {
     "targets": {
@@ -23,5 +23,5 @@
     "@changesets/cli": "^2.27.11",
     "turbo": "^2.3.3"
   },
-  "packageManager": "pnpm@9.12.0"
+  "packageManager": "pnpm@9.15.4"
 }

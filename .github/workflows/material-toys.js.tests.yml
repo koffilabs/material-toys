@@ -23,7 +23,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - uses: pnpm/action-setup@v4
         with:
-          version: 9.12.0
+          version: 9.15.4
       - run: pnpm i
       # - run: pnpx lerna init --packages="packages/*"
       - run: pnpm --prefix packages/icons-react run generate

@@ -4,7 +4,7 @@ import { BoltIcon, HomeIcon, InfoIcon } from "@material-toys/icons-react";
 import { useContext } from "react";
 import { BlockComponentCanvas } from "../../components/BlockComponentCanvas";
 import { CodeBlock } from "../../components/CodeBlock";
-
+import React, { useState } from "react";
 const tokens = { ...material_tokens };
 
 import {
@@ -36,7 +36,7 @@ const myTheme = (variant) => {
 export default function drawer_page() {
   const { VariantContext } = useThemeContexts();
   const variant = useContext(VariantContext);
-
+  const [activeIndex, setActiveIndex] = useState(0);
   return (
     <div className="container">
       <Head>
@@ -56,20 +56,32 @@ export default function drawer_page() {
                   Header
                 </div>
               }
-              activeItem={0}
             >
               <NavigationItem
+                active={activeIndex === 0}
                 onClick={() => {
-                  console.log("clicked!");
+                  setActiveIndex(0);
                 }}
                 icon={<HomeIcon />}
               >
                 <a>Material Toys</a>
               </NavigationItem>
-              <NavigationItem icon={<BoltIcon />}>
+              <NavigationItem
+                onClick={() => {
+                  setActiveIndex(1);
+                }}
+                active={activeIndex === 1}
+                icon={<BoltIcon />}
+              >
                 <a>Quick Start</a>
               </NavigationItem>
-              <NavigationItem icon={<InfoIcon />}>
+              <NavigationItem
+                onClick={() => {
+                  setActiveIndex(2);
+                }}
+                active={activeIndex === 2}
+                icon={<InfoIcon />}
+              >
                 <a>About</a>
               </NavigationItem>
             </NavigationDrawer>
@@ -79,21 +91,34 @@ export default function drawer_page() {
           code={`import { MT, NavigationDrawer, NavigationItem } from "@material-toys/react";
 import { HomeIcon, InfoIcon, BoltIcon } from "@material-toys/icons-react";
 // ...
+const [activeIndex, setActiveIndex] = useState(0);
+
 <MT>
   <NavigationDrawer className="primary"
                     header={<div style={{padding: "1rem", textAlign: "center"}}>
                       Header
-                    </div>}
-                    activeItem={0}>
+                    </div>}>
     <NavigationItem
+      onClick={() => {
+        setActiveIndex(0);
+      }}
+      active={activeIndex === 0}
       icon={<HomeIcon/>}>
       <a>Material Toys</a>
     </NavigationItem>
     <NavigationItem
+      onClick={() => {
+        setActiveIndex(1);
+      }}
+      active={activeIndex === 1}
       icon={<BoltIcon/>}>
       <a>Quick Start</a>
     </NavigationItem>
     <NavigationItem
+      onClick={() => {
+        setActiveIndex(2);
+      }}
+      active={activeIndex === 2}
       icon={<InfoIcon/>}>
       <a>About</a>
     </NavigationItem>
