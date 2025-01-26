@@ -102,7 +102,7 @@ const [activeIndex, setActiveIndex] = useState(0);
       onClick={() => {
         setActiveIndex(0);
       }}
-      active={activeItem === 0}
+      active={activeIndex === 0}
       icon={<HomeIcon/>}>
       <a>Material Toys</a>
     </NavigationItem>
@@ -110,7 +110,7 @@ const [activeIndex, setActiveIndex] = useState(0);
       onClick={() => {
         setActiveIndex(1);
       }}
-      active={activeItem === 1}
+      active={activeIndex === 1}
       icon={<BoltIcon/>}>
       <a>Quick Start</a>
     </NavigationItem>
@@ -118,7 +118,7 @@ const [activeIndex, setActiveIndex] = useState(0);
       onClick={() => {
         setActiveIndex(2);
       }}
-      active={activeItem === 2}
+      active={activeIndex === 2}
       icon={<InfoIcon/>}>
       <a>About</a>
     </NavigationItem>
