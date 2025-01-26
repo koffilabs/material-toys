@@ -8,7 +8,7 @@
     "build": "turbo build",
     "build:web": "turbo --filter @material-toys/website build:web",
     "publish-project": "pnpm publish -r",
-    "serve": "turbo --filter @material-toys/website serve"
+    "dev": "turbo --filter @material-toys/website serve"
   },
   "nx": {
     "targets": {

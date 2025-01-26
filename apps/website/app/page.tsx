@@ -1,10 +1,9 @@
 "use client";
-import classes from "./index.module.scss";
-import { BlockComponentCanvas } from "../components/BlockComponentCanvas";
-import { CodeBlock } from "../components/CodeBlock";
 import { Button } from "@material-toys/react";
 import Head from "next/head";
-import React from "react";
+import { BlockComponentCanvas } from "../components/BlockComponentCanvas";
+import { CodeBlock } from "../components/CodeBlock";
+import classes from "./index.module.scss";
 
 export default function Index() {
   return (
