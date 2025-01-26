@@ -1,6 +1,6 @@
 {
   "name": "@material-toys/common",
-  "version": "0.1.43",
+  "version": "0.1.44",
   "sideEffects": false,
   "license": "MIT",
   "main": "src/main.ts",
